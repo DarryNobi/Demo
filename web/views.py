@@ -15,3 +15,7 @@ def index(request):
 def save_graphic(request):
     if request.method == "POST":
         data = request.POST.get('graphic')
+
+def check_user(request):
+    username=request.get['username']
+    password=request.get['password']
