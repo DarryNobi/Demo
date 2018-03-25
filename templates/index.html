@@ -17,7 +17,10 @@
     <!-- GOOGLE FONTS-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
-    <script src="http:127.0.0.1:8087/library/3.23/3.23/init.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8087/library/3.23/3.23/dijit/themes/tundra/tundra.css"/>
+    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8087/library/3.23/3.23/esri/css/esri.css" />
+<!--    <script type="text/javascript" src="http://127.0.0.1:8087/library/3.23/3.23/init.js"></script>-->
+    <script src="http://js.arcgis.com/3.9/"></script>
 
     <script src="{% static 'js/mainmap.js' %}"></script>
     <script src="{% static 'js/drawplot.js' %}"></script>
@@ -50,8 +53,6 @@
                                             <li><a href="#">Separated link</a></li>
                                         </ul>
                                     </div>
-				
-				
 			</div>
         </nav>
         <!-- /. NAV TOP  -->
@@ -125,8 +126,8 @@
 
         </nav>
         <!-- /. NAV SIDE  -->
-        <div id="page-wrapper">
-            <div id="map"></div>
+        <div id="page-wrapper" class="container">
+            <div id="map" class="img-responsive"></div>
         </div>
         <!-- /. PAGE WRAPPER  -->
     </div>

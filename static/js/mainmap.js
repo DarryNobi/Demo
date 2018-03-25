@@ -21,7 +21,7 @@ function mainmap() {
     ) {
         parser.parse();
         map = new Map("map");
-        var agoServiceURL = "https://zhou-ms-7a54:6443/arcgis/rest/services/SampleWorldCities/MapServer";
+        var agoServiceURL = "https://localhost:6443/arcgis/rest/services/MyMapService/MapServer";
         var agoLayer = new esri.layers.ArcGISDynamicMapServiceLayer(agoServiceURL);
         map.addLayer(agoLayer);
     });
