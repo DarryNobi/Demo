@@ -47,10 +47,13 @@ class SliceMap(models.Model):
     index_raw=models.IntegerField()
     index_col=models.IntegerField()
     filepath=models.FileField()
-    parent_map=models.ForeignKey(Map,on_delete=models.CASCADE)
+    parent_map=models.ForeignKey(Map,on_delete=models.CASCADE,default=0)
 
 class User(models.Model):
     name=models.CharField(max_length=20)
     password=models.CharField(max_length=20)
 
+    def __str__(self):
+    # 在Python3中使用 def __str__(self):
+        return self.name
 

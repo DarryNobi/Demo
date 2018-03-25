@@ -20,5 +20,9 @@ from web import views
 
 urlpatterns = [
     url(r'^admin/',admin.site.urls),
-    url(r'^index/',views.index)
+    url(r'^index/',views.index),
+    url(r'^login_check/',views.login_check),
+    url(r'^register_db/',views.regist_db),
+    url(r'^register/',views.register),
+    url(r'^login/',views.login)
 ]
