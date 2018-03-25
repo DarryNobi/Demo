@@ -3,18 +3,6 @@ from django.db import models
 
 # Create your models here.
 
-
-
-
-
-
-
-
-
-
-
-
-
 class GraphicLabel(models.Model):
     GraphicType=(
         ('1','建筑'),
@@ -47,7 +35,7 @@ class SliceMap(models.Model):
     index_raw=models.IntegerField()
     index_col=models.IntegerField()
     filepath=models.FileField()
-    parent_map=models.ForeignKey(Map,on_delete=models.CASCADE,default=0)
+    parent_map=models.ForeignKey(Map,on_delete=models.CASCADE)
 
 class User(models.Model):
     name=models.CharField(max_length=20)

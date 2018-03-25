@@ -45,7 +45,7 @@ class Migration(migrations.Migration):
                 ('index_raw', models.IntegerField()),
                 ('index_col', models.IntegerField()),
                 ('filepath', models.FileField(upload_to='')),
-                ('parent_map', models.ForeignKey(default=0, on_delete=django.db.models.deletion.CASCADE, to='web.Map')),
+                ('parent_map', models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='web.Map')),
             ],
         ),
         migrations.CreateModel(

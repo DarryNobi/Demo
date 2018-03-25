@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'Demo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',  # 或者使用 mysql.connector.django
-        'NAME': 'RIS',
+        'NAME': 'RSI',
         'USER': 'root',
         'PASSWORD': '123456',
         'HOST':'localhost',
