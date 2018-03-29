@@ -67,6 +67,7 @@ require([
         toolbar.deactivate();
         map.showZoomSlider();
         symbol = new SimpleFillSymbol();
+        //symbol.setColor(new Color([255,255,255,55]));
         var graphic = new Graphic(evt.geometry, symbol);
         map.graphics.add(graphic);
         
