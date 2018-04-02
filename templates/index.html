@@ -4,6 +4,7 @@
     {% load staticfiles %}
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="Keywords" content="天津未来科技城卫星遥感资源管理系统"/>
     <title>home</title>
 
     <!-- BOOTSTRAP STYLES-->
@@ -24,9 +25,21 @@
 
     <script src="{% static 'js/mainmap.js' %}"></script>
     <script src="{% static 'js/drawplot.js' %}"></script>
+    <style>
+        #container{
+	        background: #001234;
+	        text-align:center;
+	        line-height:80px;
+        }
+    </style>
 </head>
+
 <body>
     <div id="wrapper">
+        <div id="container">
+		    <img src="u3.png" alt="iotek">
+		    <font size="6"><b>天津未来科技城卫星遥感资源管理系统</b></font>
+	    </div>
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">

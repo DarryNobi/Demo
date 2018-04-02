@@ -44,7 +44,15 @@ class User(models.Model):
     contact_usr=models.CharField(max_length=20,blank=True)
     phone=models.CharField(max_length=20,blank=True)
     priority=models.IntegerField(default=0)
+    enable=models.BooleanField(default=True)
 
+    class Meta:
+        permissions = (
+            ("user_management", "用户管理"),
+            ("ibuild_management", "违建管理"),
+            ("demolition_management", "拆迁管理"),
+            ("recource_management", "资源管理")
+        )
     def __str__(self):
     # 在Python3中使用 def __str__(self):
         return self.name
