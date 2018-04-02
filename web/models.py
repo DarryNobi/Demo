@@ -40,6 +40,10 @@ class SliceMap(models.Model):
 class User(models.Model):
     name=models.CharField(max_length=20)
     password=models.CharField(max_length=20)
+    department_name=models.CharField(max_length=20,blank=True)
+    contact_usr=models.CharField(max_length=20,blank=True)
+    phone=models.CharField(max_length=20,blank=True)
+    priority=models.IntegerField(default=0)
 
     def __str__(self):
     # 在Python3中使用 def __str__(self):
