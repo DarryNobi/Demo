@@ -19,9 +19,11 @@ body {
     line-height:25px;
 }
 
+
 #wrapper {
     width: 100%;
     background: #202020;
+    float:left;
 }
 
 #page-wrapper {
@@ -36,6 +38,14 @@ body {
     background-color: #fff!important;
     padding: 10px;
     min-height: 1200px;
+}
+#middle{
+	width: 100%;
+	height: 100%;
+	background:#ffffff;
+	float: left;
+
+
 }
 
 .page-head-line {
@@ -142,6 +152,7 @@ body {
 
 .sidebar-collapse, .sidebar-collapse .nav {
     background: none;
+
 }
 
     .sidebar-collapse .nav {
