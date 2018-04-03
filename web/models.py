@@ -1,5 +1,7 @@
 from __future__ import unicode_literals
 from django.db import models
+from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 
 # Create your models here.
 
@@ -37,9 +39,10 @@ class SliceMap(models.Model):
     filepath=models.FileField()
     parent_map=models.ForeignKey(Map,on_delete=models.CASCADE)
 
-class User(models.Model):
-    name=models.CharField(max_length=20)
-    password=models.CharField(max_length=20)
+class User(AbstractUser):
+    first_name=models.CharField(max_length=20,default='a')
+    last_name = models.CharField(max_length=20, defalut='b')
+    
     department_name=models.CharField(max_length=20,null=True)
     contact_usr=models.CharField(max_length=20,null=True)
     phone=models.CharField(max_length=20,null=True)
