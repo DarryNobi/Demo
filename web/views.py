@@ -5,13 +5,15 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth import authenticate
-from django.contrib.auth.models import User
+from web.models import User
 from django.contrib.auth import login
 from django.contrib.auth import logout
 from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.decorators import login_required
-
+from django.contrib.auth import get_user_model
+User = get_user_model()
 # Create your views here.
+
 
 
 def index(request):
@@ -145,7 +147,7 @@ def permission_revise(request):
     check_box = request.POST.getlist('check_box',False)
     user = User.objects.filter(id=userid)
     dictionary={'user_management','ibuild_management','delimotion_management','recource_management'}
-    for i in range(1,5):
+    for i in range(0,4):
        if 'i' in check_box:
         user.user_permissions.add(dictionary[i])
        elif user.has_perm(dictionary[i]):

@@ -1,9 +1,12 @@
 from __future__ import unicode_literals
 from django.db import models
-from django.contrib.auth.models import User
 from django.contrib.auth.models import AbstractUser
-
+from django.contrib.auth import get_user_model
+from django.conf import settings
 # Create your models here.
+from django.contrib.auth import get_user_model
+User = get_user_model()
+
 
 class GraphicLabel(models.Model):
     GraphicType=(
@@ -39,7 +42,7 @@ class SliceMap(models.Model):
     filepath=models.FileField()
     parent_map=models.ForeignKey(Map,on_delete=models.CASCADE)
 
-class User(AbstractUser):
+class Myuser(AbstractUser):
     first_name=models.CharField(max_length=20,default='a')
     last_name = models.CharField(max_length=20, default='b')
     is_staff=models.BooleanField(default=True)
