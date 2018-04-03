@@ -40,11 +40,10 @@ class SliceMap(models.Model):
 class User(models.Model):
     name=models.CharField(max_length=20)
     password=models.CharField(max_length=20)
-    department_name=models.CharField(max_length=20,blank=True)
-    contact_usr=models.CharField(max_length=20,blank=True)
-    phone=models.CharField(max_length=20,blank=True)
-    priority=models.IntegerField(default=0)
-    enable=models.BooleanField(default=True)
+    department_name=models.CharField(max_length=20,null=True)
+    contact_usr=models.CharField(max_length=20,null=True)
+    phone=models.CharField(max_length=20,null=True)
+
 
     class Meta:
         permissions = (

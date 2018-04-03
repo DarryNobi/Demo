@@ -3,7 +3,7 @@
 
 from __future__ import unicode_literals
 from django.shortcuts import render
-from django.http import  HttpResponse
+from django.http import HttpResponse
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.contrib.auth import login
@@ -18,6 +18,9 @@ def index(request):
     return render(request,
                   template_name='index.html')
 
+def loadmap(request):
+    return render(request,
+                  template_name='map.html')
 
 def login(request):
     return render(request,
@@ -54,6 +57,11 @@ def login_check(request):
         if user.is_active:
             login(request, user)
             return render(request, 'index.html', {'message1': '登录成功'})
+        else:
+            return render(request, 'login.html', {'message1': '用户被禁用'})
+    else:
+       return render(request, 'login.html', {'message1': '用户名或密码错误'})
+
 
 @login_required
 def logout(request):
@@ -116,7 +124,7 @@ def delete_usr(request):
 def enable_usr(request):
     username = request.POST.get('username',False)
     user=User.objects.filter(name=username)
-    user.enable=True
+    user.is_active=True
     user.save()
     return render(request,{'message':'启用成功！'})
 
@@ -125,7 +133,7 @@ def enable_usr(request):
 def unenable_usr(request):
     username = request.POST.get('username',False)
     user=User.objects.filter(name=username)
-    user.enable=False
+    user.is_active=False
     user.save()
     return render(request,{'message':'禁用成功！'})
 
