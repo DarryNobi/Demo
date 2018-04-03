@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 # -*- coding: UTF-8 -*-
 import os
-from web.models import Myuser
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -41,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'web',
 ]
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -136,7 +134,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = '/home/zhou/PycharmProjects/Demo/static'
 
-AUTH_USER_MODEL = "web.Myuser"
 
 LOGGING = {
     'version': 1,
@@ -172,3 +169,6 @@ LOGGING = {
         },
     },
 }
+
+
+AUTH_USER_MODEL = 'web.Myuser'  # 指定新的users model

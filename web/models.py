@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser   # 继承user
 from django.contrib.auth import get_user_model
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -44,12 +44,6 @@ class SliceMap(models.Model):
     parent_map=models.ForeignKey(Map,on_delete=models.CASCADE)
 
 class Myuser(AbstractUser):
-    first_name=models.CharField(max_length=20,default='a')
-    last_name = models.CharField(max_length=20, default='b')
-    is_staff=models.BooleanField(default=True)
-    is_superuser=models.BooleanField(default=False)
-    department_name=models.CharField(max_length=20,null=True)
-    date_joined=models.DateTimeField(null=True)
     contact_usr=models.CharField(max_length=20,null=True)
     phone=models.CharField(max_length=20,null=True)
 
