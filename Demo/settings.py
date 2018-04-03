@@ -133,7 +133,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/home/zhou/PycharmProjects/Demo/static'
-
+AUTH_USER_MODEL = "web.User"
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,

@@ -41,12 +41,14 @@ class SliceMap(models.Model):
 
 class User(AbstractUser):
     first_name=models.CharField(max_length=20,default='a')
-    last_name = models.CharField(max_length=20, defalut='b')
-
+    last_name = models.CharField(max_length=20, default='b')
+    is_staff=models.BooleanField(default=True)
+    is_superuser=models.BooleanField(default=False)
     department_name=models.CharField(max_length=20,null=True)
+    date_joined=models.DateTimeField(null=True)
     contact_usr=models.CharField(max_length=20,null=True)
     phone=models.CharField(max_length=20,null=True)
-    enable=models.BooleanField(default=True)
+
 
     class Meta:
         permissions = (

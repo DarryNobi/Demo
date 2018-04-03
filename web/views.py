@@ -43,7 +43,7 @@ def regist_db(request):
         department_name = request.POST.get(" department_name", False)
         contact_usr = request.POST.get("contact_usr", False)
         phone= request.POST.get("phone", False)
-        user = User.objects.create_user(name=username,password=password, department_name=department_name,contact_usr=contact_usr,phone=phone)
+        user = User.objects.create_user(username=username,password=password, department_name=department_name,contact_usr=contact_usr,phone=phone)
         user.save()
 
         return render(request, 'register.html',{'message1':'注册成功','message2':'立即登录 '})
@@ -52,15 +52,15 @@ def regist_db(request):
 def login_check(request):
     username = request.POST.get("username", False)
     password= request.POST.get("password", False)
-    user = authenticate(name=username, password=password)
-    if user is not None:
+    user = User.objects.filter(username=username, password=password)
+    if user:
         if user.is_active:
             login(request, user)
             return render(request, 'index.html', {'message1': '登录成功'})
         else:
             return render(request, 'login.html', {'message1': '用户被禁用'})
     else:
-       return render(request, 'login.html', {'message1': '用户名或密码错误'})
+       return render(request, 'login.html', {'message1': 'yjtjutgoi'})
 
 
 @login_required
@@ -73,7 +73,7 @@ def password_reset(request):
     username = request.POST.get("username",False)
     old_password = request.POST.get("password",False)
     new_password = request.POST.get("new_password",False)
-    user = auth.authenticate(name=username, password=old_password)
+    user = auth.authenticate(username=username, password=old_password)
     if user is not None:
         user.set_password(new_password)
         user.save()
@@ -107,7 +107,7 @@ def add_usr(request):
     department_name= request.POST.get("department_name", False)
     contact_usr= request.POST.get("contact_usr", False)
     phone= request.POST.get("phone", False)
-    user = User.objects.create_user(name=username, password=password,department_name=department_name,contact_usr=contact_usr,phone=phone)
+    user = User.objects.create_user(username=username, password=password,department_name=department_name,contact_usr=contact_usr,phone=phone)
     user.save()
     return render(request,{'message':'添加成功'})
 
@@ -115,7 +115,7 @@ def add_usr(request):
 @permission_required('user_management',raise_exception=True)
 def delete_usr(request):
     username = request.POST.get('username',False)
-    user=User.objects.filter(name=username)
+    user=User.objects.filter(username=username)
     user.delete()
     return render(request,{'message':'删除成功！'})
 
@@ -123,7 +123,7 @@ def delete_usr(request):
 @permission_required('user_management',raise_exception=True)
 def enable_usr(request):
     username = request.POST.get('username',False)
-    user=User.objects.filter(name=username)
+    user=User.objects.filter(username=username)
     user.is_active=True
     user.save()
     return render(request,{'message':'启用成功！'})
@@ -132,7 +132,7 @@ def enable_usr(request):
 @permission_required('user_management',raise_exception=True)
 def unenable_usr(request):
     username = request.POST.get('username',False)
-    user=User.objects.filter(name=username)
+    user=User.objects.filter(username=username)
     user.is_active=False
     user.save()
     return render(request,{'message':'禁用成功！'})
