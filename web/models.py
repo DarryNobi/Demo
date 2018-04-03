@@ -43,7 +43,7 @@ class User(models.Model):
     department_name=models.CharField(max_length=20,null=True)
     contact_usr=models.CharField(max_length=20,null=True)
     phone=models.CharField(max_length=20,null=True)
-
+    enable=models.BooleanField(default=True)
 
     class Meta:
         permissions = (
