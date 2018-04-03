@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 # -*- coding: UTF-8 -*-
 import os
-from django.contrib.auth import get_user_model
+from web.models import Myuser
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -135,7 +135,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/home/zhou/PycharmProjects/Demo/static'
-User = get_user_model()
+
 AUTH_USER_MODEL = "web.Myuser"
 
 LOGGING = {
