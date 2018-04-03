@@ -19,15 +19,16 @@ body {
     line-height:25px;
 }
 
+
 #wrapper {
     width: 100%;
     background: #202020;
+    float:left;
 }
 
 #page-wrapper {
-    padding: 15px 15px;
-    min-height: 600px;
-    background: #F3F3F3;
+    padding: 0px 0px 0px 0px;
+    background: #ffff00;
 }
 
 #page-inner {
@@ -36,6 +37,14 @@ body {
     background-color: #fff!important;
     padding: 10px;
     min-height: 1200px;
+}
+#middle{
+	width: 100%;
+	height: 100%;
+	background:#ffffff;
+	float: left;
+
+
 }
 
 .page-head-line {
@@ -142,6 +151,7 @@ body {
 
 .sidebar-collapse, .sidebar-collapse .nav {
     background: none;
+
 }
 
     .sidebar-collapse .nav {
@@ -220,6 +230,7 @@ body {
     padding:20px 50px;
     color:#fff;
     font-size:12px;
+
 }
 
     #footer-sec a {
@@ -236,8 +247,8 @@ body {
 @media (min-width:768px) {
     #page-wrapper {
         margin: 0 0 0 260px;
-        padding: 15px 30px;
-        min-height: 1200px;
+        padding: 0px 0px 0px 0px;
+        min-height: 900px;
     }
 
 

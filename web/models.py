@@ -40,7 +40,18 @@ class SliceMap(models.Model):
 class User(models.Model):
     name=models.CharField(max_length=20)
     password=models.CharField(max_length=20)
+    department_name=models.CharField(max_length=20,null=True)
+    contact_usr=models.CharField(max_length=20,null=True)
+    phone=models.CharField(max_length=20,null=True)
+    enable=models.BooleanField(default=True)
 
+    class Meta:
+        permissions = (
+            ("user_management", "用户管理"),
+            ("ibuild_management", "违建管理"),
+            ("demolition_management", "拆迁管理"),
+            ("recource_management", "资源管理")
+        )
     def __str__(self):
     # 在Python3中使用 def __str__(self):
         return self.name

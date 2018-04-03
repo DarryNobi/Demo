@@ -4,6 +4,7 @@
     {% load staticfiles %}
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="Keywords" content="天津未来科技城卫星遥感资源管理系统"/>
     <title>home</title>
 
     <!-- BOOTSTRAP STYLES-->
@@ -17,16 +18,22 @@
     <!-- GOOGLE FONTS-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
-    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8087/library/3.23/3.23/dijit/themes/tundra/tundra.css"/>
-    <link rel="stylesheet" type="text/css" href="http://127.0.0.1:8087/library/3.23/3.23/esri/css/esri.css" />
-<!--    <script type="text/javascript" src="http://127.0.0.1:8087/library/3.23/3.23/init.js"></script>-->
-    <script src="http://js.arcgis.com/3.9/"></script>
-
-    <script src="{% static 'js/mainmap.js' %}"></script>
-    <script src="{% static 'js/drawplot.js' %}"></script>
+    <script src="{% static 'js/common.js' %}"></script>
+    <style>
+        #container{
+	        background: #001234;
+	        text-align:center;
+	        line-height:80px;
+        }
+</style>
 </head>
+
 <body>
     <div id="wrapper">
+        <div id="container">
+		    <img src="u3.png" alt="iotek">
+		    <font size="6"><b>天津未来科技城卫星遥感资源管理系统</b></font>
+	    </div>
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
@@ -56,7 +63,7 @@
 			</div>
         </nav>
         <!-- /. NAV TOP  -->
-        <nav class="navbar-default navbar-side" role="navigation">
+        <nav class="navbar-default navbar-side " role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                     <li>
@@ -100,7 +107,7 @@
                             </li>
                              <li>
                                 <a href="component.html"><i class="fa fa-key "></i>违建处理</a>
-                            </li>   
+                            </li>
                         </ul>
                     </li>
 
@@ -115,11 +122,40 @@
                             </li>
                              <li>
                                 <a href="progress.html"><i class="fa fa-circle-o "></i>定期巡查</a>
-                            </li>  
+                            </li>
                         </ul>
                     </li>
-                   
-                     
+
+                     <li>
+                        <a href="#"><i class="fa fa-yelp "></i>账户管理<span class="fa arrow"></span></a>
+                         <ul class="nav nav-second-level">
+                            <li>
+                                <a href="panel-tabs.html"><i class="fa fa-toggle-on"></i>账户查询</a>
+                            </li>
+                            <li>
+                                <a href="notification.html"><i class="fa fa-bell "></i>新增账户</a>
+                            </li>
+                            <li>
+                                <a href="notification.html"><i class="fa fa-bell "></i>权限查询</a>
+                            </li>
+                             <li>
+                                <a href="progress.html"><i class="fa fa-circle-o "></i>权限管理</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-yelp "></i>个人中心<span class="fa arrow"></span></a>
+                         <ul class="nav nav-second-level">
+                            <li>
+                                <a href="panel-tabs.html"><i class="fa fa-toggle-on"></i>个人信息</a>
+                            </li>
+                            <li>
+                                <a href="notification.html"><i class="fa fa-bell "></i>密码重置</a>
+                            </li>
+                        </ul>
+                    </li>
+
+
                 </ul>
 
             </div>
@@ -133,12 +169,16 @@
             height:0;
             }
         </style>
-        <div id="page-wrapper" class="container">
-            <div id="map" class="img-responsive"></div>
+        <div id="page-wrapper" >
+            <div>
+                <iframe id="context_container" src="http:\\172.20.53.158:8088/login" frameborder="0" scrolling="no" style="width: 100%; height: 1000px;">
+                </iframe>
+            </div>
         </div>
         <!-- /. PAGE WRAPPER  -->
     </div>
     <!-- /. WRAPPER  -->
+
 
     <div id="footer-sec">
         Copyright &copy; 2016.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="遥感图像">遥感图像</a> - Collect from <a href="http://www.cssmoban.com/" title="遥感图像" target="_blank">遥感图像</a>
@@ -153,8 +193,5 @@
     <script src="{% static 'js/jquery.metisMenu.js' %}"></script>
        <!-- CUSTOM SCRIPTS -->
     <script src="{% static 'js/custom.js' %}"></script>
-    
-
-
 </body>
 </html>
