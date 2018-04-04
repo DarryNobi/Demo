@@ -12,6 +12,8 @@ from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
 from django.contrib import auth
+from web.models import Myuser
+from django.forms.models import model_to_dict
 User = get_user_model()
 # Create your views here.
 
@@ -34,6 +36,27 @@ def register(request):
     return render(request,
                   template_name='register.html')
 
+def add_account(request):
+    return render(request,
+                  template_name='add_Account.html')
+
+def account_inquiry(request):
+    return render(request,
+                  template_name='account_Inquiry.html')
+
+def info_revise(request):
+    return render(request,
+                  template_name='info_revise.html')
+
+def password_revise(request):
+    return render(request,
+                  template_name='password_revise.html')
+
+def permissions_query(request):
+    return render(request,
+                  template_name='Permissions-query.html')
+
+#########################################################################
 
 def save_graphic(request):
     if request.method == "POST":
@@ -88,11 +111,11 @@ def password_reset(request):
 @login_required
 @permission_required('user_management',raise_exception=True)
 def usr_info_revise(request):
-    userid = request.POST.get("userid",False)
+    username = request.POST.get("username",False)
     department_name = request.POST.get("department_name",False)
     contact_usr = request.POST.get("contact_usr",False)
     phone = request.POST.get("phone",False)
-    user = auth.authenticate(username=username, password=old_password)
+    user = User.objects.filter(username=username)
     if user:
         user.department_name=department_name
         user.contact_usr=contact_usr
@@ -100,19 +123,19 @@ def usr_info_revise(request):
         user.save()
         return render(request,{'message':'修改成功！'})
     else:
-        return render(request,{'message':'修改失败！'})
+        return render(request,{'message':'用户不存在！'})
 
 @login_required
-@permission_required('user_management',raise_exception=True)
+#@permission_required('user_management',raise_exception=True)
 def add_usr(request):
     username = request.POST.get("username", False)
-    password= request.POST.get("password", False)
-    department_name= request.POST.get("input_group", False)
+    password= request.POST.get("password1", False)
+    department_name= request.POST.get("department_name", False)
     contact_usr= request.POST.get("contact_usr", False)
     phone= request.POST.get("phone", False)
     user = User.objects.create_user(username=username, password=password,department_name=department_name,contact_usr=contact_usr,phone=phone)
     user.save()
-    return render(request,{'message':'添加成功'})
+    return render(request,'add_Account.html',{'message':'添加成功'})
 
 @login_required
 @permission_required('user_management',raise_exception=True)
@@ -142,7 +165,7 @@ def unenable_usr(request):
 
 
 @login_required
-@permission_required('user_management',raise_exception=True)
+
 def permission_revise(request):
     userid = request.POST.get("userid", False)
     check_box = request.POST.getlist('check_box',False)
@@ -155,3 +178,13 @@ def permission_revise(request):
         user.user_permissions.delete(dictionary[i])
 
     return render(request,{'message':'修改成功！'})
+
+
+def _account_inquiry(request):
+    username = request.POST.get('username',False)
+    users=Myuser.objects.filter(username=username)
+    myuser=Myuser.objects.filter(username=username)
+    if users:
+        return render(request,locals())
+    else:
+        return render(request,{'message':'没有找到该用户！'})

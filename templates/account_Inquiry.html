@@ -37,14 +37,14 @@ table {
 				</div>
 				<div class="panel-body"> 
 					
-					<form role="form" name="form1">
-
-						<div class="form-group"> 
-							<label for="IDCard">请输入账号</label> 
+					<form action="/_account_inquiry/" method="post" role="form" name="form1">
+						{% csrf_token %}
+						<div class="form-group">
+							<label for="username">请输入账号</label>
 						<div class="input-group"> 
-							<input type="text" class="form-control" id="IDCard" name="IDCard" placeholder="请输入账号" > 
+							<input type="text" class="form-control" id="username" name="username" placeholder="请输入账号" >
 							<span class="input-group-btn"> 
-								<button class="btn btn-default" type="button" onClick="search();" >查询</button> 
+								<button  type="submit" >查询</button>
 							</span> 
 						</div> 
 						</div> 
@@ -59,11 +59,20 @@ table {
 							<th scope="col" width="20%" ><span style="color:white">联系人</span></th>
 							<th scope="col" width="25%" ><span style="color:white">联系电话</span></th>
 							<th scope="col"><span style="color:white">状态</span></th>
-							
-
 						</tr>
+
+							{% for user in users %}
+							<tr>
+							<th scope="col" width="20%" ><span style="color:white">{{user.username}}</span></th>
+							<th scope="col" width="20%" ><span style="color:white">{{user.department_name}}</span></th>
+							<th scope="col" width="20%" ><span style="color:white">{{user.contact_usr}}</span></th>
+							<th scope="col" width="20%" ><span style="color:white">{{user.phone}}</span></th>
+							<th scope="col" width="20%" ><span style="color:white">{{user.isactive}}</span></th>
+							</tr>
+							{% endfor %}
 						</table>
-						</div> 
+						</div>
+					<p>{{message}}</p>
 
 
 				</div> 
@@ -71,25 +80,49 @@ table {
 			</div> 
 			<div class="col-sm-3"></div> 
 		</div>
-	</div> 
+	</div>
+
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 	/*删除*/
 	/*dataArray为请求返回的数据*/
 	var dataArray = [
-		{number:111123,dep:'违建管理部门',contact:'张三',contactNumber:'18888888888',status:'在职'},
-		{number:111124,dep:'农业管理部门',contact:'李四',contactNumber:'17777777777',status:'在职'},
-		{number:111125,dep:'林业管理部门',contact:'王五',contactNumber:'15899999999',status:'在职'},
-		{number:111126,dep:'违建管理部门',contact:'赵六',contactNumber:'18888888888',status:'在职'},
+		{number:111123,dep:'违建管理部门',contact:'张三',contactNumber:'18888888888',status:'登录'},
+		{number:111124,dep:'农业管理部门',contact:'李四',contactNumber:'17777777777',status:'离线'},
+		{number:111125,dep:'林业管理部门',contact:'王五',contactNumber:'15899999999',status:'离开'},
+		{number:111126,dep:'违建管理部门',contact:'赵六',contactNumber:'18888888888',status:'登录'},
 		
 	];
+
+	      
+  
+    // document.getElementById('submit_btn').onkeydown=keyDownSearch; 
+      
+    // function keyDownSearch(e) {    
+    //     // 兼容FF和IE和Opera    
+    //     var theEvent = e || window.event;    
+    //     var code = theEvent.keyCode || theEvent.which || theEvent.charCode;    
+    //     if (code == 13) {    
+    //         search();//具体处理函数    
+    //         return false;    
+    //     }    
+    //     return true;    
+    // }  
+ 
+  
+// 如果只是针对某个DIV层应用回车查询的话，可以将：  
+//  document.onkeydown=keyDownSearch;  
+// 改成：  
+// document.getElementById('层ID').onkeydown=keyDownSearch;
+
+
 	/*删除*/
 
-	var dataArray = new Array()
+	// var dataArray = new Array()
 
-	/*background_data为后台数据*/
-	dataArray.push(background_data);
+	// background_data为后台数据
+	// dataArray.push(background_data);
 	
 	
 	/*判断是否有搜索条件，根据搜索条件去渲染表格*/
@@ -115,9 +148,16 @@ table {
 					tr.append(td5);
 					
 					$(".table").append(tr);
+					$("#IDCard").val('').focus()
+					return // 证明已经找到符合条件的数据，所以退出整个函数
 				}
 				
 			}
+			/**
+			循环执行完毕仍未找到符合条件的数据，故不存在，所以提示
+			**/
+			alert('未找到该人员');
+			$("#IDCard").val('').focus()
 		}
 	}
 	

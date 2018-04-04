@@ -20,21 +20,28 @@ from web import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+
     url(r'^index/', views.index),
-    url(r'^login_check/', views.login_check),
-    url(r'^register_db/', views.regist_db),
     url(r'^register/', views.register),
     url(r'^login/', views.login),
     url(r'^map/', views.loadmap),
-    url(r'^logout/', views.logout),
+    url(r'^add_account/', views.add_account),
+    url(r'^password_revise/', views.password_revise),
+    url(r'^permissions_query/', views.permissions_query),
+    url(r'^account_inquiry/', views.account_inquiry),
+    url(r'^info_revise/', views.info_revise),
+
+    url(r'^ delete_usr/', views. delete_usr),
+    url(r'^register_db/', views.regist_db),
+    url(r'^login_check/', views.login_check),
     url(r'^password_reset/', views.password_reset),
     url(r'^usr_info_revise/', views.usr_info_revise),
-    url(r'^add_usr/', views.add_usr),
-    url(r'^ delete_usr/', views. delete_usr),
+    url(r'^logout/', views.logout),
     url(r'^enable_usr/', views.enable_usr),
     url(r'^unenable_usr/', views.unenable_usr),
     url(r'^permission_revise/', views.permission_revise),
     url(r'^add_usr/', views.add_usr),
-
     url(r'^password_reset/', views.password_reset),
+    url(r'^_account_inquiry/', views._account_inquiry),
+
 ]

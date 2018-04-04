@@ -74,7 +74,7 @@
 
 <div class="container">
     <div class="col-md-6 col-md-offset-3">
-        <form action="http://wwww.baidu.com" class="">
+        <form action='/usr_info_revise/' method="post">
 		
 			<div class="form-group has-feedback">
                 <h1 align="center" >修改个人信息</h1>                                  
@@ -84,7 +84,7 @@
                 <label for="username">账号</label>
                 <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                    <input id="username" class="form-control" placeholder="请输入账号" maxlength="20" type="text">
+                    <input id="username" name='username' class="form-control" placeholder="请输入账号" maxlength="20" type="text">
                 </div>
 
                 <span style="color:red;display: none;" class="tips"></span>
@@ -96,7 +96,7 @@
                 <label for="username">联系人</label>
                 <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                    <input id="username" class="form-control" placeholder="请输入联系人姓名" maxlength="20" type="text">
+                    <input id="contact_usr" name='contact_usr' class="form-control" placeholder="请输入联系人姓名" maxlength="20" type="text">
                 </div>
 
                 <span style="color:red;display: none;" class="tips"></span>
@@ -107,7 +107,7 @@
                 <label for="phoneNum">联系人电话</label>
                 <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
-                    <input id="phoneNum" class="form-control" placeholder="请输入手机号码" maxlength="11" type="text">
+                    <input id="phone" name='phone' class="form-control" placeholder="请输入手机号码" maxlength="11" type="text">
                 </div>
                 <span style="color:red;display: none;" class="tips"></span>
                 <span style="display: none;" class="glyphicon glyphicon-remove form-control-feedback"></span>
@@ -117,7 +117,7 @@
             <div class="form-group has-feedback">
                 <label for="department">部门</label>
                 <div class="input-group">
-                    <select style="size: 6;">
+                    <select style="size: 6;",name='department_name'>
                         <option value="违建管理部门">违建管理部门</option>
                         <option value="农业资源管理部门">农业资源管理部门</option>
                         <option value="林业资源管理部门">林业资源管理部门</option>
@@ -143,9 +143,10 @@
 				 
             </div>
         </form>
+        <p>{{message}}</p
     </div>
 </div>
-
+<!--
 <script>
 var settings = {
     e: 'idcode',
@@ -442,6 +443,6 @@ $('#reset').click(function() {
     check = [false, false, false, false, false, false, ];
 });
 </script>
-
+-->
 </body>
 </html>

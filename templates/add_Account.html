@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>新增账号</title>
+     {% csrf_token %}
 <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
 <style>
 @charset "utf-8";
@@ -74,8 +75,8 @@
 
 <div class="container">
     <div class="col-md-6 col-md-offset-3">
-        <form action="/add_user/" class="" method="post">
-
+        <form action="/add_usr/" class="" method="post">
+ {% csrf_token %}
             <div class="form-group has-feedback">
                 <label for="userNum">账号</label>
                 <div class="input-group">
@@ -137,8 +138,8 @@
 
             <div class="form-group has-feedback">
                 <label for="department">部门</label>
-                <div class="input-group">
-                    <select style="size: 6;">
+                <div class="input-group",name="input-group">
+                    <select style="size: 6;" name="department_name">
                         <option value="违建管理部门" name="ibuild">违建管理部门</option>
                         <option value="农业资源管理部门" name="agriculture">农业资源管理部门</option>
                         <option value="林业资源管理部门" name="forest">林业资源管理部门</option>
@@ -160,9 +161,10 @@
                 <input value="重置" id="reset" class="form-control btn btn-danger" type="reset">
             </div>
         </form>
+        <p>{{message}}<p>
     </div>
 </div>
-
+<!--
 <script>
 var settings = {
     e: 'idcode',
@@ -458,7 +460,7 @@ $('#reset').click(function() {
     $('.glyphicon-remove').hide();
     check = [false, false, false, false, false, false, ];
 });
-</script>
+</script>-->
 
 </body>
 </html>
