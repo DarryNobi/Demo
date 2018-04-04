@@ -21,7 +21,7 @@ function mainmap() {
     ) {
         parser.parse();
         map = new Map("map");
-        var agoServiceURL = "https://localhost:6443/arcgis/rest/services/MyMapService/MapServer";
+        var agoServiceURL = "https://172.20.53.158:6443/arcgis/rest/services/MyMapService/MapServer";
         var agoLayer = new esri.layers.ArcGISDynamicMapServiceLayer(agoServiceURL);
         map.addLayer(agoLayer);
     });

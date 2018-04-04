@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 # -*- coding: UTF-8 -*-
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -20,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '_!i7^j(*#+6wdwu%a=n=gvax52mw)+s8)i400wwhxx-ou(#z7@'
+SECRET_KEY = 'lwzqp!8*6v=3fu0ns04#o&9j_(98f4u&(y6&12=rd%5f)j(y8m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,13 +32,13 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'web',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'web',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +82,6 @@ WSGI_APPLICATION = 'Demo.wsgi.application'
     }
 
 
-
 }'''
 DATABASES = {
     'default': {
@@ -90,7 +90,10 @@ DATABASES = {
         'USER': 'root',
         'PASSWORD': '123456',
         'HOST':'localhost',
-        'PORT':'3306'
+        'PORT':'3306',
+        'OPTIONS':{
+            "init_command":"SET foreign_key_checks = 0;",
+        }
 
     }
 }
@@ -133,6 +136,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = '/home/zhou/PycharmProjects/Demo/static'
+
+AUTH_USER_MODEL = "web.Myuser"
 
 LOGGING = {
     'version': 1,
