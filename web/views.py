@@ -11,6 +11,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
+from django.contrib import auth
 User = get_user_model()
 # Create your views here.
 
@@ -45,7 +46,7 @@ def regist_db(request):
         department_name = request.POST.get(" department_name", False)
         contact_usr = request.POST.get("contact_usr", False)
         phone= request.POST.get("phone", False)
-        user = User.objects.create_user(username=username,password=password, department_name=department_name,contact_usr=contact_usr,phone=phone)
+        user = User.objects.create_user(username=username,password=password)
         user.save()
 
         return render(request, 'register.html',{'message1':'注册成功','message2':'立即登录 '})
@@ -54,10 +55,10 @@ def regist_db(request):
 def login_check(request):
     username = request.POST.get("username", False)
     password= request.POST.get("password", False)
-    user = User.objects.filter(username=username, password=password)
+    user = auth.authenticate(username=username, password=password)
     if user:
         if user.is_active:
-            login(request, user)
+            auth.login(request, user)
             return render(request, 'index.html', {'message1': '登录成功'})
         else:
             return render(request, 'login.html', {'message1': '用户被禁用'})
@@ -91,7 +92,7 @@ def usr_info_revise(request):
     department_name = request.POST.get("department_name",False)
     contact_usr = request.POST.get("contact_usr",False)
     phone = request.POST.get("phone",False)
-    user = User.objects.filter(id=userid)
+    user = auth.authenticate(username=username, password=old_password)
     if user:
         user.department_name=department_name
         user.contact_usr=contact_usr

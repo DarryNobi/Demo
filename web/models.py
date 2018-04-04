@@ -4,6 +4,7 @@ from django.contrib.auth.models import AbstractUser
 from django.contrib.auth import get_user_model
 from django.conf import settings
 from django.contrib.auth.models import User
+from django.utils import timezone
 # Create your models here.
 
 
@@ -43,14 +44,16 @@ class SliceMap(models.Model):
     parent_map=models.ForeignKey(Map,on_delete=models.CASCADE)
 
 class Myuser(AbstractUser):
-    first_name=models.CharField(max_length=20,default='a')
-    last_name = models.CharField(max_length=20, default='b')
-    is_staff=models.BooleanField(default=True)
-    is_superuser=models.BooleanField(default=False)
-    department_name=models.CharField(max_length=20,blank=True)
-    date_joined=models.DateTimeField(blank=True)
-    contact_usr=models.CharField(max_length=20,blank=True)
-    phone=models.CharField(max_length=20,blank=True)
+    email=models.CharField(max_length=30,blank=True)
+    first_name=models.CharField(max_length=20,default='a',blank=True)
+    last_name = models.CharField(max_length=20, default='b',blank=True)
+    is_active=models.BooleanField(default=True,blank=True)
+    is_staff=models.BooleanField(default=True,blank=True)
+    is_superuser=models.BooleanField(default=False,blank=True)
+    department_name=models.CharField(max_length=20,default='a',blank=True)
+    date_joined=models.DateTimeField(blank=True,default=timezone.now)
+    contact_usr=models.CharField(max_length=20,blank=True,default='a')
+    phone=models.CharField(max_length=20,blank=True,default='123')
 
 
     class Meta:
