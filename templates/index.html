@@ -1,4 +1,4 @@
-﻿﻿<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     {% load staticfiles %}
@@ -47,7 +47,7 @@
 
             <div class="header-right">
 				<a href="../cpts_645_bhc/login.html" class="btn btn-primary" title="Logout"><em class="glyphicon glyphicon-search"></em>搜索</a>
-				<a href="../cpts_645_bhc/login.html" class="btn btn-warning dropdown-toggle" title="Logout"><em class="glyphicon glyphicon-home"></em>用户</a>
+				<a href="/logout/" class="btn btn-warning dropdown-toggle" title="Logout"><em class="glyphicon glyphicon-home"></em>登出</a>
 				<a href="/login/" class="btn btn-danger" title="Logout"><em class="glyphicon glyphicon-plus"></em>登录</a>
 				<div class="btn-group">
                                         <button class="btn btn-success">更多</button>
@@ -67,13 +67,13 @@
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
                     <li>
-                        <a id="home" class="active-menu" href="javascript:void(0)" onclick="open_link('http://www.sina.com');" ><i class="fa fa-dashboard "></i>首页</a>
+                        <a id="home" class="active-menu" href="javascript:void(0)" onclick="open_link('https://map.baidu.com/');" ><i class="fa fa-dashboard "></i>首页</a>
                     </li>
 
                     <li><a href="#"><i class="fa fa-desktop "></i>影像处理<span class="fa arrow"></span></a>
                       <ul class="nav nav-second-level">
                             <li>
-                              <a id="drawplot" href="javascript:void(0)" ><i class="fa fa-toggle-on"></i>矢量标绘</a>
+                              <a href="javascript:void(0)" onclick="open_link('/map/');" ><i class="fa fa-toggle-on"></i>矢量标绘</a>
                               </li>
                             <li> <a href="notification.html"><i class="fa fa-bell "></i>地物识别</a> </li>
                             <li>
@@ -85,13 +85,10 @@
                      <li><a href="#"><i class="fa fa-yelp "></i>资源管理<span class="fa arrow"></span></a>
                        <ul class="nav nav-second-level">
                             <li>
-                                <a href="invoice.html"><i class="fa fa-coffee"></i>上传遥感图像</a>
-                            </li>
-                            <li>
-                                <a href="pricing.html"><i class="fa fa-flash "></i>下载遥感图像</a>
+                                <a href="pricing.html"><i class="fa fa-flash "></i>资源查询</a>
                             </li>
                              <li>
-                                <a href="component.html"><i class="fa fa-key "></i>地理信息数据管理</a>
+                                <a href="component.html"><i class="fa fa-key "></i>地图下载</a>
                             </li>
                         </ul>
                     </li>
@@ -100,13 +97,10 @@
                         <a href="#"><i class="fa fa-yelp "></i>违建管理<span class="fa arrow"></span></a>
                          <ul class="nav nav-second-level">
                             <li>
-                                <a href="invoice.html"><i class="fa fa-coffee"></i>违建监测</a>
+                                <a href="invoice.html"><i class="fa fa-coffee"></i>违建影像对比</a>
                             </li>
                             <li>
-                                <a href="pricing.html"><i class="fa fa-flash "></i>信息管理</a>
-                            </li>
-                             <li>
-                                <a href="component.html"><i class="fa fa-key "></i>违建处理</a>
+                                <a href="pricing.html"><i class="fa fa-flash "></i>违建信息管理</a>
                             </li>
                         </ul>
                     </li>
@@ -115,13 +109,10 @@
                         <a href="#"><i class="fa fa-yelp "></i>拆迁管理<span class="fa arrow"></span></a>
                          <ul class="nav nav-second-level">
                             <li>
-                                <a href="panel-tabs.html"><i class="fa fa-toggle-on"></i>项目管理</a>
+                                <a href="panel-tabs.html"><i class="fa fa-toggle-on"></i>拆迁影像对比</a>
                             </li>
                             <li>
-                                <a href="notification.html"><i class="fa fa-bell "></i>进度展示</a>
-                            </li>
-                             <li>
-                                <a href="progress.html"><i class="fa fa-circle-o "></i>定期巡查</a>
+                                <a href="notification.html"><i class="fa fa-bell "></i>拆迁管理</a>
                             </li>
                         </ul>
                     </li>

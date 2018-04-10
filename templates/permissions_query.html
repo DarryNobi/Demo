@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
 <meta name="author" content="">
@@ -37,14 +37,14 @@ table {
 				</div>
 				<div class="panel-body"> 
 					
-					<form role="form" name="form1">
-
+					<form action="/_permissions_query/" method="post" role="form" name="form1">
+					{% csrf_token %}
 						<div class="form-group"> 
-							<label for="IDCard">请输入账号</label> 
+							<label for="username">请输入账号</label>
 						<div class="input-group"> 
-							<input type="text" class="form-control" id="IDCard" name="IDCard" placeholder="请输入账号" > 
+							<input type="text" class="form-control" id="username" name="username" placeholder="请输入账号" >
 							<span class="input-group-btn"> 
-								<button class="btn btn-default" type="button" onClick="search()" >查询</button> 
+								<button class="btn btn-default" type="submit" >查询</button>
 							</span> 
 						</div> 
 						</div> 
@@ -57,9 +57,12 @@ table {
 							<th scope="col" width="20%" ><span style="color:white">账号</span></th>
 							<th scope="col" width="20%" ><span style="color:white">联系人</span></th>
 							<th scope="col"><span style="color:white">权限</span></th>
-							
-
 						</tr>
+							<tr>
+							<th scope="col" width="20%" ><span style="color:black">{{users.username}}</span></th>
+							<th scope="col" width="20%" ><span style="color:black">{{users.contact_usr}}</span></th>
+							<th scope="col" width="20%" ><span style="color:black">{{users}}</span></th>
+							</tr>
 						</table>
 						</div> 
 
