@@ -22,7 +22,7 @@
      </style>
      <style>
     .ol-full-screen {
-    right:200px;
+    left:200px;
     top:200px;
 
   }
@@ -37,29 +37,26 @@
    <title>OpenLayers example</title>
  </head>
  <body>
-   <div id="map" class="map"></div>
+   <div id="map" class="map"> </div>
    <script src="{% static 'js/require.js' %}"></script>
    <script src="{% static 'js/geomap.js' %}"></script>
    <script src="{% static 'js/default_geomap.js' %}"></script>
    <script src="{% static 'js/baidumap.js' %}"></script>
+   <script src="{% static 'js/polygon.js' %}"></script>
    <script type="text/javascript">
      var map = new ol.Map({
        target: 'map',
        view: new ol.View({
-         center: ol.proj.fromLonLat([102.41, 24.82]),
-         zoom: 10
+         center: ol.proj.fromLonLat([102.56, 24.42]),
+         zoom: 15
        }),
        controls: ol.control.defaults().extend([
         new ol.control.FullScreen(),
-        new ol.control.OverviewMap({  }),
-        new ol.control.Rotate({
-            autoHide:false
-        }),
         new ol.control.ScaleLine({  }),
         new ol.control.ZoomSlider({
-
-          }),
-        new ol.control.ZoomToExtent({  })
+        maxResolution:1000,
+        minResolution:1000
+          })
       ]),
      });
     //map.addLayer(baidu_layer);
