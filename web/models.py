@@ -64,7 +64,7 @@ class Myuser(AbstractUser):
             ("demolition_management", "拆迁管理"),
             ("recource_management", "资源管理")
         )
-    def __str__(self):
-    # 在Python3中使用 def __str__(self):
-        return self.name
+#    def __str__(self):
+#    # 在Python3中使用 def __str__(self):
+#        return self.name
 

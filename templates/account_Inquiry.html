@@ -60,25 +60,20 @@ table {
 							<th scope="col" width="25%" ><span style="color:white">联系电话</span></th>
 							<th scope="col"><span style="color:white">状态</span></th>
 						</tr>
-
-							{% for user in users %}
 							<tr>
-							<th scope="col" width="20%" ><span style="color:white">{{user.username}}</span></th>
-							<th scope="col" width="20%" ><span style="color:white">{{user.department_name}}</span></th>
-							<th scope="col" width="20%" ><span style="color:white">{{user.contact_usr}}</span></th>
-							<th scope="col" width="20%" ><span style="color:white">{{user.phone}}</span></th>
-							<th scope="col" width="20%" ><span style="color:white">{{user.isactive}}</span></th>
+							<th scope="col" width="20%" ><span style="color:black">{{users.username}}</span></th>
+							<th scope="col" width="20%" ><span style="color:black">{{users.department_name}}</span></th>
+							<th scope="col" width="20%" ><span style="color:black">{{users.contact_usr}}</span></th>
+							<th scope="col" width="20%" ><span style="color:black">{{users.phone}}</span></th>
+							<th scope="col" width="20%" ><span style="color:black">{{users.is_active}}</span></th>
 							</tr>
-							{% endfor %}
+
 						</table>
 						</div>
-					<p>{{message}}</p>
-
-
 				</div> 
 			</div> 
 			</div> 
-			<div class="col-sm-3"></div> 
+			<div class="col-sm-3"></div>
 		</div>
 	</div>
 

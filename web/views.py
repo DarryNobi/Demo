@@ -12,6 +12,8 @@ from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
 from django.contrib import auth
+import json
+from django.core import serializers
 from web.models import Myuser
 from django.forms.models import model_to_dict
 User = get_user_model()
@@ -25,7 +27,7 @@ def index(request):
 
 def loadmap(request):
     return render(request,
-                  template_name='map.html')
+                  template_name='map_geo.html')
 
 def login(request):
     return render(request,
@@ -54,7 +56,7 @@ def password_revise(request):
 
 def permissions_query(request):
     return render(request,
-                  template_name='Permissions-query.html')
+                  template_name='permissions_query.html')
 
 #########################################################################
 
@@ -81,47 +83,49 @@ def login_check(request):
     user = auth.authenticate(username=username, password=password)
     if user:
         if user.is_active:
+            request.session['username']=username
             auth.login(request, user)
             return render(request, 'index.html', {'message1': '登录成功'})
         else:
             return render(request, 'login.html', {'message1': '用户被禁用'})
     else:
-       return render(request, 'login.html', {'message1': '用户不存在'})
+       return render(request, 'login.html', {'message1': '用户名或密码错误'})
 
 
-@login_required
-def logout(request):
+def mylogout(request):
     logout(request)
+    return render(request,'login.html')
 
 @login_required
-@permission_required('user_management',raise_exception=True)
+#@permission_required('user_management',raise_exception=True)
 def password_reset(request):
-    username = request.POST.get("username",False)
-    old_password = request.POST.get("password",False)
-    new_password = request.POST.get("new_password",False)
-    user = auth.authenticate(username=username, password=old_password)
-    if user is not None:
-        user.set_password(new_password)
-        user.save()
-        return render(request, {'message': '修改成功！'})
+
+    old_password = request.POST.get("old_password",False)
+    new_password = request.POST.get("new_password1",False)
+    if request.user.check_password(old_password):
+        request.user.set_password(new_password)
+        request.user.save()
+
+        return render(request, 'password_revise.html', {'message': '修改成功！'})
     else:
-        return render(request, {'message': '用户名或密码错误!'})
+        return render(request, 'password_revise.html',{'message': '用户名或密码错误!'})
 
 
 @login_required
-@permission_required('user_management',raise_exception=True)
+#@permission_required('user_management',raise_exception=True)
 def usr_info_revise(request):
     username = request.POST.get("username",False)
     department_name = request.POST.get("department_name",False)
     contact_usr = request.POST.get("contact_usr",False)
     phone = request.POST.get("phone",False)
-    user = User.objects.filter(username=username)
+    user = User.objects.get(username=username)
     if user:
-        user.department_name=department_name
         user.contact_usr=contact_usr
+        user.department_name=department_name
         user.phone=phone
         user.save()
-        return render(request,{'message':'修改成功！'})
+        return render(request,'info_revise.html', {'message': '修改成功！'})
+
     else:
         return render(request,{'message':'用户不存在！'})
 
@@ -165,7 +169,7 @@ def unenable_usr(request):
 
 
 @login_required
-
+#@permission_required('user_management',raise_exception=True)
 def permission_revise(request):
     userid = request.POST.get("userid", False)
     check_box = request.POST.getlist('check_box',False)
@@ -179,12 +183,30 @@ def permission_revise(request):
 
     return render(request,{'message':'修改成功！'})
 
-
+@login_required
+#@permission_required('user_management',raise_exception=True)
 def _account_inquiry(request):
     username = request.POST.get('username',False)
-    users=Myuser.objects.filter(username=username)
-    myuser=Myuser.objects.filter(username=username)
+    users_temp=User.objects.get(username=username)
+    users = model_to_dict(users_temp)
     if users:
-        return render(request,locals())
+        return render(request,'account_Inquiry.html',locals())
     else:
-        return render(request,{'message':'没有找到该用户！'})
+        return render(request,'account_Inquiry.html',{'message':'没有找到该用户！'})
+
+def _permissions_query(request):
+    username = request.POST.get('username',False)
+    users_temp=User.objects.get(username=username)
+    users = model_to_dict(users_temp)
+    if users:
+        return render(request,'permissions_query.html',locals())
+    else:
+        return render(request,'permissions_query.html',{'message':'没有找到该用户！'})
+
+def check_username(request):
+    username = request.POST.get('username', False)
+    user=User.objects.filter(username=username)
+    if user:
+        return(request,True)
+    else:
+        return(request,False)
