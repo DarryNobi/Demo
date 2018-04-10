@@ -58,6 +58,10 @@ def permissions_query(request):
     return render(request,
                   template_name='permissions_query.html')
 
+def roller_shutters(request):
+    return render(request,
+                  template_name='roller_shutters.html')
+
 #########################################################################
 
 def save_graphic(request):

@@ -29,8 +29,12 @@
                     color: '#ffcc33'
                 })
             })
-        })
+        }),
     });
+    draw.on('drawend', function(e) {
+        alert();
+    });
+
 
     document.getElementById("map").innerHTML = "<button id='draw_button_div'>标绘</button>"
     draw_btn=document.getElementById("draw_button_div");

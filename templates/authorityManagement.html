@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>权限管理</title>
+<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap-theme.min.css">
+<!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<style>
+.bs-docs-home
+{ 
+    background-color: #ffffff; 
+    background-image: url(line.png); 
+} 
+table {
+
+}
+</style>
+</head>
+<body class="bs-docs-home">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <div class="container theme-showcase">
+        <h1 style=" line-height:2em;"></h1><br/>
+        <div class="row">
+            <div class="col-sm-3"></div> 
+            <div class="col-sm-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><strong>权限管理</strong></h3>
+                </div>
+                <div class="panel-body"> 
+                    
+                    <form role="form" name="form1">
+
+                        <div class="form-group"> 
+                            <label for="IDCard">请导入数据</label> 
+                        <div class="input-group"> 
+                             
+                            <span class="input-group-btn"> 
+                                <button class="btn btn-default" type="button" onClick="show()" >导入</button> 
+                            </span> 
+                        </div> 
+                        </div> 
+                    </form>
+
+                    <div class="table-responsive">
+                        <table border="0" cellspacing="0" cellpadding="0" class="table">
+                        <tr class=" label-primary">
+                
+                            <th scope="col" width="15%" ><span style="color:white">账号</span></th>
+                            <th scope="col" width="15%" ><span style="color:white">联系人</span></th>
+                            <th scope="col" width="40%"><span style="color:white">已有权限</span></th>
+                            <th scope="col"><span style="color:white">修改权限</span></th>
+                            
+
+                        </tr>
+                        </table>
+                    </div> 
+
+                    <div class="form-group">
+
+                        <input class="form-control btn btn-primary" id="submit" value="确&nbsp;&nbsp;认&nbsp;&nbsp;修&nbsp;&nbsp;改" type="button" onclick="_check()"/>
+                    </div>
+
+                </div> 
+            </div> 
+            </div> 
+            <div class="col-sm-3"></div> 
+        </div>
+    </div> 
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    /*删除*/
+    /*dataArray为请求返回的数据*/
+    var background_data = [
+    {number:111123, contact:'张三', authority:'拆迁管理',},
+    {number:111124, contact:'李四', authority:"违建管理",},
+    {number:111125, contact:'王五', authority:'违建管理',},
+    {number:111126, contact:'赵六', authority:'违建管理',},
+    ];
+    /*删除*/
+
+    var names = new Array()
+    for(var i = 0, len =  background_data.length; i < len; i++)
+    {
+        names[i] = "authorityManagement" + i;
+                   
+    }
+
+    // var dataArray = new Array()
+
+    // background_data为后台数据
+    // dataArray.push(background_data);
+    
+    
+    /*判断是否有搜索条件，根据搜索条件去渲染表格*/
+
+    function show() {       
+            $(".data").remove();
+            for(var i = 0, len =  background_data.length; i < len; i++){
+                var html = '<tr class="data"><td>' + background_data[i].number + '</td><td>' + background_data[i].contact + '</td><td>' + background_data[i].authority + '</td><td><p>'
+                + '违建管理' + '<input type="checkbox" name=names[i] value="违建管理" />' 
+                + '&nbsp拆迁管理' + '<input type="checkbox" name=names[i] value="拆迁管理" />'
+                + '沉降管理' + '<input type="checkbox" name=names[i] value="沉降管理" />' 
+                + '&nbsp其他'     + '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name=names[i] value="其他" />' 
+                +'</p></td></tr>';
+                $(".table").append(html);
+                $("#IDCard").val('').focus()           
+            }
+        }
+
+    // function _check(){
+
+    //     for(var i = 0, len =  background_data.length; i < len; i++){
+    //         var obj = document.getElementsByName(names[i]);
+    //         var k = obj.length;
+    //         for(var j = 0; j < k; j++){
+    //             if (background_data[i].authority != obj[j].value) {
+    //                 alert('确认修改？');
+    //                 alert(document.getElementsByName(names[i]));
+    //                 return   // 若有修改无序再循环
+    //             }  
+    //         }
+                      
+    //     }
+    // }
+
+    function _check(){
+
+        for(var i = 0, len =  background_data.length; i < len; i++){
+            var obj = document.getElementsByName(names[i]);
+            var k = obj.length;
+            var check_val = [];
+            while(1){
+                for(var j = 0; j < k; j++){
+                    //获取用户选择权限
+                    if (background_data[i].authority != obj[j].value) {
+                        
+                        check_val.push(obj[j].value);
+                    }
+                }
+                //判断是否更新权限
+                if (background_data[i].authority != check_val){
+                    background_data[i].authority = check_val;
+                    break;
+                }
+                else{
+                    break;
+                }
+            
+            }
+                      
+        }
+    }
+    
+    
+</script>
+</body>
+</html>

@@ -29,7 +29,9 @@ urlpatterns = [
     url(r'^password_revise/', views.password_revise),
     url(r'^permissions_query/', views.permissions_query),
     url(r'^account_inquiry/', views.account_inquiry),
+    url(r'^roller_shutters/', views.roller_shutters),
     url(r'^info_revise/', views.info_revise),
+
 
     url(r'^ delete_usr/', views. delete_usr),
     url(r'^register_db/', views.regist_db),
