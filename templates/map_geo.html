@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+ <head>{% load staticfiles %}
+   <link rel="stylesheet" href="https://openlayers.org/en/v4.5.0/css/ol.css" type="text/css">
+   <style>
+     .map {
+       height: 100%;
+       width: 100%;
+     }
+   </style>
+     <style>
+    .ol-rotate{
+    right:100px;
+  }
+   </style>
+     <style>
+    .ol-scale-line {
+    left:500px;
+  }
+     </style>
+   <script src="https://openlayers.org/en/v4.5.0/build/ol.js" type="text/javascript"></script>
+   <title>OpenLayers example</title>
+ </head>
+ <body>
+   <div id="map" class="map"></div>
+   <script src="{% static 'js/require.js' %}"></script>
+   <script src="{% static 'js/geomap.js' %}"></script>
+   <script src="{% static 'js/default_geomap.js' %}"></script>
+   <script src="{% static 'js/baidumap.js' %}"></script>
+   <script type="text/javascript">
+     var map = new ol.Map({
+       target: 'map',
+       view: new ol.View({
+         center: ol.proj.fromLonLat([102.41, 24.82]),
+         zoom: 10
+       }),
+       controls: ol.control.defaults().extend([
+        new ol.control.FullScreen(),
+        new ol.control.OverviewMap({  }),
+        new ol.control.Rotate({
+            autoHide:false
+        }),
+        new ol.control.ScaleLine({  }),
+        new ol.control.ZoomSlider({  }),
+        new ol.control.ZoomToExtent({  })
+      ]),
+     });
+    //map.addLayer(baidu_layer);
+    map.addLayer(default_geo_layer);
+    map.addLayer(geoserver_layer);
+   </script>
+ </body>
+</html>
+
+<!-- http://172.20.53.157:8080/geoserver/test/wms
+https://openlayers.org/en/v4.6.5/build/ol.js-->
