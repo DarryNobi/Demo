@@ -31,7 +31,10 @@ urlpatterns = [
     url(r'^account_inquiry/', views.account_inquiry),
     url(r'^roller_shutters/', views.roller_shutters),
     url(r'^info_revise/', views.info_revise),
+    url(r'^authority_management/', views.authority_management),
+    url(r'^ranging/', views.ranging),
 
+##########################################################################
 
     url(r'^ delete_usr/', views. delete_usr),
     url(r'^register_db/', views.regist_db),

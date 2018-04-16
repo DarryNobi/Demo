@@ -10,6 +10,7 @@
     });
     map.addLayer(vectorLayer);
 */
+  $(function(){
     draw_btn_flag=true;
 
     var draw = new ol.interaction.Draw({
@@ -32,21 +33,31 @@
         }),
     });
     draw.on('drawend', function(e) {
-        alert();
+        val=draw.type;
+        //var canvas = e.context.canvas;
+        var geojson_c = new ol.format.GeoJSON();
+        //var geojs      ondata = geojson_c.writeGeometry(val);
+
+        alert(typeof map.getLayers());
     });
 
 
-    document.getElementById("map").innerHTML = "<button id='draw_button_div'>标绘</button>"
+   // document.getElementById("map").innerHTML = "<button id='draw_button_div'>标绘</button>"
     draw_btn=document.getElementById("draw_button_div");
     draw_btn.onclick=function(){
         if(draw_btn_flag){
+        $("#distance_button_div").hide();
+        $("#area_button_div").hide();
         map.addInteraction(draw);
         draw_btn_flag=false;
         draw_btn.innerHTML="取消标绘";
         }
         else{
+        $("#distance_button_div").show();
+        $("#area_button_div").show();
         map.removeInteraction(draw);
         draw_btn_flag=true
         draw_btn.innerHTML="标绘";
         }
     }
+});

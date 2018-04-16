@@ -39,7 +39,18 @@ table {
 					
 					<form action="/_permissions_query/" method="post" role="form" name="form1">
 					{% csrf_token %}
-						<div class="form-group"> 
+						<div class="form-group has-feedback">
+                <label for="querymethod">选择查询方式</label>
+                <div class="input-group",name="input-group">
+                    <select style="size: 6;" name="query_method">
+                        <option value='1' name="ibuild">用户名</option>
+                        <option value='2' name="agriculture">部门名</option>
+                        <option value='3' name="forest">手机号</option>
+                        <option value='4' name="road">联系人</option>
+                    </select>
+                </div>
+            </div>
+						<div class="form-group">
 							<label for="username">请输入账号</label>
 						<div class="input-group"> 
 							<input type="text" class="form-control" id="username" name="username" placeholder="请输入账号" >
@@ -58,12 +69,16 @@ table {
 							<th scope="col" width="20%" ><span style="color:white">联系人</span></th>
 							<th scope="col"><span style="color:white">权限</span></th>
 						</tr>
+
+							{% for user in users.values %}
 							<tr>
-							<th scope="col" width="20%" ><span style="color:black">{{users.username}}</span></th>
-							<th scope="col" width="20%" ><span style="color:black">{{users.contact_usr}}</span></th>
-							<th scope="col" width="20%" ><span style="color:black">{{users.user_permissions}}</span></th>
+							<th scope="col" width="20%" ><span style="color:black">{{user.username}}</span></th>
+							<th scope="col" width="20%" ><span style="color:black">{{user.contact_usr}}</span></th>
+							<th scope="col" width="20%" ><span style="color:black">{{user.user_permissions}}</span></th>
 							</tr>
+							{% endfor %}
 						</table>
+						<p>{{message1}}</p>
 						</div> 
 
 

@@ -57,9 +57,10 @@ table {
                         <table border="0" cellspacing="0" cellpadding="0" class="table">
                         <tr class=" label-primary">
                 
-                            <th scope="col" width="15%" ><span style="color:white">账号</span></th>
-                            <th scope="col" width="15%" ><span style="color:white">联系人</span></th>
-                            <th scope="col" width="40%"><span style="color:white">已有权限</span></th>
+                            <th scope="col" width="15%"><span style="color:white">账号</span></th>
+                            <th scope="col" width="15%"><span style="color:white">联系人</span></th>
+                            <th scope="col" width="20%"><span style="color:white">已有权限</span></th>
+                            <th scope="col" width="10%"><span style="color:white">状态</span></th>
                             <th scope="col"><span style="color:white">修改权限</span></th>
                             
 
@@ -84,10 +85,10 @@ table {
     /*删除*/
     /*dataArray为请求返回的数据*/
     var background_data = [
-    {number:111123, contact:'张三', authority:'拆迁管理',},
-    {number:111124, contact:'李四', authority:"违建管理",},
-    {number:111125, contact:'王五', authority:'违建管理',},
-    {number:111126, contact:'赵六', authority:'违建管理',},
+    {number:111123, contact:'张三', authority:'拆迁管理', status:'启用'},
+    {number:111124, contact:'李四', authority:'违建管理', status:'禁用'},
+    {number:111125, contact:'王五', authority:'违建管理', status:'启用'},
+    {number:111126, contact:'赵六', authority:'违建管理', status:'禁用'},
     ];
     /*删除*/
 
@@ -109,16 +110,27 @@ table {
     function show() {       
             $(".data").remove();
             for(var i = 0, len =  background_data.length; i < len; i++){
-                var html = '<tr class="data"><td>' + background_data[i].number + '</td><td>' + background_data[i].contact + '</td><td>' + background_data[i].authority + '</td><td><p>'
-                + '违建管理' + '<input type="checkbox" name=names[i] value="违建管理" />' 
-                + '&nbsp拆迁管理' + '<input type="checkbox" name=names[i] value="拆迁管理" />'
-                + '沉降管理' + '<input type="checkbox" name=names[i] value="沉降管理" />' 
-                + '&nbsp其他'     + '&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<input type="checkbox" name=names[i] value="其他" />' 
-                +'</p></td></tr>';
+                var html = '<tr class="data"><td>' + background_data[i].number + '</td><td>' + background_data[i].contact + '</td><td>' + background_data[i].authority + '</td>'
+                + '<td><select id="status' + i + '" class ="status"><option>启用</option><option>禁用</option></select></td><td id="authority'+ i +'"><p>'
+                + '违建管理' + '<input class="authoritylist" type="checkbox" name=names[i] value="违建管理" /></p><p>'
+                + '拆迁管理' + '<input class="authoritylist" type="checkbox" name=names[i] value="拆迁管理" /></p><p>'
+                + '沉降管理' + '<input class="authoritylist" type="checkbox" name=names[i] value="沉降管理" /></p><p>'
+                + '其他&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp' + '<input type="checkbox" name=names[i] value="其他" /></p><p>'
+                + '<button type="button" class="btn btn-primary">确认</button>&nbsp&nbsp&nbsp&nbsp&nbsp'
+                + '</p></td></tr>';
                 $(".table").append(html);
-                $("#IDCard").val('').focus()           
+                var status = background_data[i].status;
+                if (status === "启用"){
+                    $("#status" + i).val("启用");
+                    $("#authority" + i).attr("disabled","value");
+                } else {
+                    $("#status" + i).val("禁用");
+                    $("#authority" + i).attr("disabled","disabled");
+                }
+                $("#IDCard").val('').focus()
             }
         }
+
 
     // function _check(){
 

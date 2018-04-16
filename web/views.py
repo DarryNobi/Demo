@@ -62,6 +62,13 @@ def roller_shutters(request):
     return render(request,
                   template_name='roller_shutters.html')
 
+def authority_management(request):
+    return render(request,
+                  template_name='authorityManagement.html')
+
+def ranging(request):
+    return render(request,
+                  template_name='ranging.html')
 #########################################################################
 
 def save_graphic(request):
@@ -190,27 +197,54 @@ def permission_revise(request):
 @login_required
 #@permission_required('user_management',raise_exception=True)
 def _account_inquiry(request):
-    username = request.POST.get('username',False)
-    users_temp=User.objects.get(username=username)
-    users = model_to_dict(users_temp)
+    message = request.POST.get('message',False)
+    query_method=request.POST.get('query_method',False)
+    #method_dic={'1':'username','2':'department_name','3':'phone','4':'contact_usr'}
+    #method=method_dic[query_method]
+    users_temp=[]
+    if query_method == '1':
+     users_temp=User.objects.filter(username=message)
+    if query_method == '2':
+     users_temp=User.objects.filter(department_name=message)
+    if query_method == '3':
+     users_temp=User.objects.filter(phone=message)
+    if query_method == '4':
+     users_temp=User.objects.filter(contact_usr=message)
+    users = {}
+    for i in range(len(users_temp)):
+          users[i] = model_to_dict(users_temp[i])
     if users:
-        return render(request,'account_Inquiry.html',locals())
+          return render(request,'account_Inquiry.html',locals())
     else:
-        return render(request,'account_Inquiry.html',{'message':'没有找到该用户！'})
+          return render(request,'account_Inquiry.html',{'message1':'查找结果为空！'})
+
+
+
 
 def _permissions_query(request):
     username = request.POST.get('username',False)
-    users_temp=User.objects.get(username=username)
-    users = model_to_dict(users_temp)
+    query_method = request.POST.get('query_method', False)
+    users_temp = []
+    if query_method == '1':
+        users_temp = User.objects.filter(username=message)
+    if query_method == '2':
+        users_temp = User.objects.filter(department_name=message)
+    if query_method == '3':
+        users_temp = User.objects.filter(phone=message)
+    if query_method == '4':
+        users_temp = User.objects.filter(contact_usr=message)
+    users={}
+    for i in range(len(users_temp)):
+       users[i]=model_to_dict(users_temp[i])
     if users:
         return render(request,'permissions_query.html',locals())
     else:
-        return render(request,'permissions_query.html',{'message':'没有找到该用户！'})
+        return render(request,'permissions_query.html',{'message1':'查找结果为空！'})
 
 def check_username(request):
     username = request.POST.get('username', False)
     user=User.objects.filter(username=username)
     if user:
-        return(request,True)
+        return render(request,False)
     else:
-        return(request,False)
+        return render(request,True)
