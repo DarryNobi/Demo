@@ -56,7 +56,6 @@ table {
 
                         <div class="form-group"> 
                             <label for="IDCard">请导入数据</label>
-                            <p>{{ len }}</p>
                         <div class="input-group"> 
                              
                             <span class="input-group-btn"> 
@@ -75,8 +74,6 @@ table {
                             <th scope="col" width="20%"><span style="color:white">已有权限</span></th>
                             <th scope="col" width="10%"><span style="color:white">状态</span></th>
                             <th scope="col" class ="authorityTh"><span class="authoritySpan" style="color:white">修改权限</span></th>
-                            
-
                         </tr>
                         </table>
                     </div> 
@@ -95,7 +92,8 @@ table {
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-    var back_data = {{ users|safe }};
+    var back_data = {{ d_users|safe }};
+    alert(back_data['0']['last_name']);
     /*删除*/
     /*dataArray为请求返回的数据*/
     var background_data = [

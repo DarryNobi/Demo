@@ -16,6 +16,7 @@ import json
 from django.core import serializers
 from web.models import Myuser
 from django.forms.models import model_to_dict
+from django.core.serializers.json import DjangoJSONEncoder
 User = get_user_model()
 # Create your views here.
 
@@ -63,14 +64,14 @@ def roller_shutters(request):
                   template_name='roller_shutters.html')
 
 def authority_management(request):
-    users_tmp=User.objects.all()
-    users={}
+    users_temp=User.objects.all()
+    d_users={}
     for i in range(len(users_temp)):
-          users[i] = model_to_dict(users_temp[i])
-    if users:
-          return render(request,'account_Inquiry.html',users)
+          d_users[i] = model_to_dict(users_temp[i])
+    if d_users:
+          return render(request,'authorityManagement.html',{'d_users':json.dumps(d_users,cls=DjangoJSONEncoder)})
     else:
-          return render(request,'account_Inquiry.html',{'message1':'查找结果为空！'})
+          return render(request,'authorityManagement.html',{'message':'查找结果为空！'})
 
 def ranging(request):
     return render(request,
