@@ -187,7 +187,7 @@ def permission_revise(request):
     user = User.objects.filter(id=userid)
     dictionary={'user_management','ibuild_management','delimotion_management','recource_management'}
     for i in range(0,4):
-       if 'i' in check_box:
+       if i in check_box:
         user.user_permissions.add(dictionary[i])
        elif user.has_perm(dictionary[i]):
         user.user_permissions.delete(dictionary[i])
@@ -222,7 +222,7 @@ def _account_inquiry(request):
 
 
 def _permissions_query(request):
-    username = request.POST.get('username',False)
+    message = request.POST.get('message',False)
     query_method = request.POST.get('query_method', False)
     users_temp = []
     if query_method == '1':
