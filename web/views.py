@@ -65,12 +65,12 @@ def roller_shutters(request):
 def authority_management(request):
     users_tmp=User.objects.all()
     users={}
-    for i in range(len(users_temp)):
-          users[i] = model_to_dict(users_temp[i])
+    for i in range(len(users_tmp)):
+          users[i] = model_to_dict(users_tmp[i])
     if users:
-          return render(request,'account_Inquiry.html',users)
+          return render(request,'authorityManagement.html',{'users':json.dumps(users)})
     else:
-          return render(request,'account_Inquiry.html',{'message1':'查找结果为空！'})
+          return render(request,'authorityManagement.html',{'message1':'查找结果为空！'})
 
 def ranging(request):
     return render(request,
