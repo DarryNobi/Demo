@@ -150,7 +150,7 @@ def usr_info_revise(request):
     else:
         return render(request,{'message':'用户不存在！'})
 
-@login_required
+#@login_required
 #@permission_required('user_management',raise_exception=True)
 def add_usr(request):
     username = request.POST.get("username", False)
@@ -204,7 +204,7 @@ def permission_revise(request):
 
     return render(request,{'message':'修改成功！'})
 
-@login_required
+#@login_required
 #@permission_required('user_management',raise_exception=True)
 def _account_inquiry(request):
     message = request.POST.get('message',False)
