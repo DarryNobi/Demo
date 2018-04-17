@@ -23,6 +23,18 @@
 table {
 
 }
+.authorityTd {
+    text-align: center;
+}
+.authorityTh {
+    text-align: center;
+}
+.subBut {
+    margin-left: 20px;
+}
+.authoritySpan {
+    margin-right: 8px;
+}
 </style>
 </head>
 <body class="bs-docs-home">
@@ -43,7 +55,8 @@ table {
                     <form role="form" name="form1">
 
                         <div class="form-group"> 
-                            <label for="IDCard">请导入数据</label> 
+                            <label for="IDCard">请导入数据</label>
+                            <p>{{ }}</p>>
                         <div class="input-group"> 
                              
                             <span class="input-group-btn"> 
@@ -61,17 +74,17 @@ table {
                             <th scope="col" width="15%"><span style="color:white">联系人</span></th>
                             <th scope="col" width="20%"><span style="color:white">已有权限</span></th>
                             <th scope="col" width="10%"><span style="color:white">状态</span></th>
-                            <th scope="col"><span style="color:white">修改权限</span></th>
+                            <th scope="col" class ="authorityTh"><span class="authoritySpan" style="color:white">修改权限</span></th>
                             
 
                         </tr>
                         </table>
                     </div> 
 
-                    <div class="form-group">
+                    <!--<div class="form-group">-->
 
-                        <input class="form-control btn btn-primary" id="submit" value="确&nbsp;&nbsp;认&nbsp;&nbsp;修&nbsp;&nbsp;改" type="button" onclick="_check()"/>
-                    </div>
+                        <!--<input class="form-control btn btn-primary" id="submit" value="确&nbsp;&nbsp;认&nbsp;&nbsp;修&nbsp;&nbsp;改" type="button" onclick="_check()"/>-->
+                    <!--</div>-->
 
                 </div> 
             </div> 
@@ -82,6 +95,7 @@ table {
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+    var back_data = {{ users|safe }};
     /*删除*/
     /*dataArray为请求返回的数据*/
     var background_data = [
@@ -111,12 +125,12 @@ table {
             $(".data").remove();
             for(var i = 0, len =  background_data.length; i < len; i++){
                 var html = '<tr class="data"><td>' + background_data[i].number + '</td><td>' + background_data[i].contact + '</td><td>' + background_data[i].authority + '</td>'
-                + '<td><select id="status' + i + '" class ="status"><option id="openSta' + i + '" value="启用">启用</option><option id="closeSta' + i + '" value="禁用">禁用</option></select></td><td><p>'
+                + '<td><select id="status' + i + '" class ="status"><option id="openSta' + i + '" value="启用">启用</option><option id="closeSta' + i + '" value="禁用">禁用</option></select></td><td class="authorityTd"><p>'
                 + '违建管理' + '<input class="authorityList' + i +'" type="checkbox" name=names[i] value="违建管理" /></p><p>'
                 + '拆迁管理' + '<input class="authorityList' + i +'" type="checkbox" name=names[i] value="拆迁管理" /></p><p>'
                 + '沉降管理' + '<input class="authorityList' + i +'" type="checkbox" name=names[i] value="沉降管理" /></p><p>'
                 + '其他&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp' + '<input class="authorityList' + i +'" type="checkbox" name=names[i] value="其他" /></p><p>'
-                + '<button type="button" class="btn btn-primary">确认</button>&nbsp&nbsp&nbsp&nbsp&nbsp'
+                + '<button type="button" id="subBut' + i + '" class="btn btn-primary subBut">确认</button>&nbsp&nbsp&nbsp&nbsp&nbsp'
                 + '</p></td></tr>';
                 $(".table").append(html);
                 var status = background_data[i].status,
@@ -129,29 +143,18 @@ table {
                 }
                 var selectedVal = statusSel.children('option:selected').val();
                 if (selectedVal === "禁用") {
+                    $("#subBut" + i).attr("disabled",true);
                     authList.each(function(index, val){
                         $(val).attr("disabled",true);
                     });
                 } else {
+                    $("#subBut" + i).removeAttr("disabled");
                     authList.each(function(index, val){
                         $(val).removeAttr("disabled");
                     });
                 }
-                statusSel.change(function (){
-                    var selectedVal1 = $(this).children('option:selected').val(),
-                        selectId = this.id;
-                    var idNum = parseInt(selectId.slice(6,7)),
-                        authList1 = $(".authorityList" + idNum);
-                    if (selectedVal1 === "禁用"){
-                        authList1.each(function(index, val){
-                            $(val).attr("disabled",true);
-                        });
-                    } else {
-                        authList1.each(function(index, val){
-                            $(val).removeAttr("disabled");
-                        });
-                    }
-                });
+                var idNum = parseInt(statusSel[0].id.slice(6,7));
+                statusSel.on("change", {"num":idNum}, _updateList);
                 $("#IDCard").val('').focus()
             }
         }
@@ -172,6 +175,22 @@ table {
                       
     //     }
     // }
+    function _updateList(data){
+        var num = data.data.num,
+            selectedVal1 = $("#status" + num).children('option:selected').val(),
+            authList1 = $(".authorityList" + num);
+        if (selectedVal1 === "禁用"){
+            $("#subBut" + num).attr("disabled",true);
+            authList1.each(function(index, val){
+                $(val).attr("disabled",true);
+            });
+        } else {
+            $("#subBut" + num).removeAttr("disabled");
+            authList1.each(function(index, val){
+                $(val).removeAttr("disabled");
+            });
+        }
+    }
 
     function _check(){
 
