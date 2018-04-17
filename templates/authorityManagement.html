@@ -119,23 +119,39 @@ table {
                 + '<button type="button" class="btn btn-primary">确认</button>&nbsp&nbsp&nbsp&nbsp&nbsp'
                 + '</p></td></tr>';
                 $(".table").append(html);
-                var status = background_data[i].status;
-                var statusSle = $("#status" + i);
-                var authList = $(".authorityList" + i);
-                for(var j = 0; j < statusSle[0].options.length; j++){
-                    if(statusSle[0].options[j].value === status){
-                        statusSle[0].options[j].selected = true;
+                var status = background_data[i].status,
+                    statusSel = $("#status" + i),
+                    authList = $(".authorityList" + i);
+                for(var j = 0; j < statusSel[0].options.length; j++){
+                    if(statusSel[0].options[j].value === status){
+                        statusSel[0].options[j].selected = true;
                     }
                 }
-                if ($("#closeSta" + i)[0].selected){
-                    authList.each(function(){
-                        $(this).attr("disabled",true);
+                var selectedVal = statusSel.children('option:selected').val();
+                if (selectedVal === "禁用") {
+                    authList.each(function(index, val){
+                        $(val).attr("disabled",true);
                     });
                 } else {
-                    authList.each(function(){
-                        $(this).removeAttr("disabled");
+                    authList.each(function(index, val){
+                        $(val).removeAttr("disabled");
                     });
                 }
+                statusSel.change(function (){
+                    var selectedVal1 = $(this).children('option:selected').val(),
+                        selectId = this.id;
+                    var idNum = parseInt(selectId.slice(6,7)),
+                        authList1 = $(".authorityList" + idNum);
+                    if (selectedVal1 === "禁用"){
+                        authList1.each(function(index, val){
+                            $(val).attr("disabled",true);
+                        });
+                    } else {
+                        authList1.each(function(index, val){
+                            $(val).removeAttr("disabled");
+                        });
+                    }
+                });
                 $("#IDCard").val('').focus()
             }
         }
