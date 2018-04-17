@@ -67,10 +67,13 @@ def authority_management(request):
     users={}
     for i in range(len(users_temp)):
         users[i]=model_to_dict(users_temp[i])
+    users = {}
+    for i in range(len(users_temp)):
+        users[i] = model_to_dict(users_temp[i])
     if users:
-        return render(request, 'authorityManagement.html', {'users': json.dumps(users)})
+        return render(request, 'authority_Management.html', users)
     else:
-        return render(request, 'authorityManagement.html', {'message1': '查找结果为空！'})
+        return render(request, 'authority_Management.html', {'message1': '查找结果为空！'})
 
 
 def ranging(request):
