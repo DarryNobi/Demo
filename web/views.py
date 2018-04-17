@@ -63,8 +63,14 @@ def roller_shutters(request):
                   template_name='roller_shutters.html')
 
 def authority_management(request):
-    return render(request,
-                  template_name='authorityManagement.html')
+    users_tmp=User.objects.all()
+    users={}
+    for i in range(len(users_temp)):
+          users[i] = model_to_dict(users_temp[i])
+    if users:
+          return render(request,'account_Inquiry.html',users)
+    else:
+          return render(request,'account_Inquiry.html',{'message1':'查找结果为空！'})
 
 def ranging(request):
     return render(request,

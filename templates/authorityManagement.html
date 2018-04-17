@@ -82,14 +82,10 @@ table {
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/js/bootstrap.min.js"></script>
 <script type="text/javascript">
+    var background_data={{ users.values|safe }};
     /*删除*/
     /*dataArray为请求返回的数据*/
-    var background_data = [
-    {number:111123, contact:'张三', authority:'拆迁管理', status:'禁用'},
-    {number:111124, contact:'李四', authority:'违建管理', status:'禁用'},
-    {number:111125, contact:'王五', authority:'违建管理', status:'启用'},
-    {number:111126, contact:'赵六', authority:'违建管理', status:'禁用'},
-    ];
+
     /*删除*/
 
     var names = new Array()
