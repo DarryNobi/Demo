@@ -40,6 +40,16 @@
         var coordinates=geo.getCoordinates();
         var geostr = coordinates[0].join(";");
         alert(geostr);
+        $.ajax({
+            type:'post',
+            url:'/save_draw/',
+            data: {
+            'coordi':geostr},
+            success:function(){
+                alert('success')},
+            error:function(){
+                alert('error')}
+        });
     });
 
 
