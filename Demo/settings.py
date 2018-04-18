@@ -137,10 +137,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = '/home/zhou/PycharmProjects/Demo/static'
 STATIC_ROOT= os.path.join(BASE_DIR,'statics/')
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "blog/static/"),
-    os.path.join(BASE_DIR,'static/')
-)
+
+
+
 
 AUTH_USER_MODEL = "web.Myuser"
 
