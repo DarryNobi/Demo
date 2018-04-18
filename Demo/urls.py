@@ -34,6 +34,7 @@ urlpatterns = [
     url(r'^info_revise/', views.info_revise),
     url(r'^authority_management/', views.authority_management),
     url(r'^ranging/', views.ranging),
+    url(r'^home/', views.home),
 
 ##########################################################################
 
