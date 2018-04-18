@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import  url
 from web import views
-
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
@@ -54,3 +54,5 @@ urlpatterns = [
     url(r'^_permissions_query/',views._permissions_query),
     url(r'^status_revise/', views.status_revise),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
