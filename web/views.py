@@ -105,12 +105,10 @@ def login_check(request):
     password= request.POST.get("password", False)
     user = auth.authenticate(username=username, password=password)
     if user:
-        if user.is_active:
-            request.session['username']=username
-            auth.login(request, user)
-            return render(request, 'index.html', {'message1': '登录成功'})
-        else:
-            return render(request, 'login.html', {'message1': '用户被禁用'})
+        request.session['username']=username
+        auth.login(request, user)
+        return render(request, 'index.html', {'message1': '登录成功'})
+
     else:
        return render(request, 'login.html', {'message1': '用户名或密码错误'})
 
@@ -262,11 +260,15 @@ def check_username(request):
         return render(request,True)
 
 def status_revise(request):
-    raw_dic=request.raw_post_data
-    dic=json.loads(raw_dic,cls=DjangoJSONEncoder)
-    is_active=dic['is_active']
-    id=dic['id']
+    #raw_dic=request.raw_post_data()
+    #dic=json.loads(raw_dic,cls=DjangoJSONEncoder)
+    is_active=request.POST.get('is_active', False)
+    id=request.POST.get('id', False)
     user=User.objects.get(id=id)
     user.is_active=is_active
     user.save()
     return render(request,'authorityManagement.html',{'userid':id,'isactive':is_active})
+
+def save_draw(request):
+    raw_dic = request.POST.get('coordi', False)
+    return render(request,'',{'message':'success'})

@@ -7,13 +7,19 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <title>权限管理</title>
+      {% load staticfiles %}
 <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap-theme.min.css">
 <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 <!--[if lt IE 9]>
+        <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-
+<script >
+      $.ajaxSetup({
+         data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+      });
+     </script>
 <![endif]-->
 <style>
 .bs-docs-home
@@ -196,13 +202,14 @@ var num = data.data.num;
             $.ajax({
             type:'post',
             url:'/status_revise/',
-            data: {"is_active":"false","id":userid},
+            data: {csrfmiddlewaretoken: '{{ csrf_token }}',
+            "is_active":"False",
+            "id":userid},
             dataType:'json',
             success:function(){
             alert('bbbbbbb')},
 
-            error:function(){
-            alert('ccccccccc')}
+
 
             });
         } else {
@@ -213,14 +220,14 @@ var num = data.data.num;
             $.ajax({
            type:'post',
            url:'/status_revise/',
-           data:{"is_active":"true","id":userid},
+           data:{csrfmiddlewaretoken: '{{ csrf_token }}',
+           "is_active":"True",
+           "id":userid},
            dataType:'json',
            success:function(){
             alert('bbbbbbb')},
 
-            error:function(){
-            alert('ccccccccc')}
-            });
+ });
         }
 }
 

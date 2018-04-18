@@ -53,6 +53,7 @@ urlpatterns = [
     url(r'^check_username/', views.check_username),
     url(r'^_permissions_query/',views._permissions_query),
     url(r'^status_revise/', views.status_revise),
+    url(r'^save_draw/', views.save_draw),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
