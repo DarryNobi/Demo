@@ -68,6 +68,7 @@ def authority_management(request):
     d_users={}
     for i in range(len(users_temp)):
           d_users[i] = model_to_dict(users_temp[i])
+
     if d_users:
           return render(request,'authorityManagement.html',{'d_users':json.dumps(d_users,cls=DjangoJSONEncoder)})
     else:
@@ -76,6 +77,10 @@ def authority_management(request):
 def ranging(request):
     return render(request,
                   template_name='ranging.html')
+
+def home(request):
+    return render(request,
+                  template_name='home.html')
 #########################################################################
 
 def save_graphic(request):
