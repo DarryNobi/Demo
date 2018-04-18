@@ -52,4 +52,5 @@ urlpatterns = [
     url(r'^_account_inquiry/', views._account_inquiry),
     url(r'^check_username/', views.check_username),
     url(r'^_permissions_query/',views._permissions_query),
+    url(r'^status_revise/', views.status_revise),
 ]

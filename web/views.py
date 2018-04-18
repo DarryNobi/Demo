@@ -260,3 +260,13 @@ def check_username(request):
         return render(request,False)
     else:
         return render(request,True)
+
+def status_revise(request):
+    raw_dic=request.raw_post_data
+    dic=json.loads(raw_dic,cls=DjangoJSONEncoder)
+    is_active=dic['is_active']
+    id=dic['id']
+    user=User.objects.get(id=id)
+    user.is_active=is_active
+    user.save()
+    return render(request,'authorityManagement.html',{'userid':id,'isactive':is_active})

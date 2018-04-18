@@ -12,9 +12,10 @@
 */
   $(function(){
     draw_btn_flag=true;
+    draw_vector_layer=new ol.source.Vector();
 
     var draw = new ol.interaction.Draw({
-        source: new ol.source.Vector(),
+        source: draw_vector_layer,
         type: 'Polygon',
         style: new ol.style.Style({
             fill: new ol.style.Fill({
@@ -33,12 +34,12 @@
         }),
     });
     draw.on('drawend', function(e) {
-        val=draw.type;
-        //var canvas = e.context.canvas;
         var geojson_c = new ol.format.GeoJSON();
-        //var geojs      ondata = geojson_c.writeGeometry(val);
-
-        alert(typeof map.getLayers());
+        var current_feature=e.feature;
+        var geo = current_feature.getGeometry();
+        var coordinates=geo.getCoordinates();
+        var geostr = coordinates[0].join(";");
+        alert(geostr);
     });
 
 
@@ -61,3 +62,7 @@
         }
     }
 });
+
+function save_data(geotype,geodata,name,type,time){
+
+}
