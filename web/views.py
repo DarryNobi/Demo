@@ -18,6 +18,7 @@ from web.models import Myuser
 from web.models import GraphicLabel
 from django.forms.models import model_to_dict
 from django.core.serializers.json import DjangoJSONEncoder
+from django.http import HttpResponse, JsonResponse
 User = get_user_model()
 # Create your views here.
 
@@ -194,20 +195,18 @@ def unenable_usr(request):
     return render(request,{'message':'禁用成功！'})
 
 
-@login_required
+#@login_required
 #@permission_required('user_management',raise_exception=True)
 def permission_revise(request):
-    userid = request.POST.get("userid", False)
-    check_box = request.POST.getlist('check_box',False)
-    user = User.objects.filter(id=userid)
-    dictionary={'user_management','ibuild_management','delimotion_management','recource_management'}
-    for i in range(0,4):
-       if i in check_box:
-        user.user_permissions.add(dictionary[i])
-       elif user.has_perm(dictionary[i]):
-        user.user_permissions.delete(dictionary[i])
-
-    return render(request,{'message':'修改成功！'})
+    userid = request.POST.get("id", False)
+    check_box = request.POST.get('permission_value',False)
+    check_box=json.loads(check_box)
+    user = User.objects.get(id=userid)
+    user.user_permissions.clear()
+    permission_dict={'1':'user_management','2':'ibuild_management','3':'delimotion_management', '4':'recource_management'}
+    for i in check_box:
+       user.user_permissions.add( permission_dict[i] )
+    return JsonResponse({'message':'修改成功！'})
 
 #@login_required
 #@permission_required('user_management',raise_exception=True)
@@ -279,7 +278,7 @@ def save_draw(request):
     coordis=raw_dic.replace(",",";").split(";")
     coordis_num=[float(c) for c in coordis]
     coordis_list=[coordis_num[i:i+2] for i in range(0,len(coordis_num),2)]
-    jsonstr={'type':'feature','geometry':{'type':'Polygon','coordinates':[coordis_list]},'properties':{'name':'name'}}
+    jsonstr={'type':'Feature','geometry':{'type':'Polygon','coordinates':[coordis_list]},'properties':{'name':'name'}}
     jsondata=json.dumps(jsonstr)
 
     draw_obj = GraphicLabel.objects.create(name='default',context=jsondata)
@@ -288,5 +287,7 @@ def save_draw(request):
 
 def load_all_draw(request):
     all_draws=GraphicLabel.objects.all()
-    all_draws_data = [model_to_dict(draw) for draw in all_draws]
-    return render(request,'map_geo.html',{'all_draws':json.dumps(all_draws_data,cls=DjangoJSONEncoder)})
+    test_tmp=all_draws[0]
+    all_draws_data = [draw.context for draw in all_draws]
+    return JsonResponse({'all_draws':all_draws_data})
+
