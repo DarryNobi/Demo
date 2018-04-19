@@ -83,7 +83,14 @@
    <script src="{% static 'js/geomap.js' %}"></script>
    <script src="{% static 'js/default_geomap.js' %}"></script>
    <script src="{% static 'js/baidumap.js' %}"></script>
-
+<!--   <script src="{% static 'js/load_draw.js' %}"></script> -->
+    <script>
+    window.onload=function(){
+    $.post("/load_all_draw/");
+    var all_draws={{ all_draws|safe }};
+    alert(all_draws);
+    };
+</script>
    <title>OpenLayers example</title>
  </head>
  <body>

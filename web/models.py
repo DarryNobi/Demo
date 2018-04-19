@@ -18,7 +18,7 @@ class GraphicLabel(models.Model):
     )
     name = models.CharField(max_length=16)
     grahpictype = models.CharField(max_length=4,choices=GraphicType)
-    context = models.FileField()
+    context = models.TextField()
 
 class Map(models.Model):
     Maptype=(
