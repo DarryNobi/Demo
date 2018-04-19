@@ -120,6 +120,7 @@ window.onload=function(){
                 $(".table").append(html);
                 var isActive = back_data[i]['is_active'],
                     statusSel = $("#status" + i),
+
                     authList = $(".authorityList" + i);
                 //for(var j = 0; j < statusSel[0].options.length; j++){
                     if(isActive){
@@ -142,7 +143,7 @@ window.onload=function(){
                 }
                 var idNum = parseInt(statusSel[0].id.slice(6,7));
                 var userid=back_data[i]['id'];
-                statusSel.on("change", {"num":idNum,"userid":userid}, _confirm);
+                statusSel.on("change", {"num":idNum,"userid":userid}, status_confirm);
                 $("#IDCard").val('').focus()
             }
 
@@ -186,7 +187,7 @@ function _updateList(data){
 
 
 
-function _confirm(data){
+function status_confirm(data){
 var mes="您确定修改吗？";
 if(confirm(mes)==true)
 {alert("aaaaaaa");

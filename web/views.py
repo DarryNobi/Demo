@@ -255,9 +255,9 @@ def check_username(request):
     username = request.POST.get('username', False)
     user=User.objects.filter(username=username)
     if user:
-        return render(request,False)
+        return HttpResponse("false")
     else:
-        return render(request,True)
+        return HttpResponse("true")
 
 def status_revise(request):
     #raw_dic=request.raw_post_data()
