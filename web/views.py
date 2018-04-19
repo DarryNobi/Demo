@@ -15,6 +15,7 @@ from django.contrib import auth
 import json
 from django.core import serializers
 from web.models import Myuser
+from web.models import GraphicLabel
 from django.forms.models import model_to_dict
 from django.core.serializers.json import DjangoJSONEncoder
 User = get_user_model()
@@ -81,6 +82,10 @@ def ranging(request):
 def home(request):
     return render(request,
                   template_name='home.html')
+
+def resource_search(request):
+    return render(request,
+                  template_name='resource_search.html')
 #########################################################################
 
 def save_graphic(request):
@@ -271,4 +276,17 @@ def status_revise(request):
 
 def save_draw(request):
     raw_dic = request.POST.get('coordi', False)
-    return render(request,'',{'message':'success'})
+    coordis=raw_dic.replace(",",";").split(";")
+    coordis_num=[float(c) for c in coordis]
+    coordis_list=[coordis_num[i:i+2] for i in range(0,len(coordis_num),2)]
+    jsonstr={'type':'feature','geometry':{'type':'Polygon','coordinates':[coordis_list]},'properties':{'name':'name'}}
+    jsondata=json.dumps(jsonstr)
+
+    draw_obj = GraphicLabel.objects.create(name='default',context=jsondata)
+    draw_obj.save()
+    return render(request,'map_geo.html',{'message':'success'})
+
+def load_all_draw(request):
+    all_draws=GraphicLabel.objects.all()
+    all_draws_data = [model_to_dict(draw) for draw in all_draws]
+    return render(request,'map_geo.html',{'all_draws':json.dumps(all_draws_data,cls=DjangoJSONEncoder)})

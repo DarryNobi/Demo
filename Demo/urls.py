@@ -35,6 +35,7 @@ urlpatterns = [
     url(r'^authority_management/', views.authority_management),
     url(r'^ranging/', views.ranging),
     url(r'^home/', views.home),
+    url(r'^resource_search/', views.resource_search),
 
 ##########################################################################
 
@@ -54,6 +55,7 @@ urlpatterns = [
     url(r'^_permissions_query/',views._permissions_query),
     url(r'^status_revise/', views.status_revise),
     url(r'^save_draw/', views.save_draw),
+    url(r'^load_all_draw/', views.load_all_draw),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
