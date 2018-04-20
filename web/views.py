@@ -11,6 +11,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import Permission
 from django.contrib import auth
 import json
 from django.core import serializers
@@ -70,7 +71,11 @@ def authority_management(request):
     d_users={}
     for i in range(len(users_temp)):
           d_users[i] = model_to_dict(users_temp[i])
-
+          user_permissions = []
+          for j in range(len(d_users[i]['user_permissions'])):
+            tmp=d_users[i]['user_permissions'][j].name
+            user_permissions.append(tmp)
+          d_users[i]['user_permissions']=user_permissions
     if d_users:
           return render(request,'authorityManagement.html',{'d_users':json.dumps(d_users,cls=DjangoJSONEncoder)})
     else:
@@ -203,10 +208,11 @@ def permission_revise(request):
     check_box=json.loads(check_box)
     user = User.objects.get(id=userid)
     user.user_permissions.clear()
-    permission_dict={'1':'user_management','2':'ibuild_management','3':'delimotion_management', '4':'recource_management'}
+    permission_dict={'1':'user_management','2':'ibuild_management','3':'demolition_management', '4':'recource_management'}
     for i in check_box:
-       user.user_permissions.add( permission_dict[i] )
-    return JsonResponse({'message':'修改成功！'})
+       permission = Permission.objects.get(codename=permission_dict[i])
+       user.user_permissions.add( permission )
+    return JsonResponse({'message':"success"})
 
 #@login_required
 #@permission_required('user_management',raise_exception=True)
