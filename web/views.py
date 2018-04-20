@@ -11,6 +11,7 @@ from django.contrib.auth import logout
 from django.contrib.auth.decorators import permission_required
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
+from django.contrib.auth.models import Permission
 from django.contrib import auth
 import json
 from django.core import serializers
@@ -19,6 +20,7 @@ from web.models import GraphicLabel
 from django.forms.models import model_to_dict
 from django.core.serializers.json import DjangoJSONEncoder
 from django.http import HttpResponse, JsonResponse
+
 User = get_user_model()
 # Create your views here.
 
@@ -205,7 +207,14 @@ def permission_revise(request):
     user.user_permissions.clear()
     permission_dict={'1':'user_management','2':'ibuild_management','3':'delimotion_management', '4':'recource_management'}
     for i in check_box:
-       user.user_permissions.add( permission_dict[i] )
+       permission1=Permission.objects.get(codename="user_management")
+       user.user_permissions.add( permission1 )
+       permission1 = Permission.objects.get(codename="ibuild_management")
+       user.user_permissions.add(permission1)
+       permission1 = Permission.objects.get(codename="delimotion_management")
+       user.user_permissions.add(permission1)
+       permission1 = Permission.objects.get(codename="recource_management")
+       user.user_permissions.add(permission1)
     return JsonResponse({'message':'修改成功！'})
 
 #@login_required
