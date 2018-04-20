@@ -20,7 +20,6 @@ from web.models import GraphicLabel
 from django.forms.models import model_to_dict
 from django.core.serializers.json import DjangoJSONEncoder
 from django.http import HttpResponse, JsonResponse
-
 User = get_user_model()
 # Create your views here.
 
@@ -72,7 +71,11 @@ def authority_management(request):
     d_users={}
     for i in range(len(users_temp)):
           d_users[i] = model_to_dict(users_temp[i])
-
+          user_permissions = []
+          for j in range(len(d_users[i]['user_permissions'])):
+            tmp=d_users[i]['user_permissions'][j].name
+            user_permissions.append(tmp)
+          d_users[i]['user_permissions']=user_permissions
     if d_users:
           return render(request,'authorityManagement.html',{'d_users':json.dumps(d_users,cls=DjangoJSONEncoder)})
     else:
@@ -205,17 +208,11 @@ def permission_revise(request):
     check_box=json.loads(check_box)
     user = User.objects.get(id=userid)
     user.user_permissions.clear()
-    permission_dict={'1':'user_management','2':'ibuild_management','3':'delimotion_management', '4':'recource_management'}
+    permission_dict={'1':'user_management','2':'ibuild_management','3':'demolition_management', '4':'recource_management'}
     for i in check_box:
-       permission1=Permission.objects.get(codename="user_management")
-       user.user_permissions.add( permission1 )
-       permission1 = Permission.objects.get(codename="ibuild_management")
-       user.user_permissions.add(permission1)
-       permission1 = Permission.objects.get(codename="delimotion_management")
-       user.user_permissions.add(permission1)
-       permission1 = Permission.objects.get(codename="recource_management")
-       user.user_permissions.add(permission1)
-    return JsonResponse({'message':'修改成功！'})
+       permission = Permission.objects.get(codename=permission_dict[i])
+       user.user_permissions.add( permission )
+    return JsonResponse({'message':"success"})
 
 #@login_required
 #@permission_required('user_management',raise_exception=True)

@@ -248,33 +248,7 @@ if(confirm(mes)==true)
 }
 
 
-    function _check(){
 
-        for(var i = 0, len =  background_data.length; i < len; i++){
-            var obj = document.getElementsByName(names[i]);
-            var k = obj.length;
-            var check_val = [];
-            while(1){
-                for(var j = 0; j < k; j++){
-                    //获取用户选择权限
-                    if (background_data[i].authority != obj[j].value) {
-
-                        check_val.push(obj[j].value);
-                    }
-                }
-                //判断是否更新权限
-                if (background_data[i].authority != check_val){
-                    background_data[i].authority = check_val;
-                    break;
-                }
-                else{
-                    break;
-                }
-
-            }
-
-        }
-    }
 
 
 </script>
