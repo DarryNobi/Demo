@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>权限查询（Bootstrap）</title>
+<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap-theme.min.css">
+<!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<style>
+.bs-docs-home
+{ 
+	background-color: #ffffff; 
+	background-image: url(line.png); 
+} 
+table {
+
+}
+</style>
+</head>
+<body class="bs-docs-home">
+	<div class="container theme-showcase">
+		<h1 style=" line-height:2em;"></h1><br/>
+		<div class="row">
+			<div class="col-sm-3"></div> 
+			<div class="col-sm-6">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title"><strong>权限查询</strong></h3>
+				</div>
+				<div class="panel-body"> 
+					
+					<form action="/_permissions_query/" method="post" role="form" name="form1">
+					{% csrf_token %}
+						<div class="form-group"> 
+							<label for="username">请输入账号</label>
+						<div class="input-group"> 
+							<input type="text" class="form-control" id="username" name="username" placeholder="请输入账号" >
+							<span class="input-group-btn"> 
+								<button class="btn btn-default" type="submit" >查询</button>
+							</span> 
+						</div> 
+						</div> 
+					</form>
+
+					<div class="table-responsive">
+						<table border="0" cellspacing="0" cellpadding="0" class="table">
+						<tr class=" label-primary">
+				
+							<th scope="col" width="20%" ><span style="color:white">账号</span></th>
+							<th scope="col" width="20%" ><span style="color:white">联系人</span></th>
+							<th scope="col"><span style="color:white">权限</span></th>
+						</tr>
+							<tr>
+							<th scope="col" width="20%" ><span style="color:black">{{users.username}}</span></th>
+							<th scope="col" width="20%" ><span style="color:black">{{users.contact_usr}}</span></th>
+							<th scope="col" width="20%" ><span style="color:black">{{users}}</span></th>
+							</tr>
+						</table>
+						</div> 
+
+
+				</div> 
+			</div> 
+			</div> 
+			<div class="col-sm-3"></div> 
+		</div>
+	</div> 
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	/*删除*/
+	/*dataArray为请求返回的数据*/
+	var background_data = [
+	{number:111123, contact:'张三', authority:'违建管理部门',},
+	{number:111124, contact:'李四', authority:'违建管理部门',},
+	{number:111125, contact:'王五', authority:'违建管理部门',},
+	{number:111126, contact:'赵六', authority:'违建管理部门',},
+	];
+	/*删除*/
+
+	// var dataArray = new Array()
+
+	// background_data为后台数据
+	// dataArray.push(background_data);
+	
+	
+	/*判断是否有搜索条件，根据搜索条件去渲染表格*/
+
+	function search() {
+		if($("#IDCard").val()) {
+			$(".data").remove();
+			for(var i = 0, len =  background_data.length; i < len; i++){
+				if($("#IDCard").val() == background_data[i].number) {
+					var html = '<tr class="data"><td>' + background_data[i].number + '</td><td>' + background_data[i].contact + '</td><td>' + background_data[i].authority + '</td></tr>';
+					$(".table").append(html);
+					$("#IDCard").val('').focus()
+					return // 证明已经找到符合条件的数据，所以退出整个函数
+				} 
+			}
+			/**
+			循环执行完毕仍未找到符合条件的数据，故不存在，所以提示
+			**/
+			alert('未找到该人员');
+			$("#IDCard").val('').focus()
+		}
+	}
+	
+</script>
+</body>
+</html>

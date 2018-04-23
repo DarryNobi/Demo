@@ -16,52 +16,48 @@
     <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
    <script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+
 <script>
 $().ready(function() {
-	//在键盘按下并释放及提交后验证提交表单
-	  $("#signupForm").validate({
-	    rules: {
-	    	username: {
+// 在键盘按下并释放及提交后验证提交表单
+  $("#signupForm").validate({
+    rules: {
+      username: {
+        required: true,
+        minlength: 2
+      },
+      password1: {
+        required: true,
+        minlength: 5
+      },
+      password2: {
+        required: true,
+        minlength: 5,
+        equalTo: "#password"
+      }
 
-	        required: true,
+    },
+    messages: {
 
-	        minlength: 2,
-	         remote:{
-                    type:"POST",
-                    url:"", //请求地址
-                    data:{
-                        username:function(){ return $("#username").val(); }
-                    }
-	      },
-	      password1: {
-	          required: true,
-	          minlength: 5
-	        },
-	        password2: {
-	            required: true,
-	            minlength: 5,
-	            equalTo: "#password1"
-	          }
-	    },
-	    messages: {
-	    	username: {
-	        required: "请输入用户名",
-	        minlength: "用户名必需由两个字母组成",
-	        remote: "用户名不可用"
-	      },
-	      password1: {
-	          required: "请输入密码",
-	          minlength: "密码长度不能小于 5 个字母"
-	        },
-	        password2: {
-	          required: "请输入密码",
-	          minlength: "密码长度不能小于 5 个字母",
-	          equalTo: "两次密码输入不一致"
-	        }
-	    }
-	    });
-	  });
-</script>
+      username: {
+        required: "请输入用户名",
+        minlength: "用户名必需由两个字母组成"
+      },
+      password1: {
+        required: "请输入密码",
+        minlength: "密码长度不能小于 5 个字母"
+      },
+      password2: {
+        required: "请输入密码",
+        minlength: "密码长度不能小于 5 个字母",
+        equalTo: "两次密码输入不一致"
+      }
+
+     }
+    })
+});</script>
+
+
 
 </head>
 <body style="background-color: #E2E2E2;">

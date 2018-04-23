@@ -1,6 +1,7 @@
 from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth import get_user_model
 from django.conf import settings
 from django.contrib.auth.models import User
@@ -44,26 +45,26 @@ class SliceMap(models.Model):
     parent_map=models.ForeignKey(Map,on_delete=models.CASCADE)
 
 class Myuser(AbstractUser):
-    email=models.CharField(max_length=30,blank=True)
-    first_name=models.CharField(max_length=20,default='a',blank=True)
+    email=models.CharField(max_length=40,blank=True)
+    first_name = models.CharField(max_length=20,default='a',blank=True)
     last_name = models.CharField(max_length=20, default='b',blank=True)
     is_active=models.BooleanField(default=True,blank=True)
     is_staff=models.BooleanField(default=True,blank=True)
     is_superuser=models.BooleanField(default=False,blank=True)
-    department_name=models.CharField(max_length=20,default='a',blank=True)
     date_joined=models.DateTimeField(blank=True,default=timezone.now)
+    department_name=models.CharField(max_length=20,default='a',blank=True)
     contact_usr=models.CharField(max_length=20,blank=True,default='a')
     phone=models.CharField(max_length=20,blank=True,default='123')
 
 
-    class Meta:
+    class Meta():
         permissions = (
             ("user_management", "用户管理"),
             ("ibuild_management", "违建管理"),
             ("demolition_management", "拆迁管理"),
             ("recource_management", "资源管理")
         )
-    def __str__(self):
-    # 在Python3中使用 def __str__(self):
-        return self.name
+#    def __str__(self):
+#    # 在Python3中使用 def __str__(self):
+#        return self.name
 
