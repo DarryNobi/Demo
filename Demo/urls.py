@@ -1,3 +1,4 @@
+
 """Demo URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -17,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf.urls import  url
 from web import views
-
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
@@ -29,7 +30,14 @@ urlpatterns = [
     url(r'^password_revise/', views.password_revise),
     url(r'^permissions_query/', views.permissions_query),
     url(r'^account_inquiry/', views.account_inquiry),
+    url(r'^roller_shutters/', views.roller_shutters),
     url(r'^info_revise/', views.info_revise),
+    url(r'^authority_management/', views.authority_management),
+    url(r'^ranging/', views.ranging),
+    url(r'^home/', views.home),
+    url(r'^resource_search/', views.resource_search),
+
+##########################################################################
 
     url(r'^ delete_usr/', views. delete_usr),
     url(r'^register_db/', views.regist_db),
@@ -37,12 +45,15 @@ urlpatterns = [
     url(r'^password_reset/', views.password_reset),
     url(r'^usr_info_revise/', views.usr_info_revise),
     url(r'^logout/', views.mylogout),
-    url(r'^enable_usr/', views.enable_usr),
-    url(r'^unenable_usr/', views.unenable_usr),
     url(r'^permission_revise/', views.permission_revise),
     url(r'^add_usr/', views.add_usr),
     url(r'^password_reset/', views.password_reset),
     url(r'^_account_inquiry/', views._account_inquiry),
     url(r'^check_username/', views.check_username),
     url(r'^_permissions_query/',views._permissions_query),
+    url(r'^status_revise/', views.status_revise),
+    url(r'^save_draw/', views.save_draw),
+    url(r'^load_all_draw/', views.load_all_draw),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
