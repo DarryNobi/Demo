@@ -46,6 +46,8 @@ def add_account(request):
     return render(request,
                   template_name='add_Account.html')
 
+#@login_required(login_url='/login/')
+#@permission_required('resource_permission',login_url='/index/',raise_exception=True)
 def account_inquiry(request):
     return render(request,
                   template_name='account_Inquiry.html')
@@ -128,7 +130,7 @@ def mylogout(request):
     logout(request)
     return render(request,'login.html')
 
-@login_required
+#@login_required
 #@permission_required('user_management',raise_exception=True)
 def password_reset(request):
 
@@ -143,7 +145,7 @@ def password_reset(request):
         return render(request, 'password_revise.html',{'message': '用户名或密码错误!'})
 
 
-@login_required
+#@login_required
 #@permission_required('user_management',raise_exception=True)
 def usr_info_revise(request):
     username = request.POST.get("username",False)
@@ -173,31 +175,15 @@ def add_usr(request):
     user.save()
     return render(request,'add_Account.html',{'message':'添加成功'})
 
-@login_required
-@permission_required('user_management',raise_exception=True)
+#@login_required
+#@permission_required('user_management',raise_exception=True)
 def delete_usr(request):
     username = request.POST.get('username',False)
     user=User.objects.filter(username=username)
     user.delete()
     return render(request,{'message':'删除成功！'})
 
-@login_required
-@permission_required('user_management',raise_exception=True)
-def enable_usr(request):
-    username = request.POST.get('username',False)
-    user=User.objects.filter(username=username)
-    user.is_active=True
-    user.save()
-    return render(request,{'message':'启用成功！'})
 
-@login_required
-@permission_required('user_management',raise_exception=True)
-def unenable_usr(request):
-    username = request.POST.get('username',False)
-    user=User.objects.filter(username=username)
-    user.is_active=False
-    user.save()
-    return render(request,{'message':'禁用成功！'})
 
 
 #@login_required
@@ -212,7 +198,13 @@ def permission_revise(request):
     for i in check_box:
        permission = Permission.objects.get(codename=permission_dict[i])
        user.user_permissions.add( permission )
-    return JsonResponse({'message':"success"})
+    user=model_to_dict(user)
+    user_permissions = []
+    for j in range(len(user['user_permissions'])):
+        tmp = user['user_permissions'][j].name
+        user_permissions.append(tmp)
+
+    return HttpResponse(json.dumps({"new_permissions":user_permissions}))
 
 #@login_required
 #@permission_required('user_management',raise_exception=True)
@@ -240,7 +232,8 @@ def _account_inquiry(request):
 
 
 
-
+#@login_required
+#@permission_required('user_management',raise_exception=True)
 def _permissions_query(request):
     message = request.POST.get('message',False)
     query_method = request.POST.get('query_method', False)
@@ -256,6 +249,11 @@ def _permissions_query(request):
     users={}
     for i in range(len(users_temp)):
        users[i]=model_to_dict(users_temp[i])
+       user_permissions = []
+       for j in range(len(users[i]['user_permissions'])):
+           tmp = users[i]['user_permissions'][j].name
+           user_permissions.append(tmp)
+       users[i]['user_permissions'] = user_permissions
     if users:
         return render(request,'permissions_query.html',locals())
     else:
@@ -287,13 +285,12 @@ def save_draw(request):
     jsonstr={'type':'Feature','geometry':{'type':'Polygon','coordinates':[coordis_list]},'properties':{'name':'name'}}
     jsondata=json.dumps(jsonstr)
 
-    draw_obj = GraphicLabel.objects.create(name='default',context=jsondata)
+    draw_obj = GraphicLabel.objects.create(name='default',context=jsondata,grahpictype='1',grahpiclabel='1')
     draw_obj.save()
     return render(request,'map_geo.html',{'message':'success'})
 
 def load_all_draw(request):
     all_draws=GraphicLabel.objects.all()
-    test_tmp=all_draws[0]
     all_draws_data = [draw.context for draw in all_draws]
     return JsonResponse({'all_draws':all_draws_data})
 

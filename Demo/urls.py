@@ -45,8 +45,6 @@ urlpatterns = [
     url(r'^password_reset/', views.password_reset),
     url(r'^usr_info_revise/', views.usr_info_revise),
     url(r'^logout/', views.mylogout),
-    url(r'^enable_usr/', views.enable_usr),
-    url(r'^unenable_usr/', views.unenable_usr),
     url(r'^permission_revise/', views.permission_revise),
     url(r'^add_usr/', views.add_usr),
     url(r'^password_reset/', views.password_reset),
