@@ -247,7 +247,7 @@ body {
 
 @media (min-width:768px) {
     #page-wrapper {
-        margin: 0 0 0 260px;
+        margin: 0;
         padding: 0px 0px 0px 0px;
         min-height: 900px;
     }

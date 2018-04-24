@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height:100%">
 <head>
 
     {% load staticfiles %}
@@ -25,174 +25,106 @@
         .left-list-container {
             padding-left:5px;
         }
-        .left-h5 {
-            padding-top:2px
+        #main-menu li{
+            background-color: #ffffff;
+            border-radius: 6px;
+            font-size: 2.5rem;
+            margin-top: 16px;
+            height: 15%;
+            display: table;
+            width: 100%;
+        }
+        #main-menu li a span{
+            padding-left:25px;
+        }
+        #main-menu li a span img {
+            height: 60%;
+        }
+        #main-menu li a {
+            width: 100%;
+            height: 100%;
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        body {
+            height: 100%;
         }
         .date-span {
-            float: right;
-            padding-right: 10px;
-        }
-        .search-span {
-            line-height:-moz-block-height;
-            padding-left:5px;
-        }
-        .search-input {
-            width: 132px;
-        }
-        .home-div h5{
-            font-size: 15px;
-            color: #3b664c;
+            font-size: 2rem;
+            padding-left: 20px;
+            margin-top: 10px;
+            color: #999999;
         }
     </style>
 </head>
-<body>
-    <div class="container theme-showcase home-div" style="width:970px">
-        <div class="row">
-            <div class="col-xs-12">
-                <div class="panel-body" style="overflow-x:auto">
-                    <div class="homeTop" style="margin-top:10px; padding-left:20px">
-                        <form role="form" name="homeForm" action="" method="post">
-                            <h5 style="display:inline">信息检索</h5>
-                            <p style="display:inline-flex">
-                                <span class="search-span">名称：</span>
-                                <input type="text" name="name" class="form-control search-input" placeholder="请输入名称" />
-                                <span class="search-span">类型：</span>
-                                <input type="text" name="type" class="form-control search-input" placeholder="" />
-                                <span class="search-span">时间：</span>
-                                <input type='date' class="form-control" style="width:auto" id='nowdate'/>
-                                <span class="search-span">地址：</span>
-                                <input type="text" name="address" class="form-control search-input" placeholder="请输入地址" />
-                                <span class="input-group-btn" style="padding-left:7px">
-                                    <button  type="submit" class="btn btn-primary">搜索</button>
-                                </span>
-                            </p>
-                        </form>
-                    </div>
-                    <div class="homeLeft" style="float:left; width:27%; margin-top:10px">
-                        <div>
-                            <nav class="navbar-default navbar-side " role="navigation">
-                                <div class="left-list-container left-h5">
-                                    <h5>最新违建事件</h5>
-                                </div>
-                                <div class="sidebar-collapse left-list-container">
-                                    <ul class="nav" id="home-top-menu">
-                                        <li>
-                                            <p>
-                                                <span class="glyphicon glyphicon-calendar" style="color:#337ab7"></span>
-                                                <a id="home" class="" style="padding-left:5px"><i class=""></i>CADA使用通知</a>
-                                                <span class="date-span"></span>
-                                            </p>
-                                        </li>
+<body style="background-color:#c3c6cb; height:100%">
+    <div class="container theme-showcase home-div" style="width:100%; height:100%">
+        <div class="row" style="height:100%">
+            <div class="col-xs-2 col-lg-2" style="height:100%">
+                <div class="panel-body" style="overflow-x:auto; height:100%">
+                    <div class="sidebar-collapse" style="height:100%">
+                        <ul class="nav" id="main-menu" style="height:100%">
+                            <li>
+                                <a href="#">
+                                    <span><img src="{% static 'img/building.png' %}"></span>
+                                    <span>违建管理</span>
+                                </a>
+                            </li>
 
-                                        <li>
-                                            <p>
-                                                <span class="glyphicon glyphicon-calendar" style="color:#337ab7"></span>
-                                                <a id="home" class="" style="padding-left:5px"><i class=""></i>CADA使用通知</a>
-                                                <span class="date-span"></span>
-                                            </p>
-                                        </li>
+                            <li>
+                                <a href="#">
+                                    <span><img src="{% static 'img/remove.png' %}"></span>
+                                    <span>拆迁管理</span>
+                                </a>
+                            </li>
 
-                                         <li>
-                                             <p>
-                                                 <span class="glyphicon glyphicon-calendar" style="color:#337ab7"></span>
-                                                 <a id="home" class="" style="padding-left:5px"><i class=""></i>CADA使用通知</a>
-                                                 <span class="date-span"></span>
-                                            </p>
-                                        </li>
+                            <li>
+                                <a href="#">
+                                    <span><img src="{% static 'img/resource.png' %}"></span>
+                                    <span>资源管理</span>
+                                </a>
+                            </li>
 
-                                        <li>
-                                            <p>
-                                                <span class="glyphicon glyphicon-calendar" style="color:#337ab7"></span>
-                                                <a id="home" class="" style="padding-left:5px"><i class=""></i>CADA使用通知</a>
-                                                <span class="date-span"></span>
-                                            </p>
-                                        </li>
+                            <li>
+                                <a href="#">
+                                    <span><img src="{% static 'img/date.png' %}"></span>
+                                    <span>普查管理</span>
+                                </a>
+                            </li>
 
-                                        <li>
-                                            <p>
-                                                <span class="glyphicon glyphicon-calendar" style="color:#337ab7"></span>
-                                                <a id="home" class="" style="padding-left:5px"><i class=""></i>CADA使用通知</a>
-                                                <span class="date-span"></span>
-                                            </p>
-                                        </li>
+                             <li>
+                                <a href="#">
+                                    <span><img src="{% static 'img/user_ statistics .png' %}"></span>
+                                    <span>帐号管理</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span><img src="{% static 'img/setting.png' %}"></span>
+                                    <span>系统设置</span>
+                                </a>
+                            </li>
 
-                                         <li>
-                                             <p>
-                                                 <span class="glyphicon glyphicon-calendar" style="color:#337ab7"></span>
-                                                 <a id="home" class="" style="padding-left:5px"><i class=""></i>CADA使用通知</a>
-                                                 <span class="date-span"></span>
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </nav>
-                        </div>
-                        <div style="padding-top:10px">
-                            <nav class="navbar-default navbar-side " role="navigation">
-                                <div class="left-list-container left-h5">
-                                    <h5>最新拆迁区域变化</h5>
-                                </div>
-                                <div class="sidebar-collapse left-list-container">
-                                    <ul class="nav" id="home-top-menu">
-                                        <li>
-                                            <p>
-                                                <span class="glyphicon glyphicon-map-marker" style="color:#337ab7"></span>
-                                                <a id="home" class="" style="padding-left:5px"><i class=""></i>CADA使用通知</a>
-                                                <span class="date-span"></span>
-                                            </p>
-                                        </li>
 
-                                        <li>
-                                            <p>
-                                                <span class="glyphicon glyphicon-map-marker" style="color:#337ab7"></span>
-                                                <a id="home" class="" style="padding-left:5px"><i class=""></i>CADA使用通知</a>
-                                                <span class="date-span"></span>
-                                            </p>
-                                        </li>
-
-                                         <li>
-                                             <p>
-                                                 <span class="glyphicon glyphicon-map-marker" style="color:#337ab7"></span>
-                                                 <a id="home" class="" style="padding-left:5px"><i class=""></i>CADA使用通知</a>
-                                                 <span class="date-span"></span>
-                                            </p>
-                                        <li>
-                                            <p>
-                                                <span class="glyphicon glyphicon-map-marker" style="color:#337ab7"></span>
-                                                <a id="home" class="" style="padding-left:5px"><i class=""></i>CADA使用通知</a>
-                                                <span class="date-span"></span>
-                                            </p>
-                                        </li>
-
-                                        <li>
-                                            <p>
-                                                <span class="glyphicon glyphicon-map-marker" style="color:#337ab7"></span>
-                                                <a id="home" class="" style="padding-left:5px"><i class=""></i>CADA使用通知</a>
-                                                <span class="date-span"></span>
-                                            </p>
-                                        </li>
-
-                                         <li>
-                                             <p>
-                                                 <span class="glyphicon glyphicon-map-marker" style="color:#337ab7"></span>
-                                                 <a id="home" class="" style="padding-left:5px"><i class=""></i>CADA使用通知</a>
-                                                 <span class="date-span"></span>
-                                            </p>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </nav>
-                        </div>
+                        </ul>
 
                     </div>
-                    <div class="homeRight" style="float:left; width:70%; margin-top:10px; padding-left:10px">
-                        <video src="/i/movie.ogg" controls="controls">
 
-                        </video>
-                    </div>
                 </div>
             </div>
-            <div class="col-xs-0"></div>
+            <div class="col-xs-10 col-lg-10" style="height:95%; margin-top:31px; background-color:#ffffff; border-radius:6px;">
+                <div style="height:10%; width:100%; display:-webkit-flex; align-items:center;">
+                    <h5 style="width:100%; font-size:3rem; padding-left:20px; color: #444444">最新入库影像</h5>
+                </div>
+                <div class="homeRight" style="float:left; width:100%; height:80%; padding-left:20px">
+                    <img src="{% static 'img/500305658_wx.png' %}" style="height:95%;">
+                </div>
+                <div style="height:10%">
+                    <span style="font-size:2rem; padding-left:20px;">标题：中国人民共和国的航天事业起始于1956年。中国于1970年4月24日发射第一颗人造地球卫星</span><br/>
+                    <span class="date-span"></span>
+                </div>
+            </div>
         </div>
     </div>
     <script>
