@@ -109,7 +109,7 @@ window.onload=function(){
             $(".data").remove();
             //for(var i = 0, len =  back_data.length; i < len; i++){
             for(var i in back_data){
-                var html = '<tr class="data"><td>' + back_data[i]['id'] + '</td><td>' +  back_data[i]['username'] + '</td><td>' +  back_data[i]['user_permissions'] + '</td>'
+                var html = '<tr class="data"><td>' + back_data[i]['id'] + '</td><td>' +  back_data[i]['username'] + '</td><td id="permissions' + i + '">' +  back_data[i]['user_permissions'] + '</td>'
                 + '<td><select id="status' + i + '" class ="status" ><option id="openSta' + i + '" value="启用">启用</option><option id="closeSta' + i + '" value="禁用">禁用</option></select></td><td class="authorityTd"><p>'
                 + '用户管理' + '<input class="authorityList' + i +'" type="checkbox" name="checkbox' + i + '" value="1" /></p><p>'
                 + '违建管理' + '<input class="authorityList' + i +'" type="checkbox" name="checkbox' + i + '" value="2" /></p><p>'
@@ -188,9 +188,11 @@ if(confirm(mes)==true)
             $.ajax({
            type:'post',
            url:'/status_revise/',
-           data:{csrfmiddlewaretoken: '{{ csrf_token }}',
+           data:{
+           csrfmiddlewaretoken: '{{ csrf_token }}',
            "is_active":"True",
-           "id":userid},
+           "id":userid
+           },
            dataType:'json',
            success:function(){
             alert('bbbbbbb')},
@@ -236,8 +238,11 @@ if(confirm(mes)==true)
       "id":userid
       },
       dataType:'json',
-      success:function(){
-      alert('success')},
+      success:function(data){
+      new_permissions=data['new_permissions'];
+      $("#permissions"+num).text(new_permissions);
+
+      },
       error:function(){
       alert("fail")
       }

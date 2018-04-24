@@ -9,17 +9,6 @@ from django.utils import timezone
 # Create your models here.
 
 
-
-class GraphicLabel(models.Model):
-    GraphicType=(
-        ('1','建筑'),
-        ('2','道路'),
-        ('3','河流')
-    )
-    name = models.CharField(max_length=16)
-    grahpictype = models.CharField(max_length=4,choices=GraphicType)
-    context = models.TextField()
-
 class Map(models.Model):
     Maptype=(
         ('1','多光谱'),
@@ -68,3 +57,22 @@ class Myuser(AbstractUser):
 #    # 在Python3中使用 def __str__(self):
 #        return self.name
 
+class GraphicLabel(models.Model):
+    GraphicType=(
+        ('1','建筑'),
+        ('2','道路'),
+        ('3','河流')
+    )
+    GraphicLabel = (
+        ('1', '拆迁'),
+        ('2', '违建')
+    )
+    name = models.CharField(max_length=16)
+    grahpictype = models.CharField(max_length=4,choices=GraphicType)#地物类型如建筑、森林、河流
+    grahpiclabel = models.CharField(max_length=4,choices=GraphicLabel)#标注类型如拆迁、违建
+    context = models.TextField()#坐标数据
+    discrib = models.TextField()
+    square = models.FloatField(default=0)
+    graphic_provide= models.ForeignKey(Myuser,on_delete=models.CASCADE)
+    coordinate_x = models.FloatField(default=0)
+    coordinate_y = models.FloatField(default=0)
