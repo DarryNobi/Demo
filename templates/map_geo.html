@@ -77,18 +77,22 @@
          data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
       });
      </script>
-      <script src="http://openlayers.org/en/v3.17.1/build/ol.js"></script>
    <script src="https://openlayers.org/en/v4.5.0/build/ol.js" type="text/javascript"></script>
      <script src="{% static 'js/require.js' %}"></script>
    <script src="{% static 'js/geomap.js' %}"></script>
    <script src="{% static 'js/default_geomap.js' %}"></script>
-   <script src="{% static 'js/baidumap.js' %}"></script>
+   <!-- <script src="{% static 'js/baidumap.js' %}"></script> -->
    <script src="{% static 'js/load_draw.js' %}"></script>
    <script src="{% static 'js/select_draw.js' %}"></script>
     <script>
 </script>
-   <title>OpenLayers example</title>
+     <style>
+         .input-group {
+            text-align: center;
+         }
+     </style>
  </head>
+
  <body>
    <div id="map" class="map">
        <div id="menu">
@@ -96,19 +100,67 @@
            <button id='distance_button_div'>测距</button><br/>
            <button id='area_button_div'>测面积</button><br/>
        </div>
+
        <div>
-       <form>
-           <label>经度</label>
-           <input type="text" id="lontitude">
-           <label>纬度</label>
-           <input type="text" id="lantitude">
-           <button   id="location_btn" >查询</button>
-       </form>
+           <form>
+               <label>经度</label>
+               <input type="text" id="lontitude">
+               <label>纬度</label>
+               <input type="text" id="lantitude">
+               <button   id="location_btn" >查询</button>
+           </form>
        </div>
+
+       <div id="popup" class="ol-popup" style=" display:none">
+            <div id="popup-content" style="width:300px; height:120px;">
+                <form role="form" name="indexForm"  style="background-color: #939f9f;border-radius: 6px;">
+                {% csrf_token %}
+                <h5>请输入标绘信息</h5>
+                 <div class="form-group input-group">
+                        <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
+                        <input id="name" type="text" class="form-control" placeholder="名称 " />
+                 </div>
+                    <select id="grahpictype" style="width: 80%;margin-left: 10%;">
+                        <option>建筑</option>
+                        <option>道路</option>
+                        <option>林地</option>
+                    </select>
+                    <select id="grahpiclabel" style="width: 80%;margin-left: 10%;">
+                        <option>拆迁</option>
+                        <option>违建</option>
+                    </select>
+                <div class="form-group input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+                    <input id="discrib"  type="text" class="form-control"  placeholder="描述信息" />
+                </div>
+                <div class="form-group input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+                    <input id="square"  class="form-control"  placeholder="面积" />
+                </div>
+                <div class="form-group input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+                    <input id="coordinate"  class="form-control"  placeholder="坐标" />
+                </div>
+                <div class="form-group">
+                    </div>
+
+                <div  style="text-align: center;">
+                    <p>
+                        <button id="save_submit" class="btn btn-primary ">保存</button>
+                        <button id="save_cancel" class="btn btn-primary ">取消</button>
+                    </p>
+                </div>
+
+                </form>
+            </div>
+        </div>
+       <div id="popup_info"></div>
+       <div id="popup_button"></div>
+
+
    </div>
 
-
-  <script type="text/javascript">
+   <script type="text/javascript">
      var map = new ol.Map({
        target: 'map',
        view: new ol.View({
@@ -118,48 +170,47 @@
          minZoom:5
        }),
        controls: ol.control.defaults().extend([
-         new ol.control.ScaleLine({  }),
-         new ol.control.MousePosition({
-          coordinateFormat: ol.coordinate.createStringXY(4),
-            projection: 'EPSG:4326'}),
-        new ol.control.ScaleLine({  }),
-        new ol.control.ZoomSlider({
-        maxResolution:1000,
-        minResolution:1000
-          })
+            new ol.control.ScaleLine({  }),
+            new ol.control.MousePosition({
+                coordinateFormat: ol.coordinate.createStringXY(4),
+                projection: 'EPSG:4326'
+            }),
+            new ol.control.ScaleLine({  }),
+            new ol.control.ZoomSlider({
+                maxResolution:1000,
+                minResolution:1000
+            })
       ]),
      });
     //map.addLayer(baidu_layer);
     map.addLayer(default_geo_layer);
     map.addLayer(geoserver_layer);
-
-location_btn=document.getElementById("location_btn");
-location_btn.onclick=function location(){
-
-    var lontitude=document.getElementById("lontitude").value;
-    var lantitude=document.getElementById("lantitude").value;
-    var newview=new ol.View({
-         center: ol.proj.fromLonLat([lontitude, lantitude]),
-         zoom: 12,
-         maxZoom:18,
-         minZoom:5
-       });
-
-    //view.setCenter([lontitude,lantitude]);
-    alert(lontitude);
-
-
-    //view.animate({zoom:view.getZoom()/4},{center:[lontitude,lantitude]},{zoom:view.getZoom()*4},{duration:2000} );
-    map.setView(newview);
     map.render();
-}
+
+    location_btn=document.getElementById("location_btn");
+    location_btn.onclick=function location(){
+        var lontitude=document.getElementById("lontitude").value;
+        var lantitude=document.getElementById("lantitude").value;
+        var newview=new ol.View({
+             center: ol.proj.fromLonLat([lontitude, lantitude]),
+             zoom: 12,
+             maxZoom:18,
+             minZoom:5
+           });
+        //view.setCenter([lontitude,lantitude]);
+        alert(lontitude);
+        //view.animate({zoom:view.getZoom()/4},{center:[lontitude,lantitude]},{zoom:view.getZoom()*4},{duration:2000} );
+        map.setView(newview);
+        map.render();
+    }
 
 
 
-   </script>
+</script>
+
 
 <script src="{% static 'js/polygon.js' %}"></script>
- <script src="{% static 'js/distance.js' %}"></script>
+   <script src="{% static 'js/distance.js' %}"></script>
 <script src="{% static 'js/area.js' %}"></script>
  </body>
 </html>

@@ -279,18 +279,39 @@ def status_revise(request):
 
 def save_draw(request):
     raw_dic = request.POST.get('coordi', False)
+    name = request.POST.get('name', False)
+    grahpictype = request.POST.get('grahpictype', False)
+    grahpiclabel = request.POST.get('grahpiclabel', False)
+    discrib = request.POST.get('discrib', False)
+    square = request.POST.get('square', False)
+    coordinate = request.POST.get('coordinate', False)
+
     coordis=raw_dic.replace(",",";").split(";")
     coordis_num=[float(c) for c in coordis]
     coordis_list=[coordis_num[i:i+2] for i in range(0,len(coordis_num),2)]
-    jsonstr={'type':'Feature','geometry':{'type':'Polygon','coordinates':[coordis_list]},'properties':{'name':'name'}}
+    jsonstr={'type':'Feature','geometry':{'type':'Polygon','coordinates':[coordis_list]},'properties':{'id':0}}
     jsondata=json.dumps(jsonstr)
-
-    draw_obj = GraphicLabel.objects.create(name='default',context=jsondata,grahpictype='1',grahpiclabel='1')
+    draw_obj = GraphicLabel.objects.create(name=name,context=jsondata,grahpictype=grahpictype,grahpiclabel=grahpiclabel,graphic_provide=request.user)
     draw_obj.save()
     return render(request,'map_geo.html',{'message':'success'})
 
 def load_all_draw(request):
     all_draws=GraphicLabel.objects.all()
+    for draw in all_draws:
+        json_context=json.loads(draw.context)
+        json_context['properties']['id']=draw.id
+        draw.context=json.dumps(json_context)
     all_draws_data = [draw.context for draw in all_draws]
     return JsonResponse({'all_draws':all_draws_data})
 
+
+def query_draw(request):
+    id = request.GET.get('id', False)
+    draw=model_to_dict(GraphicLabel.objects.get(id=id))
+    return JsonResponse({'drawinfo':draw})
+
+def delete_draw(request):
+    id = request.GET.get('id', False)
+    draw=GraphicLabel.objects.get(id=id)
+    draw.delete()
+    return JsonResponse({'message':'success'})

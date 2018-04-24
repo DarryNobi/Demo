@@ -54,6 +54,8 @@ urlpatterns = [
     url(r'^status_revise/', views.status_revise),
     url(r'^save_draw/', views.save_draw),
     url(r'^load_all_draw/', views.load_all_draw),
+    url(r'^query_draw/', views.query_draw),
+    url(r'^delete_draw/', views.delete_draw),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
