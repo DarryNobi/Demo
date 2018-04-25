@@ -96,6 +96,10 @@ def home(request):
     return render(request,
                   template_name='home.html')
 
+def default(request):
+    return render(request,
+                  template_name='default.html')
+
 def resource_search(request):
     return render(request,
                   template_name='resource_search.html')
@@ -132,7 +136,7 @@ def login_check(request):
     if user:
         request.session['username']=username
         auth.login(request, user)
-        return render(request, 'index.html', {'message1': '登录成功'})
+        return render(request, 'index_new.html', {'message1': '登录成功'})
 
     else:
        return render(request, 'login.html', {'message1': '用户名或密码错误'})
@@ -140,7 +144,7 @@ def login_check(request):
 
 def mylogout(request):
     logout(request)
-    return JsonResponse({'islogin': False})
+    return render(request,'index_new.html',{'islogin': False})
 
 #@login_required
 #@permission_required('user_management',raise_exception=True)
