@@ -75,6 +75,9 @@
         .nav-text-p{
             height:30%;
         }
+        #login {
+            color: #fff;
+        }
     </style>
 </head>
 
@@ -89,12 +92,15 @@
                     </p>
                 </div>
                 <div style="width:50%; height:100%">
-                <div style="width:100%; display:inline-flex; height:30%">
-                    <span style="width:30%; margin-left:55%; height:100%"><img style="height:50%" src="{% static 'img/user_logo.png' %}" alt="iotek">admin</span>
+                <div style="width:100%; display:inline-flex; height:30%; padding-top:16px">
+                    <span style="width:30%; margin-left:55%; height:100%; font-size:16px"><img style="height:50%" src="{% static 'img/user_logo.png' %}">
+                        <a id="login" href="javascript:void(0)" onclick="open_link('/login/');">登录</a>
+                        <span id="user_name">admin</span>
+                    </span>
                     <p style="width:20%; margin-left:-10%">
-                        <span class="view-button"><img src="{% static 'img/q.png' %}" alt="iotek"></span>
-                        <span class="view-button"><img src="{% static 'img/w.png' %}" alt="iotek"></span>
-                        <span class="view-button"><img src="{% static 'img/e.png' %}" alt="iotek"></span>
+                        <span class="view-button"><img src="{% static 'img/q.png' %}"></span>
+                        <span class="view-button"><img src="{% static 'img/w.png' %}"></span>
+                        <span class="view-button"><img src="{% static 'img/e.png' %}"></span>
                     </p>
                 </div>
                     <div style="width:100%; height:70%">
@@ -113,25 +119,25 @@
                                         </a>
                                     </li>
                                     <li role="presentation">
-                                        <a href="#">
+                                        <a href="javascript:void(0)">
                                             <p class="nav-img-p"><img class="nav-img" src="{% static 'img/forestry.png' %}"></p>
                                             <p class="nav-text-p">林业管理</p>
                                         </a>
                                     </li>
                                     <li role="presentation">
-                                        <a href="#">
+                                        <a href="javascript:void(0)">
                                             <p class="nav-img-p"><img class="nav-img" src="{% static 'img/environment.png' %}"></p>
                                             <p class="nav-text-p">环境管理</p>
                                         </a>
                                     </li>
                                     <li role="presentation">
-                                        <a href="#">
+                                        <a href="javascript:void(0)">
                                             <p class="nav-img-p"><img class="nav-img" src="{% static 'img/road.png' %}"></p>
                                             <p class="nav-text-p">道路管理</p>
                                         </a>
                                     </li>
                                     <li role="presentation">
-                                        <a href="#">
+                                        <a href="javascript:void(0)">
                                             <p class="nav-img-p"><img class="nav-img" src="{% static 'img/sedimentation.png' %}"></p>
                                             <p class="nav-text-p">沉降检测</p>
                                         </a>
