@@ -211,6 +211,15 @@
         var mydate = date.getFullYear() + "-" + (mon < 10 ? "0" + mon : mon) + "-" + (day < 10 ? "0" + day : day);
         $("#nowdate").val(mydate);
         $(".date-span").html(mydate);
+        $.ajax({
+            type:'post',
+            url:'/is_authenticated/',
+            dataType:'json',
+            success:function(data){
+                alert('bbbbbbb')
+            },
+        });
+        var user = {}
     };
     </script>
 </body>
