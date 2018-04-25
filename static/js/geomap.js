@@ -6,7 +6,7 @@
               params:{
                 LAYERS: 'test:resample'}
               }),
-              opacity:0.6,
+              opacity:1,
             });
 
         //172.20.53.157:8080/geoserver/wms
@@ -17,5 +17,5 @@
                 }),
                 projection: "EPSG:4326",
                 id:"影像",
-                opacity:0.6,
+                opacity:1,
             });

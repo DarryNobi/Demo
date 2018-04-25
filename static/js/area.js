@@ -198,7 +198,6 @@ $(function(){
                          var coordinate = coordinates[0][0];
                          overlay.setPosition(coordinate);
                          map.addOverlay(overlay);
-                         alert("aaaaaaaa");
                          }, this);
 
 

@@ -29,6 +29,11 @@ def index(request):
     return render(request,
                   template_name='index.html')
 
+def index_new(request):
+    return render(request,
+                  template_name='index_new.html')
+
+@login_required(login_url='/login/')
 def loadmap(request):
     return render(request,
                   template_name='map_geo.html')
@@ -259,6 +264,7 @@ def _permissions_query(request):
     else:
         return render(request,'permissions_query.html',{'message1':'查找结果为空！'})
 
+
 def check_username(request):
     username = request.POST.get('username', False)
     user=User.objects.filter(username=username)
@@ -266,6 +272,7 @@ def check_username(request):
         return HttpResponse("false")
     else:
         return HttpResponse("true")
+
 
 def status_revise(request):
     #raw_dic=request.raw_post_data()
@@ -277,13 +284,14 @@ def status_revise(request):
     user.save()
     return render(request,'authorityManagement.html',{'userid':id,'isactive':is_active})
 
+
 def save_draw(request):
     raw_dic = request.POST.get('coordi', False)
     name = request.POST.get('name', False)
     grahpictype = request.POST.get('grahpictype', False)
     grahpiclabel = request.POST.get('grahpiclabel', False)
     discrib = request.POST.get('discrib', False)
-    square = request.POST.get('square', False)
+    square = request.POST.get('square', 0)
     coordinate = request.POST.get('coordinate', False)
 
     coordis=raw_dic.replace(",",";").split(";")
@@ -291,9 +299,10 @@ def save_draw(request):
     coordis_list=[coordis_num[i:i+2] for i in range(0,len(coordis_num),2)]
     jsonstr={'type':'Feature','geometry':{'type':'Polygon','coordinates':[coordis_list]},'properties':{'id':0}}
     jsondata=json.dumps(jsonstr)
-    draw_obj = GraphicLabel.objects.create(name=name,context=jsondata,grahpictype=grahpictype,grahpiclabel=grahpiclabel,graphic_provide=request.user)
+    draw_obj = GraphicLabel.objects.create(name=name,context=jsondata,grahpictype=grahpictype,grahpiclabel=grahpiclabel,graphic_provide=request.user,discrib=discrib)
     draw_obj.save()
     return render(request,'map_geo.html',{'message':'success'})
+
 
 def load_all_draw(request):
     all_draws=GraphicLabel.objects.all()
@@ -309,6 +318,7 @@ def query_draw(request):
     id = request.GET.get('id', False)
     draw=model_to_dict(GraphicLabel.objects.get(id=id))
     return JsonResponse({'drawinfo':draw})
+
 
 def delete_draw(request):
     id = request.GET.get('id', False)

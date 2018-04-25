@@ -69,7 +69,7 @@ $(function(){
         var remove = document.getElementById("delete");
         var cancel = document.getElementById("cancel");
         revise.onclick=function(){
-            ;
+
         }
         remove.onclick=function(){
             $.get("/delete_draw/",{'id':id}, function(ret){

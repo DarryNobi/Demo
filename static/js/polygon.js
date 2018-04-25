@@ -64,7 +64,7 @@ $(function(){
                     'grahpiclabel':grahpiclabel,
                     'discrib':discrib,
                     'square':square,
-                    'coordinate':coordinate,
+                    'coordinate':coordinate
                 },
                 success:function(){
                     alert('success')},
