@@ -17,5 +17,5 @@
                 }),
                 projection: "EPSG:4326",
                 id:"影像",
-                opacity:0.1,
+                opacity:0.5,
             });
