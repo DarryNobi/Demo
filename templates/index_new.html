@@ -19,6 +19,11 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
     <script src="{% static 'js/common.js' %}"></script>
+    <script >
+      $.ajaxSetup({
+         data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+      });
+     </script>
     <style type="text/css">
         #container{
 	        background:#0a86e1;
@@ -75,8 +80,9 @@
         .nav-text-p{
             height:30%;
         }
-        #login {
+        #login, #logout{
             color: #fff;
+            padding-left:10px;
         }
     </style>
 </head>
@@ -87,17 +93,19 @@
             <div style="width:100%; display:inline-flex; height:100%; color:white">
                 <div style="width:50%; padding-left: 20px;">
                     <p style="width:100%; height:100%; display:-webkit-flex; align-items:center">
-                        <img style="height:50%" src="{% static 'img/spaceflight.png' %}" alt="iotek">
+                        <img style="height:50%" src="{% static 'img/spaceflight.png' %}">
                         <font size="6"><b style="font-size:3.5rem">天津未来科技城卫星遥感资源管理系统</b></font>
                     </p>
                 </div>
                 <div style="width:50%; height:100%">
                 <div style="width:100%; display:inline-flex; height:30%; padding-top:16px">
-                    <span style="width:30%; margin-left:55%; height:100%; font-size:16px"><img style="height:50%" src="{% static 'img/user_logo.png' %}">
-                        <a id="login" href="javascript:void(0)" onclick="open_link('/login/');">登录</a>
-                        <span id="user_name">admin</span>
+                    <span style="width:30%; margin-left:65%; height:100%; font-size:16px; display:inline-flex">
+                        <img style="height:50%" src="{% static 'img/user_logo.png' %}">
+                        <a id="login" href="javascript:void(0)" onclick="open_link('/login/');" title="Login"><em class="glyphicon glyphicon-plus"></em>登录</a>
+                        <span id="user_name" style="padding-left:10px"></span>
+                        <a id="logout" href="/logout/" class="" title="Logout"><em class="glyphicon glyphicon-home"></em>登出</a>
                     </span>
-                    <p style="width:20%; margin-left:-10%">
+                    <p style="width:20%; margin-left:-20%">
                         <span class="view-button"><img src="{% static 'img/q.png' %}"></span>
                         <span class="view-button"><img src="{% static 'img/w.png' %}"></span>
                         <span class="view-button"><img src="{% static 'img/e.png' %}"></span>
@@ -212,14 +220,24 @@
         $("#nowdate").val(mydate);
         $(".date-span").html(mydate);
         $.ajax({
-            type:'post',
+            type:'get',
             url:'/is_authenticated/',
             dataType:'json',
             success:function(data){
-                alert('bbbbbbb')
+                if (data) {
+                    if (data.islogin) {
+                        $("#login").css("display","none");
+                        $("#user_name").css("display","block");
+                        $("#user_name").html(data.username);
+                        $("#logout").css("display","block");
+                    } else {
+                        $("#login").css("display","block");
+                        $("#user_name").css("display","none");
+                        $("#logout").css("display","none");
+                    }
+                }
             },
         });
-        var user = {}
     };
     </script>
 </body>
