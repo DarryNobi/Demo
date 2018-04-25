@@ -213,7 +213,7 @@
         $(".date-span").html(mydate);
         $.ajax({
             type:'post',
-            url:'/is_authenticated/',
+            url:'/islogin/',
             dataType:'json',
             success:function(data){
                 alert('bbbbbbb')
