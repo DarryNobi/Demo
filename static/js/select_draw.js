@@ -65,18 +65,18 @@ $(function(){
         popup_info.innerHTML="<p><button id='revise'>修改</button><button id='delete'>删除</button><button id='cancel'>取消</button></p>"
         map.addOverlay(popup);
 
-        var revise = document.getElementById("popup_button");
-        var remove = document.getElementById("popup_button");
-        var cancel = document.getElementById("popup_button");
+        var revise = document.getElementById("revise");
+        var remove = document.getElementById("delete");
+        var cancel = document.getElementById("cancel");
         revise.onclick=function(){
-            ;
+
         }
         remove.onclick=function(){
             $.get("/delete_draw/",{'id':id}, function(ret){
                 popup_info.innerHTML='';
             });
         }
-        remove.onclick=function(){
+        cancel.onclick=function(){
             popup_info.innerHTML='';
         }
     }
