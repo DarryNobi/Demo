@@ -31,7 +31,7 @@
 	        height:20%;
         }
         #page-wrapper {
-            height:70%;
+            height:80%;
         }
         .heard-ul {
             border-bottom: 0px;
@@ -58,18 +58,6 @@
         }
         .view-button {
             margin-left:15px;
-        }
-        .search-type {
-            padding-left:1%;
-        }
-        .search-span {
-            padding-left:1%;
-            width:17%
-        }
-        .search-input {
-            width:100%;
-            height:56px;
-            font-size:20px;
         }
         .nav-img-p{
             height:70%;
@@ -101,7 +89,7 @@
                 <div style="width:100%; display:inline-flex; height:30%; padding-top:16px">
                     <span style="width:30%; margin-left:65%; height:100%; font-size:16px; display:inline-flex">
                         <img style="height:50%" src="{% static 'img/user_logo.png' %}">
-                        <a id="login" href="javascript:void(0)" onclick="open_link('/login/');" title="Login"><em class="glyphicon glyphicon-plus"></em>登录</a>
+                        <a id="login" href="/login/" title="Login"><em class="glyphicon glyphicon-plus"></em>登录</a>
                         <span id="user_name" style="padding-left:10px"></span>
                         <a id="logout" href="/logout/" class="" title="Logout"><em class="glyphicon glyphicon-home"></em>登出</a>
                     </span>
@@ -157,24 +145,6 @@
                 <!--</nav>-->
             </div>
 	    </div>
-        <div class="homeTop" style="background-color:white; display:inline-flex; width:100%; height:10%; min-height:100px">
-            <h5 style="display:inline;width: 10%; font-size:30px; display: -webkit-flex; align-items: center; padding-left: 20px;">信息检索</h5>
-            <form role="form" name="homeForm" action="" method="post" style="width:90%; font-size:20px; height:100%">
-                <div style="width: 100%; display:-webkit-flex; align-items:center; height:100%;">
-                    <span class="search-type">名称：</span>
-                    <span class="search-span" ><input type="text" name="name" class="form-control search-input" placeholder="请输入名称" /></span>
-                    <span class="search-type">类型：</span>
-                    <span class="search-span"><input type="text" name="type" class="form-control search-input" placeholder="" /></span>
-                    <span class="search-type">时间：</span>
-                    <span class="search-span"><input type='date' class="form-control search-input" id='nowdate'/></span>
-                    <span class="search-type">地址：</span>
-                    <span class="search-span"><input type="text" name="address" class="form-control search-input" placeholder="请输入地址" /></span>
-                    <span class="input-group-btn search-span">
-                        <button  type="submit" class="btn btn-primary" style="height:56px; width:40%; border-radius:4px; font-size: 2.5rem">搜索</button>
-                    </span>
-                </div>
-            </form>
-        </div>
 
         <style>
             html,body,#map{
@@ -185,7 +155,7 @@
         </style>
         <div id="page-wrapper">
             <div style="height:100%">
-                <iframe id="context_container"  frameborder="0" scrolling="no" style="width: 100%; height: 100%;">
+                <iframe id="context_container" src="/home/" frameborder="0" scrolling="no" style="width: 100%; height: 100%;">
                 </iframe>
             </div>
         </div>
