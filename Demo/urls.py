@@ -40,6 +40,7 @@ urlpatterns = [
 
 ##########################################################################
 
+    url(r'^ is_authenticated/', views.is_authenticated),
     url(r'^ delete_usr/', views. delete_usr),
     url(r'^register_db/', views.regist_db),
     url(r'^login_check/', views.login_check),
