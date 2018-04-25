@@ -140,7 +140,7 @@ def login_check(request):
 
 def mylogout(request):
     logout(request)
-    return render(request,'login.html')
+    return JsonResponse({'islogin': False})
 
 #@login_required
 #@permission_required('user_management',raise_exception=True)
