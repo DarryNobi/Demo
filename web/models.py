@@ -10,22 +10,40 @@ from django.utils import timezone
 
 
 class Map(models.Model):
+    SatelliteID=(
+                    ('1','高分二号'),
+                    ('2','高景一号'),
+                    ('3','资源一号')
+    )
+    SatelliteID=models.CharField(max_length=20,choices=SatelliteID,default=False)
     Maptype=(
         ('1','多光谱'),
         ('2','全色彩'),
-        ('3','混合')
+        ('3','融合')
     )
-    Maptype=models.CharField(max_length=8,choices=Maptype)
-    name=models.CharField(max_length=10)
-    longitude=models.FloatField()
-    latitude=models.FloatField()
-    width=models.BigIntegerField()
-    height=models.BigIntegerField()
-    filepath=models.FileField()
-    cut_row=models.IntegerField()
-    cut_col=models.IntegerField()
-    gen_date=models.DateTimeField()
-    folder=models.FilePathField()
+    Maptype=models.CharField(max_length=8,choices=Maptype,default=False,blank=True)
+    SensorID=models.CharField(max_length=20,default=False,blank=True)
+    ReceiveTime=models.DateField(default=False,blank=True)
+    name=models.TextField(max_length=500,default=False,blank=True)
+    Bands=models.IntegerField(default=False,blank=True)
+    WidthInPixels=models.IntegerField(default=False,blank=True)
+    HeightInPixels=models.IntegerField(default=False,blank=True)
+    EarthEllipsoid=models.CharField(max_length=10,default=False,blank=True)
+    TopLeftLatitude=models.FloatField(default=False,blank=True)
+    TopLeftLongitude=models.FloatField(default=False,blank=True)
+    TopRightLatitude=models.FloatField(default=False,blank=True)
+    TopRightLongitude=models.FloatField(default=False,blank=True)
+    BottomRightLatitude=models.FloatField(default=False,blank=True)
+    BottomRightLongitude=models.FloatField(default=False,blank=True)
+    BottomLeftLatitude=models.FloatField(default=False,blank=True)
+    BottomLeftLongitude=models.FloatField(default=False,blank=True)
+    filepath=models.TextField(max_length=500,default=False,blank=True)
+    cut_row=models.IntegerField(default=False,blank=True)
+    cut_col=models.IntegerField(default=False,blank=True)
+    gen_date=models.DateField(default=False,blank=True)
+    folder=models.TextField(max_length=500,default=False,blank=True)
+    isPublish=models.BooleanField(default=False,blank=True)
+    ProductLevel=models.CharField(max_length=10,default=False,blank=True)
 
 class SliceMap(models.Model):
     index_raw=models.IntegerField()
