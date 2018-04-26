@@ -180,25 +180,7 @@ $(function(){
                         ol.Observable.unByKey(listener);
                         //移除地图单击事件
                         map.removeEventListener('singleclick');
-
-                        var geojson_c = new ol.format.GeoJSON();
-                        var current_feature=evt.feature;
-                        var geo = current_feature.getGeometry();
-                        var coordinates=geo.getCoordinates();
-                        var geostr = coordinates[0].join(";");
-                        var container = document.getElementById('popup');
-                        container.style.display="block"
-                        var overlay = new ol.Overlay(/** @type {olx.OverlayOptions} */ ({
-                                element: container,
-                                autoPan: true,
-                                autoPanAnimation: {
-                                    duration: 250   //当Popup超出地图边界时，为了Popup全部可见，地图移动的速度.
-                                                  }
-                        }));
-                         var coordinate = coordinates[0][0];
-                         overlay.setPosition(coordinate);
-                         map.addOverlay(overlay);
-                         }, this);
+                    }, this);
 
 
                     //创建测量提示框

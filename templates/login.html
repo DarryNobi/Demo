@@ -21,11 +21,11 @@
     </style>
 
 </head>
-<body style="background-color: #E2E2E2;">
-    <div class="container">
+<body >
+    <div class="container" style="background-color: #0090ff;margin-top: 10%;height: 61.8%;border-radius: 20px;" >
         <div class="row text-center " style="padding-top:100px;">
            <div class="col-md-12">
-                <img src="assets/img/logo-invoice.png" />
+                <img src="{% static 'img/spaceflight.png' %}" />
             </div>
         </div>
          <div class="row ">
@@ -36,7 +36,7 @@
                                 <form role="form" name="indexForm" action="/login_check/" method="post">
                                     {% csrf_token %}
                                     <hr />
-                                    <h5>请输入用户信息</h5>
+                                    <h5 style="color:#ffffff;">请输入用户信息</h5>
                                        <br />
                                      <div class="form-group input-group">
                                             <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
@@ -52,8 +52,8 @@
                                         </div>
 
                                     <div class="subBut"><button type="submit" class="btn btn-primary ">登录</button></div>
-                                    <hr />
-                                    不是用户 <a href="/register/" >点击这里 </a>
+
+                                    不是用户 <a href="/register/" style="color:#ffffff">点击这里 </a>
                                     </form>
                                 <p>{{message1}}</p>
                             </div>
