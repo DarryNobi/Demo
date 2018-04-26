@@ -32,6 +32,11 @@ def index(request):
     return render(request,
                   template_name='index.html')
 
+def index_new(request):
+    return render(request,
+                  template_name='index_new.html')
+
+@login_required(login_url='/login/')
 def loadmap(request):
     return render(request,
                   template_name='map_geo.html')
@@ -94,10 +99,21 @@ def home(request):
     return render(request,
                   template_name='home.html')
 
+def default(request):
+    return render(request,
+                  template_name='default.html')
+
 def resource_search(request):
     return render(request,
                   template_name='resource_search.html')
 #########################################################################
+
+def is_authenticated(request):
+    if request.user.is_authenticated:
+        return JsonResponse({'islogin':True,'username':request.user.username})
+    else:
+        return JsonResponse({'islogin': False})
+
 
 def save_graphic(request):
     if request.method == "POST":
@@ -123,7 +139,7 @@ def login_check(request):
     if user:
         request.session['username']=username
         auth.login(request, user)
-        return render(request, 'index.html', {'message1': '登录成功'})
+        return render(request, 'index_new.html', {'message1': '登录成功'})
 
     else:
        return render(request, 'login.html', {'message1': '用户名或密码错误'})
@@ -131,7 +147,7 @@ def login_check(request):
 
 def mylogout(request):
     logout(request)
-    return render(request,'login.html')
+    return render(request,'index_new.html',{'islogin': False})
 
 #@login_required
 #@permission_required('user_management',raise_exception=True)
@@ -262,6 +278,7 @@ def _permissions_query(request):
     else:
         return render(request,'permissions_query.html',{'message1':'查找结果为空！'})
 
+
 def check_username(request):
     username = request.POST.get('username', False)
     user=User.objects.filter(username=username)
@@ -269,6 +286,7 @@ def check_username(request):
         return HttpResponse("false")
     else:
         return HttpResponse("true")
+
 
 def status_revise(request):
     #raw_dic=request.raw_post_data()
@@ -280,24 +298,47 @@ def status_revise(request):
     user.save()
     return render(request,'authorityManagement.html',{'userid':id,'isactive':is_active})
 
+
 def save_draw(request):
     raw_dic = request.POST.get('coordi', False)
+    name = request.POST.get('name', False)
+    grahpictype = request.POST.get('grahpictype', False)
+    grahpiclabel = request.POST.get('grahpiclabel', False)
+    discrib = request.POST.get('discrib', False)
+    square = request.POST.get('square', 0)
+    coordinate = request.POST.get('coordinate', False)
+
     coordis=raw_dic.replace(",",";").split(";")
     coordis_num=[float(c) for c in coordis]
     coordis_list=[coordis_num[i:i+2] for i in range(0,len(coordis_num),2)]
-    jsonstr={'type':'Feature','geometry':{'type':'Polygon','coordinates':[coordis_list]},'properties':{'name':'name'}}
+    jsonstr={'type':'Feature','geometry':{'type':'Polygon','coordinates':[coordis_list]},'properties':{'id':0}}
     jsondata=json.dumps(jsonstr)
-
-    draw_obj = GraphicLabel.objects.create(name='default',context=jsondata,grahpictype='1',grahpiclabel='1')
+    draw_obj = GraphicLabel.objects.create(name=name,context=jsondata,grahpictype=grahpictype,grahpiclabel=grahpiclabel,graphic_provide=request.user,discrib=discrib)
     draw_obj.save()
     return render(request,'map_geo.html',{'message':'success'})
 
+
 def load_all_draw(request):
     all_draws=GraphicLabel.objects.all()
+    for draw in all_draws:
+        json_context=json.loads(draw.context)
+        json_context['properties']['id']=draw.id
+        draw.context=json.dumps(json_context)
     all_draws_data = [draw.context for draw in all_draws]
     return JsonResponse({'all_draws':all_draws_data})
 
 
+def query_draw(request):
+    id = request.GET.get('id', False)
+    draw=model_to_dict(GraphicLabel.objects.get(id=id))
+    return JsonResponse({'drawinfo':draw})
+
+
+def delete_draw(request):
+    id = request.GET.get('id', False)
+    draw=GraphicLabel.objects.get(id=id)
+    draw.delete()
+    return JsonResponse({'message':'success'})
 ############################
 def getPath(request):
     return render(request,

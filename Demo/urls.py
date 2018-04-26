@@ -1,3 +1,4 @@
+
 """Demo URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -22,6 +23,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     url(r'^index/', views.index),
+    url(r'^default/', views.default),
+    url(r'^index_new/', views.index_new),
     url(r'^register/', views.register),
     url(r'^login/', views.login),
     url(r'^map/', views.loadmap),
@@ -38,7 +41,8 @@ urlpatterns = [
 
 ##########################################################################
 
-    url(r'^ delete_usr/', views. delete_usr),
+    url(r'^is_authenticated/', views.is_authenticated),
+    url(r'^delete_usr/', views. delete_usr),
     url(r'^register_db/', views.regist_db),
     url(r'^login_check/', views.login_check),
     url(r'^password_reset/', views.password_reset),
@@ -56,6 +60,8 @@ urlpatterns = [
     url(r'^getPath/',views.getPath),
     url(r'^SqlTest/',views.SqlTest),
     url(r'^toGeoServer/',views.toGeoServer)
+    url(r'^query_draw/', views.query_draw),
+    url(r'^delete_draw/', views.delete_draw),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

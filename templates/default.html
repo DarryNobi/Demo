@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" style="height:100%">
+<head>
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title></title>
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/common.js' %}"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+
+    <![endif]-->
+    <style type="text/css">
+        .search-type {
+            padding-left:1%;
+        }
+        .search-span {
+            padding-left:1%;
+            width:15%
+        }
+        .search-input {
+            width:100%;
+            height:56px;
+            font-size:20px;
+        }
+        .date-span {
+            color: #999999;
+            font-size: 1.8rem;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body style="height:100%">
+    <div class="homeTop" style="background-color:white; display:inline-flex; width:100%; height:10%; min-height:100px">
+        <h5 style="display:inline;width: 10%; font-size:30px; display: -webkit-flex; align-items: center; padding-left: 20px;">信息检索</h5>
+        <form role="form" name="homeForm" action="" method="post" style="width:90%; font-size:20px; height:100%">
+            <div style="width: 100%; display:-webkit-flex; align-items:center; height:100%;">
+                <span class="search-type">名称：</span>
+                <span class="search-span" ><input type="text" name="name" class="form-control search-input" placeholder="请输入名称" /></span>
+                <span class="search-type">类型：</span>
+                <span class="search-span"><input type="text" name="type" class="form-control search-input" placeholder="" /></span>
+                <span class="search-type">时间：</span>
+                <span class="search-span"><input type='date' class="form-control search-input" id='nowdate'/></span>
+                <span class="search-type">地址：</span>
+                <span class="search-span"><input type="text" name="address" class="form-control search-input" placeholder="请输入地址" /></span>
+                <span class="input-group-btn search-span">
+                    <button  type="submit" class="btn btn-primary" style="height:56px; width:40%; border-radius:4px; font-size: 2.5rem">搜索</button>
+                </span>
+            </div>
+        </form>
+    </div>
+
+    <div style="height:10%; width:100%; display:-webkit-flex; align-items:center;">
+        <h5 style="width:100%; font-size:3rem; padding-left:20px; color: #444444">最新入库影像</h5>
+    </div>
+    <div class="homeRight" style="float:left; width:100%; height:70%; padding-left:20px">
+        <img src="{% static 'img/500305658_wx.png' %}" style="height:95%;">
+    </div>
+    <div style="height:10%">
+        <span style="font-size:2rem; padding-left:20px;">标题：中国人民共和国的航天事业起始于1956年。中国于1970年4月24日发射第一颗人造地球卫星</span><br/>
+        <span class="date-span"></span>
+    </div>
+    <script>
+        window.onload=function() {
+            //默认获取当前日期
+            var today = new Date();
+            var nowdate = (today.getFullYear()) + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+            //对日期格式进行处理
+            var date = new Date(nowdate);
+            var mon = date.getMonth() + 1;
+            var day = date.getDate();
+            var mydate = date.getFullYear() + "-" + (mon < 10 ? "0" + mon : mon) + "-" + (day < 10 ? "0" + day : day);
+            $("#nowdate").val(mydate);
+            $(".date-span").html(mydate);
+        }
+    </script>
+</body>
+</html>

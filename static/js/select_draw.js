@@ -19,15 +19,25 @@ $(function(){
     map.addInteraction(selectClick);
     selectClick.on("select",singleClickEvent);
     function singleClickEvent(e){
-        var arr=e.target;//获取事件对象，即产生这个事件的元素-->ol.interaction.Select
-        var collection = arr.getFeatures();//获取这个事件绑定的features-->返回值是一个ol.Collection对象
-        var features = collection.getArray();//获取这个集合的第一个元素-->真正的feature
-        if(features.length>0){
-            var obj = features[0].getId();//获取之前绑定的ID,返回是一个json字符串
-            var jsonobj=eval("("+obj+")");//转成json对象
-            //alert(jsonobj.name);//获取ID
-            //业务逻辑...
-                 }
+        var coords=e.selected[0].getGeometry().getCoordinates();
+        var id=e.selected[0].getProperties().id;
+        //alert(e.selected[0].getProperties().id)
+        $.get("/query_draw/",{'id':id}, function(ret){
+            drawinfo=ret['drawinfo'];
+            //alert(drawinfo.name)
+
+            var popup_info = document.getElementById("popup_info");
+            var popup = new ol.Overlay({
+              element:popup_info,
+              autoPan: true,
+              autoPanAnimation: {
+                duration: 250   //当Popup超出地图边界时，为了Popup全部可见，地图移动的速度.
+              }
+            });
+            popup.setPosition(coords[0][0]);
+            popup_info.innerHTML=drawinfo.name
+            map.addOverlay(popup);
+        });
     }
 
 
@@ -37,18 +47,37 @@ $(function(){
         style:changeStyle
     });
     map.addInteraction(doubleselectClick);
-    selectClick.on("select",doubleClickEvent);
+    doubleselectClick.on("select",doubleClickEvent);
     function doubleClickEvent(e){
-        var arr=e.target;//获取事件对象，即产生这个事件的元素-->ol.interaction.Select
-        var collection = arr.getFeatures();//获取这个事件绑定的features-->返回值是一个ol.Collection对象
-        var features = collection.getArray();//获取这个集合的第一个元素-->真正的feature
-        if(features.length>0){
-            var obj = features[0].getId();//获取之前绑定的ID,返回是一个json字符串
-            var jsonobj=eval("("+obj+")");//转成json对象
-            //alert(jsonobj.name);//获取ID
-            //业务逻辑...
-                 }
+        var coords=e.selected[0].getGeometry().getCoordinates();
+        var id=e.selected[0].getProperties().id;
+
+        var popup_info = document.getElementById("popup_button");
+        var popup = new ol.Overlay({
+          element:popup_button,
+          autoPan: true,
+          autoPanAnimation: {
+            duration: 250   //当Popup超出地图边界时，为了Popup全部可见，地图移动的速度.
+          }
+        });
+        popup.setPosition(coords[0][0]);
+
+        popup_info.innerHTML="<p><button id='revise'>修改</button><button id='delete'>删除</button><button id='cancel'>取消</button></p>"
+        map.addOverlay(popup);
+
+        var revise = document.getElementById("revise");
+        var remove = document.getElementById("delete");
+        var cancel = document.getElementById("cancel");
+        revise.onclick=function(){
+
+        }
+        remove.onclick=function(){
+            $.get("/delete_draw/",{'id':id}, function(ret){
+                popup_info.innerHTML='';
+            });
+        }
+        cancel.onclick=function(){
+            popup_info.innerHTML='';
+        }
     }
-
-
 });

@@ -6,7 +6,7 @@
               params:{
                 LAYERS: 'GF2:GF2_PMS1_E102.6_N24.4_20170119_L1A0002132394-MSS1_fusion',}
               }),
-              opacity:0.6,
+              opacity:0.5,
             });
         var geoserver_layer3 = new ol.layer.Image({
           source: new ol.source.ImageWMS({
@@ -26,5 +26,5 @@
                 }),
                 projection: "EPSG:4326",
                 id:"影像",
-                opacity:0.6,
+                opacity:1,
             });

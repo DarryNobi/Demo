@@ -1,16 +1,4 @@
- /*   var polygon = new ol.geom.Polygon([[[110, 39], [116, 39], [116, 33], [110, 33], [110, 39]]]);
-    polygon.applyTransform(ol.proj.getTransform('EPSG:4326', 'EPSG:3857'));
-    var feature = new ol.Feature(polygon);
-
-    var vectorSource = new ol.source.Vector();
-    vectorSource.addFeature(feature);
-
-    var vectorLayer = new ol.layer.Vector({
-        source: vectorSource
-    });
-    map.addLayer(vectorLayer);
-*/
-  $(function(){
+$(function(){
     draw_btn_flag=true;
     draw_vector_layer=new ol.source.Vector();
 
@@ -39,21 +27,57 @@
         var geo = current_feature.getGeometry();
         var coordinates=geo.getCoordinates();
         var geostr = coordinates[0].join(";");
-        alert(geostr);
-        $.ajax({
-            type:'post',
-            url:'/save_draw/',
-            data: {
-            'coordi':geostr},
-            success:function(){
-                alert('success')},
-            error:function(){
-                alert('error')}
-        });
+        //alert(geostr);
+
+
+        var container = document.getElementById('popup');
+        container.style.display="block"
+
+        var overlay = new ol.Overlay(/** @type {olx.OverlayOptions} */ ({
+            element: container,
+            autoPan: true,
+            autoPanAnimation: {
+                duration: 250   //当Popup超出地图边界时，为了Popup全部可见，地图移动的速度.
+            }
+        }));
+        var coordinate = coordinates[0][0];
+        overlay.setPosition(coordinate);
+        map.addOverlay(overlay);
+
+        var submit = document.getElementById("save_submit");
+        var cancel = document.getElementById("save_cancel");
+
+        submit.onclick=function(){
+            var name = document.getElementById("name").value;
+            var grahpictype = document.getElementById("grahpictype").value;
+            var grahpiclabel = document.getElementById("grahpiclabel").value;
+            var discrib = document.getElementById("discrib").value;
+            var square = document.getElementById("square").value;
+            var coordinate = document.getElementById("coordinate").value;
+            $.ajax({
+                type:'post',
+                url:'/save_draw/',
+                data: {
+                    'coordi':geostr,
+                    'name':name,
+                    'grahpictype':grahpictype,
+                    'grahpiclabel':grahpiclabel,
+                    'discrib':discrib,
+                    'square':square,
+                    'coordinate':coordinate
+                },
+                success:function(){
+                    alert('success')},
+                error:function(){
+                    alert('error')}
+             });
+        }
+        cancel.onclick=function(){
+            container.style.display="none";
+        }
+
     });
 
-
-   // document.getElementById("map").innerHTML = "<button id='draw_button_div'>标绘</button>"
     draw_btn=document.getElementById("draw_button_div");
     draw_btn.onclick=function(){
         if(draw_btn_flag){

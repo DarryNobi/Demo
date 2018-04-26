@@ -91,6 +91,6 @@ class GraphicLabel(models.Model):
     context = models.TextField()#坐标数据
     discrib = models.TextField()
     square = models.FloatField(default=0)
-    graphic_provide= models.ForeignKey(Myuser,on_delete=models.CASCADE)
+    graphic_provide= models.ForeignKey(Myuser,on_delete=models.CASCADE,blank=True)
     coordinate_x = models.FloatField(default=0)
     coordinate_y = models.FloatField(default=0)

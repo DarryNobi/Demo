@@ -8,18 +8,17 @@ $(document).ready(function(){
       /* {"properties": {"name": "name"},
        "geometry": {"coordinates": [[[11386562.366271852, 2817856.4835326043]]],"type": "Polygon"},
        "type": "feature"};\
-       */
-        if len(all_draws)>0 :
-            for(var i in all_draws){
-                var vectorSource = new ol.source.Vector({
-                    features: (new ol.format.GeoJSON()).readFeatures(all_draws[i])
-                  });
+   */
+        for(var i in all_draws){
+            var vectorSource = new ol.source.Vector({
+                features: (new ol.format.GeoJSON()).readFeatures(all_draws[i])
+              });
 
-                var vectorLayer = new ol.layer.Vector({
-                    source: vectorSource
-                });
+            var vectorLayer = new ol.layer.Vector({
+                source: vectorSource
+            });
 
-                map.addLayer(vectorLayer);
-            }
+            map.addLayer(vectorLayer);
+        }
     });
 });
