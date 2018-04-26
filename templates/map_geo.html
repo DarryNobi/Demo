@@ -80,12 +80,9 @@
    <script src="https://openlayers.org/en/v4.5.0/build/ol.js" type="text/javascript"></script>
      <script src="{% static 'js/require.js' %}"></script>
    <script src="{% static 'js/geomap.js' %}"></script>
-   <script src="{% static 'js/default_geomap.js' %}"></script>
    <!-- <script src="{% static 'js/baidumap.js' %}"></script> -->
    <script src="{% static 'js/load_draw.js' %}"></script>
    <script src="{% static 'js/select_draw.js' %}"></script>
-    <script>
-</script>
      <style>
          .input-group {
             text-align: center;
@@ -183,7 +180,7 @@
       ]),
      });
     //map.addLayer(baidu_layer);
-    map.addLayer(geoserver_layer2);
+    map.addLayer(default_geo_layer2);
     map.addLayer(default_geo_layer);
     map.render();
 
@@ -193,25 +190,22 @@
         var lantitude=document.getElementById("lantitude").value;
         var newview=new ol.View({
              center: ol.proj.fromLonLat([lontitude, lantitude]),
-             zoom: 12,
-             maxZoom:18,
-             minZoom:5
+             zoom: 13,
+             maxZoom:17,
+             minZoom:10
            });
         //view.setCenter([lontitude,lantitude]);
-        alert(lontitude);
+        //alert(lontitude);
         //view.animate({zoom:view.getZoom()/4},{center:[lontitude,lantitude]},{zoom:view.getZoom()*4},{duration:2000} );
         map.setView(newview);
         map.render();
     }
+    </script>
 
 
-
-</script>
-
-
-<script src="{% static 'js/polygon.js' %}"></script>
+    <script src="{% static 'js/polygon.js' %}"></script>
    <script src="{% static 'js/distance.js' %}"></script>
-<script src="{% static 'js/area.js' %}"></script>
+    <script src="{% static 'js/area.js' %}"></script>
  </body>
 </html>
 
