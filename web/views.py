@@ -96,6 +96,18 @@ def home(request):
     return render(request,
                   template_name='home.html')
 
+def move_out(request):
+    return render(request,
+                  template_name='move_out.html')
+
+def move_compare(request):
+    return render(request,
+                  template_name='move_compare.html')
+
+def offence_build(request):
+    return render(request,
+                  template_name='offence_build.html')
+
 def default(request):
     return render(request,
                   template_name='default.html')

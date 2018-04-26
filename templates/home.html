@@ -67,14 +67,14 @@
                     <div class="sidebar-collapse" style="height:100%">
                         <ul class="nav" id="main-menu" style="height:100%">
                             <li>
-                                <a href="javascript:void(0)" onclick="open_municipalManagement('/map/');">
+                                <a href="javascript:void(0)" onclick="open_municipalManagement('/offence_build/');">
                                     <span><img src="{% static 'img/building.png' %}"></span>
                                     <span>违建管理</span>
                                 </a>
                             </li>
 
                             <li>
-                                <a href="javascript:void(0)" onclick="open_municipalManagement('/map/');">
+                                <a href="javascript:void(0)" onclick="open_municipalManagement('/move_out/');">
                                     <span><img src="{% static 'img/remove.png' %}"></span>
                                     <span>拆迁管理</span>
                                 </a>
@@ -114,7 +114,7 @@
 
                 </div>
             </div>
-            <div class="col-xs-10 col-lg-10" style="height:95%; margin-top:31px; background-color:#ffffff; border-radius:6px;">
+            <div class="col-xs-10 col-lg-10" style="padding:0; height:95%; margin-top:31px; background-color:#ffffff; border-radius:6px;">
                 <div style="height:100%">
                     <iframe id="municipal_container" src="/default/" frameborder="0" scrolling="no" style="width: 100%; height: 100%;">
                     </iframe>
