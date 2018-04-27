@@ -177,6 +177,11 @@
                     text : '取消发布'
                 }))))
                 .appendTo(resultTab);
+                $("#look"+item.id).on("click", look);
+                $("#download"+item.id).on("click", download);
+                $("#del"+item.id).on("click", delete);
+                $("#release"+item.id).on("click", release);
+                $("#cancel_release"+item.id).on("click", cancel_release);
         });
     };
     </script>
