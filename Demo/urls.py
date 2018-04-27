@@ -37,6 +37,9 @@ urlpatterns = [
     url(r'^authority_management/', views.authority_management),
     url(r'^ranging/', views.ranging),
     url(r'^home/', views.home),
+    url(r'^move_out/', views.move_out),
+    url(r'^move_compare/', views.move_compare),
+    url(r'^offence_build/', views.offence_build),
     url(r'^resource_search/', views.resource_search),
 
 ##########################################################################
