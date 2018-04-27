@@ -1,5 +1,5 @@
 
-from web.models import Map
+'''from web.models import Map
 from geoserver.catalog import Catalog
 from web.models import Map
 
@@ -16,4 +16,4 @@ def uploadImage():
         #layer.url=imageWithSRS.replace('S.tif','R.tif')
         #cat.save(layer)
         #cat.reload()
-        #Map.objects.filter(id=image.id).update(isPublish=True)
+        #Map.objects.filter(id=image.id).update(isPublish=True)'''

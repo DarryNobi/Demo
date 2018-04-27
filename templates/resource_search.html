@@ -43,14 +43,12 @@
                         <span class="search-list">入库时间</span>
                         <span class="search-list" style="left:150px;">卫星种类</span>
                         <span class="search-list" style="left:257px;">其他条件</span>
-                        <span class="search-list" style="left:500px;">地图查看</span>
-                        <span class="search-list">列表查看</span>
                     </div>
                 </div>
                 <div style="margin-top:10px; display:inline-flex; width:100%; height:10%">
                     <form style="display:inline-flex; width:100%; height:100%">
                         <div class="search-list">
-                            <input type='date' class="nowdate search-input" style="width:auto"/>
+                            <input type='date' class="nowdate search-input"/>
                         </div>
                         <div class="search-list">
                             <select style="height:50px">
@@ -60,21 +58,15 @@
                             </select>
                         </div>
                         <div class="search-list" style="display:inline-flex;">
-                            <input type='text' class="search-input" style="width:auto" placeholder="请输入其他查询条件"/>
+                            <input type='text' class="search-input" placeholder="请输入其他查询条件"/>
                             <span class="input-group-btn" style="padding-left:10px;">
                                 <button style="height:50px; width:100px; font-size:20px; border-radius:6px"  type="submit" class="btn btn-primary">搜索</button>
                             </span>
                         </div>
-                        <div id="globe-search" class="search-list">
-                            <span class="glyphicon glyphicon-globe search-input" style="color:#337ab7; font-size:55px"></span>
-                        </div>
-                        <div id="list-search" sclass="search-list">
-                            <span class="glyphicon glyphicon-list search-input" style="color:#337ab7; font-size:55px"></span>
-                        </div>
                     </form>
                 </div>
                 <div id="globe-search-result"></div>
-                <div id="list-search-result" style="display:none; width:95%">
+                <div id="list-search-result" style="width:95%">
                     <table id="resultTab" border="0" cellspacing="0" cellpadding="0" class="table">
                         <tr class="label-primary" style="font-size:20px; height: 70px;">
                             <th scope="col" width="5%"><span style="color:white">序号</span></th>
@@ -125,14 +117,6 @@
         var day = date.getDate();
         var mydate = date.getFullYear() + "-" + (mon < 10 ? "0" + mon : mon) + "-" + (day < 10 ? "0" + day : day);
         $(".nowdate").val(mydate);
-        $("#globe-search").click(function (){
-            $("#list-search-result").css("display","none");
-            $("#globe-search-result").css("display","block");
-        });
-        $("#list-search").click(function(){
-            $("#list-search-result").css("display","block");
-            $("#globe-search-result").css("display","none");
-        });
         showList();
     };
     function showList(){
@@ -169,15 +153,28 @@
                 .append($('<p/>')
                 .append($('<button/>',{
                     'class' : 'operate',
+                    'id' : 'look' + item.id,
                     text : '查看'
                 }))
                 .append($('<button/>',{
                     'class' : 'operate',
+                    'id' : 'download' + item.id,
                     text : '下载'
                 }))
                 .append($('<button/>',{
                     'class' : 'operate',
+                    'id' : 'del' + item.id,
                     text : '删除'
+                }))
+                .append($('<button/>',{
+                    'class' : 'operate',
+                    'id' : 'release' + item.id,
+                    text : '发布'
+                }))
+                .append($('<button/>',{
+                    'class' : 'operate',
+                    'id' : 'cancel_release' + item.id,
+                    text : '取消发布'
                 }))))
                 .appendTo(resultTab);
         });

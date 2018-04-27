@@ -131,6 +131,10 @@ def graphic_look(request):
     return render(request,
                   template_name='graphic_look.html')
 
+def resource_management(request):
+    return render(request,
+                  template_name='resource_management.html')
+
 def default(request):
     return render(request,
                   template_name='default.html')
