@@ -17,3 +17,9 @@ function move_out(url){
 function offence_build(url){
     document.getElementById("offence_build_container").src = url;
 }
+function open_account_management(url){
+    document.getElementById("account_management_container").src = url;
+}
+function open_user_center(url){
+    document.getElementById("user_center_container").src = url;
+}

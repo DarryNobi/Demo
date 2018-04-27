@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+ <head>
+     <meta charset="utf-8">
+     {% load staticfiles %}
+     <script src="{% static 'js/common.js' %}"></script>
+     <link rel="stylesheet" href="https://openlayers.org/en/v4.5.0/css/ol.css" type="text/css">
+     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap.min.css">
+     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap-theme.min.css">
+     <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+     <!--[if lt IE 9]>
+     <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+     <script >
+         $.ajaxSetup({
+             data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+         });
+     </script>
+     <![endif]-->
+    <style>
+        html, body {
+            height:100%;
+        }
+        .nav-tabs li {
+            height:100%;
+            border-radius: 10px 10px 0 0;
+            background: #e6e7ea;
+        }
+        .nav-tabs li a {
+            height: 100%;
+            text-align:center;
+            display:-webkit-flex;
+            align-items:center;
+            font-size:2.5rem;
+            color:#8a8a8a;
+        }
+        .nav-tabs li a:hover {
+            color: #3178f5;
+            background:#ffffff;
+        }
+        .nav-img-p {
+            height:100%;
+            padding-right:10px;
+        }
+        .nav-img {
+            height:80%;
+        }
+        .picture-span {
+            color:#666666;
+            width:7%;
+            min-width:100px;
+            text-align:center;
+        }
+        .picture-date {
+            height:100%;
+            min-width:185px;
+            width:13%;
+        }
+        .compare-input {
+            height:50%;
+            min-height:50px;
+        }
+        .compare-but {
+            height: 50%;
+            width:100%;
+            border-radius:4px;
+            font-size:20px;
+            min-height:50px;
+            display:-webkit-flex;
+            align-items:center;
+        }
+        .map {
+            height: 100%;
+            width: 100%;
+        }
+
+        .ol-rotate {
+            right:100px;
+
+        }
+
+
+
+        .ol-scale-line {
+            bottom:80px;
+
+        }
+
+
+
+        #menu {
+            float: left;
+            position: absolute;
+            top: 300px;
+
+            z-index: 2000;
+        }
+         /**
+        * 提示框的样式信息
+        */
+        .tooltip {
+            position: relative;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 4px;
+            color: white;
+            padding: 4px 8px;
+            opacity: 0.7;
+            white-space: nowrap;
+        }
+
+        .tooltip-measure {
+            opacity: 1;
+            font-weight: bold;
+        }
+
+        .tooltip-static {
+            background-color: #ffffff;
+            color: black;
+            border: 1px solid white;
+        }
+
+        .tooltip-measure:before,
+        .tooltip-static:before {
+            border-top: 6px solid rgba(0, 0, 0, 0.5);
+            border-right: 6px solid transparent;
+            border-left: 6px solid transparent;
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            margin-left: -7px;
+            left: 50%;
+        }
+
+        .tooltip-static:before {
+            border-top-color: #ffffff;
+        }
+    </style>
+
+   <script src="{% static 'js/jquery-1.8.2.min.js' %}"></script>
+     <script >
+      $.ajaxSetup({
+         data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+      });
+     </script>
+     <script src="{% static 'js/require.js' %}"></script>
+    <script>
+</script>
+     <style>
+         .input-group {
+            text-align: center;
+         }
+     </style>
+ </head>
+
+ <body>
+    <div style="height:10%; min-height:80px;">
+        <ul class="nav nav-tabs head-ul" style="height:100%; background: #c3c6cb;">
+            <li>
+                <a id="home" class="" href="javascript:void(0)" onclick="open_user_center('/info_revise/')" >
+                    <span class="nav-img-p"><img class="nav-img" src="{% static 'img/user_ statistics .png' %}"></span>
+                    <span class="nav-text-p">修改个人信息</span>
+                </a>
+            </li>
+            <li role="presentation">
+                <a href="javascript:void(0)" onclick="open_user_center('/password_revise/')">
+                    <span class="nav-img-p"><img class="nav-img" src="{% static 'img/user_ statistics .png' %}"></span>
+                    <span class="nav-text-p">密码重置</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div style="height:90%">
+        <div style="height:100%">
+            <iframe id="user_center_container" src="" frameborder="0" scrolling="no" style="width: 100%; height: 100%;">
+            </iframe>
+        </div>
+    </div>
+
+ </body>
+</html>
+
+<!-- http://172.20.53.157:8080/geoserver/test/wms
+https://openlayers.org/en/v4.6.5/build/ol.js-->

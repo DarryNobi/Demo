@@ -23,10 +23,10 @@
 <![endif]-->
 <style>
 .bs-docs-home
-{ 
-    background-color: #ffffff; 
-    background-image: url(line.png); 
-} 
+{
+    background-color: #ffffff;
+    background-image: url(line.png);
+}
 table {
 
 }
@@ -48,44 +48,47 @@ table {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <div class="container theme-showcase">
+
+    <!--<div class="container theme-showcase">-->
+    <div>
         <h1 style=" line-height:2em;"></h1><br/>
         <div class="row">
-            <div class="col-sm-3"></div> 
+            <div class="col-sm-2"></div>
             <div class="col-sm-6">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <h3 class="panel-title"><strong>权限管理</strong></h3>
+                    <h2><strong>权限管理</strong></h2>
                       <p>{{ userid  }}{{  isactive }}</p>
                 </div>
-                <div class="panel-body"> 
-                    
+                <div class="panel-body">
+
 
 
                     <div class="table-responsive">
-                        <table border="0" cellspacing="0" cellpadding="0" class="table">
-                        <tr class=" label-primary">
-                
-                            <th scope="col" width="15%"><span style="color:white">账号</span></th>
-                            <th scope="col" width="15%"><span style="color:white">联系人</span></th>
-                            <th scope="col" width="20%"><span style="color:white">已有权限</span></th>
-                            <th scope="col" width="10%"><span style="color:white">状态</span></th>
-                            <th scope="col" class ="authorityTh"><span class="authoritySpan" style="color:white">修改权限</span></th>
+						<table style="height:40px;" border="0" cellspacing="0" cellpadding="0" class="table">
+						<tr class=" label-primary">
+
+                            <th scope="col" width="15%"><span style="color:white"><h4>账号</h4></span></th>
+                            <th scope="col" width="15%"><span style="color:white"><h4>联系人</h4></span></th>
+                            <th scope="col" width="20%"><span style="color:white"><h4>已有权限</h4></span></th>
+                            <th scope="col" width="15%"><span style="color:white"><h4>状态</h4></span></th>
+                            <!--<th scope="col" class ="authorityTh"><span class="authoritySpan" style="color:white"><h4>修改权限</h4></span></th>-->
+                            <th scope="col"><span style="color:white"><h4>修改权限</h4></span></th>
                         </tr>
                         </table>
-                    </div> 
+                    </div>
 
                     <!--<div class="form-group">-->
 
                         <!--<input class="form-control btn btn-primary" id="submit" value="确&nbsp;&nbsp;认&nbsp;&nbsp;修&nbsp;&nbsp;改" type="button" onclick="_check()"/>-->
                     <!--</div>-->
 
-                </div> 
-            </div> 
-            </div> 
-            <div class="col-sm-3"></div> 
+                </div>
+            </div>
+            </div>
+            <div class="col-sm-3"></div>
         </div>
-    </div> 
+    </div>
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/js/bootstrap.min.js"></script>
 <script type="text/javascript">
@@ -102,8 +105,8 @@ table {
 
     // background_data为后台数据
     // dataArray.push(background_data);
-    
-    
+
+
     /*判断是否有搜索条件，根据搜索条件去渲染表格*/
 window.onload=function(){
             $(".data").remove();

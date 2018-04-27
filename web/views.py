@@ -13,6 +13,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Permission
 from django.contrib import auth
+from web.models import Map
 import json
 from django.core import serializers
 from web.models import Myuser
@@ -21,6 +22,8 @@ from django.forms.models import model_to_dict
 from django.core.serializers.json import DjangoJSONEncoder
 from django.http import HttpResponse, JsonResponse
 User = get_user_model()
+from web.ImageryServer import DB_Workshop
+from web.ImageryServer import GS_Workshop
 # Create your views here.
 
 
@@ -72,6 +75,18 @@ def permissions_query(request):
 def roller_shutters(request):
     return render(request,
                   template_name='roller_shutters.html')
+#####################################################
+
+def user_center(request):
+    return render(request,
+                  template_name='user_center.html')
+
+def account_management(request):
+    return render(request,
+                  template_name='account_management.html')
+
+
+#####################################################
 
 def authority_management(request):
     users_temp=User.objects.all()
@@ -348,3 +363,19 @@ def delete_draw(request):
     draw=GraphicLabel.objects.get(id=id)
     draw.delete()
     return JsonResponse({'message':'success'})
+############################
+def getPath(request):
+    return render(request,
+                  template_name='image_Upload.html')
+
+
+def SqlTest(request):
+    filepath = request.POST.get('filepath', False)
+    DB_Workshop.saveImage(filepath)
+    return render(request, 'toGeoServer.html')
+
+
+def toGeoServer(request):
+    GS_Workshop.uploadImage();
+    return render(request, 'toGeoServer.html')
+
