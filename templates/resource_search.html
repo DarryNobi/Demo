@@ -72,8 +72,6 @@
                             <th scope="col" width="5%"><span style="color:white">序号</span></th>
                             <th scope="col" width="15%"><span style="color:white">影像资源</span></th>
                             <th scope="col" width="10%"><span style="color:white">入库时间</span></th>
-                            <th scope="col" width="5%"><span style="color:white">用户</span></th>
-                            <th scope="col" width="5%"><span style="color:white">荷载</span></th>
                             <th scope="col" width="10%"><span style="color:white">卫星</span></th>
                             <th scope="col" width="10%"><span style="color:white">影像类别</span></th>
                             <th scope="col" width="10%"><span style="color:white">下载次数</span></th>
@@ -135,12 +133,6 @@
                     text : item.date
                 }))
                 .append($('<td/>',{
-                    text : item.user
-                }))
-                .append($('<td/>',{
-                    text : item.load
-                }))
-                .append($('<td/>',{
                     text : item.satellite
                 }))
                 .append($('<td/>',{
@@ -179,11 +171,16 @@
                 .appendTo(resultTab);
                 $("#look"+item.id).on("click", look);
                 $("#download"+item.id).on("click", download);
-                $("#del"+item.id).on("click", delete);
+                $("#del"+item.id).on("click", del);
                 $("#release"+item.id).on("click", release);
                 $("#cancel_release"+item.id).on("click", cancel_release);
         });
     };
+    function look () {};
+    function download () {};
+    function del () {};
+    function release () {};
+    function cancel_release () {};
     </script>
 </body>
 </html>
