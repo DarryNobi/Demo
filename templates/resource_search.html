@@ -106,25 +106,7 @@
         </div>
     </div>
     <script>
-    var data = [{
-        "id": 1,
-        "resource": "111111",
-        "date": "2018/04/19",
-        "user": "admin",
-        "load": "CCD1",
-        "satellite": "高分1号",
-        "type": "二级影像",
-        "download": "2"
-    },{
-        "id": "2",
-        "resource": "2222",
-        "date": "2018/04/19",
-        "user": "admin1",
-        "load": "PAD-1",
-        "satellite": "高分1号",
-        "type": "三级影像",
-        "download": "3"
-    }];
+    var data = {{ d_maps|safe }};
     window.onload=function(){
         //默认获取当前日期
         var today = new Date();

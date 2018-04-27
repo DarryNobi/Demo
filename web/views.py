@@ -386,8 +386,8 @@ def map_inquiry(request):
     for i in range(len(maps_temp)):
         d_maps[i] = model_to_dict(maps_temp[i])
     if d_maps:
-        return render(request, 'authorityManagement.html', {'d_users': json.dumps(d_maps, cls=DjangoJSONEncoder)})
+        return render(request, 'resource_search.html', {'d_maps': json.dumps(d_maps, cls=DjangoJSONEncoder)})
     else:
-        return render(request, 'authorityManagement.html', {'message': '查找结果为空！'})
+        return render(request, 'resource_search.html', {'message': '查找结果为空！'})
 
 
