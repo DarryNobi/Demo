@@ -386,4 +386,16 @@ def SqlTest(request):
 def toGeoServer(request):
     GS_Workshop.uploadImage();
     return render(request, 'toGeoServer.html')
+#################################################
+
+def map_inquiry(request):
+    maps_temp = Map.objects.all()
+    d_maps = {}
+    for i in range(len(maps_temp)):
+        d_maps[i] = model_to_dict(maps_temp[i])
+    if d_maps:
+        return render(request, 'authorityManagement.html', {'d_users': json.dumps(d_maps, cls=DjangoJSONEncoder)})
+    else:
+        return render(request, 'authorityManagement.html', {'message': '查找结果为空！'})
+
 

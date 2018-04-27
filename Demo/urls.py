@@ -67,6 +67,7 @@ urlpatterns = [
     url(r'^toGeoServer/',views.toGeoServer),
     url(r'^query_draw/', views.query_draw),
     url(r'^delete_draw/', views.delete_draw),
+    url(r'^map_inquiry/', views.map_inquiry),
 
     ##########################################################
     url(r'^user_center/', views.user_center),

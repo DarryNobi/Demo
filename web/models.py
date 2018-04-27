@@ -10,6 +10,7 @@ from django.utils import timezone
 
 
 class Map(models.Model):
+    GlobeID=models.IntegerField(default=0)
     SatelliteID=(
                     ('1','高分二号'),
                     ('2','高景一号'),
@@ -44,6 +45,8 @@ class Map(models.Model):
     folder=models.TextField(max_length=500,default=False,blank=True)
     isPublish=models.BooleanField(default=False,blank=True)
     ProductLevel=models.CharField(max_length=10,default=False,blank=True)
+    ImageDesc=models.TextField(max_length=500,default='Describe This Image')
+    IsUnit8=models.BooleanField(default=False)
 
 class SliceMap(models.Model):
     index_raw=models.IntegerField()
