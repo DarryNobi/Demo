@@ -40,6 +40,8 @@ urlpatterns = [
     url(r'^move_out/', views.move_out),
     url(r'^move_compare/', views.move_compare),
     url(r'^offence_build/', views.offence_build),
+    url(r'^general_survey/', views.general_survey),
+    url(r'^graphic_look/', views.graphic_look),
     url(r'^resource_search/', views.resource_search),
 
 ##########################################################################

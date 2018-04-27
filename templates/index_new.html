@@ -18,6 +18,14 @@
     <!-- GOOGLE FONTS-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
+    <!-- JQUERY SCRIPTS -->
+    <script src="{% static 'js/jquery-1.10.2.js' %}"></script>
+    <!-- BOOTSTRAP SCRIPTS -->
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <!-- METISMENU SCRIPTS -->
+    <script src="{% static 'js/jquery.metisMenu.js' %}"></script>
+       <!-- CUSTOM SCRIPTS -->
+    <script src="{% static 'js/custom.js' %}"></script>
     <script src="{% static 'js/common.js' %}"></script>
     <script >
       $.ajaxSetup({
@@ -75,7 +83,7 @@
     </style>
 </head>
 
-<body style="height:100%">
+<body style="height:100%;">
     <div id="wrapper" style="height:100%">
         <div id="container" style="height:20%; min-height:200px">
             <div style="width:100%; display:inline-flex; height:100%; color:white">
@@ -103,7 +111,7 @@
                         <!--<nav class="collapse navbar-collapse" style="padding-left:10px">-->
                                 <ul class="nav nav-tabs head-ul" style="height:100%">
                                     <li>
-                                        <a id="home" class="" href="javascript:void(0)" onclick="open_link('/home/');" >
+                                        <a class="" href="javascript:void(0)" onclick="open_link('/home/');" >
                                             <p class="nav-img-p"><img class="nav-img" src="{% static 'img/municipal.png' %}"></p>
                                             <p class="nav-text-p">市政管理</p>
                                         </a>
@@ -163,20 +171,6 @@
     </div>
     <!-- /. WRAPPER  -->
 
-
-    <!--<div id="footer-sec">-->
-        <!--Copyright &copy; 2016.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="遥感图像">遥感图像</a> - Collect from <a href="http://www.cssmoban.com/" title="遥感图像" target="_blank">遥感图像</a>-->
-    <!--</div>-->
-    <!-- /. FOOTER  -->
-    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-    <!-- JQUERY SCRIPTS -->
-    <script src="{% static 'js/jquery-1.10.2.js' %}"></script>
-    <!-- BOOTSTRAP SCRIPTS -->
-    <script src="{% static 'js/bootstrap.js' %}"></script>
-    <!-- METISMENU SCRIPTS -->
-    <script src="{% static 'js/jquery.metisMenu.js' %}"></script>
-       <!-- CUSTOM SCRIPTS -->
-    <script src="{% static 'js/custom.js' %}"></script>
     <script>
     window.onload=function(){
         //默认获取当前日期

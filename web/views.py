@@ -123,6 +123,14 @@ def offence_build(request):
     return render(request,
                   template_name='offence_build.html')
 
+def general_survey(request):
+    return render(request,
+                  template_name='general_survey.html')
+
+def graphic_look(request):
+    return render(request,
+                  template_name='graphic_look.html')
+
 def default(request):
     return render(request,
                   template_name='default.html')
