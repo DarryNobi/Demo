@@ -32,6 +32,9 @@
             width:50%;
             height:50px;
         }
+        #resourceTab tr th {
+            text-align:center;
+        }
     </style>
 </head>
 <body style="height:100%">
@@ -67,7 +70,7 @@
                 </div>
                 <div id="globe-search-result"></div>
                 <div id="list-search-result" style="width:95%">
-                    <table id="resultTab" border="0" cellspacing="0" cellpadding="0" class="table">
+                    <table id="resourceTab" border="0" cellspacing="0" cellpadding="0" class="table">
                         <tr class="label-primary" style="font-size:20px; height: 70px;">
                             <th scope="col" width="5%"><span style="color:white">序号</span></th>
                             <th scope="col" width="15%"><span style="color:white">影像资源</span></th>
@@ -118,11 +121,11 @@
         showList();
     };
     function showList(){
-        var resultTab = $("#resultTab");
+        var resultTab = $("#resourceTab");
         data.forEach(function(item){
             $(
                 '<tr/>', {
-                    'style' : 'font-size:18px'
+                    'style' : 'font-size:18px;text-align: center'
                 }).append($('<td/>', {
                     text : item.id
                 }))
