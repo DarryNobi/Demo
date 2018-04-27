@@ -136,8 +136,15 @@ def default(request):
                   template_name='default.html')
 
 def resource_search(request):
-    return render(request,
-                  template_name='resource_search.html')
+    maps_temp = Map.objects.all()
+    d_maps = {}
+    for i in range(len(maps_temp)):
+        d_maps[i] = model_to_dict(maps_temp[i])
+    if d_maps:
+        return render(request, 'resource_search.html', {'d_maps': json.dumps(d_maps, cls=DjangoJSONEncoder)})
+    else:
+        return render(request, 'resource_search.html', {'message': '查找结果为空！'})
+
 #########################################################################
 
 def is_authenticated(request):
