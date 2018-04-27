@@ -1,4 +1,4 @@
-import os
+'''import os
 import numpy as np
 import re
 import gdal
@@ -68,3 +68,4 @@ for image in imageList:
     RTDS=None
     os.remove(imageWithSRS)
     os.remove(imageWithSRS.replace('S.tif','R.tif'))
+'''

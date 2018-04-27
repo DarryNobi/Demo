@@ -42,6 +42,7 @@ urlpatterns = [
     url(r'^offence_build/', views.offence_build),
     url(r'^general_survey/', views.general_survey),
     url(r'^graphic_look/', views.graphic_look),
+    url(r'^resource_management/', views.resource_management),
     url(r'^resource_search/', views.resource_search),
 
 ##########################################################################
