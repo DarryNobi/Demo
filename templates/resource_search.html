@@ -59,13 +59,12 @@
                     </div>
                 </div>
                 <div style="margin-top:10px; display:inline-flex">
-                    <form style="display:inline-flex">
+                    <form action='/map_inquiry/' style="display:inline-flex" method="post" >
                         <div>
-                            <input type='date' class="form-control nowdate" style="width:auto"/>
+                            <input name='date' type='date' class="form-control nowdate" style="width:auto"/>
                         </div>
                         <div style="margin-left:90px">
-                            <select>
-                                <option value="请选择卫星种类">请选择卫星种类</option>
+                            <select name="satelite_name">
                                 <option value="高分2号">高分2号</option>
                                 <option value="高景1号">高景1号</option>
                             </select>
