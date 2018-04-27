@@ -75,6 +75,18 @@ def permissions_query(request):
 def roller_shutters(request):
     return render(request,
                   template_name='roller_shutters.html')
+#####################################################
+
+def user_center(request):
+    return render(request,
+                  template_name='user_center.html')
+
+def account_management(request):
+    return render(request,
+                  template_name='account_management.html')
+
+
+#####################################################
 
 def authority_management(request):
     users_temp=User.objects.all()

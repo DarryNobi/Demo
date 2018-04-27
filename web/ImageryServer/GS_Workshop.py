@@ -15,10 +15,10 @@ def uploadImage():
     for image in imageList:
         if (count > 3):
             break
-        rpcFile=open(image.filepath.)
-        warpOP = gdal.WarpOptions(dstSRS='WGS84', rpc=True, multithread=True, dstNodata=65535, errorThreshold=0.0,
-                                  creationOptions=['Tiled=yes'], resampleAlg=1,
-                                  transformerOptions=RPC_HEIGHT)
+        # rpcFile=open(image.filepath.)
+        # warpOP = gdal.WarpOptions(dstSRS='WGS84', rpc=True, multithread=True, dstNodata=65535, errorThreshold=0.0,
+        #                           creationOptions=['Tiled=yes'], resampleAlg=1,
+        #                           transformerOptions=RPC_HEIGHT)
         imageDS = gdal.Open(image.filepath.encode('utf-8'),gdal.GA_ReadOnly)
         imageWithSRS = os.path.join(image.folder, image.name[:image.name.find('.tif')] + 'S.tif')
 
