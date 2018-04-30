@@ -71,7 +71,9 @@ urlpatterns = [
     url(r'^user_center/', views.user_center),
     url(r'^account_management/', views.account_management),
     url(r'^uploadImage/', views.uploadImage),
-    url(r'^cancelPublish',views.cancelPublish),
+    url(r'^cancelPublish/',views.cancelPublish),
+    url(r'^deleteImage/',views.deleteImage),
+    url(r'^downloadImage/',views.downloadImage),
     url(r'^test/',views.test)
 ]
 

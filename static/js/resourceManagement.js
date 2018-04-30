@@ -1,9 +1,13 @@
 
 var data=[];
+var ID=[];
+
 for(var i in d_maps){
+data.push(d_maps[i]);
+}
 
-data.push(d_maps[i])
-
+for(var j in gloID){
+ID.push(gloID[j]);
 }
 
 window.onload=function(){
@@ -19,14 +23,18 @@ window.onload=function(){
     showList();
 };
 function showList(){
-
     var resultTab = $("#resultTab");
     var pubText="";
+    var downText="";
     data.forEach(function(item){
         if(item.isPublish)
           pubText="取消发布";
         else
-          pubText="发布"
+          pubText="发布";
+        if($.inArray(item.GlobeID,ID)>=0)
+          downText="删除";
+        else
+          downText="下载";
         $(
             '<tr/>', {
                 'style' : 'font-size:18px'
@@ -58,12 +66,7 @@ function showList(){
             .append($('<button/>',{
                 'class' : 'operate',
                 'id' : 'download' + item.id,
-                text : '下载'
-            }))
-            .append($('<button/>',{
-                'class' : 'operate',
-                'id' : 'del' + item.id,
-                text : '删除'
+                text : downText
             }))
             .append($('<button/>',{
                 'class' : 'publish',
@@ -76,6 +79,8 @@ function showList(){
 
     button=$("#release"+ item.id);
     button.on("click",{"num":item.id},changeStatus);
+    button2=$("#download"+item.id);
+    button2.on("click",{"num":item.id},downloadStatus);
     });
 };
 
@@ -84,41 +89,102 @@ function changeStatus(data){
     var button=$("#release"+id);
     var isPublish=button.text();
     if(isPublish=="发布"){
-    button.text("发布中");
-    button.attr("disabled",true);
-    $.ajax({
-          type: 'POST',
-          url: '/uploadImage/',
-          data: {ImageID:id},
-          success:function(message){
-          alert(message);
-          button.removeAttr("disabled");
-          if(message=="发布成功！")
-               button.text("取消发布");
-          else
-               button.text("发布");
-                                  },
-          error:function(error){
-          alert(error);
-          }
+        button.text("正在发布");
+        button.attr("disabled",true);
+        $.ajax({
+              type: 'POST',
+              url: '/uploadImage/',
+              data: {ImageID:id},
+              success:function(message){
+                    if(message=="发布成功！"){
+                       alert("请先下载图片！");
+                       button.removeAttr("disabled");
+                       button.text("取消发布");
+                    }
+                    else if(message.match("[Errno 2]")){
+                      alert("请先下载图片！");
+                      button.removeAttr("disabled");
+                      button.text("发布");
+                    }
+                    else{
+                      alert(message);
+                      button.removeAttr("disabled");
+                      button.text("发布");
+                    }
+              },
+              error:function(error){
+                   alert(error);
+                   button.removeAttr("disabled");
+                   button.text("发布");
+              }
     });}
     else if(isPublish=="取消发布"){
-    button.text("正在取消");
-    button.attr("disabled",true);
+        button.text("正在取消");
+        button.attr("disabled",true);
+        $.ajax({
+              type:'post',
+              url: '/cancelPublish/',
+              data: {ImageID:id},
+              success:function(message){
+              alert(message);
+              button.removeAttr("disabled");
+              if(message=="发布已取消！")
+                 button.text("发布");
+              else
+                 button.text("取消发布");
+                                      },
+              error:function(error){
+                 alert(error);
+                 button.removeAttr("disabled");
+                 button.text("取消发布");
+              }
+    });}
+}
+function downloadStatus(data){
+    var id=data.data.num
+    var button=$("#download"+id);
+    var isDownload=button.text();
+    if(isDownload=="下载"){
+        button.text("正在下载");
+        button.attr("disabled",true);
     $.ajax({
-          type:'post',
-          url: '/cancelPublish/',
+          type: 'POST',
+          url: '/downloadImage/',
           data: {ImageID:id},
           success:function(message){
-          alert(message);
-          button.removeAttr("disabled");
-          if(message=="发布已取消！")
-             button.text("发布");
-          else
-             button.text("取消发布");
-                                  },
+               alert(message);
+               button.removeAttr("disabled");
+               if(message=="下载成功！")
+                  button.text("删除");
+               else
+                  button.text("下载");
+          },
           error:function(error){
-          alert(error);
+               alert(error);
+               button.removeAttr("disabled");
+               button.text("下载");
+
+          }
+    });}
+    else if(isDownload=="删除"){
+        button.text("正在删除");
+        button.attr("disabled",true);
+    $.ajax({
+          type:'post',
+          url: '/deleteImage/',
+          data: {ImageID:id},
+          success:function(message){
+             alert(message);
+             button.removeAttr("disabled");
+             if(message=="图片已删除！")
+                button.text("下载");
+             else
+                button.text("删除");
+          },
+          error:function(error){
+             alert(error);
+             button.removeAttr("disabled");
+             button.text("删除");
           }
     });}
 }

@@ -98,6 +98,13 @@ def uploadImage(request):
 def cancelPublish(request):
     imageID=request.POST.get('ImageID',False)
     return HttpResponse(ImagePubMan.cancelPublish(imageID))
+
+def downloadImage(request):
+    imageID=request.POST.get('ImageID',False)
+    return HttpResponse(ImagePubMan.downloadImage(imageID))
+def deleteImage(request):
+    imageID=request.POST.get('ImageID',False)
+    return HttpResponse(ImagePubMan.deleteImage(imageID))
 #####################################################
 
 def authority_management(request):
@@ -154,10 +161,13 @@ def default(request):
 def resource_search(request):
     maps_temp = Map.objects.all()
     d_maps = {}
+    gloID=[]
     for i in range(len(maps_temp)):
         d_maps[i] = model_to_dict(maps_temp[i])
+        gloID.append(d_maps[i]['GlobeID'])
     if d_maps:
-        return render(request, 'rm_resource_search.html', {'d_maps': json.dumps(d_maps, cls=DjangoJSONEncoder)})
+        return render(request, 'rm_resource_search.html', {'d_maps': json.dumps(d_maps, cls=DjangoJSONEncoder),
+                      'gloID':json.dumps(gloID,cls=DjangoJSONEncoder)})
     else:
         return render(request, 'rm_resource_search.html', {'message': '查找结果为空！'})
 
