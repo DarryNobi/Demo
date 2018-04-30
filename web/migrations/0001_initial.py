@@ -18,31 +18,10 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Myuser',
+            name='RSIuser',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('password', models.CharField(max_length=128, verbose_name='password')),
-                ('last_login', models.DateTimeField(blank=True, null=True, verbose_name='last login')),
-                ('username', models.CharField(error_messages={'unique': 'A user with that username already exists.'}, help_text='Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.', max_length=150, unique=True, validators=[django.contrib.auth.validators.UnicodeUsernameValidator()], verbose_name='username')),
-                ('email', models.CharField(blank=True, max_length=40)),
-                ('first_name', models.CharField(blank=True, default='a', max_length=20)),
-                ('last_name', models.CharField(blank=True, default='b', max_length=20)),
-                ('is_active', models.BooleanField(default=True)),
-                ('is_staff', models.BooleanField(default=True)),
-                ('is_superuser', models.BooleanField(default=False)),
-                ('date_joined', models.DateTimeField(blank=True, default=django.utils.timezone.now)),
-                ('department_name', models.CharField(blank=True, default='a', max_length=20)),
-                ('contact_usr', models.CharField(blank=True, default='a', max_length=20)),
-                ('phone', models.CharField(blank=True, default='123', max_length=20)),
-                ('groups', models.ManyToManyField(blank=True, help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.', related_name='user_set', related_query_name='user', to='auth.Group', verbose_name='groups')),
-                ('user_permissions', models.ManyToManyField(blank=True, help_text='Specific permissions for this user.', related_name='user_set', related_query_name='user', to='auth.Permission', verbose_name='user permissions')),
-            ],
-            options={
-                'permissions': (('user_management', '用户管理'), ('ibuild_management', '违建管理'), ('demolition_management', '拆迁管理'), ('recource_management', '资源管理')),
-            },
-            managers=[
-                ('objects', django.contrib.auth.models.UserManager()),
-            ],
+                ],
         ),
         migrations.CreateModel(
             name='GraphicLabel',
