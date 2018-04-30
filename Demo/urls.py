@@ -32,13 +32,13 @@ urlpatterns = [
     url(r'^password_revise/', views.password_revise),
     url(r'^permissions_query/', views.permissions_query),
     url(r'^account_inquiry/', views.account_inquiry),
-    url(r'^roller_shutters/', views.roller_shutters),
+    url(r'^ib_roller_shutters/', views.ib_roller_shutters),
     url(r'^info_revise/', views.info_revise),
     url(r'^authority_management/', views.authority_management),
     url(r'^ranging/', views.ranging),
     url(r'^home/', views.home),
     url(r'^move_out/', views.move_out),
-    url(r'^move_compare/', views.move_compare),
+    url(r'^ib_plotting/', views.ib_plotting),
     url(r'^offence_build/', views.offence_build),
     url(r'^general_survey/', views.general_survey),
     url(r'^graphic_look/', views.graphic_look),
@@ -63,9 +63,6 @@ urlpatterns = [
     url(r'^status_revise/', views.status_revise),
     url(r'^save_draw/', views.save_draw),
     url(r'^load_all_draw/', views.load_all_draw),
-    url(r'^getPath/',views.getPath),
-    url(r'^SqlTest/',views.SqlTest),
-    url(r'^toGeoServer/',views.toGeoServer),
     url(r'^query_draw/', views.query_draw),
     url(r'^delete_draw/', views.delete_draw),
     url(r'^map_inquiry/', views.map_inquiry),
@@ -73,6 +70,9 @@ urlpatterns = [
     ##########################################################
     url(r'^user_center/', views.user_center),
     url(r'^account_management/', views.account_management),
+    url(r'^uploadImage/', views.uploadImage),
+    url(r'^cancelPublish',views.cancelPublish),
+    url(r'^test/',views.test)
 ]
 
 urlpatterns += staticfiles_urlpatterns()

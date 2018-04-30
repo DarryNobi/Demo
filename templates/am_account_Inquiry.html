@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>账号查询（Bootstrap）</title>
+<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap-theme.min.css">
+<!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+<style>
+.bs-docs-home
+{ 
+	background-color: #ffffff; 
+	background-image: url(line.png); 
+} 
+table {
+
+}
+select{
+font-size:25px;
+}
+</style>
+</head>
+<body class="bs-docs-home">
+	<!--<div class="container theme-showcase">-->
+	<div>
+		<h1 style=" line-height:2em;"></h1><br/>
+		<div class="row">
+			<!--<div class="col-sm-3"></div>-->
+			<div class="col-sm-2"></div>
+			<!--<div class="col-sm-6">-->
+			<div class="col-sm-6">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<!--<h3 class="panel-title"><strong>账号查询</strong></h3>-->
+					<h2><strong>账号查询</strong></h2>
+				</div>
+				<div class="panel-body">
+					<!--通过form传递数据-->
+					<form action="/_account_inquiry/" method="post" role="form" name="form1">
+						{% csrf_token %}
+						<div class="form-group has-feedback">
+							<label for="querymethod"><h3>选择查询方式</h3></label>
+							<div class="input-group",name="input-group">
+								<select style="size: 6;width:250px;height:50px;" name="query_method">
+									<option value='1' name="ibuild">用户名</option>
+									<option value='2' name="agriculture">部门名</option>
+									<option value='3' name="forest">手机号</option>
+									<option value='4' name="road">联系人</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label for="username"><h3>请输入查询信息</h3></label>
+							<div class="input-group">
+								<input style="height:50px;" type="text" class="form-control" id="message" name="message" placeholder="请输入账号" >
+								<span class="input-group-btn">
+									<button  style="height:50px;" type="submit" ><h4>查询</h4></button>
+								</span>
+							</div>
+						</div>
+					</form>
+
+					<div class="table-responsive">
+						<table style="height:40px;" border="0" cellspacing="0" cellpadding="0" class="table">
+						<tr class=" label-primary">
+				
+							<th scope="col" width="20%" ><span style="color:white"><h4>账号</h4></span></th>
+							<th scope="col" width="22%" ><span style="color:white"><h4>部门</h4></span></th>
+							<th scope="col" width="20%" ><span style="color:white"><h4>联系人</h4></span></th>
+							<th scope="col" width="25%" ><span style="color:white"><h4>联系电话</h4></span></th>
+							<th scope="col"><span style="color:white"><h4>状态</h4></span></th>
+						</tr>
+							{% for user in users.values %}
+							<tr>
+								<th scope="col" width="20%" ><span style="color:black">{{user.username}}</span></th>
+								<th scope="col" width="22%" ><span style="color:black">{{user.department_name}}</span></th>
+								<th scope="col" width="20%" ><span style="color:black">{{user.contact_usr}}</span></th>
+								<th scope="col" width="25%" ><span style="color:black">{{user.phone}}</span></th>
+								<th scope="col"><span style="color:black">{{user.is_active}}</span></th>
+							</tr>
+						{% endfor %}
+						</table>
+						<p>{{message1}}</p>
+						</div>
+				</div> 
+			</div> 
+			</div> 
+			<div class="col-sm-3"></div>
+		</div>
+	</div>
+
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+	/*删除*/
+	/*dataArray为请求返回的数据*/
+	var dataArray = [
+		{number:111123,dep:'违建管理部门',contact:'张三',contactNumber:'18888888888',status:'登录'},
+		{number:111124,dep:'农业管理部门',contact:'李四',contactNumber:'17777777777',status:'离线'},
+		{number:111125,dep:'林业管理部门',contact:'王五',contactNumber:'15899999999',status:'离开'},
+		{number:111126,dep:'违建管理部门',contact:'赵六',contactNumber:'18888888888',status:'登录'},
+		
+	];
+
+	      
+  
+    // document.getElementById('submit_btn').onkeydown=keyDownSearch; 
+      
+    // function keyDownSearch(e) {    
+    //     // 兼容FF和IE和Opera    
+    //     var theEvent = e || window.event;    
+    //     var code = theEvent.keyCode || theEvent.which || theEvent.charCode;    
+    //     if (code == 13) {    
+    //         search();//具体处理函数    
+    //         return false;    
+    //     }    
+    //     return true;    
+    // }  
+ 
+  
+// 如果只是针对某个DIV层应用回车查询的话，可以将：  
+//  document.onkeydown=keyDownSearch;  
+// 改成：  
+// document.getElementById('层ID').onkeydown=keyDownSearch;
+
+
+	/*删除*/
+
+	// var dataArray = new Array()
+
+	// background_data为后台数据
+	// dataArray.push(background_data);
+	
+	
+	/*判断是否有搜索条件，根据搜索条件去渲染表格*/
+
+	function search() {
+		if($("#IDCard").val()) {
+			$(".data").remove();
+			for(var i = 0;i < dataArray.length;i++) {
+				if($("#IDCard").val() ==dataArray[i].number) {
+					var tr = $("<tr></tr>");
+					tr.addClass('data');
+			
+					var td1 = $("<td></td>").html(dataArray[i].number);
+					var td2 = $("<td></td>").html(dataArray[i].dep);
+					var td3 = $("<td></td>").html(dataArray[i].contact);
+					var td4 = $("<td></td>").html(dataArray[i].contactNumber);
+					var td5 = $("<td></td>").html(dataArray[i].status);
+					
+					tr.append(td1);
+					tr.append(td2);
+					tr.append(td3);
+					tr.append(td4);
+					tr.append(td5);
+					
+					$(".table").append(tr);
+					$("#IDCard").val('').focus()
+					return // 证明已经找到符合条件的数据，所以退出整个函数
+				}
+				
+			}
+			/**
+			循环执行完毕仍未找到符合条件的数据，故不存在，所以提示
+			**/
+			alert('未找到该人员');
+			$("#IDCard").val('').focus()
+		}
+	}
+
+	
+</script>
+</body>
+</html>
