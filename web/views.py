@@ -119,7 +119,7 @@ def ranging(request):
     return render(request,
                   template_name='ranging.html')
 
-def home(request):
+def home_municipal(request):
     return render(request,
                   template_name='home_municipal.html')
 
@@ -160,6 +160,12 @@ def resource_search(request):
         return render(request, 'rm_resource_search.html', {'d_maps': json.dumps(d_maps, cls=DjangoJSONEncoder)})
     else:
         return render(request, 'rm_resource_search.html', {'message': '查找结果为空！'})
+
+
+def ib_event_management(request):
+    return render(request,
+                  template_name='ib_event_management.html')
+
 
 #########################################################################
 
