@@ -57,38 +57,38 @@ def register(request):
 
 def add_account(request):
     return render(request,
-                  template_name='add_Account.html')
+                  template_name='am_add_Account.html')
 
 #@login_required(login_url='/login/')
 #@permission_required('resource_permission',login_url='/index/',raise_exception=True)
 def account_inquiry(request):
     return render(request,
-                  template_name='account_Inquiry.html')
+                  template_name='am_account_Inquiry.html')
 
 def info_revise(request):
     return render(request,
-                  template_name='info_revise.html')
+                  template_name='uc_info_revise.html')
 
 def password_revise(request):
     return render(request,
-                  template_name='password_revise.html')
+                  template_name='uc_password_revise.html')
 
 def permissions_query(request):
     return render(request,
-                  template_name='permissions_query.html')
+                  template_name='am_permissions_query.html')
 
-def roller_shutters(request):
+def ib_roller_shutters(request):
     return render(request,
-                  template_name='roller_shutters.html')
+                  template_name='ib_roller_shutters.html')
 #####################################################
 
 def user_center(request):
     return render(request,
-                  template_name='user_center.html')
+                  template_name='view_user_center.html')
 
 def account_management(request):
     return render(request,
-                  template_name='account_management.html')
+                  template_name='view_account_management.html')
 
 def uploadImage(request):
 
@@ -111,9 +111,9 @@ def authority_management(request):
             user_permissions.append(tmp)
           d_users[i]['user_permissions']=user_permissions
     if d_users:
-          return render(request,'authorityManagement.html',{'d_users':json.dumps(d_users,cls=DjangoJSONEncoder)})
+          return render(request,'am_permissions_management.html',{'d_users':json.dumps(d_users,cls=DjangoJSONEncoder)})
     else:
-          return render(request,'authorityManagement.html',{'message':'查找结果为空！'})
+          return render(request,'am_permissions_management.html',{'message':'查找结果为空！'})
 
 def ranging(request):
     return render(request,
@@ -121,35 +121,35 @@ def ranging(request):
 
 def home(request):
     return render(request,
-                  template_name='home.html')
+                  template_name='home_municipal.html')
 
 def move_out(request):
     return render(request,
-                  template_name='move_out.html')
+                  template_name='view_demolition.html')
 
-def move_compare(request):
+def ib_plotting(request):
     return render(request,
-                  template_name='move_compare.html')
+                  template_name='ib_plotting.html')
 
 def offence_build(request):
     return render(request,
-                  template_name='offence_build.html')
+                  template_name='view_illegal_building.html')
 
 def general_survey(request):
     return render(request,
-                  template_name='general_survey.html')
+                  template_name='view_general_survey.html')
 
 def graphic_look(request):
     return render(request,
-                  template_name='graphic_look.html')
+                  template_name='gs_show_list.html')
 
 def resource_management(request):
     return render(request,
-                  template_name='resource_management.html')
+                  template_name='view_resource_management.html')
 
 def default(request):
     return render(request,
-                  template_name='default.html')
+                  template_name='default_municipal.html')
 
 def resource_search(request):
     maps_temp = Map.objects.all()
@@ -157,9 +157,9 @@ def resource_search(request):
     for i in range(len(maps_temp)):
         d_maps[i] = model_to_dict(maps_temp[i])
     if d_maps:
-        return render(request, 'resource_search.html', {'d_maps': json.dumps(d_maps, cls=DjangoJSONEncoder)})
+        return render(request, 'rm_resource_search.html', {'d_maps': json.dumps(d_maps, cls=DjangoJSONEncoder)})
     else:
-        return render(request, 'resource_search.html', {'message': '查找结果为空！'})
+        return render(request, 'rm_resource_search.html', {'message': '查找结果为空！'})
 
 #########################################################################
 
@@ -214,9 +214,9 @@ def password_reset(request):
         request.user.set_password(new_password)
         request.user.save()
 
-        return render(request, 'password_revise.html', {'message': '修改成功！'})
+        return render(request, 'uc_password_revise.html', {'message': '修改成功！'})
     else:
-        return render(request, 'password_revise.html',{'message': '用户名或密码错误!'})
+        return render(request, 'uc_password_revise.html',{'message': '用户名或密码错误!'})
 
 
 #@login_required
@@ -232,7 +232,7 @@ def usr_info_revise(request):
         user.department_name=department_name
         user.phone=phone
         user.save()
-        return render(request,'info_revise.html', {'message': '修改成功！'})
+        return render(request,'uc_info_revise.html', {'message': '修改成功！'})
 
     else:
         return render(request,{'message':'用户不存在！'})
@@ -247,7 +247,7 @@ def add_usr(request):
     phone= request.POST.get("phone", False)
     user = User.objects.create_user(username=username, password=password,department_name=department_name,contact_usr=contact_usr,phone=phone)
     user.save()
-    return render(request,'add_Account.html',{'message':'添加成功'})
+    return render(request,'am_add_Account.html',{'message':'添加成功'})
 
 #@login_required
 #@permission_required('user_management',raise_exception=True)
@@ -300,9 +300,9 @@ def _account_inquiry(request):
     for i in range(len(users_temp)):
           users[i] = model_to_dict(users_temp[i])
     if users:
-          return render(request,'account_Inquiry.html',locals())
+          return render(request,'am_account_Inquiry.html',locals())
     else:
-          return render(request,'account_Inquiry.html',{'message1':'查找结果为空！'})
+          return render(request,'am_account_Inquiry.html',{'message1':'查找结果为空！'})
 
 
 
@@ -329,9 +329,9 @@ def _permissions_query(request):
            user_permissions.append(tmp)
        users[i]['user_permissions'] = user_permissions
     if users:
-        return render(request,'permissions_query.html',locals())
+        return render(request,'am_permissions_query.html',locals())
     else:
-        return render(request,'permissions_query.html',{'message1':'查找结果为空！'})
+        return render(request,'am_permissions_query.html',{'message1':'查找结果为空！'})
 
 
 def check_username(request):
@@ -351,7 +351,7 @@ def status_revise(request):
     user=User.objects.get(id=id)
     user.is_active=is_active
     user.save()
-    return render(request,'authorityManagement.html',{'userid':id,'isactive':is_active})
+    return render(request,'am_permissions_management.html',{'userid':id,'isactive':is_active})
 
 
 def save_draw(request):
@@ -401,9 +401,9 @@ def map_inquiry(request):
     for i in range(len(maps_temp)):
         d_maps[i] = model_to_dict(maps_temp[i])
     if d_maps:
-        return render(request, 'resource_search.html', {'d_maps': json.dumps(d_maps, cls=DjangoJSONEncoder)})
+        return render(request, 'rm_resource_search.html', {'d_maps': json.dumps(d_maps, cls=DjangoJSONEncoder)})
     else:
-        return render(request, 'resource_search.html', {'message': '查找结果为空！'})
+        return render(request, 'rm_resource_search.html', {'message': '查找结果为空！'})
 
 def test(request):
     DB_Workshop.saveImage('/media/zhou/文档/yaogan')

@@ -12549,3 +12549,476 @@ TypeError: ConflictingDataError('There is already a store named GF2_PMS1_E102.6_
 [2018-04-30 10:12:48,954] [INFO] "GET /static/js/resourceManagement.js HTTP/1.1" 200 3460
 [2018-04-30 10:13:04,989] [INFO] "POST /uploadImage/ HTTP/1.1" 200 15
 [2018-04-30 10:13:08,051] [INFO] "POST /cancelPublish/ HTTP/1.1" 200 18
+[2018-04-30 10:30:27,936] [INFO] "GET /index_new/ HTTP/1.1" 200 8657
+[2018-04-30 10:30:28,223] [INFO] "GET /home/ HTTP/1.1" 200 5875
+[2018-04-30 10:30:28,479] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-04-30 10:30:28,731] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=3uTFaA5aQcPas3dWyg51iPQw9q4tFMuUzpCiwtxgMf0v821HGmoh2GAoEeq01dSC HTTP/1.1" 200 18
+[2018-04-30 10:30:30,754] [INFO] "GET /resource_management/ HTTP/1.1" 200 3473
+[2018-04-30 10:30:34,342] [INFO] "GET /resource_search/ HTTP/1.1" 200 5218
+[2018-04-30 10:30:34,359] [WARNING] "GET /static/bootstrap-datetimepicker.min.css HTTP/1.1" 404 1834
+[2018-04-30 10:30:34,361] [INFO] "GET /static/js/resourceManagement.js HTTP/1.1" 200 3459
+[2018-04-30 10:30:37,373] [INFO] "GET /resource_search/ HTTP/1.1" 200 5218
+[2018-04-30 10:30:37,389] [WARNING] "GET /static/bootstrap-datetimepicker.min.css HTTP/1.1" 404 1834
+[2018-04-30 10:30:38,805] [INFO] "GET /move_out/ HTTP/1.1" 200 3143
+[2018-04-30 10:30:40,126] [INFO] "GET /move_compare/ HTTP/1.1" 200 12994
+[2018-04-30 10:30:40,268] [INFO] "GET /load_all_draw/?csrfmiddlewaretoken=3i0quPe17nGdOY2UM0rcaMbZ4M0ctO3kzdJ3QIG73qRyuXQFU6KsUDVRzAmJPfr2 HTTP/1.1" 200 17
+[2018-04-30 10:33:17,866] [INFO] "GET /offence_build/ HTTP/1.1" 200 3191
+[2018-04-30 10:33:18,471] [INFO] "GET /move_compare/ HTTP/1.1" 200 12562
+[2018-04-30 10:34:54,586] [INFO] "GET /move_compare/ HTTP/1.1" 200 8947
+[2018-04-30 10:35:41,146] [INFO] "GET /move_compare/ HTTP/1.1" 200 12994
+[2018-04-30 10:35:41,294] [INFO] "GET /load_all_draw/?csrfmiddlewaretoken=wKLlA9nosa8KG5qu44Durb57QJiD7fDc2FuYW2Puodj5m4efcaWKb2PZlxEatG1U HTTP/1.1" 200 17
+[2018-04-30 10:36:32,088] [INFO] "GET /resource_management/ HTTP/1.1" 200 3473
+[2018-04-30 10:36:35,311] [INFO] "GET /general_survey/ HTTP/1.1" 200 3479
+[2018-04-30 10:36:35,361] [INFO] "GET /graphic_look/ HTTP/1.1" 200 5768
+[2018-04-30 10:53:14,575] [INFO] "GET /index_new/ HTTP/1.1" 200 8657
+[2018-04-30 10:53:14,646] [INFO] "GET /home/ HTTP/1.1" 200 5875
+[2018-04-30 10:53:14,738] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-04-30 10:53:14,867] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=OWaxnlCVWs43hfyWFGK4hZvFSe5peOJckRTaJe41SvfoXemHNM3k1Qfxn2rWAf7U HTTP/1.1" 200 18
+[2018-04-30 10:53:15,438] [INFO] "GET /offence_build/ HTTP/1.1" 200 3191
+[2018-04-30 10:53:15,451] [INFO] "GET /static/img/view.png HTTP/1.1" 200 1469
+[2018-04-30 10:53:15,454] [INFO] "GET /static/img/event.png HTTP/1.1" 200 1488
+[2018-04-30 10:53:17,071] [INFO] "GET /move_out/ HTTP/1.1" 200 3143
+[2018-04-30 10:53:18,007] [INFO] "GET /resource_management/ HTTP/1.1" 200 3473
+[2018-04-30 10:53:18,551] [INFO] "GET /general_survey/ HTTP/1.1" 200 3479
+[2018-04-30 10:53:18,597] [INFO] "GET /graphic_look/ HTTP/1.1" 200 5768
+[2018-04-30 10:53:19,422] [INFO] "GET /general_survey/ HTTP/1.1" 200 3479
+[2018-04-30 10:53:19,464] [INFO] "GET /graphic_look/ HTTP/1.1" 200 5768
+[2018-04-30 10:53:20,550] [INFO] "GET /resource_management/ HTTP/1.1" 200 3473
+[2018-04-30 10:53:21,536] [INFO] "GET /general_survey/ HTTP/1.1" 200 3479
+[2018-04-30 10:53:21,582] [INFO] "GET /graphic_look/ HTTP/1.1" 200 5768
+[2018-04-30 10:53:22,536] [INFO] "GET /account_management/ HTTP/1.1" 200 5932
+[2018-04-30 10:53:22,580] [INFO] "GET /account_inquiry/ HTTP/1.1" 200 5967
+[2018-04-30 10:53:22,611] [INFO] "GET /account_inquiry/line.png HTTP/1.1" 200 5967
+[2018-04-30 10:53:24,004] [INFO] "GET /general_survey/ HTTP/1.1" 200 3479
+[2018-04-30 10:53:24,046] [INFO] "GET /graphic_look/ HTTP/1.1" 200 5768
+[2018-04-30 10:53:24,783] [INFO] "GET /general_survey/ HTTP/1.1" 200 3479
+[2018-04-30 10:53:24,832] [INFO] "GET /graphic_look/ HTTP/1.1" 200 5768
+[2018-04-30 10:53:26,305] [INFO] "GET /account_management/ HTTP/1.1" 200 5932
+[2018-04-30 10:53:26,357] [INFO] "GET /account_inquiry/ HTTP/1.1" 200 5967
+[2018-04-30 10:53:26,388] [INFO] "GET /account_inquiry/line.png HTTP/1.1" 200 5967
+[2018-04-30 10:53:27,092] [INFO] "GET /user_center/ HTTP/1.1" 200 5211
+[2018-04-30 10:53:27,137] [INFO] "GET /info_revise/ HTTP/1.1" 200 5733
+[2018-04-30 10:53:28,452] [INFO] "GET /account_management/ HTTP/1.1" 200 5932
+[2018-04-30 10:53:28,499] [INFO] "GET /account_inquiry/ HTTP/1.1" 200 5967
+[2018-04-30 10:53:28,532] [INFO] "GET /account_inquiry/line.png HTTP/1.1" 200 5967
+[2018-04-30 10:54:42,083] [INFO] "GET /offence_build/ HTTP/1.1" 200 3191
+[2018-04-30 10:54:42,105] [INFO] "GET /static/img/event.png HTTP/1.1" 200 1488
+[2018-04-30 10:55:34,898] [INFO] "GET /user_center/ HTTP/1.1" 200 5211
+[2018-04-30 10:55:34,951] [INFO] "GET /info_revise/ HTTP/1.1" 200 5733
+[2018-04-30 10:57:57,686] [INFO] "GET /account_management/ HTTP/1.1" 200 5932
+[2018-04-30 10:57:57,742] [INFO] "GET /account_inquiry/ HTTP/1.1" 200 5967
+[2018-04-30 10:57:57,775] [INFO] "GET /account_inquiry/line.png HTTP/1.1" 200 5967
+[2018-04-30 10:58:18,615] [INFO] "GET /account_inquiry/ HTTP/1.1" 200 5967
+[2018-04-30 10:58:18,646] [INFO] "GET /account_inquiry/line.png HTTP/1.1" 200 5967
+[2018-04-30 10:58:19,508] [INFO] "GET /account_inquiry/ HTTP/1.1" 200 5967
+[2018-04-30 10:58:19,548] [INFO] "GET /account_inquiry/line.png HTTP/1.1" 200 5967
+[2018-04-30 10:58:20,983] [INFO] "GET /add_account/ HTTP/1.1" 200 8720
+[2018-04-30 10:58:21,003] [INFO] "GET /static/js/messages_zh.min.js HTTP/1.1" 200 1175
+[2018-04-30 10:58:21,004] [INFO] "GET /static/js/jquery.validate.js HTTP/1.1" 200 42630
+[2018-04-30 10:58:22,055] [INFO] "GET /permissions_query/ HTTP/1.1" 200 4625
+[2018-04-30 10:58:22,090] [INFO] "GET /permissions_query/line.png HTTP/1.1" 200 4625
+[2018-04-30 10:58:22,781] [INFO] "GET /authority_management/ HTTP/1.1" 200 9186
+[2018-04-30 10:58:22,839] [INFO] "GET /authority_management/line.png HTTP/1.1" 200 9186
+[2018-04-30 10:58:26,047] [INFO] "GET /account_inquiry/ HTTP/1.1" 200 5967
+[2018-04-30 10:58:26,081] [INFO] "GET /account_inquiry/line.png HTTP/1.1" 200 5967
+[2018-04-30 11:05:15,031] [INFO] "GET /general_survey/ HTTP/1.1" 200 3479
+[2018-04-30 11:05:15,080] [INFO] "GET /graphic_look/ HTTP/1.1" 200 5768
+[2018-04-30 11:07:15,770] [INFO] "GET /resource_management/ HTTP/1.1" 200 3473
+[2018-04-30 11:07:18,321] [INFO] "GET /resource_search/ HTTP/1.1" 200 5218
+[2018-04-30 11:07:18,341] [WARNING] "GET /static/bootstrap-datetimepicker.min.css HTTP/1.1" 404 1834
+[2018-04-30 11:07:18,345] [INFO] "GET /static/js/resourceManagement.js HTTP/1.1" 200 3459
+[2018-04-30 11:07:20,251] [INFO] "GET /resource_management/ HTTP/1.1" 200 3473
+[2018-04-30 11:10:38,068] [INFO] "GET /home/ HTTP/1.1" 200 5875
+[2018-04-30 11:10:38,143] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-04-30 11:10:39,019] [INFO] "GET /home/ HTTP/1.1" 200 5875
+[2018-04-30 11:10:39,091] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-04-30 11:10:44,572] [INFO] "GET /home/ HTTP/1.1" 200 5875
+[2018-04-30 11:10:44,638] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-04-30 11:11:03,296] [INFO] "GET /resource_management/ HTTP/1.1" 200 3473
+[2018-04-30 11:11:04,435] [INFO] "GET /general_survey/ HTTP/1.1" 200 3479
+[2018-04-30 11:11:04,487] [INFO] "GET /graphic_look/ HTTP/1.1" 200 5768
+[2018-04-30 11:11:07,728] [INFO] "GET /account_management/ HTTP/1.1" 200 5932
+[2018-04-30 11:11:07,778] [INFO] "GET /account_inquiry/ HTTP/1.1" 200 5967
+[2018-04-30 11:11:07,806] [INFO] "GET /account_inquiry/line.png HTTP/1.1" 200 5967
+[2018-04-30 11:11:08,564] [INFO] "GET /account_management/ HTTP/1.1" 200 5932
+[2018-04-30 11:11:08,604] [INFO] "GET /account_inquiry/ HTTP/1.1" 200 5967
+[2018-04-30 11:11:08,636] [INFO] "GET /account_inquiry/line.png HTTP/1.1" 200 5967
+[2018-04-30 11:11:08,926] [INFO] "GET /general_survey/ HTTP/1.1" 200 3479
+[2018-04-30 11:11:08,969] [INFO] "GET /graphic_look/ HTTP/1.1" 200 5768
+[2018-04-30 11:11:17,258] [INFO] "GET /resource_management/ HTTP/1.1" 200 3473
+[2018-04-30 11:11:18,002] [INFO] "GET /general_survey/ HTTP/1.1" 200 3479
+[2018-04-30 11:11:18,049] [INFO] "GET /graphic_look/ HTTP/1.1" 200 5768
+[2018-04-30 11:13:35,593] [INFO] "GET /resource_management/ HTTP/1.1" 200 3473
+[2018-04-30 11:13:36,865] [INFO] "GET /resource_search/ HTTP/1.1" 200 5218
+[2018-04-30 11:13:36,883] [WARNING] "GET /static/bootstrap-datetimepicker.min.css HTTP/1.1" 404 1834
+[2018-04-30 11:13:36,886] [INFO] "GET /static/js/resourceManagement.js HTTP/1.1" 304 0
+[2018-04-30 11:13:48,489] [INFO] "GET /general_survey/ HTTP/1.1" 200 3479
+[2018-04-30 11:13:48,540] [INFO] "GET /graphic_look/ HTTP/1.1" 200 5768
+[2018-04-30 11:13:48,794] [INFO] "GET /resource_management/ HTTP/1.1" 200 3473
+[2018-04-30 11:13:49,376] [INFO] "GET /resource_management/ HTTP/1.1" 200 3473
+[2018-04-30 11:13:50,310] [INFO] "GET /resource_management/ HTTP/1.1" 200 3473
+[2018-04-30 11:14:01,256] [INFO] "GET /resource_search/ HTTP/1.1" 200 5218
+[2018-04-30 11:14:01,270] [WARNING] "GET /static/bootstrap-datetimepicker.min.css HTTP/1.1" 404 1834
+[2018-04-30 11:14:32,436] [INFO] "GET /offence_build/ HTTP/1.1" 200 3191
+[2018-04-30 11:14:32,454] [INFO] "GET /static/img/view.png HTTP/1.1" 304 0
+[2018-04-30 11:14:32,455] [INFO] "GET /static/img/event.png HTTP/1.1" 304 0
+[2018-04-30 11:14:34,115] [INFO] "GET /offence_build/ HTTP/1.1" 200 3191
+[2018-04-30 11:25:14,441] [INFO] "GET /index_new/ HTTP/1.1" 200 8657
+[2018-04-30 11:25:14,529] [INFO] "GET /home/ HTTP/1.1" 200 5881
+[2018-04-30 11:25:14,631] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-04-30 11:25:14,757] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=t3UIhpgfzESB8oM7W6kbUd7WTQgFdf4cZYDlDiIlvH3WOnAS4cDrE4ROoECczGsU HTTP/1.1" 200 18
+[2018-04-30 11:25:53,697] [INFO] "GET /index_new/ HTTP/1.1" 200 8657
+[2018-04-30 11:25:53,841] [INFO] "GET /home/ HTTP/1.1" 200 5881
+[2018-04-30 11:25:54,050] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-04-30 11:25:54,223] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=673O6FG3IiEVICf5kGVTNYthYeaayHB9C2Mrsy89ElPgoB3QsMe9xPd9t2wHU8ZR HTTP/1.1" 200 18
+[2018-04-30 11:26:03,833] [INFO] "GET /home/ HTTP/1.1" 200 5881
+[2018-04-30 11:26:03,954] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-04-30 11:26:50,885] [INFO] "GET /index_new/ HTTP/1.1" 200 8657
+[2018-04-30 11:26:50,924] [INFO] "GET /static/css/basic.css HTTP/1.1" 200 5042
+[2018-04-30 11:26:50,925] [INFO] "GET /static/css/font-awesome.css HTTP/1.1" 200 26651
+[2018-04-30 11:26:50,927] [INFO] "GET /static/css/bootstrap.css HTTP/1.1" 200 132546
+[2018-04-30 11:26:50,932] [INFO] "GET /static/css/custom.css HTTP/1.1" 200 4962
+[2018-04-30 11:26:50,936] [INFO] "GET /static/js/custom.js HTTP/1.1" 200 2773
+[2018-04-30 11:26:50,937] [INFO] "GET /static/js/common.js HTTP/1.1" 200 920
+[2018-04-30 11:26:50,937] [INFO] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 200 1386
+[2018-04-30 11:26:50,938] [INFO] "GET /static/js/bootstrap.js HTTP/1.1" 200 60681
+[2018-04-30 11:26:50,939] [INFO] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 200 293285
+[2018-04-30 11:26:51,594] [INFO] "GET /home/ HTTP/1.1" 200 5881
+[2018-04-30 11:26:51,599] [INFO] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 200 23320
+[2018-04-30 11:26:51,630] [INFO] "GET /static/js/jquery-3.3.1.min.js HTTP/1.1" 200 86927
+[2018-04-30 11:26:52,784] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-04-30 11:26:52,991] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=rAKwxFFAXUx5XVDsyz5JtV3YiVOY2tyxVAYB5P14OCS5aNXhxgGhhsPMks4uDhrk HTTP/1.1" 200 18
+[2018-04-30 11:26:53,304] [INFO] "GET /home/ HTTP/1.1" 200 5881
+[2018-04-30 11:26:53,455] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-04-30 11:26:54,841] [INFO] "GET /offence_build/ HTTP/1.1" 200 3494
+[2018-04-30 11:26:54,873] [INFO] "GET /static/js/jquery-1.8.2.min.js HTTP/1.1" 200 93435
+[2018-04-30 11:26:54,874] [INFO] "GET /static/js/require.js HTTP/1.1" 200 86481
+[2018-04-30 11:26:55,536] [INFO] "GET /static/img/view.png HTTP/1.1" 200 1469
+[2018-04-30 11:26:55,536] [INFO] "GET /static/img/event.png HTTP/1.1" 200 1488
+[2018-04-30 11:27:05,515] [INFO] "GET /move_out/ HTTP/1.1" 200 3145
+[2018-04-30 11:27:05,529] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-04-30 11:27:06,499] [INFO] "GET /resource_management/ HTTP/1.1" 200 3484
+[2018-04-30 11:27:07,360] [INFO] "GET /general_survey/ HTTP/1.1" 200 3479
+[2018-04-30 11:27:07,419] [INFO] "GET /graphic_look/ HTTP/1.1" 200 5768
+[2018-04-30 11:27:08,053] [INFO] "GET /account_management/ HTTP/1.1" 200 5932
+[2018-04-30 11:27:08,137] [INFO] "GET /account_inquiry/ HTTP/1.1" 200 5967
+[2018-04-30 11:27:08,188] [INFO] "GET /account_inquiry/line.png HTTP/1.1" 200 5967
+[2018-04-30 11:27:09,442] [INFO] "GET /user_center/ HTTP/1.1" 200 5211
+[2018-04-30 11:27:09,494] [INFO] "GET /info_revise/ HTTP/1.1" 200 5733
+[2018-04-30 11:27:10,716] [INFO] "GET /info_revise/ HTTP/1.1" 200 5733
+[2018-04-30 11:27:11,282] [INFO] "GET /password_revise/ HTTP/1.1" 200 5637
+[2018-04-30 11:27:11,295] [INFO] "GET /static/js/messages_zh.min.js HTTP/1.1" 200 1175
+[2018-04-30 11:27:11,296] [INFO] "GET /static/js/jquery.validate.js HTTP/1.1" 200 42630
+[2018-04-30 11:27:13,051] [INFO] "GET /account_management/ HTTP/1.1" 200 5932
+[2018-04-30 11:27:13,096] [INFO] "GET /account_inquiry/ HTTP/1.1" 200 5967
+[2018-04-30 11:27:13,131] [INFO] "GET /account_inquiry/line.png HTTP/1.1" 200 5967
+[2018-04-30 11:27:13,976] [INFO] "GET /account_inquiry/ HTTP/1.1" 200 5967
+[2018-04-30 11:27:14,007] [INFO] "GET /account_inquiry/line.png HTTP/1.1" 200 5967
+[2018-04-30 11:27:15,175] [INFO] "GET /add_account/ HTTP/1.1" 200 8720
+[2018-04-30 11:27:15,593] [INFO] "GET /permissions_query/ HTTP/1.1" 200 4625
+[2018-04-30 11:27:15,628] [INFO] "GET /permissions_query/line.png HTTP/1.1" 200 4625
+[2018-04-30 11:27:16,071] [INFO] "GET /authority_management/ HTTP/1.1" 200 9186
+[2018-04-30 11:27:16,127] [INFO] "GET /authority_management/line.png HTTP/1.1" 200 9186
+[2018-04-30 11:27:17,211] [INFO] "GET /general_survey/ HTTP/1.1" 200 3479
+[2018-04-30 11:27:17,260] [INFO] "GET /graphic_look/ HTTP/1.1" 200 5768
+[2018-04-30 11:27:20,021] [INFO] "GET /resource_management/ HTTP/1.1" 200 3484
+[2018-04-30 11:27:20,033] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-04-30 11:27:30,902] [INFO] "GET /resource_management/ HTTP/1.1" 200 3484
+[2018-04-30 11:27:31,716] [INFO] "GET /resource_management/ HTTP/1.1" 200 3484
+[2018-04-30 11:27:34,139] [INFO] "GET /resource_management/ HTTP/1.1" 200 3484
+[2018-04-30 11:27:35,419] [INFO] "GET /resource_management/ HTTP/1.1" 200 3484
+[2018-04-30 11:28:48,564] [INFO] "GET /index_new/ HTTP/1.1" 200 8657
+[2018-04-30 11:28:48,712] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-04-30 11:28:48,867] [INFO] "GET /home/ HTTP/1.1" 200 5881
+[2018-04-30 11:28:49,049] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-04-30 11:28:49,113] [INFO] "GET /static/img/500305658_wx.png HTTP/1.1" 200 702374
+[2018-04-30 11:28:49,242] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=12D113n7kXrZkvl0Kl44afFJfXDGRSBtv2R6zdJBbFMZxnFPJ2FCYMrxhuTcsGug HTTP/1.1" 200 18
+[2018-04-30 11:28:50,768] [INFO] "GET /resource_management/ HTTP/1.1" 200 3489
+[2018-04-30 11:28:52,720] [INFO] "GET /resource_search/ HTTP/1.1" 200 5218
+[2018-04-30 11:28:52,756] [WARNING] "GET /static/bootstrap-datetimepicker.min.css HTTP/1.1" 404 1834
+[2018-04-30 11:28:52,757] [INFO] "GET /static/js/resourceManagement.js HTTP/1.1" 200 3459
+[2018-04-30 11:28:57,595] [INFO] "GET /resource_search/ HTTP/1.1" 200 5218
+[2018-04-30 11:28:57,612] [WARNING] "GET /static/bootstrap-datetimepicker.min.css HTTP/1.1" 404 1834
+[2018-04-30 11:29:00,739] [INFO] "GET /resource_search/ HTTP/1.1" 200 5218
+[2018-04-30 11:29:00,753] [WARNING] "GET /static/bootstrap-datetimepicker.min.css HTTP/1.1" 404 1834
+[2018-04-30 11:29:51,088] [INFO] "GET /resource_management/ HTTP/1.1" 200 3489
+[2018-04-30 11:29:51,102] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-04-30 11:29:52,396] [INFO] "GET /resource_management/ HTTP/1.1" 200 3489
+[2018-04-30 11:29:54,542] [INFO] "GET /resource_management/ HTTP/1.1" 200 3489
+[2018-04-30 11:29:56,127] [INFO] "GET /resource_search/ HTTP/1.1" 200 5218
+[2018-04-30 11:29:56,151] [WARNING] "GET /static/bootstrap-datetimepicker.min.css HTTP/1.1" 404 1834
+[2018-04-30 11:30:01,046] [INFO] "GET /offence_build/ HTTP/1.1" 200 3494
+[2018-04-30 11:30:01,088] [INFO] "GET /static/img/event.png HTTP/1.1" 200 1488
+[2018-04-30 11:30:02,018] [INFO] "GET /move_out/ HTTP/1.1" 200 3145
+[2018-04-30 11:30:41,007] [INFO] "GET /index_new/ HTTP/1.1" 200 8657
+[2018-04-30 11:30:41,071] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-04-30 11:30:41,180] [INFO] "GET /home/ HTTP/1.1" 200 5881
+[2018-04-30 11:30:41,317] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-04-30 11:30:41,499] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=3LdSrXV7Tqogf3DqX5nOUU6hpjZQLJIGxLrXZ7hBK8JgsVXfWMYmIrS5rQfmmxBt HTTP/1.1" 200 18
+[2018-04-30 11:30:42,093] [INFO] "GET /move_out/ HTTP/1.1" 200 3152
+[2018-04-30 11:30:43,023] [INFO] "GET /move_compare/ HTTP/1.1" 200 12994
+[2018-04-30 11:30:43,051] [INFO] "GET /static/js/geomap.js HTTP/1.1" 200 1195
+[2018-04-30 11:30:43,060] [INFO] "GET /static/js/select_draw.js HTTP/1.1" 200 2892
+[2018-04-30 11:30:43,060] [INFO] "GET /static/js/load_draw.js HTTP/1.1" 200 724
+[2018-04-30 11:30:43,065] [INFO] "GET /static/js/polygon.js HTTP/1.1" 200 3313
+[2018-04-30 11:30:43,069] [INFO] "GET /static/img/view_download.png HTTP/1.1" 200 2791
+[2018-04-30 11:30:43,070] [INFO] "GET /static/js/area.js HTTP/1.1" 200 12482
+[2018-04-30 11:30:43,071] [INFO] "GET /static/img/stsff.png HTTP/1.1" 200 3392
+[2018-04-30 11:30:43,072] [INFO] "GET /static/js/distance.js HTTP/1.1" 200 12215
+[2018-04-30 11:30:43,073] [INFO] "GET /static/img/contrast.png HTTP/1.1" 200 1226
+[2018-04-30 11:30:44,237] [INFO] "GET /load_all_draw/?csrfmiddlewaretoken=Gfnf3caMQgNpkDGexPX5TMSiU6IcmltPafBkBmwgHY8pxv03wwyDHjE6WDYIX9mC HTTP/1.1" 200 17
+[2018-04-30 11:30:46,714] [INFO] "GET /offence_build/ HTTP/1.1" 200 3494
+[2018-04-30 11:31:21,750] [INFO] "GET /offence_build/ HTTP/1.1" 200 3502
+[2018-04-30 11:31:21,780] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-04-30 11:31:23,268] [INFO] "GET /move_compare/ HTTP/1.1" 200 12994
+[2018-04-30 11:31:23,634] [INFO] "GET /load_all_draw/?csrfmiddlewaretoken=glV70tZRSYWGtLllxrYvvMeQs5Wyl09cKl9cyDllJGhGGDFaw8z3jj0EuCc4WO2Z HTTP/1.1" 200 17
+[2018-04-30 11:31:27,240] [INFO] "GET /move_compare/ HTTP/1.1" 200 12994
+[2018-04-30 11:31:27,608] [INFO] "GET /load_all_draw/?csrfmiddlewaretoken=XFwlzpa3XhAMdI422FXloY51l1ySRSq6rFKq7zwxOZVMqAoR1myTcvRPnyOosGjT HTTP/1.1" 200 17
+[2018-04-30 11:35:38,191] [INFO] "GET /index_new/ HTTP/1.1" 200 8657
+[2018-04-30 11:35:38,235] [INFO] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 304 0
+[2018-04-30 11:35:38,240] [INFO] "GET /static/js/bootstrap.js HTTP/1.1" 304 0
+[2018-04-30 11:35:38,243] [INFO] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 304 0
+[2018-04-30 11:35:38,244] [INFO] "GET /static/js/custom.js HTTP/1.1" 304 0
+[2018-04-30 11:35:38,244] [INFO] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[2018-04-30 11:35:38,247] [INFO] "GET /static/css/font-awesome.css HTTP/1.1" 304 0
+[2018-04-30 11:35:38,248] [INFO] "GET /static/css/basic.css HTTP/1.1" 304 0
+[2018-04-30 11:35:38,251] [INFO] "GET /static/css/custom.css HTTP/1.1" 304 0
+[2018-04-30 11:35:38,252] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-04-30 11:35:39,012] [INFO] "GET /static/img/spaceflight.png HTTP/1.1" 200 4695
+[2018-04-30 11:35:39,016] [INFO] "GET /static/img/user_logo.png HTTP/1.1" 200 2522
+[2018-04-30 11:35:39,019] [INFO] "GET /static/img/q.png HTTP/1.1" 200 944
+[2018-04-30 11:35:39,021] [INFO] "GET /static/img/e.png HTTP/1.1" 200 1068
+[2018-04-30 11:35:39,023] [INFO] "GET /static/img/w.png HTTP/1.1" 200 983
+[2018-04-30 11:35:39,024] [INFO] "GET /static/img/agriculture.png HTTP/1.1" 200 2855
+[2018-04-30 11:35:39,024] [INFO] "GET /static/img/municipal.png HTTP/1.1" 200 3227
+[2018-04-30 11:35:39,028] [INFO] "GET /static/img/road.png HTTP/1.1" 200 2625
+[2018-04-30 11:35:39,030] [INFO] "GET /static/img/forestry.png HTTP/1.1" 200 2607
+[2018-04-30 11:35:39,030] [INFO] "GET /static/img/environment.png HTTP/1.1" 200 2671
+[2018-04-30 11:35:39,031] [INFO] "GET /static/img/sedimentation.png HTTP/1.1" 200 2946
+[2018-04-30 11:35:39,037] [INFO] "GET /home/ HTTP/1.1" 200 5881
+[2018-04-30 11:35:39,088] [INFO] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 304 0
+[2018-04-30 11:35:39,114] [INFO] "GET /static/js/jquery-3.3.1.min.js HTTP/1.1" 304 0
+[2018-04-30 11:35:39,310] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-04-30 11:35:39,465] [INFO] "GET /static/img/500305658_wx.png HTTP/1.1" 304 0
+[2018-04-30 11:35:39,777] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=VaGg5yQXg8IZJdk8qxeNiPyPJgPpkqvWpaUlDIcr7Q3ZW5EXpePl6mkDLN5VVeoJ HTTP/1.1" 200 18
+[2018-04-30 11:35:39,942] [INFO] "GET /offence_build/ HTTP/1.1" 200 3502
+[2018-04-30 11:35:39,970] [INFO] "GET /static/js/jquery-1.8.2.min.js HTTP/1.1" 304 0
+[2018-04-30 11:35:39,970] [INFO] "GET /static/js/require.js HTTP/1.1" 304 0
+[2018-04-30 11:35:40,092] [INFO] "GET /static/img/view.png HTTP/1.1" 304 0
+[2018-04-30 11:35:40,092] [INFO] "GET /static/img/event.png HTTP/1.1" 304 0
+[2018-04-30 11:35:41,206] [WARNING] Not Found: /move_compare/
+[2018-04-30 11:35:41,207] [WARNING] "GET /move_compare/ HTTP/1.1" 404 7333
+[2018-04-30 11:35:47,447] [WARNING] Not Found: /move_compare/
+[2018-04-30 11:35:47,447] [WARNING] "GET /move_compare/ HTTP/1.1" 404 7333
+[2018-04-30 11:35:52,455] [WARNING] Not Found: /move_compare/
+[2018-04-30 11:35:52,456] [WARNING] "GET /move_compare/ HTTP/1.1" 404 7333
+[2018-04-30 11:35:59,628] [INFO] "GET /move_out/ HTTP/1.1" 200 3152
+[2018-04-30 11:36:00,522] [WARNING] Not Found: /move_compare/
+[2018-04-30 11:36:00,523] [WARNING] "GET /move_compare/ HTTP/1.1" 404 7333
+[2018-04-30 11:36:02,032] [INFO] "GET /offence_build/ HTTP/1.1" 200 3502
+[2018-04-30 11:36:05,407] [INFO] "GET /offence_build/ HTTP/1.1" 200 3502
+[2018-04-30 11:37:20,197] [INFO] "GET /index_new/ HTTP/1.1" 200 8657
+[2018-04-30 11:37:20,239] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-04-30 11:37:20,378] [INFO] "GET /home/ HTTP/1.1" 200 5881
+[2018-04-30 11:37:20,611] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-04-30 11:37:20,812] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=QgUzPTkdvL5lytaVoY7ldx4PJIiR366okg8En3GHmtqlLluKnFIT14QDLfynEUZb HTTP/1.1" 200 18
+[2018-04-30 11:37:21,096] [INFO] "GET /offence_build/ HTTP/1.1" 200 3548
+[2018-04-30 11:38:35,120] [INFO] "GET /offence_build/ HTTP/1.1" 200 3539
+[2018-04-30 11:38:36,447] [WARNING] Not Found: /ib_ploting/
+[2018-04-30 11:38:36,447] [WARNING] "GET /ib_ploting/ HTTP/1.1" 404 7327
+[2018-04-30 11:38:37,805] [WARNING] Not Found: /ib_ploting/
+[2018-04-30 11:38:37,805] [WARNING] "GET /ib_ploting/ HTTP/1.1" 404 7327
+[2018-04-30 11:38:38,020] [WARNING] Not Found: /ib_ploting/
+[2018-04-30 11:38:38,020] [WARNING] "GET /ib_ploting/ HTTP/1.1" 404 7327
+[2018-04-30 11:38:56,204] [INFO] "GET /index_new/ HTTP/1.1" 200 8657
+[2018-04-30 11:38:56,341] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-04-30 11:38:56,595] [INFO] "GET /home/ HTTP/1.1" 200 5881
+[2018-04-30 11:38:56,810] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-04-30 11:38:57,033] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=RrAfZ6VVkkZjIoNfH57Xvt1Huj9bsXCQlrOkxghpb2kjVg74GMIvj0NvwQpH3LvD HTTP/1.1" 200 18
+[2018-04-30 11:38:57,315] [INFO] "GET /offence_build/ HTTP/1.1" 200 3540
+[2018-04-30 11:38:58,019] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12994
+[2018-04-30 11:38:58,042] [INFO] "GET /static/js/geomap.js HTTP/1.1" 304 0
+[2018-04-30 11:38:58,046] [INFO] "GET /static/js/load_draw.js HTTP/1.1" 304 0
+[2018-04-30 11:38:58,049] [INFO] "GET /static/js/select_draw.js HTTP/1.1" 304 0
+[2018-04-30 11:38:58,051] [INFO] "GET /static/js/polygon.js HTTP/1.1" 304 0
+[2018-04-30 11:38:58,051] [INFO] "GET /static/js/area.js HTTP/1.1" 304 0
+[2018-04-30 11:38:58,052] [INFO] "GET /static/js/distance.js HTTP/1.1" 304 0
+[2018-04-30 11:38:58,307] [INFO] "GET /static/img/contrast.png HTTP/1.1" 304 0
+[2018-04-30 11:38:58,307] [INFO] "GET /static/img/view_download.png HTTP/1.1" 304 0
+[2018-04-30 11:38:58,308] [INFO] "GET /static/img/stsff.png HTTP/1.1" 304 0
+[2018-04-30 11:38:58,380] [INFO] "GET /load_all_draw/?csrfmiddlewaretoken=1K8FuAn4V6kUUu3lA15e86e1tzG4joUjvKmK2KJyMOFU7mnazIGMWD0Pv6WAUcN6 HTTP/1.1" 200 17
+[2018-04-30 11:40:00,071] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12994
+[2018-04-30 11:40:00,323] [INFO] "GET /load_all_draw/?csrfmiddlewaretoken=zukl3ERyKDJcLoxrrD95W3cHKHpr76fF3uyqBOd2Bl4cYgRgqkKDKAYvMeFXIU8s HTTP/1.1" 200 17
+[2018-04-30 11:44:29,150] [INFO] "GET /index_new/ HTTP/1.1" 200 8657
+[2018-04-30 11:44:29,285] [INFO] "GET /static/css/font-awesome.css HTTP/1.1" 304 0
+[2018-04-30 11:44:29,287] [INFO] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[2018-04-30 11:44:29,289] [INFO] "GET /static/css/basic.css HTTP/1.1" 304 0
+[2018-04-30 11:44:29,291] [INFO] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 304 0
+[2018-04-30 11:44:29,293] [INFO] "GET /static/css/custom.css HTTP/1.1" 304 0
+[2018-04-30 11:44:29,294] [INFO] "GET /static/js/bootstrap.js HTTP/1.1" 304 0
+[2018-04-30 11:44:29,295] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-04-30 11:44:29,295] [INFO] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 304 0
+[2018-04-30 11:44:29,297] [INFO] "GET /static/js/custom.js HTTP/1.1" 304 0
+[2018-04-30 11:44:29,412] [INFO] "GET /static/img/spaceflight.png HTTP/1.1" 304 0
+[2018-04-30 11:44:29,413] [INFO] "GET /static/img/user_logo.png HTTP/1.1" 304 0
+[2018-04-30 11:44:29,416] [INFO] "GET /static/img/q.png HTTP/1.1" 304 0
+[2018-04-30 11:44:29,417] [INFO] "GET /static/img/municipal.png HTTP/1.1" 304 0
+[2018-04-30 11:44:29,417] [INFO] "GET /static/img/w.png HTTP/1.1" 304 0
+[2018-04-30 11:44:29,419] [INFO] "GET /static/img/e.png HTTP/1.1" 304 0
+[2018-04-30 11:44:29,421] [INFO] "GET /static/img/agriculture.png HTTP/1.1" 304 0
+[2018-04-30 11:44:29,424] [INFO] "GET /static/img/forestry.png HTTP/1.1" 304 0
+[2018-04-30 11:44:29,424] [INFO] "GET /static/img/road.png HTTP/1.1" 304 0
+[2018-04-30 11:44:29,430] [INFO] "GET /static/img/sedimentation.png HTTP/1.1" 304 0
+[2018-04-30 11:44:29,430] [INFO] "GET /home/ HTTP/1.1" 200 5881
+[2018-04-30 11:44:29,431] [INFO] "GET /static/img/environment.png HTTP/1.1" 304 0
+[2018-04-30 11:44:29,533] [INFO] "GET /static/js/jquery-3.3.1.min.js HTTP/1.1" 304 0
+[2018-04-30 11:44:29,712] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-04-30 11:44:29,879] [INFO] "GET /static/img/500305658_wx.png HTTP/1.1" 304 0
+[2018-04-30 11:44:29,928] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=68c4cXRbkaJ4Sak4F4D4TcU6HE1FoWtwA8q9K7dFbS4452ETELeCHJGUJbhbZKmj HTTP/1.1" 200 18
+[2018-04-30 11:44:30,450] [INFO] "GET /offence_build/ HTTP/1.1" 200 3546
+[2018-04-30 11:44:30,486] [INFO] "GET /static/js/jquery-1.8.2.min.js HTTP/1.1" 304 0
+[2018-04-30 11:44:30,487] [INFO] "GET /static/js/require.js HTTP/1.1" 304 0
+[2018-04-30 11:44:30,570] [INFO] "GET /static/img/event.png HTTP/1.1" 304 0
+[2018-04-30 11:44:30,570] [INFO] "GET /static/img/view.png HTTP/1.1" 304 0
+[2018-04-30 11:44:31,417] [INFO] "GET /ib_roller_shutters/ HTTP/1.1" 200 2015
+[2018-04-30 11:44:48,578] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12994
+[2018-04-30 11:44:48,687] [INFO] "GET /static/img/contrast.png HTTP/1.1" 200 1226
+[2018-04-30 11:44:48,733] [INFO] "GET /load_all_draw/?csrfmiddlewaretoken=Tr2lJPPFTE2G0IPrtCJLJgkmFvVtdaRnnrgqhZb9KmnGdA9gsjkjxN6aH2bZOYKa HTTP/1.1" 200 17
+[2018-04-30 11:45:01,058] [ERROR] Internal Server Error: /query_draw/
+Traceback (most recent call last):
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 388, in query_draw
+    draw=model_to_dict(GraphicLabel.objects.get(id=id))
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/db/models/manager.py", line 82, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/db/models/query.py", line 403, in get
+    self.model._meta.object_name
+web.models.DoesNotExist: GraphicLabel matching query does not exist.
+[2018-04-30 11:45:01,150] [ERROR] "GET /query_draw/?csrfmiddlewaretoken=Tr2lJPPFTE2G0IPrtCJLJgkmFvVtdaRnnrgqhZb9KmnGdA9gsjkjxN6aH2bZOYKa HTTP/1.1" 500 15921
+[2018-04-30 11:45:06,651] [INFO] "GET /ib_roller_shutters/ HTTP/1.1" 200 2015
+[2018-04-30 11:45:18,415] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12994
+[2018-04-30 11:45:18,548] [INFO] "GET /load_all_draw/?csrfmiddlewaretoken=JC6YvtJAM4WHMMOZIptmquGvyPraRyBkdCk33D54DMhHZE8OH64Ue1sjAmHGsmu7 HTTP/1.1" 200 17
+[2018-04-30 11:45:21,610] [WARNING] Forbidden (CSRF token missing or incorrect.): /ib_plotting/
+[2018-04-30 11:45:21,613] [WARNING] "POST /ib_plotting/ HTTP/1.1" 403 2508
+[2018-04-30 11:45:23,579] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12994
+[2018-04-30 11:45:23,721] [INFO] "GET /load_all_draw/?csrfmiddlewaretoken=4OXm7Wc0khhwTpbmyMB02vIssHDQ4OzeyObrF6yubZCw6hvbxtcyQ2ugueTmFCs1 HTTP/1.1" 200 17
+[2018-04-30 11:46:52,846] [ERROR] Internal Server Error: /ib_roller_shutters/
+Traceback (most recent call last):
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/template/base.py", line 475, in parse
+    compile_func = self.tags[command]
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 82, in ib_roller_shutters
+    template_name='ib_roller_shutters.html')
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/template/engine.py", line 144, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/template/engine.py", line 126, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/template/loaders/base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/template/base.py", line 160, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/template/base.py", line 198, in compile_nodelist
+    return parser.parse()
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/template/base.py", line 477, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/template/base.py", line 539, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 42: 'static'. Did you forget to register or load this tag?
+[2018-04-30 11:46:52,942] [ERROR] "GET /ib_roller_shutters/ HTTP/1.1" 500 140335
+[2018-04-30 11:46:54,221] [ERROR] Internal Server Error: /ib_roller_shutters/
+Traceback (most recent call last):
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/template/base.py", line 475, in parse
+    compile_func = self.tags[command]
+KeyError: 'static'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 82, in ib_roller_shutters
+    template_name='ib_roller_shutters.html')
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/shortcuts.py", line 36, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/template/loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/template/loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/template/backends/django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/template/engine.py", line 144, in get_template
+    template, origin = self.find_template(template_name)
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/template/engine.py", line 126, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/template/loaders/base.py", line 30, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/template/base.py", line 160, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/template/base.py", line 198, in compile_nodelist
+    return parser.parse()
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/template/base.py", line 477, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/home/zhou/.local/lib/python3.5/site-packages/django/template/base.py", line 539, in invalid_block_tag
+    "or load this tag?" % (token.lineno, command)
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 42: 'static'. Did you forget to register or load this tag?
+[2018-04-30 11:46:54,309] [ERROR] "GET /ib_roller_shutters/ HTTP/1.1" 500 140335
+[2018-04-30 11:47:26,909] [INFO] "GET /ib_roller_shutters/ HTTP/1.1" 200 4150
+[2018-04-30 11:47:26,999] [INFO] "GET /static/img/contrast.png HTTP/1.1" 304 0
+[2018-04-30 11:50:03,030] [INFO] "GET /ib_roller_shutters/ HTTP/1.1" 200 4715
+[2018-04-30 11:50:04,150] [INFO] "GET /ib_roller_shutters/ HTTP/1.1" 200 4715
+[2018-04-30 11:50:31,141] [INFO] "GET /ib_roller_shutters/ HTTP/1.1" 200 4113
+[2018-04-30 11:50:53,986] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12992
+[2018-04-30 11:50:54,012] [INFO] "GET /static/js/geomap.js HTTP/1.1" 304 0
+[2018-04-30 11:50:54,016] [INFO] "GET /static/js/load_draw.js HTTP/1.1" 304 0
+[2018-04-30 11:50:54,016] [INFO] "GET /static/js/select_draw.js HTTP/1.1" 304 0
+[2018-04-30 11:50:54,020] [INFO] "GET /static/js/distance.js HTTP/1.1" 304 0
+[2018-04-30 11:50:54,020] [INFO] "GET /static/js/area.js HTTP/1.1" 304 0
+[2018-04-30 11:50:54,021] [INFO] "GET /static/js/polygon.js HTTP/1.1" 304 0
+[2018-04-30 11:50:54,093] [INFO] "GET /static/img/view_download.png HTTP/1.1" 304 0
+[2018-04-30 11:50:54,093] [INFO] "GET /static/img/stsff.png HTTP/1.1" 304 0
+[2018-04-30 11:50:54,144] [INFO] "GET /load_all_draw/?csrfmiddlewaretoken=V8PsilEYkHYRn6nwJvyCkjcDpEhK8bxTp83xQv0sbpjRAYHlIc9a8QYrrbxgJZqG HTTP/1.1" 200 17
+[2018-04-30 11:51:58,335] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 11999
+[2018-04-30 11:51:58,460] [INFO] "GET /load_all_draw/?csrfmiddlewaretoken=JACItFreQZsWywbM1ita28qLdzzvHkT8dAQN1PNIHHNWLovB0Z4IQFczf6P1i8MV HTTP/1.1" 200 17
+[2018-04-30 11:51:59,509] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 11999
+[2018-04-30 11:51:59,612] [INFO] "GET /load_all_draw/?csrfmiddlewaretoken=t0O9hi7GYFc5a6guUECjlivtP6hsKzEXX02ePstaPnx5nYAjTldR9PhhRDxYlnxK HTTP/1.1" 200 17
+[2018-04-30 11:52:01,930] [INFO] "GET /ib_roller_shutters/ HTTP/1.1" 200 4113
+[2018-04-30 11:52:13,676] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 11999
+[2018-04-30 11:52:13,701] [INFO] "GET /static/js/jquery-1.8.2.min.js HTTP/1.1" 304 0
+[2018-04-30 11:52:13,702] [INFO] "GET /static/js/require.js HTTP/1.1" 304 0
+[2018-04-30 11:52:13,796] [INFO] "GET /load_all_draw/?csrfmiddlewaretoken=TzfNvbrU6XXlTeaFNKTDl4sf7xV1LVUjnztS3lNoXFil66uuMrub9Be394bxmJN6 HTTP/1.1" 200 17
+[2018-04-30 11:52:15,748] [INFO] "GET /offence_build/ HTTP/1.1" 200 3546
+[2018-04-30 11:52:15,758] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-04-30 11:52:15,795] [INFO] "GET /static/img/event.png HTTP/1.1" 200 1488
+[2018-04-30 11:52:15,795] [INFO] "GET /static/img/view.png HTTP/1.1" 200 1469
+[2018-04-30 11:52:18,296] [INFO] "GET /offence_build/ HTTP/1.1" 200 3546
+[2018-04-30 11:52:18,340] [INFO] "GET /static/img/event.png HTTP/1.1" 304 0
+[2018-04-30 11:52:18,340] [INFO] "GET /static/img/view.png HTTP/1.1" 304 0
+[2018-04-30 11:52:19,470] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 11999
+[2018-04-30 11:52:19,582] [INFO] "GET /load_all_draw/?csrfmiddlewaretoken=W3dqsOcZiHt1sZ2wIlltNAujgd8P5aCGq3rv0Yyt9pO1FRmlH2W1B7g7iKolGYvt HTTP/1.1" 200 17
