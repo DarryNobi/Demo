@@ -126,7 +126,7 @@ def ranging(request):
     return render(request,
                   template_name='ranging.html')
 
-def home(request):
+def home_municipal(request):
     return render(request,
                   template_name='home_municipal.html')
 
@@ -170,6 +170,18 @@ def resource_search(request):
                       'gloID':json.dumps(gloID,cls=DjangoJSONEncoder)})
     else:
         return render(request, 'rm_resource_search.html', {'message': '查找结果为空！'})
+
+
+def ib_event_management(request):
+    return render(request,
+                  template_name='ib_event_management.html')
+
+def gs_show_map(request):
+    return render(request,
+                  template_name='gs_show_map.html')
+def gs_show_list(request):
+    return render(request,
+                  template_name='gs_show_list.html')
 
 #########################################################################
 
@@ -417,3 +429,20 @@ def map_inquiry(request):
 
 def test(request):
     DB_Workshop.saveImage('/media/zhou/文档/yaogan')
+
+
+def _gs_show_list(request):
+    query_name = request.GET.get('query_name', '')
+    query_type = request.GET.get('query_type', '')
+    draws=GraphicLabel.objects.all()
+    if(query_type):
+        draws = draws.filter(grahpictype=query_type)
+    if(query_name):
+        draws=draws.filter(name=query_name)
+    d_draws=[]
+    for i in range(len(draws)):
+        d_draws.append(model_to_dict(draws[i]))
+    if(d_draws):
+        return JsonResponse({'data':d_draws})
+    else:
+        return JsonResponse({'message': '查找结果为空！'})

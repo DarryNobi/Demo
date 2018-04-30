@@ -67,11 +67,11 @@
 <body style="height:100%;">
     <div class="type-search">
         <span class="picture-span" style="margin-left: 43px;">名称：</span>
-        <span class="picture-date" ><input type="text" name="" class="form-control compare-input"/></span>
+        <span class="picture-date" ><input id="name" type="text" name="" class="form-control compare-input"/></span>
         <span class="picture-span" style="margin-left:42px;">类别：</span>
-        <span class="picture-date"><input type="text" name="" class="form-control compare-input"/></span>
+        <span class="picture-date"><input id="type" type="text" name="" class="form-control compare-input"/></span>
         <span style="height:100%; display:-webkit-flex; align-items:center; width:7%; margin-left:42px;">
-            <button class="btn btn-primary" style="border-radius:6px; height:50%; width:100%; min-height:50px; font-size:20px" id="location_btn" >查询</button>
+            <button class="btn btn-primary" style="border-radius:6px; height:50%; width:100%; min-height:50px; font-size:20px" id="query_btn" >查询</button>
         </span>
     </div>
     <div>
@@ -89,67 +89,7 @@
         </table>
     </div>
 
-    <script>
-        var data = [{
-            "id": 1,
-            "name": "高庙村",
-            "site_type": "城镇",
-            "sign_type": "普通",
-            "area": "10000",
-            "longi_lati_tude": "56 25",
-            "description": "11111111",
-        },{
-            "id": 1,
-            "name": "缙云山",
-            "site_type": "山地",
-            "sign_type": "普通",
-            "area": "10000",
-            "longi_lati_tude": "80 45",
-            "description": "22222",
-        }];
-        window.onload = function() {
-            showList();
-        }
-        function showList() {
-        var graphicTab = $("#graphic_tab");
-        data.forEach(function(item){
-            $(
-                '<tr/>', {
-                    'class' : 'grap_tr'
-                }).append($('<td/>', {
-                    text : item.id
-                }))
-                .append($('<td/>',{
-                    text : item.name
-                }))
-                .append($('<td/>',{
-                    text : item.site_type
-                }))
-                .append($('<td/>',{
-                    text : item.sign_type
-                }))
-                .append($('<td/>',{
-                    text : item.area
-                }))
-                .append($('<td/>',{
-                    text : item.longi_lati_tude
-                }))
-                .append($('<td/>',{
-                    text : item.description
-                }))
-                .append($('<td/>')
-                .append($('<p/>')
-                .append($('<button/>',{
-                    'class' : 'operate',
-                    text : '修改'
-                }))
-                .append($('<button/>',{
-                    'class' : 'operate',
-                    text : '删除'
-                }))))
-                .appendTo(graphicTab);
-        });
-    }
-    </script>
+    <script src="{% static 'js/gs_show_list.js' %}"></script>
+
 </body>
 </html>

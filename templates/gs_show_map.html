@@ -163,12 +163,12 @@
         <form role="form" name="compareForm" action="" method="post" style="width:100%; font-size:20px; height:100%">
             <div class="row" style="width: 100%; display:-webkit-flex; align-items:center; height:100%;">
                 <div class="col-lg-11 col-xs-11" style="display:inline-flex; align-items:center; height:100%">
-                    <span class="picture-span">经度：</span>
+                    <span class="picture-span">影像选择</span>
                     <input type="text" class="compare-input" id="lontitude">
-                    <span class="picture-span">纬度：</span>
+                    <span class="picture-span">地上物类型：</span>
                     <input type="text" class="compare-input" id="lantitude">
                     <span style="height:100%; display:-webkit-flex; align-items:center; width:7%; margin-left:42px;">
-                        <button class="btn btn-primary" style="border-radius:6px; height:50%; width:100%; min-height:50px; font-size:20px" id="location_btn" >查询</button>
+                        <button class="btn btn-primary" style="border-radius:6px; height:50%; width:100%; min-height:50px; font-size:20px" id="location_btn" >确定</button>
                     </span>
                 </div>
             </div>
@@ -178,70 +178,11 @@
         <div class="row" style="width:100%; height:100%">
             <div class="col-lg-11 col-xs-11" style="height:100%">
                 <div id="map" class="map" style="width:100%; height:95%">
-                    <div id="menu">
-                       <button id='draw_button_div' class="btn btn-primary function-but">标绘</button><br/>
-                       <button id='distance_button_div' class="btn btn-primary function-but">测距</button><br/>
-                       <button id='area_button_div' class="btn btn-primary function-but">测面积</button><br/>
-                   </div>
-                   <div id="popup" class="ol-popup" style=" display:none">
-                        <div id="popup-content" style="width:300px;">
-                            <form role="form" name="indexForm"  style="background-color:#939f9f; text-align:center;  border-radius:6px;">
-                                {% csrf_token %}
-                                 <h5 style="font-size:18px; height:30px; line-height:30px;">请输入标绘信息</h5>
-                                 <div class="form-group input-group">
-                                        <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
-                                        <input id="name" type="text" class="form-control" placeholder="名称 " />
-                                 </div>
-                                    <select id="grahpictype" class="selectpicker form-group">
-                                        <option>建筑</option>
-                                        <option>道路</option>
-                                        <option>林地</option>
-                                    </select>
-                                    <select id="grahpiclabel" class="selectpicker form-group">
-                                        <option>拆迁</option>
-                                        <option>违建</option>
-                                    </select>
-                                <div class="form-group input-group">
-                                    <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-                                    <input id="discrib"  type="text" class="form-control"  placeholder="描述信息" />
-                                </div>
-                                <div class="form-group input-group">
-                                    <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-                                    <input id="square"  class="form-control"  placeholder="面积" />
-                                </div>
-                                <div class="form-group input-group">
-                                    <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-                                    <input id="coordinate"  class="form-control"  placeholder="坐标" />
-                                </div>
-                                <div class="form-group">
-                                    </div>
 
-                                <div style="text-align: center; padding-bottom:10px;">
-                                    <p>
-                                        <button id="save_submit" class="btn btn-primary ">保存</button>
-                                        <button id="save_cancel" class="btn btn-primary ">取消</button>
-                                    </p>
-                                </div>
 
-                            </form>
-                        </div>
-                    </div>
-                   <div id="popup_info"></div>
-                   <div id="popup_button"></div>
                 </div>
             </div>
-            <div class="col-lg-1 col-xs-1" style="height:100%; text-align:center; font-size:20px;">
-                <div style="height:100%; width:100%; margin-to:50%;">
-                    <!--<div class="img_download" style="width:100%; height:50%; color:#0090ff">-->
-                        <div style="margin-top:150%"><img style="width:50%;" src="{% static 'img/view_download.png' %}"></div>
-                        <div style="color:#0090ff">影像下载</div>
-                    <!--</div>-->
-                    <!--<div style="width:100%; height:50%; color:#ffa711" class="stsff">-->
-                        <div style="margin-top:52px;"><img style="width:50%" src="{% static 'img/stsff.png' %}"></div>
-                        <div style="color:#ffa711">量标</div>
-                    <!--</div>-->
-                </div>
-            </div>
+
         </div>
     </div>
 
@@ -291,7 +232,6 @@
     }
 
 </script>
-
 
 <script src="{% static 'js/polygon.js' %}"></script>
    <script src="{% static 'js/distance.js' %}"></script>

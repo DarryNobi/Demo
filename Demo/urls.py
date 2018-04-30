@@ -36,7 +36,7 @@ urlpatterns = [
     url(r'^info_revise/', views.info_revise),
     url(r'^authority_management/', views.authority_management),
     url(r'^ranging/', views.ranging),
-    url(r'^home/', views.home),
+    url(r'^home_municipal/', views.home_municipal),
     url(r'^move_out/', views.move_out),
     url(r'^ib_plotting/', views.ib_plotting),
     url(r'^offence_build/', views.offence_build),
@@ -44,6 +44,9 @@ urlpatterns = [
     url(r'^graphic_look/', views.graphic_look),
     url(r'^resource_management/', views.resource_management),
     url(r'^resource_search/', views.resource_search),
+    url(r'^ib_event_management/', views.ib_event_management),
+    url(r'^gs_show_map/', views.gs_show_map),
+    url(r'^gs_show_list/', views.gs_show_list),
 
 ##########################################################################
 
@@ -66,6 +69,7 @@ urlpatterns = [
     url(r'^query_draw/', views.query_draw),
     url(r'^delete_draw/', views.delete_draw),
     url(r'^map_inquiry/', views.map_inquiry),
+    url(r'^_gs_show_list/',views._gs_show_list),
 
     ##########################################################
     url(r'^user_center/', views.user_center),

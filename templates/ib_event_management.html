@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en" style="height:100%">
+ <head>
+     {% load staticfiles %}
+    <link rel="stylesheet" href="https://openlayers.org/en/v4.5.0/css/ol.css" type="text/css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap-theme.min.css">
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <!--[if lt IE 9]>
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <script >
+        $.ajaxSetup({
+             data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+        });
+    </script>
+    <![endif]-->
+    <style>
+        .nav-tabs li {
+            height:100%;
+            border-radius: 10px 10px 0 0;
+            background: #e6e7ea;
+        }
+        .nav-tabs li a {
+            height: 100%;
+            text-align:center;
+            display:-webkit-flex;
+            align-items:center;
+            font-size:2.5rem;
+            color:#8a8a8a;
+        }
+        .nav-tabs li a:hover {
+            color: #3178f5;
+            background:#ffffff;
+        }
+        .nav-img-p {
+            height:100%;
+            padding-right:10px;
+        }
+        .nav-img {
+            height:80%;
+        }
+        .picture-span {
+            color:#666666;
+            width:7%;
+            min-width:100px;
+            text-align:center;
+        }
+        .picture-date {
+            height:100%;
+            min-width:185px;
+            width:13%;
+            display:-webkit-flex;
+            align-items:center;
+        }
+        .compare-input {
+            height:50%;
+            min-height:50px;
+        }
+        .compare-but {
+            height: 50%;
+            width:100%;
+            border-radius:4px;
+            font-size:20px;
+            min-height:50px;
+            display:-webkit-flex;
+            align-items:center;
+        }
+        .function-but {
+            width:80px;
+            margin-top:2px;
+        }
+        .map {
+            height: 100%;
+            width: 100%;
+        }
+
+        .ol-rotate {
+            right:100px;
+
+        }
+
+
+
+        .ol-scale-line {
+            bottom:80px;
+
+        }
+
+
+
+        #menu {
+            float: left;
+            position: absolute;
+            top: 300px;
+
+            z-index: 2000;
+        }
+         /**
+        * 提示框的样式信息
+        */
+        .tooltip {
+            position: relative;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 4px;
+            color: white;
+            padding: 4px 8px;
+            opacity: 0.7;
+            white-space: nowrap;
+        }
+
+        .tooltip-measure {
+            opacity: 1;
+            font-weight: bold;
+        }
+
+        .tooltip-static {
+            background-color: #ffffff;
+            color: black;
+            border: 1px solid white;
+        }
+
+        .tooltip-measure:before,
+        .tooltip-static:before {
+            border-top: 6px solid rgba(0, 0, 0, 0.5);
+            border-right: 6px solid transparent;
+            border-left: 6px solid transparent;
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            margin-left: -7px;
+            left: 50%;
+        }
+
+        .tooltip-static:before {
+            border-top-color: #ffffff;
+        }
+        .form-group {
+            text-align: center;
+            text-align: center;
+            width:90%;
+            margin:0 auto 15px auto;
+        }
+    </style>
+
+   <script src="{% static 'js/jquery-1.8.2.min.js' %}"></script>
+   <script>
+       $.ajaxSetup({
+           data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+       });
+   </script>
+   <script src="https://openlayers.org/en/v4.5.0/build/ol.js" type="text/javascript"></script>
+     <script src="{% static 'js/require.js' %}"></script>
+ </head>
+
+ <body style="height:100%;">
+    <div class="compare container" style="background-color:white; display:inline-flex; width:100%; height:10%; min-height:100px">
+        <form role="form" name="compareForm" action="" method="post" style="width:100%; font-size:20px; height:100%">
+            <div class="row" style="width: 100%; display:-webkit-flex; align-items:center; height:100%;">
+                <div class="col-lg-11 col-xs-11" style="display:inline-flex; align-items:center; height:100%">
+                    <span class="picture-span">名称：</span>
+                    <input type="text" class="compare-input" id="nme">
+                    <span class="picture-span">类别：</span>
+                    <input type="text" class="compare-input" id="type">
+                    <span class="picture-span">时间：</span>
+                    <input type="text" class="compare-input" id="time">
+                    <span class="picture-span">地址：</span>
+                    <input type="text" class="compare-input" id="address">
+                    <span style="height:100%; display:-webkit-flex; align-items:center; width:7%; margin-left:42px;">
+                        <button class="btn btn-primary" style="border-radius:6px; height:50%; width:100%; min-height:50px; font-size:20px" id="location_btn" >搜索</button>
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="row" style="width:100%; height:100%;">
+            <div class="col-xs-12 col-lg-12" style="height:100%;">
+                <div id="globe-search-result"></div>
+                <div id="list-search-result" style="width:95%">
+                    <table id="resultTab" border="0" cellspacing="0" cellpadding="0" class="table">
+                        <tr class="label-primary" style="font-size:20px; height: 70px;">
+                            <th scope="col" width="5%"><span style="color:white">序号</span></th>
+                            <th scope="col" width="10%"><span style="color:white">名称</span></th>
+                            <th scope="col" width="10%"><span style="color:white">面积</span></th>
+                            <th scope="col" width="10%"><span style="color:white">类型</span></th>
+                            <th scope="col" width="10%"><span style="color:white">现场地址</span></th>
+                            <th scope="col" width="10%"><span style="color:white">细节描述</span></th>
+                            <th scope="col" width="10%"><span style="color:white">处理人</span></th>
+                            <th scope="col" width="10%"><span style="color:white">录入时间</span></th>
+                            <th scope="col" class ="authorityTh"><span class="authoritySpan" style="color:white">操作</span></th>
+                        </tr>
+                    </table>
+                    <p>{{message}}</p>
+                </div>
+            </div>
+    </div>
+    <script src="{% static 'js/ib_event_management_showlist.js' %}"></script>
+
+
+<script src="{% static 'js/polygon.js' %}"></script>
+   <script src="{% static 'js/distance.js' %}"></script>
+<script src="{% static 'js/area.js' %}"></script>
+ </body>
+</html>
+
+<!-- http://172.20.53.157:8080/geoserver/test/wms
+https://openlayers.org/en/v4.6.5/build/ol.js-->
