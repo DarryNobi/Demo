@@ -66,8 +66,14 @@
  <body>
     <div style="height:10%; min-height:80px;">
         <ul class="nav nav-tabs head-ul" style="height:100%; background: #c3c6cb;">
+             <li role="presentation">
+                <a href="javascript:void(0)" onclick="open_illegal_building('/ib_plotting/')">
+                    <span class="nav-img-p"><img class="nav-img" src="{% static 'img/event.png' %}"></span>
+                    <span class="nav-text-p">违建标绘</span>
+                </a>
+            </li>
             <li>
-                <a class="" href="javascript:void(0)" onclick="offence_build('/move_compare/')" >
+                <a class="" href="javascript:void(0)" onclick="open_illegal_building('/ib_roller_shutters/')" >
                     <span class="nav-img-p"><img class="nav-img" src="{% static 'img/view.png' %}"></span>
                     <span class="nav-text-p">违建影像对比</span>
                 </a>
@@ -82,7 +88,7 @@
     </div>
     <div style="height:90%">
         <div style="height:100%">
-            <iframe id="offence_build_container" src="" frameborder="0" scrolling="no" style="width: 100%; height: 100%;">
+            <iframe id="illegal_building_container" src="" frameborder="0" scrolling="no" style="width: 100%; height: 100%;">
             </iframe>
         </div>
     </div>
