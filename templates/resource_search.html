@@ -3,6 +3,8 @@
 <head>
     {% load staticfiles %}
 
+
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,16 +72,15 @@
                     <table id="resultTab" border="0" cellspacing="0" cellpadding="0" class="table">
                         <tr class="label-primary" style="font-size:20px; height: 70px;">
                             <th scope="col" width="5%"><span style="color:white">序号</span></th>
-                            <th scope="col" width="15%"><span style="color:white">影像资源</span></th>
+                            <th scope="col" width="10%"><span style="color:white">影像资源</span></th>
                             <th scope="col" width="10%"><span style="color:white">入库时间</span></th>
-                            <th scope="col" width="5%"><span style="color:white">用户</span></th>
-                            <th scope="col" width="5%"><span style="color:white">荷载</span></th>
                             <th scope="col" width="10%"><span style="color:white">卫星</span></th>
                             <th scope="col" width="10%"><span style="color:white">影像类别</span></th>
                             <th scope="col" width="10%"><span style="color:white">下载次数</span></th>
                             <th scope="col" class ="authorityTh"><span class="authoritySpan" style="color:white">操作</span></th>
                         </tr>
                     </table>
+                    <p>{{message}}</p>
                 </div>
                 </div>
             </div>
@@ -87,98 +88,13 @@
             <footer></footer>
         </div>
     </div>
-    <script>
-    var data = [{
-        "id": 1,
-        "resource": "111111",
-        "date": "2018/04/19",
-        "user": "admin",
-        "load": "CCD1",
-        "satellite": "高分1号",
-        "type": "二级影像",
-        "download": "2"
-    },{
-        "id": "2",
-        "resource": "2222",
-        "date": "2018/04/19",
-        "user": "admin1",
-        "load": "PAD-1",
-        "satellite": "高分1号",
-        "type": "三级影像",
-        "download": "3"
-    }];
-    window.onload=function(){
-        //默认获取当前日期
-        var today = new Date();
-        var nowdate = (today.getFullYear()) + "-" + (today.getMonth() + 1) + "-" + today.getDate();
-        //对日期格式进行处理
-        var date = new Date(nowdate);
-        var mon = date.getMonth() + 1;
-        var day = date.getDate();
-        var mydate = date.getFullYear() + "-" + (mon < 10 ? "0" + mon : mon) + "-" + (day < 10 ? "0" + day : day);
-        $(".nowdate").val(mydate);
-        showList();
-    };
-    function showList(){
-        var resultTab = $("#resultTab");
-        data.forEach(function(item){
-            $(
-                '<tr/>', {
-                    'style' : 'font-size:18px'
-                }).append($('<td/>', {
-                    text : item.id
-                }))
-                .append($('<td/>',{
-                    text : item.resource
-                }))
-                .append($('<td/>',{
-                    text : item.date
-                }))
-                .append($('<td/>',{
-                    text : item.user
-                }))
-                .append($('<td/>',{
-                    text : item.load
-                }))
-                .append($('<td/>',{
-                    text : item.satellite
-                }))
-                .append($('<td/>',{
-                    text : item.type
-                }))
-                .append($('<td/>',{
-                    text : item.download
-                }))
-                .append($('<td/>')
-                .append($('<p/>')
-                .append($('<button/>',{
-                    'class' : 'operate',
-                    'id' : 'look' + item.id,
-                    text : '查看'
-                }))
-                .append($('<button/>',{
-                    'class' : 'operate',
-                    'id' : 'download' + item.id,
-                    text : '下载'
-                }))
-                .append($('<button/>',{
-                    'class' : 'operate',
-                    'id' : 'del' + item.id,
-                    text : '删除'
-                }))
-                .append($('<button/>',{
-                    'class' : 'operate',
-                    'id' : 'release' + item.id,
-                    text : '发布'
-                }))
-                .append($('<button/>',{
-                    'class' : 'operate',
-                    'id' : 'cancel_release' + item.id,
-                    text : '取消发布'
-                }))))
-                .appendTo(resultTab);
+    <script >
+        $.ajaxSetup({
+         data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
         });
-    };
     </script>
+    <script>var d_maps={{ d_maps|safe }};</script>
+    <script src="{% static 'js/resourceManagement.js' %}"></script>
+    <!--<script src="{% static 'js/publishButton.js' %}"></script>-->
 </body>
 </html>

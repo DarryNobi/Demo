@@ -16,7 +16,7 @@ for image in imageList:
         if hoffLine:
             hoff=hoffLine.group(1)
             break
-    RpcHeight="RPC_HEIGHT="+str(hoff)
+    RpcHeight="['RPC_HEIGHT="+str(hoff)+"]'"
     warpOP = gdal.WarpOptions(dstSRS='WGS84', rpc=True, multithread=True, dstNodata=65535, errorThreshold=0.0,
                                creationOptions=['Tiled=yes'], resampleAlg=1,transformerOptions=RpcHeight)
     imageDS = gdal.Open(image.filepath.encode('utf-8'),gdal.GA_ReadOnly)

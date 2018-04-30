@@ -23,8 +23,11 @@ from django.core.serializers.json import DjangoJSONEncoder
 from django.http import HttpResponse, JsonResponse
 User = get_user_model()
 from web.ImageryServer import DB_Workshop
-from web.ImageryServer import GS_Workshop
+from web.ImageryServer import ImagePubMan
 # Create your views here.
+##################################################
+#from web.models import Map
+###############################################
 
 
 
@@ -42,6 +45,8 @@ def loadmap(request):
                   template_name='map_geo.html')
 
 def login(request):
+    # if request.method == "POST":
+    #    uf = User
     return render(request,
                   template_name='login.html')
 
@@ -85,7 +90,14 @@ def account_management(request):
     return render(request,
                   template_name='account_management.html')
 
+def uploadImage(request):
 
+    imageID=request.POST.get('ImageID',False)
+    return HttpResponse(ImagePubMan.uploadImage(imageID))
+
+def cancelPublish(request):
+    imageID=request.POST.get('ImageID',False)
+    return HttpResponse(ImagePubMan.cancelPublish(imageID))
 #####################################################
 
 def authority_management(request):
@@ -382,22 +394,6 @@ def delete_draw(request):
     draw=GraphicLabel.objects.get(id=id)
     draw.delete()
     return JsonResponse({'message':'success'})
-############################
-def getPath(request):
-    return render(request,
-                  template_name='image_Upload.html')
-
-
-def SqlTest(request):
-    filepath = request.POST.get('filepath', False)
-    DB_Workshop.saveImage(filepath)
-    return render(request, 'toGeoServer.html')
-
-
-def toGeoServer(request):
-    GS_Workshop.uploadImage();
-    return render(request, 'toGeoServer.html')
-#################################################
 
 def map_inquiry(request):
     maps_temp = Map.objects.all()
@@ -409,4 +405,5 @@ def map_inquiry(request):
     else:
         return render(request, 'resource_search.html', {'message': '查找结果为空！'})
 
-
+def test(request):
+    DB_Workshop.saveImage('/media/zhou/文档/yaogan')

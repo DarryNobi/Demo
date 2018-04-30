@@ -63,9 +63,6 @@ urlpatterns = [
     url(r'^status_revise/', views.status_revise),
     url(r'^save_draw/', views.save_draw),
     url(r'^load_all_draw/', views.load_all_draw),
-    url(r'^getPath/',views.getPath),
-    url(r'^SqlTest/',views.SqlTest),
-    url(r'^toGeoServer/',views.toGeoServer),
     url(r'^query_draw/', views.query_draw),
     url(r'^delete_draw/', views.delete_draw),
     url(r'^map_inquiry/', views.map_inquiry),
@@ -73,6 +70,9 @@ urlpatterns = [
     ##########################################################
     url(r'^user_center/', views.user_center),
     url(r'^account_management/', views.account_management),
+    url(r'^uploadImage/', views.uploadImage),
+    url(r'^cancelPublish',views.cancelPublish),
+    url(r'^test/',views.test)
 ]
 
 urlpatterns += staticfiles_urlpatterns()

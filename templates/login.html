@@ -33,47 +33,42 @@
         <span>卫星遥感资源管理系统</span>
     </div>
     <div class="container">
+        <!--logo-->
         <div class="row text-center" style="">
            <div class="col-md-12">
-                <img src="assets/img/logo-invoice.png" />
+                <img src="assets/img/logo-invoice.png"/>
             </div>
         </div>
-         <div class="row ">
-                <div class="col-md-2"></div>
 
-                <div class="col-md-8">
-
-                            <div class="panel-body">
-                                <form role="form" name="indexForm" action="/login_check/" method="post">
-                                    {% csrf_token %}
-                                    <hr />
-                                    <h5>请输入用户信息</h5>
-                                       <br />
-                                     <div class="form-group input-group">
-                                            <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
-                                            <input type="text" name="username" class="form-control" placeholder="用户名 " />
-                                        </div>
-                                                                              <div class="form-group input-group">
-                                            <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
-                                            <input type="password" name="password" class="form-control"  placeholder="密码" />
-                                        </div>
-                                    <div class="form-group">
-
-
-                                        </div>
-
-                                    <div class="subBut"><button type="submit" class="btn btn-primary ">登录</button></div>
-                                    <hr />
-                                    不是用户 <a href="/register/" >点击这里 </a>
-                                    </form>
-                                <p>{{message1}}</p>
-                            </div>
-
+        <div class="row ">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="panel-body">
+                    <!--form模块-->
+                    <form role="form" name="indexForm" action="/login_check/" method="post">
+                        {% csrf_token %}
+                        <hr/>
+                        <h4>请输入用户信息</h4>
+                        <br/>
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="fa fa-tag"  ></i></span>
+                            <input type="text" name="username" class="form-control" placeholder="用户名 " />
                         </div>
+                        <div class="form-group input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock"  ></i></span>
+                            <input type="password" name="password" class="form-control"  placeholder="密码" />
+                        </div>
+                        <div class="form-group"></div>
+                        <div class="subBut"><button type="submit" class="btn btn-primary ">登录</button></div>
+                        <hr />
+                        不是用户 <a href="/register/" >点击这里 </a>
+                    </form>
+                    <p>{{message1}}</p>
+                </div>
+
+            </div>
                 <div class="col-md-2"></div>
              <script></script>
-
-
         </div>
     </div>
 
