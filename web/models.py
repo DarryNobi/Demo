@@ -89,11 +89,13 @@ class GraphicLabel(models.Model):
         ('2', '违建')
     )
     name = models.CharField(max_length=16)
-    grahpictype = models.CharField(max_length=4,choices=GraphicType)#地物类型如建筑、森林、河流
-    grahpiclabel = models.CharField(max_length=4,choices=GraphicLabel)#标注类型如拆迁、违建
+    graphictype = models.CharField(max_length=4,choices=GraphicType)#地物类型如建筑、森林、河流
+    graphiclabel = models.CharField(max_length=4,choices=GraphicLabel)#标注类型如拆迁、违建
     context = models.TextField()#坐标数据
     discrib = models.TextField()
     square = models.FloatField(default=0)
     graphic_provide= models.ForeignKey(Myuser,on_delete=models.CASCADE,blank=True)
     coordinate_x = models.FloatField(default=0)
     coordinate_y = models.FloatField(default=0)
+    createtime=models.DateField(auto_now_add=True)
+    graphicaddress=models.CharField(max_length=16,default='default')

@@ -1,5 +1,15 @@
-function showList(){
 
+    var data = [];
+
+    window.onload = function() {
+        query();
+        var query_btn = $("#query_btn")
+        query_btn.click(function(){
+            query();
+        });
+    }
+
+function showList(){
     var resultTab = $("#resultTab");
     var pubText="";
     data.forEach(function(item){
@@ -13,16 +23,22 @@ function showList(){
                 text : item.name
             }))
             .append($('<td/>',{
-                text : item.gen_data
+                text : item.square
             }))
             .append($('<td/>',{
-                text : item.SatelliteID
+                text : item.graphictype
             }))
             .append($('<td/>',{
-                text : item.type
+                text : item.coordinate_x+item.coordinate_y
             }))
             .append($('<td/>',{
-                text : item.download
+                text : item.discrib
+            }))
+            .append($('<td/>',{
+                text : item.graphic_provide_id
+            }))
+            .append($('<td/>',{
+                text : '录入时间'
             }))
             .append($('<td/>')
             .append($('<p/>')
@@ -33,24 +49,51 @@ function showList(){
             }))
             .append($('<button/>',{
                 'class' : 'operate',
-                'id' : 'download' + item.id,
-                text : '下载'
-            }))
-            .append($('<button/>',{
-                'class' : 'operate',
-                'id' : 'del' + item.id,
+                'id' : 'delete' + item.id,
                 text : '删除'
-            }))
-            .append($('<button/>',{
-                'class' : 'publish',
-                'id' : 'release' + item.id,
-                'type':'submit',
-                text: pubText
             }))
             ))
             .appendTo(resultTab);
 
-    button=$("#release"+ item.id);
+    button=$("#delete"+ item.id);
     button.on("click",{"num":item.id},changeStatus);
     });
 };
+
+function query(){
+    var query_name = $("#name").val()
+    var query_type = $("#type").val()
+    var query_time = $("#time").val()
+    var query_address = $("#query_address").val()
+    $.ajax({
+            type:'get',
+            url:'/_ib_event_search/',
+            data: {
+                'query_name':query_name,
+                'query_type':query_type,
+                'query_time':query_time,
+                'query_address':query_address,
+            },
+            success:function(result){
+                data=[];
+                result_data=result['data'];
+                for(var i in result_data)
+                    data.push(result_data[i]);
+                showList();
+                },
+            error:function(){
+                alert('error')}
+         });
+    }
+
+function changeStatus(data){
+        num=data.data.num
+        $.ajax({
+          url:'/_delete_draw/',
+          data: {'id':num},
+          success: function(){
+            alert('删除成功！');
+            location.reload()
+          }
+        });
+    }

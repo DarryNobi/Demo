@@ -1,5 +1,16 @@
 
     var data = [];
+
+    window.onload = function() {
+        query();
+        var query_btn = $("#query_btn")
+        query_btn.click(function(){
+            query();
+        });
+    }
+
+
+
     function query(){
     var query_name = $("#name").val()
     var query_type = $("#type").val()
@@ -26,49 +37,55 @@
         var graphicTab = $("#graphic_tab");
         data.forEach(function(item){
             $(
-                '<tr/>', {
-                    'class' : 'grap_tr'
-                }).append($('<td/>', {
-                    text : item.id
-                }))
-                .append($('<td/>',{
-                    text : item.name
-                }))
-                .append($('<td/>',{
-                    text : item.grahpictype
-                }))
-                .append($('<td/>',{
-                    text : item.grahpiclabel
-                }))
-                .append($('<td/>',{
-                    text : item.square
-                }))
-                .append($('<td/>',{
-                    text : item.coordinate_x+item.coordinate_y
-                }))
-                .append($('<td/>',{
-                    text : item.discrib
-                }))
-                .append($('<td/>')
-                .append($('<p/>')
-                .append($('<button/>',{
-                    'class' : 'operate',
-                    text : '修改'
-                }))
-                .append($('<button/>',{
-                    'class' : 'operate',
-                    text : '删除'
-                }))))
-                .appendTo(graphicTab);
+            '<tr/>', {
+                'class' : 'grap_tr'
+            }).append($('<td/>', {
+                text : item.id
+            }))
+            .append($('<td/>',{
+                text : item.name
+            }))
+            .append($('<td/>',{
+                text : item.graphictype
+            }))
+            .append($('<td/>',{
+                text : item.graphiclabel
+            }))
+            .append($('<td/>',{
+                text : item.square
+            }))
+            .append($('<td/>',{
+                text : item.coordinate_x+item.coordinate_y
+            }))
+            .append($('<td/>',{
+                text : item.discrib
+            }))
+            .append($('<td/>')
+            .append($('<p/>')
+            .append($('<button/>',{
+                'class' : 'operate',
+                text : '修改'
+            }))
+            .append($('<button/>',{
+                'class' : 'operate',
+                'id' : 'delete'+item.id,
+                text : '删除'
+            }))))
+            .appendTo(graphicTab);
+
+            button=$("#delete"+ item.id);
+            button.on("click",{"num":item.id},changeStatus);
         });
     }
 
-    window.onload = function() {
-        showList();
+    function changeStatus(data){
+        num=data.data.num
+        $.ajax({
+          url:'/_delete_draw/',
+          data: {'id':num},
+          success: function(){
+            alert('删除成功！');
+            location.reload()
+          }
+        });
     }
-
-
-    var query_btn = $("#query_btn")
-    query_btn.click(function(){
-        query();
-    });

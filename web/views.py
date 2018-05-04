@@ -163,8 +163,11 @@ def resource_search(request):
 
 
 def ib_event_management(request):
-    return render(request,
-                  template_name='ib_event_management.html')
+    ib_draws=GraphicLabel.objects.filter(graphiclabel='违建')
+    d_ib_draws = {}
+    for i in range(len(ib_draws)):
+        d_ib_draws[i] = model_to_dict(ib_draws[i])
+    return render(request,'ib_event_management.html',{'d_ib_draws': json.dumps(d_ib_draws, cls=DjangoJSONEncoder)})
 
 def gs_show_map(request):
     return render(request,
@@ -369,8 +372,8 @@ def status_revise(request):
 def save_draw(request):
     raw_dic = request.POST.get('coordi', False)
     name = request.POST.get('name', False)
-    grahpictype = request.POST.get('grahpictype', False)
-    grahpiclabel = request.POST.get('grahpiclabel', False)
+    graphictype = request.POST.get('grahpictype', False)
+    graphiclabel = request.POST.get('grahpiclabel', False)
     discrib = request.POST.get('discrib', False)
     square = request.POST.get('square', 0)
     coordinate = request.POST.get('coordinate', False)
@@ -380,7 +383,7 @@ def save_draw(request):
     coordis_list=[coordis_num[i:i+2] for i in range(0,len(coordis_num),2)]
     jsonstr={'type':'Feature','geometry':{'type':'Polygon','coordinates':[coordis_list]},'properties':{'id':0}}
     jsondata=json.dumps(jsonstr)
-    draw_obj = GraphicLabel.objects.create(name=name,context=jsondata,grahpictype=grahpictype,grahpiclabel=grahpiclabel,graphic_provide=request.user,discrib=discrib)
+    draw_obj = GraphicLabel.objects.create(name=name,context=jsondata,graphictype=graphictype,graphiclabel=graphiclabel,graphic_provide=request.user,discrib=discrib)
     draw_obj.save()
     return render(request,'map_geo.html',{'message':'success'})
 
@@ -401,7 +404,7 @@ def query_draw(request):
     return JsonResponse({'drawinfo':draw})
 
 
-def delete_draw(request):
+def _delete_draw(request):
     id = request.GET.get('id', False)
     draw=GraphicLabel.objects.get(id=id)
     draw.delete()
@@ -436,3 +439,22 @@ def _gs_show_list(request):
         return JsonResponse({'data':d_draws})
     else:
         return JsonResponse({'message': '查找结果为空！'})
+
+def _ib_event_search(request):
+    name=request.GET.get('query_name',False)
+    graphictype=request.GET.get('query_type',False)
+    createtime=request.GET.get('query_time',False)
+    graphicaddress=request.GET.get('query_address',False)
+    ib_draws = GraphicLabel.objects.all()
+    if(graphictype):
+        ib_draws=GraphicLabel.objects.filter(graphictype=graphictype)
+    if(name):
+        ib_draws=GraphicLabel.objects.filter(name=name)
+    if(graphicaddress):
+        ib_draws=GraphicLabel.objects.filter(graphicaddress=graphicaddress)
+    if(createtime):
+        ib_draws=GraphicLabel.objects.filter(createtime=createtime)
+    d_ib_draws = {}
+    for i in range(len(ib_draws)):
+        d_ib_draws[i] = model_to_dict(ib_draws[i])
+    return JsonResponse({'data': d_ib_draws})

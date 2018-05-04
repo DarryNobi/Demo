@@ -11,9 +11,9 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <script >
-        $.ajaxSetup({
+         $.ajaxSetup({
              data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
-        });
+         });
     </script>
     <![endif]-->
     <style>
@@ -145,30 +145,24 @@
     </style>
 
    <script src="{% static 'js/jquery-1.8.2.min.js' %}"></script>
-   <script>
-       $.ajaxSetup({
-           data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
-       });
-   </script>
-   <script src="https://openlayers.org/en/v4.5.0/build/ol.js" type="text/javascript"></script>
      <script src="{% static 'js/require.js' %}"></script>
  </head>
 
  <body style="height:100%;">
     <div class="compare container" style="background-color:white; display:inline-flex; width:100%; height:10%; min-height:100px">
-        <form role="form" name="compareForm" action="" method="post" style="width:100%; font-size:20px; height:100%">
+        <form role="form" name="compareForm" action="/_ib_event_search/" method="post" style="width:100%; font-size:20px; height:100%">
             <div class="row" style="width: 100%; display:-webkit-flex; align-items:center; height:100%;">
                 <div class="col-lg-11 col-xs-11" style="display:inline-flex; align-items:center; height:100%">
                     <span class="picture-span">名称：</span>
-                    <input type="text" class="compare-input" id="nme">
+                    <input type="text" class="compare-input" id="query_nme">
                     <span class="picture-span">类别：</span>
-                    <input type="text" class="compare-input" id="type">
+                    <input type="text" class="compare-input" id="query_type">
                     <span class="picture-span">时间：</span>
-                    <input type="text" class="compare-input" id="time">
+                    <input type="text" class="compare-input" id="query_time">
                     <span class="picture-span">地址：</span>
-                    <input type="text" class="compare-input" id="address">
+                    <input type="text" class="compare-input" id="query_address">
                     <span style="height:100%; display:-webkit-flex; align-items:center; width:7%; margin-left:42px;">
-                        <button class="btn btn-primary" style="border-radius:6px; height:50%; width:100%; min-height:50px; font-size:20px" id="location_btn" >搜索</button>
+                        <button class="btn btn-primary" style="border-radius:6px; height:50%; width:100%; min-height:50px; font-size:20px" id="query_btn" >搜索</button>
                     </span>
                 </div>
             </div>
@@ -196,12 +190,12 @@
                 </div>
             </div>
     </div>
+    <script >
+         $.ajaxSetup({
+             data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+         });
+    </script>
     <script src="{% static 'js/ib_event_management_showlist.js' %}"></script>
-
-
-<script src="{% static 'js/polygon.js' %}"></script>
-   <script src="{% static 'js/distance.js' %}"></script>
-<script src="{% static 'js/area.js' %}"></script>
  </body>
 </html>
 
