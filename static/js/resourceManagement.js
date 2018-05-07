@@ -1,14 +1,16 @@
 
 var data=[];
-var ID=[];
+//var localData=[];
+//var localID=[];
 
-for(var i in d_maps){
-data.push(d_maps[i]);
+for(var i in sourceMaps){
+  data.push(sourceMaps[i]);
 }
 
-for(var j in gloID){
-ID.push(gloID[j]);
-}
+//for(var j in localMaps){
+//localData.push(localMaps[j]);
+//localID.push(localGloID[j]);
+//}
 
 window.onload=function(){
     //默认获取当前日期
@@ -27,14 +29,17 @@ function showList(){
     var pubText="";
     var downText="";
     data.forEach(function(item){
-        if(item.isPublish)
-          pubText="取消发布";
-        else
-          pubText="发布";
-        if($.inArray(item.GlobeID,ID)>=0)
+        if(item.id in localMaps){
           downText="删除";
-        else
+          if(localMaps[item.id]['isPublish'])
+            pubText="取消发布";
+          else
+            pubText="发布";
+        }
+        else{
           downText="下载";
+          pubText="发布";
+        }
         $(
             '<tr/>', {
                 'style' : 'font-size:18px'
@@ -42,19 +47,19 @@ function showList(){
                 text : item.id
             }))
             .append($('<td/>',{
-                text : item.name
+                text : item.map_name
             }))
             .append($('<td/>',{
-                text : item.gen_data
+                text : item.create_time
             }))
             .append($('<td/>',{
-                text : item.SatelliteID
+                text : item.satelite
             }))
             .append($('<td/>',{
                 text : item.type
             }))
             .append($('<td/>',{
-                text : item.download
+                text : item.download_times
             }))
             .append($('<td/>')
             .append($('<p/>')
@@ -78,14 +83,14 @@ function showList(){
             .appendTo(resultTab);
 
     button=$("#release"+ item.id);
-    button.on("click",{"num":item.id},changeStatus);
+    button.on("click",{"id":item.id},changeStatus);
     button2=$("#download"+item.id);
-    button2.on("click",{"num":item.id},downloadStatus);
+    button2.on("click",{"id":item.id},downloadStatus);
     });
 };
 
 function changeStatus(data){
-    var id=data.data.num
+    var id=data.data.id
     var button=$("#release"+id);
     var isPublish=button.text();
     if(isPublish=="发布"){
@@ -97,7 +102,7 @@ function changeStatus(data){
               data: {ImageID:id},
               success:function(message){
                     if(message=="发布成功！"){
-                       alert("请先下载图片！");
+                       alert(message);
                        button.removeAttr("disabled");
                        button.text("取消发布");
                     }
@@ -141,7 +146,7 @@ function changeStatus(data){
     });}
 }
 function downloadStatus(data){
-    var id=data.data.num
+    var id=data.data.id
     var button=$("#download"+id);
     var isDownload=button.text();
     if(isDownload=="下载"){

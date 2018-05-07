@@ -3,7 +3,7 @@ from web.models import Map
 import os
 import time
 import re
-def saveImage(filepath):
+def saveImageBack(filepath):
 
      listProperty = ['SatelliteID', 'Maptype', 'SensorID', 'ReceiveTime', 'name',
                      'Band', 'WidthInPixels', 'HeightInPixels', 'EarthEllipsoid', 'TopLeftLatitude',
