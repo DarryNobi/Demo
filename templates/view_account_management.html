@@ -16,6 +16,7 @@
          $.ajaxSetup({
              data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
          });
+
      </script>
      <![endif]-->
     <style>
@@ -135,6 +136,7 @@
         .tooltip-static:before {
             border-top-color: #ffffff;
         }
+
     </style>
 
    <script src="{% static 'js/jquery-1.8.2.min.js' %}"></script>
@@ -155,7 +157,7 @@
     <div style="height:10%; min-height:80px;">
         <ul class="nav nav-tabs head-ul" style="height:100%; background: #c3c6cb;">
             <li>
-                <a id="home" class="" href="javascript:void(0)" onclick="open_account_management('/account_inquiry/')" >
+                <a id="home" class="" href="javascript:void(0)" onclick="open_account_management('/account_inquiry/')">
                     <span class="nav-img-p"><img class="nav-img" src="{% static 'img/user_ statistics .png' %}"></span>
                     <span class="nav-text-p">账户查询</span>
                 </a>
@@ -192,3 +194,4 @@
 
 <!-- http://172.20.53.157:8080/geoserver/test/wms
 https://openlayers.org/en/v4.6.5/build/ol.js-->
+
