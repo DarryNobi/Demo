@@ -3,7 +3,7 @@
 
     window.onload = function() {
         query();
-        var query_btn = $("#query_btn")
+        var query_btn = $("gra_btn")
         query_btn.click(function(){
             query();
         });
@@ -12,8 +12,8 @@
 
 
     function query(){
-    var query_name = $("#name").val()
-    var query_type = $("#type").val()
+    var query_name = $("#gra_name").val()
+    var query_type = $("#gra_type").val()
     $.ajax({
             type:'get',
             url:'/_gs_show_list/',
@@ -33,59 +33,50 @@
          });
     }
 
-    function showList() {
-        var graphicTab = $("#graphic_tab");
-        data.forEach(function(item){
-            $(
-            '<tr/>', {
-                'class' : 'grap_tr'
-            }).append($('<td/>', {
-                text : item.id
-            }))
-            .append($('<td/>',{
-                text : item.name
-            }))
-            .append($('<td/>',{
-                text : item.graphictype
-            }))
-            .append($('<td/>',{
-                text : item.graphiclabel
-            }))
-            .append($('<td/>',{
-                text : item.square
-            }))
-            .append($('<td/>',{
-                text : item.coordinate_x+item.coordinate_y
-            }))
-            .append($('<td/>',{
-                text : item.discrib
-            }))
-            .append($('<td/>')
-            .append($('<p/>')
-            .append($('<button/>',{
-                'class' : 'operate',
-                text : '修改'
-            }))
-            .append($('<button/>',{
-                'class' : 'operate',
-                'id' : 'delete'+item.id,
-                text : '删除'
-            }))))
-            .appendTo(graphicTab);
+    var graphicTab = $("#graphic_tab");
 
-            button=$("#delete"+ item.id);
-            button.on("click",{"num":item.id},changeStatus);
-        });
+    function showList() {
+        graphicTab.bootstrapTable({
+              locale:'zh-CN',//中文支持
+              pagination: true,//是否开启分页（*）
+              pageNumber:1,//初始化加载第一页，默认第一页
+              pageSize: 3,//每页的记录行数（*）
+              pageList: [10, 25, 50, 100],//可供选择的每页的行数（*）
+              sidePagination: "client", //分页方式：client客户端分页，server服务端分页（*）
+              showRefresh:false,//刷新按钮
+              search: false,
+              data:data,
+              columns: [
+                  {field: 'id', title:'序号', width:'10%', align:'center'},
+                  {field: 'name', title:'名称', width:'10%', align:'center'},
+                  {field: 'graphictype', title:'地物类别', width:'10%', align:'center'},
+                  {field: 'graphiclabel', title:'标记类别', width:'10%', align:'center'},
+                  {field: 'square', title:'面积', width:'20%', align:'center'},
+                  {field: 'item.coordinate_x+item.coordinate_y', title:'经纬度', width:'10%', align:'center'},
+                  {field: 'discrib', title:'描述', width:'10%', align:'center'},
+                  {field: 'tool',title: '操作', align: 'center',
+                          formatter: function (value,row,index){
+                              var element = "<button class='operate' id='change_gs"+row.id +"' data-id='"+row.id +"'>修改</button>"
+                              + "<button class='operate' id='delete_gs"+row.id +"' data-id='"+row.id +"' onclick='changeStatus(\" "+row.id+" \")'>删除</button>";
+                              return element;
+                          },
+                  }
+              ],
+
+          })
     }
 
     function changeStatus(data){
-        num=data.data.num
+        num=data;
         $.ajax({
-          url:'/_delete_draw/',
-          data: {'id':num},
-          success: function(){
-            alert('删除成功！');
-            location.reload()
-          }
+            url:'/_delete_draw/',
+            data: {'id':num},
+            success: function(){
+                alert('删除成功！');
+                graphicTab.bootstrapTable('remove',{
+                    field: 'id',
+                    values: [parseInt(data)],
+                })
+            }
         });
     }
