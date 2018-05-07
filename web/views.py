@@ -24,6 +24,8 @@ from django.http import HttpResponse, JsonResponse
 User = get_user_model()
 from web.ImageryServer import DB_Workshop
 from web.ImageryServer import ImagePubMan
+import urllib.request
+from web.ImageryServer import ImagePreprogress
 # Create your views here.
 ##################################################
 #from web.models import Map
@@ -89,7 +91,7 @@ def user_center(request):
 def account_management(request):
     return render(request,
                   template_name='view_account_management.html')
-
+users_temp=User.objects.all()
 def uploadImage(request):
 
     imageID=request.POST.get('ImageID',False)
@@ -98,6 +100,13 @@ def uploadImage(request):
 def cancelPublish(request):
     imageID=request.POST.get('ImageID',False)
     return HttpResponse(ImagePubMan.cancelPublish(imageID))
+
+def downloadImage(request):
+    imageID=request.POST.get('ImageID',False)
+    return HttpResponse(ImagePubMan.downloadImage(imageID))
+def deleteImage(request):
+    imageID=request.POST.get('ImageID',False)
+    return HttpResponse(ImagePubMan.deleteImage(imageID))
 #####################################################
 
 def authority_management(request):
@@ -152,12 +161,19 @@ def default(request):
                   template_name='default_municipal.html')
 
 def resource_search(request):
-    maps_temp = Map.objects.all()
-    d_maps = {}
-    for i in range(len(maps_temp)):
-        d_maps[i] = model_to_dict(maps_temp[i])
-    if d_maps:
-        return render(request, 'rm_resource_search.html', {'d_maps': json.dumps(d_maps, cls=DjangoJSONEncoder)})
+    response=urllib.request.urlopen('http://172.20.53.158:8089/deliver_map/')
+    sourceMaps=json.loads(json.loads(response.read().decode('utf-8'))['d_maps'])
+    localMapsTemp = Map.objects.all()
+    localMaps={}
+    #localGloID=[]
+    if localMapsTemp:
+        for i in range(len(localMapsTemp)):
+            localMaps[localMapsTemp[i].GlobeID]=model_to_dict(localMapsTemp[i])
+            #localGloID.append(localMaps[i]['GlobeID'])
+    if sourceMaps:
+        return render(request, 'rm_resource_search.html', {'sourceMaps': json.dumps(sourceMaps, cls=DjangoJSONEncoder),
+                      'localMaps':json.dumps(localMaps,cls=DjangoJSONEncoder)})
+                      #'localGloID':json.dumps(localGloID,cls=DjangoJSONEncoder)})
     else:
         return render(request, 'rm_resource_search.html', {'message': '查找结果为空！'})
 
@@ -421,7 +437,9 @@ def map_inquiry(request):
         return render(request, 'rm_resource_search.html', {'message': '查找结果为空！'})
 
 def test(request):
-    DB_Workshop.saveImage('/media/zhou/文档/yaogan')
+    ImagePreprogress.preprogress()
+    #DB_Workshop.saveImage('/media/zhou/文档/yaogan')
+
 
 
 def _gs_show_list(request):

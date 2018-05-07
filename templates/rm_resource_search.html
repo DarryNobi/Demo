@@ -96,7 +96,8 @@
             data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
         });
     </script>
-    <script>var d_maps={{ d_maps|safe }};</script>
+    <script>var sourceMaps={{ sourceMaps|safe }};</script>
+    <script>var localMaps={{ localMaps|safe }}</script>
     <script src="{% static 'js/resourceManagement.js' %}"></script>
 </body>
 </html>
