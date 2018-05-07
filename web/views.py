@@ -308,8 +308,8 @@ def permission_revise(request):
     for j in range(len(user['user_permissions'])):
         tmp = user['user_permissions'][j].name
         user_permissions.append(tmp)
-
-    return HttpResponse(json.dumps({"new_permissions":user_permissions}))
+    user['user_permissions']= user_permissions
+    return HttpResponse(json.dumps({"user":user}))
 
 #@login_required
 #@permission_required('user_management',raise_exception=True)

@@ -1,6 +1,6 @@
 var data=[];
-for(var i in d_maps){
-    data.push(d_maps[i])
+for(var i in sourceMaps){
+    data.push(sourceMaps[i])
 }
 
 window.onload=function(){
@@ -31,25 +31,28 @@ function showList(){
         data:data,
         columns: [
             {field: 'id', title:'序号', width:'10%', align:'center'},
-            {field: 'name', title:'影像资源', width:'10%', align:'center'},
-            {field: 'gen_data', title:'入库时间', width:'10%', align:'center'},
-            {field: 'SatelliteID', title:'卫星', width:'10%', align:'center'},
+            {field: 'map_name', title:'影像资源', width:'10%', align:'center'},
+            {field: 'create_time', title:'入库时间', width:'10%', align:'center'},
+            {field: 'satelite', title:'卫星', width:'10%', align:'center'},
             {field: 'type', title:'影像类别', width:'20%', align:'center'},
-            {field: 'download', title:'下载次数', width:'10%', align:'center'},
+            {field: 'download_times', title:'下载次数', width:'10%', align:'center'},
             {field: 'tool',title: '操作', align: 'center',
                 formatter: function (value,row,index){
-                    var element;
-                    if (row.isPublish) {
-                        element = "<button class='operate' id='change_resource"+row.id +"' data-id='"+row.id +"'>修改</button>"
-                            + "<button class='operate' id='download_resource"+row.id +"' data-id='"+row.id +"' onclick=''>下载</button>"
-                            + "<button class='operate' id='delete_resource"+row.id +"' data-id='"+row.id +"' onclick='delete(\" "+row.id+" \")'>删除</button>"
-                            + "<button class='operate' id='release"+row.id +"' data-id='"+row.id +"' onclick='release(\" "+row.id+" \")'>发布</button>";
-                    } else {
-                        element = "<button class='operate' id='change_resource"+row.id +"' data-id='"+row.id +"'>修改</button>"
-                            + "<button class='operate' id='download_resource"+row.id +"' data-id='"+row.id +"' onclick=''>下载</button>"
-                            + "<button class='operate' id='delete_resource"+row.id +"' data-id='"+row.id +"' onclick='delete_res(\" "+row.id+" \")'>删除</button>"
-                            + "<button class='operate' id='release"+row.id +"' data-id='"+row.id +"' onclick='release(\" "+row.id+" \")'>取消发布</button>";
-                    }
+                    var element = "<a href='#' class='operate' id='change_resource"+row.id +"' data-id='"+row.id +"' style='margin-left:0;' onclick='query()' onmouseover='check_mouseOver(\" "+row.id+" \")' onmouseout='check_mouseOut(\" "+row.id+" \")'>"
+                          + "<img id='check_img"+row.id+"' class='nav-img' src='../static/img/check.png'>"
+                          + "</a>"
+                          + "<a href='#' class='operate' id='download"+row.id +"' data-id='"+row.id +"' onclick='' onmouseover='download_mouseOver(\" "+row.id+" \")' onmouseout='download_mouseOut(\" "+row.id+" \")'>"
+                          + "<img id='download_img"+row.id+"' class='nav-img' src='../static/img/download.png'>"
+                          + "</a>"
+                          + "<a href='#' class='operate' id='delete_resource"+row.id +"' data-id='"+row.id +"' onclick='changeStatus(\" "+row.id+" \")' onmouseover='del_mouseOver(\" "+row.id+" \")' onmouseout='del_mouseOut(\" "+row.id+" \")'>"
+                          + "<img id='del_img"+row.id+"' class='nav-img' src='../static/img/delete.png'>"
+                          + "</a>";
+//                    } else {
+//                        element = "<button class='operate' id='change_resource"+row.id +"' data-id='"+row.id +"'>修改</button>"
+//                            + "<button class='operate' id='download_resource"+row.id +"' data-id='"+row.id +"' onclick=''>下载</button>"
+//                            + "<button class='operate' id='delete_resource"+row.id +"' data-id='"+row.id +"' onclick='delete_res(\" "+row.id+" \")'>删除</button>"
+//                            + "<button class='operate' id='release"+row.id +"' data-id='"+row.id +"' onclick='release(\" "+row.id+" \")'>取消发布</button>";
+//                    }
                     return element;
                 },
             }
@@ -57,6 +60,36 @@ function showList(){
 
     })
 };
+
+function check_mouseOver(data) {
+    var num = parseInt(data);
+    $("#check_img"+num).attr("src","../static/img/check1.png");
+}
+
+function check_mouseOut(data) {
+    var num = parseInt(data);
+    $("#check_img"+num).attr("src","../static/img/check.png");
+}
+
+function download_mouseOver(data) {
+    var num = parseInt(data);
+    $("#download_img"+num).attr("src","../static/img/download1.png");
+}
+
+function download_mouseOut(data) {
+    var num = parseInt(data);
+    $("#download_img"+num).attr("src","../static/img/download.png");
+}
+
+function del_mouseOver(data) {
+    var num = parseInt(data);
+    $("#del_img"+num).attr("src","../static/img/delete1.png");
+}
+
+function del_mouseOut(data) {
+    var num = parseInt(data);
+    $("#del_img"+num).attr("src","../static/img/delete.png");
+}
 
 function release(data){
     var id=parseInt(data);
