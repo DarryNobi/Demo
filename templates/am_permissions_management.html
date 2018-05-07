@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>权限管理</title>
+      {% load staticfiles %}
+<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap-theme.min.css">
+<!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+<!--[if lt IE 9]>
+        <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<script >
+      $.ajaxSetup({
+         data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+      });
+ </script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap-table.min.css' %}">
+<script src="{% static 'js/bootstrap-table.js' %}"></script>
+<script src="{% static 'js/bootstrap-table.min.js' %}"></script>
+<script src="{% static 'js/bootstrap-table-locale-all.min.js' %}"></script>
+<![endif]-->
+<style>
+.bs-docs-home
+{
+    background-color: #ffffff;
+    background-image: url(line.png);
+}
+table {
+
+}
+.authorityTd {
+    text-align: center;
+}
+.authorityTh {
+    text-align: center;
+}
+.subBut {
+    margin-left: 20px;
+}
+.authoritySpan {
+    margin-right: 8px;
+}
+</style>
+</head>
+<body class="bs-docs-home">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!--<div class="container theme-showcase">-->
+    <div>
+        <h1 style=" line-height:2em;"></h1><br/>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h2><strong>权限管理</strong></h2>
+                      <p>{{ userid  }}{{  isactive }}</p>
+                </div>
+                <div class="panel-body">
+
+
+
+                    <div class="table-responsive">
+						<table style="height:40px;" border="0" cellspacing="0" cellpadding="0" class="table">
+						<tr class=" label-primary">
+
+                            <th scope="col" width="15%"><span style="color:white"><h4>账号</h4></span></th>
+                            <th scope="col" width="15%"><span style="color:white"><h4>联系人</h4></span></th>
+                            <th scope="col" width="20%"><span style="color:white"><h4>已有权限</h4></span></th>
+                            <th scope="col" width="15%"><span style="color:white"><h4>状态</h4></span></th>
+                            <!--<th scope="col" class ="authorityTh"><span class="authoritySpan" style="color:white"><h4>修改权限</h4></span></th>-->
+                            <th scope="col"><span style="color:white"><h4>修改权限</h4></span></th>
+                        </tr>
+                        </table>
+                    </div>
+
+                    <!--<div class="form-group">-->
+
+                        <!--<input class="form-control btn btn-primary" id="submit" value="确&nbsp;&nbsp;认&nbsp;&nbsp;修&nbsp;&nbsp;改" type="button" onclick="_check()"/>-->
+                    <!--</div>-->
+
+                </div>
+            </div>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+    </div>
+<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+     var back_data = {{ d_users|safe }};
+    /*删除*/
+    /*dataArray为请求返回的数据*/
+
+    /*删除*/
+
+
+
+    // var dataArray = new Array()
+
+    // background_data为后台数据
+    // dataArray.push(background_data);
+
+
+    /*判断是否有搜索条件，根据搜索条件去渲染表格*/
+window.onload=function(){
+            $(".data").remove();
+            //for(var i = 0, len =  back_data.length; i < len; i++){
+            for(var i in back_data){
+                var html = '<tr class="data"><td>' + back_data[i]['id'] + '</td><td>' +  back_data[i]['username'] + '</td><td id="permissions' + i + '">' +  back_data[i]['user_permissions'] + '</td>'
+                + '<td><select id="status' + i + '" class ="status" ><option id="openSta' + i + '" value="启用">启用</option><option id="closeSta' + i + '" value="禁用">禁用</option></select></td><td class="authorityTd"><p>'
+                + '用户管理' + '<input class="authorityList' + i +'" type="checkbox" name="checkbox' + i + '" value="1" /></p><p>'
+                + '违建管理' + '<input class="authorityList' + i +'" type="checkbox" name="checkbox' + i + '" value="2" /></p><p>'
+                + '拆迁管理' + '<input class="authorityList' + i +'" type="checkbox" name="checkbox' + i + '" value="3" /></p><p>'
+                + '资源管理' + '<input class="authorityList' + i +'" type="checkbox" name="checkbox' + i + '" value="4" /></p><p>'
+                + '<button type="button" id="subBut' + i + '" class="btn btn-primary subBut">确认</button>&nbsp&nbsp&nbsp&nbsp&nbsp'
+                + '</p></td></tr>';
+                $(".table").append(html);
+                var isActive = back_data[i]['is_active'],
+                    statusSel = $("#status" + i),
+                    button=$("#subBut"+i),
+                    authList = $(".authorityList" + i);
+                //for(var j = 0; j < statusSel[0].options.length; j++){
+                    if(isActive){
+                        statusSel[0].options[0].selected = true;
+                    } else {
+                        statusSel[0].options[1].selected = true;
+                    }
+                //}
+                var selectedVal = statusSel.children('option:selected').val();
+                if (selectedVal === "禁用") {
+                    $("#subBut" + i).attr("disabled",true);
+                    authList.each(function(index, val){
+                        $(val).attr("disabled",true);
+                    });
+                } else {
+                    $("#subBut" + i).removeAttr("disabled");
+                    authList.each(function(index, val){
+                        $(val).removeAttr("disabled");
+                    });
+                }
+                var idNum = parseInt(statusSel[0].id.slice(6,7));
+                var userid=back_data[i]['id'];
+                statusSel.on("change", {"num":idNum,"userid":userid}, status_confirm);
+                button.on("click",{"num":idNum,"userid":userid},permission_confirm);
+                $("#IDCard").val('').focus()
+            }
+
+}
+
+
+
+function status_confirm(data){
+var mes="您确定修改吗？";
+if(confirm(mes)==true)
+{
+        var num = data.data.num;
+        var userid=data.data.userid;
+        var selectedVal1 = $("#status" + num).children('option:selected').val();
+        var authList1 = $(".authorityList" + num);
+        if (selectedVal1 === "禁用"){
+            $("#subBut" + num).attr("disabled",true);
+            authList1.each(function(index, val){
+                $(val).attr("disabled",true);
+            });
+            $.ajax({
+            type:'post',
+            url:'/status_revise/',
+            data: {
+            csrfmiddlewaretoken: '{{ csrf_token }}',
+            "is_active":"False",
+            "id":userid
+            },
+            dataType:'json',
+            success:function(){
+            alert('bbbbbbb')},
+
+
+
+            });
+        } else {
+            $("#subBut" + num).removeAttr("disabled");
+            authList1.each(function(index, val){
+                $(val).removeAttr("disabled");
+            });
+            $.ajax({
+           type:'post',
+           url:'/status_revise/',
+           data:{
+           csrfmiddlewaretoken: '{{ csrf_token }}',
+           "is_active":"True",
+           "id":userid
+           },
+           dataType:'json',
+           success:function(){
+            alert('bbbbbbb')},
+
+ });
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+function permission_confirm(data){
+var mes="您确定修改吗？";
+if(confirm(mes)==true)
+{
+      var num = data.data.num;
+      var userid=data.data.userid;
+        //jquery获取复选框值
+      var permission_value =[];//定义一个数组
+      $('input[name="checkbox' + num + '"]:checked').each(function(){//遍历每一个名字为interest的复选框，其中选中的执行函数
+      permission_value.push($(this).val());//将选中的值添加到数组chk_value中
+      });
+      alert(permission_value)
+
+      $.ajax({
+      type:'post',
+      url:'/permission_revise/',
+      data: {
+      csrfmiddlewaretoken: '{{ csrf_token }}',
+      "permission_value":JSON.stringify(permission_value),
+      "id":userid
+      },
+      dataType:'json',
+      success:function(data){
+      new_permissions=data['new_permissions'];
+      $("#permissions"+num).text(new_permissions);
+
+      },
+      error:function(){
+      alert("fail")
+      }
+
+
+            });
+}
+}
+
+
+
+
+
+</script>
+
+</body>
+</html>
