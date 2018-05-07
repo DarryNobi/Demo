@@ -56,7 +56,7 @@ function showList(){
                 text : item.satelite
             }))
             .append($('<td/>',{
-                text : item.type
+                text : item.imagry_type
             }))
             .append($('<td/>',{
                 text : item.download_times
