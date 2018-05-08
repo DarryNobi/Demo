@@ -309,7 +309,7 @@ def permission_revise(request):
         tmp = user['user_permissions'][j].name
         user_permissions.append(tmp)
     user['user_permissions']= user_permissions
-    return HttpResponse(json.dumps({"user":user}))
+    return HttpResponse(json.dumps({"user":user},cls=DjangoJSONEncoder))
 
 #@login_required
 #@permission_required('user_management',raise_exception=True)
@@ -382,7 +382,7 @@ def status_revise(request):
     user=User.objects.get(id=id)
     user.is_active=is_active
     user.save()
-    return render(request,'am_permissions_management.html',{'userid':id,'isactive':is_active})
+    return HttpResponse("true")
 
 
 def save_draw(request):
