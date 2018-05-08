@@ -68,8 +68,10 @@ def account_inquiry(request):
                   template_name='am_account_Inquiry.html')
 
 def info_revise(request):
-    return render(request,
-                  template_name='uc_info_revise.html')
+    username= request.session['username']
+    user=User.objects.get(username=username)
+    user=model_to_dict(user)
+    return render(request,'uc_info_revise.html',{'user':json.dumps(user,cls=DjangoJSONEncoder)})
 
 def password_revise(request):
     return render(request,
