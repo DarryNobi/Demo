@@ -1,6 +1,10 @@
 
     var data = [];
 
+    for(var i in d_ib_draws){
+        data.push(d_ib_draws[i])
+    }
+
     window.onload = function() {
         query();
         var query_btn = $("#query_btn")
@@ -9,56 +13,64 @@
         });
     }
 
-function showList(){
-    var resultTab = $("#resultTab");
-    var pubText="";
-    data.forEach(function(item){
-        $(
-            '<tr/>', {
-                'style' : 'font-size:18px'
-            }).append($('<td/>', {
-                text : item.id
-            }))
-            .append($('<td/>',{
-                text : item.name
-            }))
-            .append($('<td/>',{
-                text : item.square
-            }))
-            .append($('<td/>',{
-                text : item.graphictype
-            }))
-            .append($('<td/>',{
-                text : item.coordinate_x+item.coordinate_y
-            }))
-            .append($('<td/>',{
-                text : item.discrib
-            }))
-            .append($('<td/>',{
-                text : item.graphic_provide_id
-            }))
-            .append($('<td/>',{
-                text : '录入时间'
-            }))
-            .append($('<td/>')
-            .append($('<p/>')
-            .append($('<button/>',{
-                'class' : 'operate',
-                'id' : 'look' + item.id,
-                text : '查看'
-            }))
-            .append($('<button/>',{
-                'class' : 'operate',
-                'id' : 'delete' + item.id,
-                text : '删除'
-            }))
-            ))
-            .appendTo(resultTab);
+var ib_event_tab = $("#ib_event_tab");
 
-    button=$("#delete"+ item.id);
-    button.on("click",{"num":item.id},changeStatus);
-    });
+function showList(){
+
+    ib_event_tab.bootstrapTable({
+              locale:'zh-CN',//中文支持
+              pagination: true,//是否开启分页（*）
+              pageNumber:1,//初始化加载第一页，默认第一页
+              pageSize: 3,//每页的记录行数（*）
+              pageList: [10, 25, 50, 100],//可供选择的每页的行数（*）
+              sidePagination: "client", //分页方式：client客户端分页，server服务端分页（*）
+              showRefresh:false,//刷新按钮
+              search: false,
+              data:data,
+              columns: [
+                  {field: 'id', title:'序号', width:'10%', align:'center'},
+                  {field: 'name', title:'名称', width:'10%', align:'center'},
+                  {field: 'square', title:'面积', width:'10%', align:'center'},
+                  {field: 'graphictype', title:'类型', width:'10%', align:'center'},
+                  {field: 'coordinate_x+item.coordinate_y', title:'现场地址', width:'20%', align:'center'},
+                  {field: 'discrib', title:'细节描述', width:'10%', align:'center'},
+                  {field: 'graphic_provide_id', title:'处理人', width:'10%', align:'center'},
+                  {field: '', title:'录入时间', width:'10%', align:'center'},
+                  {field: 'tool',title: '操作', align: 'center',
+                          formatter: function (value,row,index){
+                              var element = "<a href='#' class='operate check_href' id='check"+row.id +"' data-id='"+row.id +"' onclick='query()' onmouseover='check_mouseOver(\" "+row.id+" \")' onmouseout='check_mouseOut(\" "+row.id+" \")'>"
+                              + "<img id='check_img"+row.id+"' class='nav-img' src='../static/img/check.png'>"
+                              + "</a>"
+                              + "<a href='#' class='operate delete_href' id='delete"+row.id +"' data-id='"+row.id +"' onclick='changeStatus(\" "+row.id+" \")' onmouseover='del_mouseOver(\" "+row.id+" \")' onmouseout='del_mouseOut(\" "+row.id+" \")'>"
+                              + "<img id='del_img"+row.id+"' class='nav-img' src='../static/img/delete.png'>"
+                              + "</a>";
+                              return element;
+                          },
+                  }
+              ],
+
+          })
 };
+
+function check_mouseOver(data) {
+    var num = parseInt(data);
+    $("#check_img"+num).attr("src","../static/img/check1.png");
+}
+
+function check_mouseOut(data) {
+    var num = parseInt(data);
+    $("#check_img"+num).attr("src","../static/img/check.png");
+}
+
+function del_mouseOver(data) {
+    var num = parseInt(data);
+    $("#del_img"+num).attr("src","../static/img/delete1.png");
+}
+
+function del_mouseOut(data) {
+    var num = parseInt(data);
+    $("#del_img"+num).attr("src","../static/img/delete.png");
+}
 
 function query(){
     var query_name = $("#name").val()
@@ -87,13 +99,16 @@ function query(){
     }
 
 function changeStatus(data){
-        num=data.data.num
-        $.ajax({
-          url:'/_delete_draw/',
-          data: {'id':num},
-          success: function(){
+    var num=data;
+    $.ajax({
+        url:'/_delete_draw/',
+        data: {'id':num},
+        success: function(){
             alert('删除成功！');
-            location.reload()
-          }
-        });
-    }
+            ib_event_tab.bootstrapTable('remove',{
+                field: 'id',
+                values: [parseInt(data)],
+            })
+        }
+    });
+}

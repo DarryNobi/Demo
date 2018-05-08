@@ -1,13 +1,17 @@
 <!doctype html>
 <html lang="en" style="height:100%">
- <head>
-     {% load staticfiles %}
+<head>
+    {% load staticfiles %}
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <script src="{% static 'js/bootstrap-table.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap-table-locale-all.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap-table.min.css' %}">
     <link rel="stylesheet" href="https://openlayers.org/en/v4.5.0/css/ol.css" type="text/css">
     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap-theme.min.css">
     <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <!--[if lt IE 9]>
-    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <script >
@@ -46,6 +50,7 @@
             width:7%;
             min-width:100px;
             text-align:center;
+            margin-left:15px;
         }
         .picture-date {
             height:100%;
@@ -56,7 +61,7 @@
         }
         .compare-input {
             height:50%;
-            min-height:50px;
+            min-height:34px;
         }
         .compare-but {
             height: 50%;
@@ -142,61 +147,61 @@
             width:90%;
             margin:0 auto 15px auto;
         }
+        .delete_href {
+            margin-left:10px;
+        }
     </style>
+    <script src="{% static 'js/require.js' %}"></script>
+</head>
 
-   <script src="{% static 'js/jquery-1.8.2.min.js' %}"></script>
-     <script src="{% static 'js/require.js' %}"></script>
- </head>
+    <body style="height:100%;">
+        <div class="compare container" style="background-color:white; display:inline-flex; width:100%; height:10%; min-height:50px">
 
- <body style="height:100%;">
-    <div class="compare container" style="background-color:white; display:inline-flex; width:100%; height:10%; min-height:100px">
-        <form role="form" name="compareForm" action="/_ib_event_search/" method="post" style="width:100%; font-size:20px; height:100%">
             <div class="row" style="width: 100%; display:-webkit-flex; align-items:center; height:100%;">
-                <div class="col-lg-11 col-xs-11" style="display:inline-flex; align-items:center; height:100%">
-                    <span class="picture-span">名称：</span>
-                    <input type="text" class="compare-input" id="query_nme">
-                    <span class="picture-span">类别：</span>
-                    <input type="text" class="compare-input" id="query_type">
-                    <span class="picture-span">时间：</span>
-                    <input type="text" class="compare-input" id="query_time">
-                    <span class="picture-span">地址：</span>
-                    <input type="text" class="compare-input" id="query_address">
-                    <span style="height:100%; display:-webkit-flex; align-items:center; width:7%; margin-left:42px;">
-                        <button class="btn btn-primary" style="border-radius:6px; height:50%; width:100%; min-height:50px; font-size:20px" id="query_btn" >搜索</button>
-                    </span>
+                <div class="col-xs-12 col-lg-12">
+                    <form role="form" name="compareForm" action="/_ib_event_search/" method="post" style="width:100%; font-size:14px; height:100%; margin-left:15px;">
+                        <div style="display:inline-flex; align-items:center; width:95%">
+                            <div style="width:93%">
+                                <span class="picture-span" style="margin-left:0;">名称：</span>
+                                <input type="text" class="compare-input" id="query_nme" placeholder="请输入名称">
+                                <span class="picture-span">类别：</span>
+                                <input type="text" class="compare-input" id="query_type">
+                                <span class="picture-span">时间：</span>
+                                <input type="text" class="compare-input" id="query_time">
+                                <span class="picture-span">地址：</span>
+                                <input type="text" class="compare-input" id="query_address" placeholder="请输入地址">
+                            </div>
+                            <div style="width:7%">
+                                <span style="height:100%; display:-webkit-flex; align-items:center; width:100%;">
+                                    <button class="btn btn-primary" style="border-radius:6px; height:50%; width:100%; min-height:34px; font-size:14px" id="query_btn" ><img src="{% static 'img/search.png' %}" style="padding-left:5px;">搜索</button>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-        </form>
-    </div>
 
-    <div class="row" style="width:100%; height:100%;">
-            <div class="col-xs-12 col-lg-12" style="height:100%;">
-                <div id="globe-search-result"></div>
-                <div id="list-search-result" style="width:95%">
-                    <table id="resultTab" border="0" cellspacing="0" cellpadding="0" class="table">
-                        <tr class="label-primary" style="font-size:20px; height: 70px;">
-                            <th scope="col" width="5%"><span style="color:white">序号</span></th>
-                            <th scope="col" width="10%"><span style="color:white">名称</span></th>
-                            <th scope="col" width="10%"><span style="color:white">面积</span></th>
-                            <th scope="col" width="10%"><span style="color:white">类型</span></th>
-                            <th scope="col" width="10%"><span style="color:white">现场地址</span></th>
-                            <th scope="col" width="10%"><span style="color:white">细节描述</span></th>
-                            <th scope="col" width="10%"><span style="color:white">处理人</span></th>
-                            <th scope="col" width="10%"><span style="color:white">录入时间</span></th>
-                            <th scope="col" class ="authorityTh"><span class="authoritySpan" style="color:white">操作</span></th>
-                        </tr>
-                    </table>
-                    <p>{{message}}</p>
+        </div>
+
+        <div class="container" style="width:100%">
+            <div class="row" style="width:100%; height:100%;">
+                <div class="col-xs-12 col-lg-12" style="height:100%">
+                    <div id="globe-search-result"></div>
+                    <div id="list-search-result" style="width:95%;margin-left:15px;">
+                        <table id="ib_event_tab" border="0" cellspacing="0" cellpadding="0" class="table"></table>
+                        <p>{{message}}</p>
+                    </div>
                 </div>
             </div>
-    </div>
-    <script >
-         $.ajaxSetup({
-             data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
-         });
-    </script>
-    <script src="{% static 'js/ib_event_management_showlist.js' %}"></script>
- </body>
+        </div>
+        <script >
+             $.ajaxSetup({
+                 data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+             });
+             var d_ib_draws={{ d_ib_draws|safe }};
+        </script>
+        <script src="{% static 'js/ib_event_management_showlist.js' %}"></script>
+    </body>
 </html>
 
 <!-- http://172.20.53.157:8080/geoserver/test/wms
