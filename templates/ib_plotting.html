@@ -183,6 +183,7 @@
  <body style="height:100%;">
     <div class="compare container" style="background-color:white; display:inline-flex; width:100%; height:10%; min-height:100px">
         <form role="form" name="compareForm" action="" method="post" style="width:100%; font-size:20px; height:100%">
+            {% csrf_token %}
             <div class="row" style="width: 100%; display:-webkit-flex; align-items:center; height:100%;">
                 <div class="col-lg-11 col-xs-11" style="display:inline-flex; align-items:center; height:100%">
                     <span class="picture-span">经度：</span>
