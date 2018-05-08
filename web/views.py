@@ -227,10 +227,9 @@ def login_check(request):
     if user:
         request.session['username']=username
         auth.login(request, user)
-        return render(request, 'index_new.html', {'message1': '登录成功'})
-
+        return HttpResponse(json.dumps({"status": "true"}, cls=DjangoJSONEncoder))
     else:
-       return render(request, 'login.html', {'message1': '用户名或密码错误'})
+        return HttpResponse(json.dumps({"status": "false"}, cls=DjangoJSONEncoder))
 
 
 def mylogout(request):
@@ -384,7 +383,7 @@ def status_revise(request):
     user=User.objects.get(id=id)
     user.is_active=is_active
     user.save()
-    return HttpResponse("true")
+    return HttpResponse("success")
 
 
 def save_draw(request):

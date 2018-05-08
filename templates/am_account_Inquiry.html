@@ -7,6 +7,12 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <title>账号查询（Bootstrap）</title>
+{% load staticfiles %}
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+<script src="{% static 'js/bootstrap-table.min.js' %}"></script>
+<script src="{% static 'js/bootstrap-table-locale-all.min.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/bootstrap-table.min.css' %}">
 <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap-theme.min.css">
 <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -15,93 +21,49 @@
 <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
 <![endif]-->
 <style>
-.bs-docs-home
-{ 
-	background-color: #ffffff; 
-	background-image: url(line.png); 
-} 
-table {
-
-}
-select{
-font-size:25px;
-}
+    .bs-docs-home{
+        background-color: #ffffff;
+        background-image: url(line.png);
+    }
+    .search-input {
+        height:50%;
+        min-height:34px;
+    }
 </style>
 </head>
 <body class="bs-docs-home">
-	<!--<div class="container theme-showcase">-->
-	<div>
-		<h1 style=" line-height:2em;"></h1><br/>
-		<div class="row">
-			<!--<div class="col-sm-3"></div>-->
-			<div class="col-sm-2"></div>
-			<!--<div class="col-sm-6">-->
-			<div class="col-sm-6">
-			<div class="panel panel-primary">
-				<div class="panel-heading">
-					<!--<h3 class="panel-title"><strong>账号查询</strong></h3>-->
-					<h2><strong>账号查询</strong></h2>
-				</div>
-				<div class="panel-body">
-					<!--通过form传递数据-->
-					<form action="/_account_inquiry/" method="post" role="form" name="form1">
-						{% csrf_token %}
-						<div class="form-group has-feedback">
-							<label for="querymethod"><h3>选择查询方式</h3></label>
-							<div class="input-group",name="input-group">
-								<select style="size: 6;width:250px;height:50px;" name="query_method">
-									<option value='1' name="ibuild">用户名</option>
-									<option value='2' name="agriculture">部门名</option>
-									<option value='3' name="forest">手机号</option>
-									<option value='4' name="road">联系人</option>
-								</select>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="username"><h3>请输入查询信息</h3></label>
-							<div class="input-group">
-								<input style="height:50px;" type="text" class="form-control" id="message" name="message" placeholder="请输入账号" >
-								<span class="input-group-btn">
-									<button  style="height:50px;" type="submit" ><h4>查询</h4></button>
-								</span>
-							</div>
-						</div>
-					</form>
+	<div class="container" style="background-color:white; display:inline-flex; width:100%; height:10%; min-height:50px">
+        <div class="row" style="width: 100%; display:-webkit-flex; align-items:center; height:100%;">
+            <div class="col-xs-12 col-lg-12">
+                <form role="form" name="account_inquiry_form" action="/_account_inquiry/" method="post" style="width:100%; font-size:14px; height:100%; margin-left:15px;">
+                    <div style="display:inline-flex; align-items:center; width:95%">
+                        <div style="width:93%; display:-webkit-flex; align-items:center;">
+                            <input type='text' class="search-input" style="width:45%" placeholder="请输入帐号、部门名称、联系人、电话等"/>
+                            <span style="height:100%; display:-webkit-flex; align-items:center; width:7%; margin-left:10px;">
+                                <button class="btn btn-primary" style="border-radius:6px; height:50%; width:100%; min-height:34px; font-size:14px" type="submit" ><img src="{% static 'img/search.png' %}" style="padding-left:5px;">查询</button>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
-					<div class="table-responsive">
-						<table style="height:40px;" border="0" cellspacing="0" cellpadding="0" class="table">
-						<tr class=" label-primary">
-				
-							<th scope="col" width="20%" ><span style="color:white"><h4>账号</h4></span></th>
-							<th scope="col" width="22%" ><span style="color:white"><h4>部门</h4></span></th>
-							<th scope="col" width="20%" ><span style="color:white"><h4>联系人</h4></span></th>
-							<th scope="col" width="25%" ><span style="color:white"><h4>联系电话</h4></span></th>
-							<th scope="col"><span style="color:white"><h4>状态</h4></span></th>
-						</tr>
-							{% for user in users.values %}
-							<tr>
-								<th scope="col" width="20%" ><span style="color:black">{{user.username}}</span></th>
-								<th scope="col" width="22%" ><span style="color:black">{{user.department_name}}</span></th>
-								<th scope="col" width="20%" ><span style="color:black">{{user.contact_usr}}</span></th>
-								<th scope="col" width="25%" ><span style="color:black">{{user.phone}}</span></th>
-								<th scope="col"><span style="color:black">{{user.is_active}}</span></th>
-							</tr>
-						{% endfor %}
-						</table>
-						<p>{{message1}}</p>
-						</div>
-				</div> 
-			</div> 
-			</div> 
-			<div class="col-sm-3"></div>
-		</div>
-	</div>
-
-<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/js/bootstrap.min.js"></script>
+    <div class="container" style="width:100%">
+        <div class="row" style="width:100%; height:100%;">
+            <div class="col-xs-12 col-lg-12" style="height:100%">
+                <div id="account_inquiry_div" style="width:95%;margin-left:15px;">
+                    <table id="account_inquiry_tab" border="0" cellspacing="0" cellpadding="0" class="table"></table>
+                    <p>{{message}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
 <script type="text/javascript">
 
-	/*删除*/
+	window.onload = function () {
+		search();
+	}
 	/*dataArray为请求返回的数据*/
 	var dataArray = [
 		{number:111123,dep:'违建管理部门',contact:'张三',contactNumber:'18888888888',status:'登录'},
@@ -110,71 +72,38 @@ font-size:25px;
 		{number:111126,dep:'违建管理部门',contact:'赵六',contactNumber:'18888888888',status:'登录'},
 		
 	];
-
-	      
-  
-    // document.getElementById('submit_btn').onkeydown=keyDownSearch; 
-      
-    // function keyDownSearch(e) {    
-    //     // 兼容FF和IE和Opera    
-    //     var theEvent = e || window.event;    
-    //     var code = theEvent.keyCode || theEvent.which || theEvent.charCode;    
-    //     if (code == 13) {    
-    //         search();//具体处理函数    
-    //         return false;    
-    //     }    
-    //     return true;    
-    // }  
- 
-  
-// 如果只是针对某个DIV层应用回车查询的话，可以将：  
-//  document.onkeydown=keyDownSearch;  
-// 改成：  
-// document.getElementById('层ID').onkeydown=keyDownSearch;
-
-
-	/*删除*/
-
-	// var dataArray = new Array()
+	var data = [];
 
 	// background_data为后台数据
 	// dataArray.push(background_data);
-	
-	
+
+
 	/*判断是否有搜索条件，根据搜索条件去渲染表格*/
 
+	var account_inquiry_tab = $("#account_inquiry_tab");
+
 	function search() {
-		if($("#IDCard").val()) {
-			$(".data").remove();
-			for(var i = 0;i < dataArray.length;i++) {
-				if($("#IDCard").val() ==dataArray[i].number) {
-					var tr = $("<tr></tr>");
-					tr.addClass('data');
-			
-					var td1 = $("<td></td>").html(dataArray[i].number);
-					var td2 = $("<td></td>").html(dataArray[i].dep);
-					var td3 = $("<td></td>").html(dataArray[i].contact);
-					var td4 = $("<td></td>").html(dataArray[i].contactNumber);
-					var td5 = $("<td></td>").html(dataArray[i].status);
-					
-					tr.append(td1);
-					tr.append(td2);
-					tr.append(td3);
-					tr.append(td4);
-					tr.append(td5);
-					
-					$(".table").append(tr);
-					$("#IDCard").val('').focus()
-					return // 证明已经找到符合条件的数据，所以退出整个函数
-				}
-				
-			}
-			/**
-			循环执行完毕仍未找到符合条件的数据，故不存在，所以提示
-			**/
-			alert('未找到该人员');
-			$("#IDCard").val('').focus()
-		}
+
+		account_inquiry_tab.bootstrapTable({
+              locale:'zh-CN',//中文支持
+              pagination: true,//是否开启分页（*）
+              pageNumber:1,//初始化加载第一页，默认第一页
+              pageSize: 3,//每页的记录行数（*）
+              pageList: [10, 25, 50, 100],//可供选择的每页的行数（*）
+              sidePagination: "client", //分页方式：client客户端分页，server服务端分页（*）
+              showRefresh:false,//刷新按钮
+              search: false,
+              data:data,
+              columns: [
+                  {field: 'number', title:'帐号', width:'10%', align:'center'},
+                  {field: 'dep', title:'部门', width:'10%', align:'center'},
+                  {field: 'contact', title:'联系人', width:'10%', align:'center'},
+                  {field: 'contactNumber', title:'联系电话', width:'10%', align:'center'},
+                  {field: 'status', title:'状态', width:'10%', align:'center'},
+                  {field: 'permissions', title:'权限', width:'10%', align:'center'},
+              ],
+
+          })
 	}
 
 	

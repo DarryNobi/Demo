@@ -80,10 +80,61 @@
             color: #fff;
             padding-left:10px;
         }
+        #login_page {
+            position:absolute;
+            z-index:10000;
+            width:370px;
+            float:left;
+            height:400px;
+            display:none;
+            background:#fff;
+            border:2px solid #DCDCF3;
+            border-radius:10px;
+        }
+        .input-group-addon,.username_input,.password_input {
+            height:35px;
+        }
+        .username_input,.password_input {
+            border-radius: 0 20px 20px 0;
+        }
+        .input-group-addon {
+            border-radius: 20px 0 0 20px;
+        }
     </style>
 </head>
 
 <body style="height:100%;">
+    <div id="login_page">
+        <div>
+            <span style="float:right; padding-top:14px; padding-right:14px;"><img id="close_login" src="{% static 'img/close.png' %}"></span>
+        </div>
+        <div style="text-align:center; padding-top:40px; font-size:2.5rem; color:#428bca;">
+            <span>卫星遥感资源管理系统</span>
+        </div>
+        <div class="panel-body">
+            <!--form模块-->
+            <form role="form" name="indexForm" action="" method="post">
+                {% csrf_token %}
+                <hr/>
+                <h4>请输入用户信息</h4>
+                <br/>
+                <div class="form-group input-group">
+                    <span class="input-group-addon username-group-span"><img id="username_img" src="{% static 'img/user.png' %}"></span>
+                    <input type="text" name="username" id="user_input" class="form-control username_input username-group" placeholder="用户名 " />
+                </div>
+                <div class="form-group input-group">
+                    <span class="input-group-addon password-group"><img id="password_img" src="{% static 'img/pwswd.png' %}"></span>
+                    <input type="password" name="password" id="pwd_input" class="form-control password_input password-group"  placeholder="密码" />
+                </div>
+                <div class="form-group">
+                    <span>不是用户<a href="/register/" >点击这里 </a></span>
+                    <span style="float:right;"><a style="color:#999999" href="">忘记密码？</a></span>
+                </div>
+                <div class="subBut" style="text-align:center;"><button id="login_but" class="btn btn-primary" style="width:50%;border-radius:30px;">登录系统</button></div>
+            </form>
+            <p>{{message1}}</p>
+        </div>
+    </div>
     <div id="wrapper" style="height:100%">
         <div id="container" style="height:20%; min-height:200px">
             <div style="width:100%; display:inline-flex; height:100%; color:white">
@@ -97,9 +148,9 @@
                 <div style="width:100%; display:inline-flex; height:30%; padding-top:16px">
                     <span style="width:30%; margin-left:65%; height:100%; font-size:16px; display:inline-flex">
                         <img style="height:50%" src="{% static 'img/user_logo.png' %}">
-                        <a id="login" href="/login/" title="Login"><em class="glyphicon glyphicon-plus"></em>登录</a>
+                        <a id="login" title="Login"><em class="glyphicon glyphicon-plus"></em>登录</a>
                         <span id="user_name" style="padding-left:10px"></span>
-                        <a id="logout" href="/logout/" class="" title="Logout"><em class="glyphicon glyphicon-home"></em>登出</a>
+                        <a id="logout" href="/logout/" class="" style="display:none" title="Logout"><em class="glyphicon glyphicon-home"></em>登出</a>
                     </span>
                     <p style="width:20%; margin-left:-20%">
                         <span class="view-button"><img src="{% static 'img/q.png' %}"></span>
@@ -173,6 +224,7 @@
 
     <script>
     window.onload=function(){
+
         //默认获取当前日期
         var today = new Date();
         var nowdate = (today.getFullYear()) + "-" + (today.getMonth() + 1) + "-" + today.getDate();
@@ -183,26 +235,61 @@
         var mydate = date.getFullYear() + "-" + (mon < 10 ? "0" + mon : mon) + "-" + (day < 10 ? "0" + day : day);
         $("#nowdate").val(mydate);
         $(".date-span").html(mydate);
-        $.ajax({
-            type:'get',
-            url:'/is_authenticated/',
-            dataType:'json',
-            success:function(data){
-                if (data) {
-                    if (data.islogin) {
+    };
+
+        $("#login").click(function(){
+            var _top=($(window).height())/10;
+            var _right=($(window).width())/7;
+            $("#login_page").css({top:_top,right:_right});
+            $("#login_page").show();
+        });
+
+        $("#close_login").click(function(){
+            $("#login_page").hide();
+        });
+
+        $("#user_input").focus(function (){
+            $("#username_img").attr("src","{% static 'img/username.png' %}");
+        });
+        $("#user_input").blur(function (){
+            $("#username_img").attr("src","{% static 'img/user.png' %}");
+        });
+
+        $("#pwd_input").focus(function (){
+            $("#password_img").attr("src","{% static 'img/password.png' %}");
+        });
+        $("#pwd_input").blur(function (){
+            $("#password_img").attr("src","{% static 'img/pwswd.png' %}");
+        });
+
+
+        $("#login_but").click(function(){
+            var username = $("#user_input").val();
+            var password = $("#pwd_input").val();
+            $.ajax({
+                type:'post',
+                url:'/login_check/',
+                data:{
+                'username':username,
+                 'password':password
+                 },
+                dataType:'json',
+                success:function(data){
+                    if(data['status']){
+                        $("#login_page").hide();
                         $("#login").css("display","none");
                         $("#user_name").css("display","block");
                         $("#user_name").html(data.username);
                         $("#logout").css("display","block");
-                    } else {
-                        $("#login").css("display","block");
-                        $("#user_name").css("display","none");
-                        $("#logout").css("display","none");
                     }
+                     alert("success");
+                },
+                error:function(){
+                    alert(111);
                 }
-            },
+            });
         });
-    };
+
     </script>
 </body>
 </html>
