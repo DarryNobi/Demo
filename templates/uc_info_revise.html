@@ -146,6 +146,15 @@
         </form>
         <p>{{message}}<p>
     </div>
+    <script>
+       var user={{user|safe}};
+        window.onload=function(){
+        $("#username").val(user['username']);
+        $("#phone").val(user['phone']);
+        $("#contact_usr").val(user['contact_usr']);
+        $("#department_name").val(user['department_name']);
+        };
+    </script>
 </div>
 
 
