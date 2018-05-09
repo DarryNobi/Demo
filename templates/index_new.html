@@ -274,11 +274,11 @@
                 },
                 dataType:'json',
                 success:function(data){
-                    if(!data['status']){
+                    if(data['status']){
                         $("#login_page").hide();
                         $("#login").hide();
                         $("#user_name").show();
-                        $("#user_name").text(data.username);
+                        $("#user_name").text(data.user.username);
                         $("#logout").show();
                     } else {
                         $("#login_page").show();

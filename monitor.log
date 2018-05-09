@@ -33562,3 +33562,262 @@ TypeError: In order to allow non-dict objects to be serialized set the safe para
 [2018-05-08 23:12:19,025] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
 [2018-05-08 23:12:19,452] [INFO] "GET /default/ HTTP/1.1" 200 4501
 [2018-05-08 23:12:19,801] [WARNING] "GET /static/css/bootstrap.css.map HTTP/1.1" 404 1801
+[2018-05-09 13:59:46,117] [INFO] "GET /login/ HTTP/1.1" 200 2938
+[2018-05-09 13:59:46,151] [INFO] "GET /static/css/bootstrap.css HTTP/1.1" 200 8192
+[2018-05-09 13:59:46,157] [INFO] "GET /static/css/font-awesome.css HTTP/1.1" 200 8192
+[2018-05-09 13:59:46,158] [INFO] "GET /login/assets/img/logo-invoice.png HTTP/1.1" 200 2938
+[2018-05-09 13:59:46,187] [INFO] "GET /static/fonts/fontawesome-webfont.woff?v=4.2.0 HTTP/1.1" 200 65452
+[2018-05-09 13:59:51,770] [INFO] "GET /index_new/ HTTP/1.1" 200 12336
+[2018-05-09 13:59:51,825] [INFO] "GET /static/img/pwswd.png HTTP/1.1" 200 1187
+[2018-05-09 13:59:51,825] [INFO] "GET /static/img/user.png HTTP/1.1" 200 1209
+[2018-05-09 13:59:51,826] [INFO] "GET /static/img/close.png HTTP/1.1" 200 1520
+[2018-05-09 13:59:51,881] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-09 13:59:51,940] [INFO] "GET /static/img/building.png HTTP/1.1" 200 3621
+[2018-05-09 13:59:51,946] [INFO] "GET /static/img/remove.png HTTP/1.1" 200 3236
+[2018-05-09 13:59:51,951] [INFO] "GET /static/img/resource.png HTTP/1.1" 200 4033
+[2018-05-09 13:59:51,952] [INFO] "GET /static/img/setting.png HTTP/1.1" 200 3733
+[2018-05-09 13:59:51,952] [INFO] "GET /static/img/date.png HTTP/1.1" 200 2959
+[2018-05-09 13:59:51,953] [INFO] "GET /static/img/user_%20statistics%20.png HTTP/1.1" 200 3193
+[2018-05-09 13:59:52,011] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-09 13:59:55,633] [INFO] "GET /static/img/username.png HTTP/1.1" 200 1209
+[2018-05-09 13:59:59,550] [INFO] "GET /static/img/password.png HTTP/1.1" 200 1186
+[2018-05-09 14:00:02,777] [ERROR] Internal Server Error: /login_check/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 234, in login_check
+    return JsonResponse({"status": True,'user': json.dumps(user, cls=DjangoJSONEncoder)})
+  File "/usr/lib/python3.5/json/__init__.py", line 237, in dumps
+    **kw).encode(obj)
+  File "/usr/lib/python3.5/json/encoder.py", line 198, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.5/json/encoder.py", line 256, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/serializers/json.py", line 104, in default
+    return super().default(o)
+  File "/usr/lib/python3.5/json/encoder.py", line 179, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: <Myuser: zzh> is not JSON serializable
+[2018-05-09 14:00:03,000] [ERROR] "POST /login_check/ HTTP/1.1" 500 17499
+[2018-05-09 14:00:16,203] [INFO] "GET /account_management/ HTTP/1.1" 200 6289
+[2018-05-09 14:00:16,227] [INFO] "GET /static/img/user-search.png HTTP/1.1" 200 4380
+[2018-05-09 14:00:16,229] [INFO] "GET /static/img/add-user.png HTTP/1.1" 200 4748
+[2018-05-09 14:00:16,230] [INFO] "GET /static/img/permission.png HTTP/1.1" 200 4230
+[2018-05-09 14:00:17,150] [INFO] "GET /account_inquiry/ HTTP/1.1" 200 5062
+[2018-05-09 14:00:17,169] [INFO] "GET /static/css/bootstrap-table.min.css HTTP/1.1" 200 5768
+[2018-05-09 14:00:17,170] [INFO] "GET /static/js/bootstrap-table-locale-all.min.js HTTP/1.1" 200 36028
+[2018-05-09 14:00:17,171] [INFO] "GET /static/js/bootstrap-table.min.js HTTP/1.1" 200 58939
+[2018-05-09 14:00:17,196] [INFO] "GET /static/img/search.png HTTP/1.1" 200 1234
+[2018-05-09 14:00:17,231] [INFO] "GET /account_inquiry/line.png HTTP/1.1" 200 5062
+[2018-05-09 14:00:20,534] [INFO] "GET /add_account/ HTTP/1.1" 200 6951
+[2018-05-09 14:00:20,551] [INFO] "GET /static/js/messages_zh.min.js HTTP/1.1" 200 1175
+[2018-05-09 14:00:20,552] [INFO] "GET /static/js/jquery.validate.js HTTP/1.1" 200 42630
+[2018-05-09 14:00:24,941] [INFO] "POST /check_username/ HTTP/1.1" 200 5
+[2018-05-09 14:00:29,594] [INFO] "POST /check_username/ HTTP/1.1" 200 4
+[2018-05-09 14:00:31,398] [INFO] "POST /check_username/ HTTP/1.1" 200 5
+[2018-05-09 14:00:32,144] [INFO] "POST /check_username/ HTTP/1.1" 200 4
+[2018-05-09 14:00:58,354] [INFO] "POST /add_usr/ HTTP/1.1" 200 6963
+[2018-05-09 14:01:02,255] [INFO] "GET /static/img/username.png HTTP/1.1" 304 0
+[2018-05-09 14:01:04,875] [WARNING] Forbidden (CSRF token missing or incorrect.): /login_check/
+[2018-05-09 14:01:04,884] [WARNING] "POST /login_check/ HTTP/1.1" 403 2508
+[2018-05-09 14:01:07,358] [WARNING] Forbidden (CSRF token missing or incorrect.): /login_check/
+[2018-05-09 14:01:07,366] [WARNING] "POST /login_check/ HTTP/1.1" 403 2508
+[2018-05-09 14:04:16,525] [WARNING] Forbidden (CSRF token missing or incorrect.): /login_check/
+[2018-05-09 14:04:16,533] [WARNING] "POST /login_check/ HTTP/1.1" 403 2508
+[2018-05-09 14:04:25,948] [WARNING] Forbidden (CSRF token missing or incorrect.): /login_check/
+[2018-05-09 14:04:25,956] [WARNING] "POST /login_check/ HTTP/1.1" 403 2508
+[2018-05-09 14:04:27,827] [WARNING] Forbidden (CSRF token missing or incorrect.): /login_check/
+[2018-05-09 14:04:27,832] [WARNING] "POST /login_check/ HTTP/1.1" 403 2508
+[2018-05-09 14:05:49,342] [INFO] "GET /index_new/ HTTP/1.1" 200 12336
+[2018-05-09 14:05:49,383] [INFO] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[2018-05-09 14:05:49,388] [INFO] "GET /static/css/basic.css HTTP/1.1" 304 0
+[2018-05-09 14:05:49,390] [INFO] "GET /static/css/custom.css HTTP/1.1" 304 0
+[2018-05-09 14:05:49,395] [INFO] "GET /static/css/font-awesome.css HTTP/1.1" 304 0
+[2018-05-09 14:05:49,396] [INFO] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 304 0
+[2018-05-09 14:05:49,400] [INFO] "GET /static/js/bootstrap.js HTTP/1.1" 304 0
+[2018-05-09 14:05:49,409] [INFO] "GET /static/js/custom.js HTTP/1.1" 304 0
+[2018-05-09 14:05:49,410] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-05-09 14:05:49,410] [INFO] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 304 0
+[2018-05-09 14:05:49,678] [INFO] "GET /static/img/close.png HTTP/1.1" 304 0
+[2018-05-09 14:05:49,684] [INFO] "GET /static/img/user.png HTTP/1.1" 304 0
+[2018-05-09 14:05:49,690] [INFO] "GET /static/img/pwswd.png HTTP/1.1" 304 0
+[2018-05-09 14:05:49,712] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-09 14:05:49,717] [INFO] "GET /static/img/spaceflight.png HTTP/1.1" 304 0
+[2018-05-09 14:05:49,717] [INFO] "GET /static/img/user_logo.png HTTP/1.1" 304 0
+[2018-05-09 14:05:49,729] [INFO] "GET /static/img/q.png HTTP/1.1" 304 0
+[2018-05-09 14:05:49,730] [INFO] "GET /static/img/w.png HTTP/1.1" 304 0
+[2018-05-09 14:05:49,732] [INFO] "GET /static/img/environment.png HTTP/1.1" 304 0
+[2018-05-09 14:05:49,737] [INFO] "GET /static/img/e.png HTTP/1.1" 304 0
+[2018-05-09 14:05:49,749] [INFO] "GET /static/img/road.png HTTP/1.1" 304 0
+[2018-05-09 14:05:49,750] [INFO] "GET /static/img/forestry.png HTTP/1.1" 304 0
+[2018-05-09 14:05:49,751] [INFO] "GET /static/img/sedimentation.png HTTP/1.1" 304 0
+[2018-05-09 14:05:49,753] [INFO] "GET /static/img/agriculture.png HTTP/1.1" 304 0
+[2018-05-09 14:05:49,756] [INFO] "GET /static/img/municipal.png HTTP/1.1" 304 0
+[2018-05-09 14:05:49,875] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-09 14:05:53,317] [INFO] "GET /static/img/password.png HTTP/1.1" 200 1186
+[2018-05-09 14:05:58,072] [ERROR] Internal Server Error: /login_check/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 234, in login_check
+    return JsonResponse({"status": True,'user': json.dumps(user, cls=DjangoJSONEncoder)})
+  File "/usr/lib/python3.5/json/__init__.py", line 237, in dumps
+    **kw).encode(obj)
+  File "/usr/lib/python3.5/json/encoder.py", line 198, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.5/json/encoder.py", line 256, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/serializers/json.py", line 104, in default
+    return super().default(o)
+  File "/usr/lib/python3.5/json/encoder.py", line 179, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: <Myuser: zzh1> is not JSON serializable
+[2018-05-09 14:05:58,276] [ERROR] "POST /login_check/ HTTP/1.1" 500 17503
+[2018-05-09 14:07:51,998] [INFO] "GET /index_new/ HTTP/1.1" 200 12336
+[2018-05-09 14:07:52,037] [INFO] "GET /static/css/font-awesome.css HTTP/1.1" 304 0
+[2018-05-09 14:07:52,040] [INFO] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[2018-05-09 14:07:52,041] [INFO] "GET /static/css/basic.css HTTP/1.1" 304 0
+[2018-05-09 14:07:52,042] [INFO] "GET /static/css/custom.css HTTP/1.1" 304 0
+[2018-05-09 14:07:52,045] [INFO] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 304 0
+[2018-05-09 14:07:52,054] [INFO] "GET /static/js/custom.js HTTP/1.1" 304 0
+[2018-05-09 14:07:52,057] [INFO] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 304 0
+[2018-05-09 14:07:52,059] [INFO] "GET /static/js/bootstrap.js HTTP/1.1" 304 0
+[2018-05-09 14:07:52,061] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-05-09 14:07:52,178] [INFO] "GET /static/img/user.png HTTP/1.1" 304 0
+[2018-05-09 14:07:52,178] [INFO] "GET /static/img/close.png HTTP/1.1" 304 0
+[2018-05-09 14:07:52,186] [INFO] "GET /static/img/pwswd.png HTTP/1.1" 304 0
+[2018-05-09 14:07:52,186] [INFO] "GET /static/img/municipal.png HTTP/1.1" 304 0
+[2018-05-09 14:07:52,188] [INFO] "GET /static/img/forestry.png HTTP/1.1" 304 0
+[2018-05-09 14:07:52,191] [INFO] "GET /static/img/agriculture.png HTTP/1.1" 304 0
+[2018-05-09 14:07:52,203] [INFO] "GET /static/img/road.png HTTP/1.1" 304 0
+[2018-05-09 14:07:52,204] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-09 14:07:52,209] [INFO] "GET /static/img/q.png HTTP/1.1" 304 0
+[2018-05-09 14:07:52,210] [INFO] "GET /static/img/e.png HTTP/1.1" 304 0
+[2018-05-09 14:07:52,222] [INFO] "GET /static/img/sedimentation.png HTTP/1.1" 304 0
+[2018-05-09 14:07:52,224] [INFO] "GET /static/img/w.png HTTP/1.1" 304 0
+[2018-05-09 14:07:52,224] [INFO] "GET /static/img/spaceflight.png HTTP/1.1" 200 4695
+[2018-05-09 14:07:52,225] [INFO] "GET /static/img/environment.png HTTP/1.1" 304 0
+[2018-05-09 14:07:52,225] [INFO] "GET /static/img/user_logo.png HTTP/1.1" 304 0
+[2018-05-09 14:07:52,306] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-09 14:07:54,518] [INFO] "GET /static/img/password.png HTTP/1.1" 200 1186
+[2018-05-09 14:07:58,842] [ERROR] Internal Server Error: /login_check/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 234, in login_check
+    return JsonResponse({"status": True,'user':user})
+  File "/usr/local/lib/python3.5/dist-packages/django/http/response.py", line 509, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "/usr/lib/python3.5/json/__init__.py", line 237, in dumps
+    **kw).encode(obj)
+  File "/usr/lib/python3.5/json/encoder.py", line 198, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.5/json/encoder.py", line 256, in iterencode
+    return _iterencode(o, 0)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/serializers/json.py", line 104, in default
+    return super().default(o)
+  File "/usr/lib/python3.5/json/encoder.py", line 179, in default
+    raise TypeError(repr(o) + " is not JSON serializable")
+TypeError: <Myuser: zzh1> is not JSON serializable
+[2018-05-09 14:07:59,093] [ERROR] "POST /login_check/ HTTP/1.1" 500 17623
+[2018-05-09 14:08:51,565] [INFO] "GET /index_new/ HTTP/1.1" 200 12336
+[2018-05-09 14:08:51,605] [INFO] "GET /static/css/font-awesome.css HTTP/1.1" 304 0
+[2018-05-09 14:08:51,611] [INFO] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[2018-05-09 14:08:51,612] [INFO] "GET /static/css/custom.css HTTP/1.1" 304 0
+[2018-05-09 14:08:51,613] [INFO] "GET /static/css/basic.css HTTP/1.1" 304 0
+[2018-05-09 14:08:51,618] [INFO] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 304 0
+[2018-05-09 14:08:51,622] [INFO] "GET /static/js/bootstrap.js HTTP/1.1" 304 0
+[2018-05-09 14:08:51,632] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-05-09 14:08:51,645] [INFO] "GET /static/js/custom.js HTTP/1.1" 304 0
+[2018-05-09 14:08:51,645] [INFO] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 304 0
+[2018-05-09 14:08:51,754] [INFO] "GET /static/img/user.png HTTP/1.1" 304 0
+[2018-05-09 14:08:51,755] [INFO] "GET /static/img/close.png HTTP/1.1" 304 0
+[2018-05-09 14:08:51,763] [INFO] "GET /static/img/pwswd.png HTTP/1.1" 304 0
+[2018-05-09 14:08:51,767] [INFO] "GET /static/img/spaceflight.png HTTP/1.1" 304 0
+[2018-05-09 14:08:51,768] [INFO] "GET /static/img/user_logo.png HTTP/1.1" 304 0
+[2018-05-09 14:08:51,781] [INFO] "GET /static/img/sedimentation.png HTTP/1.1" 304 0
+[2018-05-09 14:08:51,786] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-09 14:08:51,789] [INFO] "GET /static/img/e.png HTTP/1.1" 304 0
+[2018-05-09 14:08:51,790] [INFO] "GET /static/img/forestry.png HTTP/1.1" 304 0
+[2018-05-09 14:08:51,794] [INFO] "GET /static/img/road.png HTTP/1.1" 304 0
+[2018-05-09 14:08:51,798] [INFO] "GET /static/img/municipal.png HTTP/1.1" 304 0
+[2018-05-09 14:08:51,800] [INFO] "GET /static/img/w.png HTTP/1.1" 304 0
+[2018-05-09 14:08:51,804] [INFO] "GET /static/img/agriculture.png HTTP/1.1" 304 0
+[2018-05-09 14:08:51,809] [INFO] "GET /static/img/q.png HTTP/1.1" 304 0
+[2018-05-09 14:08:51,810] [INFO] "GET /static/img/environment.png HTTP/1.1" 304 0
+[2018-05-09 14:08:51,885] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-09 14:08:54,567] [INFO] "GET /static/img/password.png HTTP/1.1" 200 1186
+[2018-05-09 14:09:01,089] [INFO] "POST /login_check/ HTTP/1.1" 200 500
+[2018-05-09 14:09:32,953] [INFO] "GET /index_new/ HTTP/1.1" 200 12335
+[2018-05-09 14:09:32,989] [INFO] "GET /static/css/font-awesome.css HTTP/1.1" 304 0
+[2018-05-09 14:09:32,994] [INFO] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[2018-05-09 14:09:32,995] [INFO] "GET /static/css/basic.css HTTP/1.1" 304 0
+[2018-05-09 14:09:32,997] [INFO] "GET /static/css/custom.css HTTP/1.1" 304 0
+[2018-05-09 14:09:33,005] [INFO] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 304 0
+[2018-05-09 14:09:33,007] [INFO] "GET /static/js/bootstrap.js HTTP/1.1" 304 0
+[2018-05-09 14:09:33,010] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-05-09 14:09:33,011] [INFO] "GET /static/js/custom.js HTTP/1.1" 304 0
+[2018-05-09 14:09:33,012] [INFO] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 304 0
+[2018-05-09 14:09:33,139] [INFO] "GET /static/img/close.png HTTP/1.1" 304 0
+[2018-05-09 14:09:33,148] [INFO] "GET /static/img/user.png HTTP/1.1" 304 0
+[2018-05-09 14:09:33,152] [INFO] "GET /static/img/pwswd.png HTTP/1.1" 304 0
+[2018-05-09 14:09:33,154] [INFO] "GET /static/img/spaceflight.png HTTP/1.1" 304 0
+[2018-05-09 14:09:33,158] [INFO] "GET /static/img/user_logo.png HTTP/1.1" 304 0
+[2018-05-09 14:09:33,164] [INFO] "GET /static/img/q.png HTTP/1.1" 304 0
+[2018-05-09 14:09:33,168] [INFO] "GET /static/img/sedimentation.png HTTP/1.1" 304 0
+[2018-05-09 14:09:33,173] [INFO] "GET /static/img/w.png HTTP/1.1" 304 0
+[2018-05-09 14:09:33,179] [INFO] "GET /static/img/agriculture.png HTTP/1.1" 304 0
+[2018-05-09 14:09:33,189] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-09 14:09:33,192] [INFO] "GET /static/img/environment.png HTTP/1.1" 304 0
+[2018-05-09 14:09:33,196] [INFO] "GET /static/img/e.png HTTP/1.1" 304 0
+[2018-05-09 14:09:33,201] [INFO] "GET /static/img/municipal.png HTTP/1.1" 304 0
+[2018-05-09 14:09:33,203] [INFO] "GET /static/img/road.png HTTP/1.1" 304 0
+[2018-05-09 14:09:33,204] [INFO] "GET /static/img/forestry.png HTTP/1.1" 304 0
+[2018-05-09 14:09:33,286] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-09 14:09:35,056] [INFO] "GET /static/img/password.png HTTP/1.1" 200 1186
+[2018-05-09 14:09:39,547] [INFO] "POST /login_check/ HTTP/1.1" 200 500
+[2018-05-09 14:10:12,849] [INFO] "GET /index_new/ HTTP/1.1" 200 12340
+[2018-05-09 14:10:12,878] [INFO] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[2018-05-09 14:10:12,879] [INFO] "GET /static/css/basic.css HTTP/1.1" 304 0
+[2018-05-09 14:10:12,882] [INFO] "GET /static/css/font-awesome.css HTTP/1.1" 304 0
+[2018-05-09 14:10:12,888] [INFO] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 304 0
+[2018-05-09 14:10:12,889] [INFO] "GET /static/css/custom.css HTTP/1.1" 304 0
+[2018-05-09 14:10:12,893] [INFO] "GET /static/js/bootstrap.js HTTP/1.1" 304 0
+[2018-05-09 14:10:12,897] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-05-09 14:10:12,900] [INFO] "GET /static/js/custom.js HTTP/1.1" 304 0
+[2018-05-09 14:10:12,902] [INFO] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 304 0
+[2018-05-09 14:10:13,022] [INFO] "GET /static/img/close.png HTTP/1.1" 304 0
+[2018-05-09 14:10:13,030] [INFO] "GET /static/img/user.png HTTP/1.1" 304 0
+[2018-05-09 14:10:13,035] [INFO] "GET /static/img/pwswd.png HTTP/1.1" 304 0
+[2018-05-09 14:10:13,037] [INFO] "GET /static/img/road.png HTTP/1.1" 304 0
+[2018-05-09 14:10:13,044] [INFO] "GET /static/img/spaceflight.png HTTP/1.1" 304 0
+[2018-05-09 14:10:13,055] [INFO] "GET /static/img/user_logo.png HTTP/1.1" 200 2522
+[2018-05-09 14:10:13,059] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-09 14:10:13,061] [INFO] "GET /static/img/e.png HTTP/1.1" 304 0
+[2018-05-09 14:10:13,064] [INFO] "GET /static/img/agriculture.png HTTP/1.1" 304 0
+[2018-05-09 14:10:13,069] [INFO] "GET /static/img/environment.png HTTP/1.1" 304 0
+[2018-05-09 14:10:13,075] [INFO] "GET /static/img/q.png HTTP/1.1" 304 0
+[2018-05-09 14:10:13,080] [INFO] "GET /static/img/forestry.png HTTP/1.1" 304 0
+[2018-05-09 14:10:13,080] [INFO] "GET /static/img/municipal.png HTTP/1.1" 304 0
+[2018-05-09 14:10:13,081] [INFO] "GET /static/img/sedimentation.png HTTP/1.1" 304 0
+[2018-05-09 14:10:13,081] [INFO] "GET /static/img/w.png HTTP/1.1" 304 0
+[2018-05-09 14:10:13,152] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-09 14:10:15,248] [INFO] "GET /static/img/password.png HTTP/1.1" 200 1186
+[2018-05-09 14:10:19,149] [INFO] "POST /login_check/ HTTP/1.1" 200 500
+[2018-05-09 14:10:23,088] [INFO] "GET /logout/ HTTP/1.1" 200 12340
+[2018-05-09 14:10:23,176] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-09 14:10:23,299] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-09 14:10:26,186] [INFO] "GET /static/img/username.png HTTP/1.1" 200 1209
+[2018-05-09 14:10:40,265] [INFO] "POST /login_check/ HTTP/1.1" 200 500
