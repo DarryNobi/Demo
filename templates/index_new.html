@@ -25,8 +25,8 @@
     <!-- METISMENU SCRIPTS -->
     <script src="{% static 'js/jquery.metisMenu.js' %}"></script>
        <!-- CUSTOM SCRIPTS -->
-    <script src="{% static 'js/custom.js' %}"></script>
     <script src="{% static 'js/common.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
     <script >
       $.ajaxSetup({
          data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
@@ -113,7 +113,7 @@
         </div>
         <div class="panel-body">
             <!--form模块-->
-            <form role="form" name="indexForm" action="" method="post">
+            <form role="form" name="indexForm" >
                 {% csrf_token %}
                 <hr/>
                 <h4>请输入用户信息</h4>
@@ -270,11 +270,12 @@
                 type:'post',
                 url:'/login_check/',
                 data:{
-                'username':username,
+                 'username':username,
                  'password':password
                  },
                 dataType:'json',
                 success:function(data){
+                    alert('2222');
                     if(data['status']){
                         $("#login_page").hide();
                         $("#login").css("display","none");

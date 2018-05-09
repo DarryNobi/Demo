@@ -198,7 +198,7 @@ def gs_show_list(request):
 
 def is_authenticated(request):
     if request.user.is_authenticated:
-        return JsonResponse({'islogin':True,'username':request.user.username})
+        return JsonResponse({'islogin': True,'username':request.user.username})
     else:
         return JsonResponse({'islogin': False})
 
@@ -225,11 +225,11 @@ def login_check(request):
     password= request.POST.get("password", False)
     user = auth.authenticate(username=username, password=password)
     if user:
-        request.session['username']=username
-        auth.login(request, user)
-        return HttpResponse(json.dumps({"status": "true"}, cls=DjangoJSONEncoder))
+        #request.session['username']=username
+        #auth.login(request, user)
+        return JsonResponse({'status': True})
     else:
-        return HttpResponse(json.dumps({"status": "false"}, cls=DjangoJSONEncoder))
+        return JsonResponse({'status': False})
 
 
 def mylogout(request):
