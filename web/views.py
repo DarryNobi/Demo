@@ -142,6 +142,10 @@ def move_compare(request):
     return render(request,
                   template_name='demolition_compare.html')
 
+def demolition_management(request):
+    return render(request,
+                  template_name='demolition_management.html')
+
 def ib_plotting(request):
     return render(request,
                   template_name='ib_plotting.html')
@@ -233,7 +237,7 @@ def login_check(request):
         auth.login(request, user)
         return JsonResponse({"status": True})
     else:
-        return JsonResponse({"status": False})
+        return JsonResponse({"status": False,'message':'用户名或密码错误'})
 
 
 def mylogout(request):

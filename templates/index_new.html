@@ -100,6 +100,10 @@
         .input-group-addon {
             border-radius: 20px 0 0 20px;
         }
+        #message {
+            margin-top: 10px;
+            color: #f51b0b;
+        }
     </style>
 </head>
 
@@ -132,7 +136,7 @@
                 </div>
                 <div class="subBut" style="text-align:center;"><button id="login_but" class="btn btn-primary" style="width:50%;border-radius:30px;">登录系统</button></div>
             </div>
-            <p>{{message1}}</p>
+            <p id="message"></p>
         </div>
     </div>
     <div id="wrapper" style="height:100%">
@@ -242,6 +246,7 @@
             var _right=($(window).width())/7;
             $("#login_page").css({top:_top,right:_right});
             $("#login_page").show();
+            $("#message").text('');
         });
 
         $("#close_login").click(function(){
@@ -274,19 +279,20 @@
                 },
                 dataType:'json',
                 success:function(data){
-                    if(!data['status']){
+                    if(data['status']){
                         $("#login_page").hide();
                         $("#login").hide();
                         $("#user_name").show();
                         $("#user_name").text(data.username);
                         $("#logout").show();
+                        $("#message").text('');
                     } else {
                         $("#login_page").show();
                         $("#login").show();
                         $("#user_name").hide();
                         $("#logout").hide();
+                        $("#message").text(data.message);
                     }
-                     alert("success");
                 },
                 error:function(){
                     alert('error');
