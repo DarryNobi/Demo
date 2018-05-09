@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html style="height:100%">
 <head>
        {% load staticfiles %}
 <meta charset="utf-8">
@@ -139,8 +139,8 @@ $().ready(function() {
 
 </style>
 </head>
-<body>
-<div class="container">
+<body style="height:100%">
+<div class="container" style="height:95%; overflow-y:auto;">
     <div class="col-md-8 col-md-offset-2">
         <form action="/add_usr/" class="" method="post" id="add_account_form">
  {% csrf_token %}
@@ -193,8 +193,8 @@ $().ready(function() {
 
             <div class="form-group has-feedback">
                 <label for="department"><h4>部门</h4></label>
-                <div class="input-group",name="input-group">
-                    <select style="size: 6;" name="department_name">
+                <div class="input-group",name="input-group" style="width:100%">
+                    <select style="size: 6;width:100%" name="department_name">
                         <option value="违建管理部门" name="ibuild">违建管理部门</option>
                         <option value="农业资源管理部门" name="agriculture">农业资源管理部门</option>
                         <option value="林业资源管理部门" name="forest">林业资源管理部门</option>
@@ -206,12 +206,9 @@ $().ready(function() {
             </div>
 
 
-            <div class="form-group">
-                <input style="height:50px;" class="form-control btn btn-primary" id="submit" value="新&nbsp;&nbsp;增&nbsp;&nbsp;账&nbsp;&nbsp;号" type="submit">
-            </div>
-
-            <div class="form-group">
-                <input style="height:50px;" value="重置" id="reset" class="form-control btn btn-danger" type="reset">
+            <div class="form-group" style="text-align:center;">
+                <input style="height:40px;width: 100px; border-radius:4px; padding:0; margin-right:200px;" class="form-control btn btn-primary" id="submit" value="添加" type="submit">
+                <input style="height:40px;width: 100px; border-radius:4px; padding:0;" value="重置" id="reset" class="form-control btn btn-danger" type="reset">
             </div>
         </form>
         <p>{{message}}<p>

@@ -33,3 +33,7 @@ function open_account_management(url){
 function open_user_center(url){
     document.getElementById("user_center_container").src = url;
 }
+
+function open_download(url){
+    window.parent.parent.document.getElementById("municipal_container").src = url;
+}
