@@ -235,7 +235,8 @@ def login_check(request):
     if user:
         request.session['username']=username
         auth.login(request, user)
-        return JsonResponse({"status": True})
+        user=model_to_dict(user)
+        return JsonResponse({"status": True,'user':user})
     else:
         return JsonResponse({"status": False,'message':'用户名或密码错误'})
 
