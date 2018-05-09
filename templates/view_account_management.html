@@ -33,7 +33,7 @@
             text-align:center;
             display:-webkit-flex;
             align-items:center;
-            font-size:2.5rem;
+            font-size:2rem;
             color:#8a8a8a;
         }
         .nav-tabs li a:hover {
@@ -45,7 +45,7 @@
             padding-right:10px;
         }
         .nav-img {
-            height:80%;
+            height:100%;
         }
         .picture-span {
             color:#666666;
@@ -136,6 +136,16 @@
         .tooltip-static:before {
             border-top-color: #ffffff;
         }
+        .account_manage_li {
+            height:100%;
+        }
+        .account_manage_li>a, .account_manage_li>a>span {
+            height:100%;
+        }
+        .account_manage_li>a>span {
+            display:-webkit-flex;
+            align-items:center;
+        }
 
     </style>
 
@@ -154,17 +164,17 @@
  </head>
 
  <body>
-    <div style="height:10%; min-height:80px;">
+    <div style="height:10%; min-height:60px;">
         <ul class="nav nav-tabs head-ul" style="height:100%; background: #c3c6cb;">
-            <li>
+            <li class="account_manage_li">
                 <a id="home" class="" href="javascript:void(0)" onclick="open_account_management('/account_inquiry/')">
-                    <span class="nav-img-p"><img class="nav-img" src="{% static 'img/user_ statistics .png' %}"></span>
+                    <span class="nav-img-p"><img class="nav-img" src="{% static 'img/user-search.png' %}"></span>
                     <span class="nav-text-p">账户查询</span>
                 </a>
             </li>
-            <li role="presentation">
+            <li role="presentation" class="account_manage_li">
                 <a href="javascript:void(0)" onclick="open_account_management('/add_account/')">
-                    <span class="nav-img-p"><img class="nav-img" src="{% static 'img/user_ statistics .png' %}"></span>
+                    <span class="nav-img-p"><img class="nav-img" src="{% static 'img/add-user.png' %}"></span>
                     <span class="nav-text-p">新增账户</span>
                 </a>
             </li>
@@ -174,9 +184,9 @@
                     <!--<span class="nav-text-p">权限查询</span>-->
                 <!--</a>-->
             <!--</li>-->
-            <li role="presentation">
+            <li role="presentation" class="account_manage_li">
                 <a href="javascript:void(0)" onclick="open_account_management('/authority_management/')">
-                    <span class="nav-img-p"><img class="nav-img" src="{% static 'img/user_ statistics .png' %}"></span>
+                    <span class="nav-img-p"><img class="nav-img" src="{% static 'img/permission.png' %}"></span>
                     <span class="nav-text-p">权限管理</span>
                 </a>
             </li>

@@ -138,6 +138,10 @@ def move_out(request):
     return render(request,
                   template_name='view_demolition.html')
 
+def move_compare(request):
+    return render(request,
+                  template_name='demolition_compare.html')
+
 def ib_plotting(request):
     return render(request,
                   template_name='ib_plotting.html')
@@ -225,11 +229,11 @@ def login_check(request):
     password= request.POST.get("password", False)
     user = auth.authenticate(username=username, password=password)
     if user:
-        #request.session['username']=username
-        #auth.login(request, user)
-        return JsonResponse({'status': True})
+        request.session['username']=username
+        auth.login(request, user)
+        return JsonResponse({"status": True})
     else:
-        return JsonResponse({'status': False})
+        return JsonResponse({"status": False})
 
 
 def mylogout(request):
