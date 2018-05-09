@@ -206,7 +206,7 @@ def gs_show_list(request):
 
 def is_authenticated(request):
     if request.user.is_authenticated:
-        return JsonResponse({'islogin': True,'username':request.user.username})
+        return JsonResponse({'islogin':True,'username':request.user.username})
     else:
         return JsonResponse({'islogin': False})
 
