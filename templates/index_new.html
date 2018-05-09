@@ -113,7 +113,7 @@
         </div>
         <div class="panel-body">
             <!--form模块-->
-            <form role="form" name="indexForm" action="" method="post">
+            <div>
                 {% csrf_token %}
                 <hr/>
                 <h4>请输入用户信息</h4>
@@ -131,7 +131,7 @@
                     <span style="float:right;"><a style="color:#999999" href="">忘记密码？</a></span>
                 </div>
                 <div class="subBut" style="text-align:center;"><button id="login_but" class="btn btn-primary" style="width:50%;border-radius:30px;">登录系统</button></div>
-            </form>
+            </div>
             <p>{{message1}}</p>
         </div>
     </div>
@@ -262,33 +262,38 @@
             $("#password_img").attr("src","{% static 'img/pwswd.png' %}");
         });
 
-
         $("#login_but").click(function(){
             var username = $("#user_input").val();
             var password = $("#pwd_input").val();
             $.ajax({
-                type:'post',
+                type:'POST',
                 url:'/login_check/',
                 data:{
-                'username':username,
-                 'password':password
-                 },
+                    'username':username,
+                    'password':password
+                },
                 dataType:'json',
                 success:function(data){
-                    if(data['status']){
+                    if(!data['status']){
                         $("#login_page").hide();
-                        $("#login").css("display","none");
-                        $("#user_name").css("display","block");
-                        $("#user_name").html(data.username);
-                        $("#logout").css("display","block");
+                        $("#login").hide();
+                        $("#user_name").show();
+                        $("#user_name").text(data.username);
+                        $("#logout").show();
+                    } else {
+                        $("#login_page").show();
+                        $("#login").show();
+                        $("#user_name").hide();
+                        $("#logout").hide();
                     }
                      alert("success");
                 },
                 error:function(){
-                    alert(111);
+                    alert('error');
                 }
             });
         });
+
 
     </script>
 </body>
