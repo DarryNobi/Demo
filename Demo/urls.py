@@ -48,7 +48,7 @@ urlpatterns = [
     url(r'^ib_event_management/', views.ib_event_management),
     url(r'^gs_show_map/', views.gs_show_map),
     url(r'^gs_show_list/', views.gs_show_list),
-
+    url(r'^ib_plotting/', views.ib_plotting),
 ##########################################################################
 
     url(r'^is_authenticated/', views.is_authenticated),

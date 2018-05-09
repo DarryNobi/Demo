@@ -166,6 +166,9 @@ def default(request):
     return render(request,
                   template_name='default_municipal.html')
 
+def ib_plotting(request):
+    return render(request,
+                  template_name='ib_plotting.html')
 def resource_search(request):
     response=urllib.request.urlopen('http://172.20.53.158:8089/deliver_map/')
     sourceMaps=json.loads(json.loads(response.read().decode('utf-8'))['d_maps'])
