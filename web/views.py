@@ -33,18 +33,12 @@ from web.ImageryServer import ImagePreprogress
 
 
 
-def index(request):
-    return render(request,
-                  template_name='index.html')
+
 
 def index_new(request):
     return render(request,
                   template_name='index_new.html')
 
-@login_required(login_url='/login/')
-def loadmap(request):
-    return render(request,
-                  template_name='map_geo.html')
 
 def login(request):
     # if request.method == "POST":
@@ -52,48 +46,47 @@ def login(request):
     return render(request,
                   template_name='login.html')
 
-
-def register(request):
-    return render(request,
-                  template_name='register.html')
-
+# @login_required(login_url='/login/')
+# @permission_required('user_management',raise_exception=True)
 def add_account(request):
     return render(request,
                   template_name='am_add_Account.html')
 
-#@login_required(login_url='/login/')
-#@permission_required('resource_permission',login_url='/index/',raise_exception=True)
+# @login_required(login_url='/login/')
+# @permission_required('user_management',raise_exception=True)
 def account_inquiry(request):
     return render(request,
                   template_name='am_account_Inquiry.html')
 
+# @login_required(login_url='/login/')
 def info_revise(request):
     username= request.session['username']
     user=User.objects.get(username=username)
     user=model_to_dict(user)
     return render(request,'uc_info_revise.html',{'user':json.dumps(user,cls=DjangoJSONEncoder)})
 
+# @login_required(login_url='/login/')
 def password_revise(request):
     return render(request,
                   template_name='uc_password_revise.html')
 
+# @login_required(login_url='/login/')
+# @permission_required('user_management',raise_exception=True)
 def permissions_query(request):
     return render(request,
                   template_name='am_permissions_query.html')
 
+# @login_required(login_url='/login/')
+# @permission_required('ibuild_management',raise_exception=True)
 def ib_roller_shutters(request):
     return render(request,
                   template_name='ib_roller_shutters.html')
 #####################################################
 
-def user_center(request):
-    return render(request,
-                  template_name='view_user_center.html')
 
-def account_management(request):
-    return render(request,
-                  template_name='view_account_management.html')
-users_temp=User.objects.all()
+
+
+
 def uploadImage(request):
 
     imageID=request.POST.get('ImageID',False)
@@ -106,11 +99,14 @@ def cancelPublish(request):
 def downloadImage(request):
     imageID=request.POST.get('ImageID',False)
     return HttpResponse(ImagePubMan.downloadImage(imageID))
+
 def deleteImage(request):
     imageID=request.POST.get('ImageID',False)
     return HttpResponse(ImagePubMan.deleteImage(imageID))
-#####################################################
 
+#####################################################
+# @login_required(login_url='/login/')
+# @permission_required('user_management',raise_exception=True)
 def authority_management(request):
     users_temp=User.objects.all()
     d_users={}
@@ -126,60 +122,101 @@ def authority_management(request):
     else:
           return render(request,'am_permissions_management.html',{'message':'查找结果为空！'})
 
-def ranging(request):
-    return render(request,
-                  template_name='ranging.html')
+
 
 def home_municipal(request):
     return render(request,
                   template_name='home_municipal.html')
 
-def move_out(request):
-    return render(request,
-                  template_name='view_demolition.html')
 
 
+# @login_required(login_url='/login/')
+# @permission_required('demolition_management',raise_exception=True)
 def demolition_management(request):
     return render(request,
                   template_name='de_management.html')
 
+# @login_required(login_url='/login/')
+# @permission_required('demolition_management',raise_exception=True)
 def demolition_compare(request):
     return render(request,
                   template_name='de_compare.html')
 
+# @login_required(login_url='/login/')
+# @permission_required('demolition_management',raise_exception=True)
 def demolition_plotting(request):
     return render(request,
                   template_name='de_plotting.html')
 
+# @login_required(login_url='/login/')
+# @permission_required('ibuild_management',raise_exception=True)
 def ib_plotting(request):
     return render(request,
                   template_name='ib_plotting.html')
+#############################################################
+@login_required
+def user_center(request):
+    return render(request,
+                  template_name='view_user_center.html')
 
+@login_required
+@permission_required('user_management',raise_exception=True)
+def account_management(request):
+    return render(request,
+                  template_name='view_account_management.html')
+
+
+@login_required
+@permission_required('demolition_management',raise_exception=True)
+def move_out(request):
+    return render(request,
+                  template_name='view_demolition.html')
+
+@login_required
+@permission_required('ibuild_management',raise_exception=True)
 def offence_build(request):
     return render(request,
                   template_name='view_illegal_building.html')
 
+@login_required
+@permission_required('recource_management',raise_exception=True)
 def general_survey(request):
     return render(request,
                   template_name='view_general_survey.html')
 
+
+
+@login_required
+@permission_required('recource_management',raise_exception=True)
+def resource_management(request):
+    return render(request,
+                  template_name='view_resource_management.html')
+#########################################################################
+
+# @login_required(login_url='/login/')
+# @permission_required('recource_management',raise_exception=True)
 def graphic_look(request):
     return render(request,
                   template_name='gs_show_list.html')
 
-def resource_management(request):
-    return render(request,
-                  template_name='view_resource_management.html')
+
 
 def default(request):
     return render(request,
                   template_name='default_municipal.html')
 
+
+# @login_required(login_url='/login/')
+# @permission_required('ibuild_management',raise_exception=True)
 def ib_plotting(request):
     return render(request,
                   template_name='ib_plotting.html')
+
+
+# @login_required(login_url='/login/')
+# @permission_required('recource_management',raise_exception=True)
 def resource_search(request):
-    response=urllib.request.urlopen('http://172.20.53.158:8089/deliver_map/')
+    response=urllib.request.urlopen('http://172.20.53.158:8089/deliver_map/')#天津后台url
     sourceMaps=json.loads(json.loads(response.read().decode('utf-8'))['d_maps'])
     localMapsTemp = Map.objects.all()
     localMaps={}
@@ -195,7 +232,8 @@ def resource_search(request):
     else:
         return render(request, 'rm_resource_search.html', {'message': '查找结果为空！'})
 
-
+# @login_required(login_url='/login/')
+# @permission_required('ibuild_management',raise_exception=True)
 def ib_event_management(request):
     ib_draws=GraphicLabel.objects.filter(graphiclabel='违建')
     d_ib_draws = {}
@@ -203,9 +241,15 @@ def ib_event_management(request):
         d_ib_draws[i] = model_to_dict(ib_draws[i])
     return render(request,'ib_event_management.html',{'d_ib_draws': json.dumps(d_ib_draws, cls=DjangoJSONEncoder)})
 
+# @login_required(login_url='/login/')
+# @permission_required('recource_management',raise_exception=True)
 def gs_show_map(request):
     return render(request,
-                  template_name='gs_show_map.html')
+                 template_name='gs_show_map.html')
+
+
+# @login_required(login_url='/login/')
+# @permission_required('recource_management',raise_exception=True)
 def gs_show_list(request):
     return render(request,
                   template_name='gs_show_list.html')
@@ -219,21 +263,8 @@ def is_authenticated(request):
         return JsonResponse({'islogin': False})
 
 
-def save_graphic(request):
-    if request.method == "POST":
-        data = request.POST.get('graphic')
 
 
-def regist_db(request):
-        username = request.POST.get("username", False)
-        password = request.POST.get("password1", False)
-        department_name = request.POST.get(" department_name", False)
-        contact_usr = request.POST.get("contact_usr", False)
-        phone= request.POST.get("phone", False)
-        user = User.objects.create_user(username=username,password=password)
-        user.save()
-
-        return render(request, 'register.html',{'message1':'注册成功','message2':'立即登录 '})
 
 
 def login_check(request):
@@ -244,7 +275,7 @@ def login_check(request):
         request.session['username']=username
         auth.login(request, user)
         user=model_to_dict(user)
-        return JsonResponse({"status": True,'user':user})
+        return JsonResponse({"status": True,'user':json.dumps(user,cls=DjangoJSONEncoder)})
     else:
         return JsonResponse({"status": False,'message':'用户名或密码错误'})
 
@@ -253,8 +284,7 @@ def mylogout(request):
     logout(request)
     return render(request,'index_new.html',{'islogin': False})
 
-#@login_required
-#@permission_required('user_management',raise_exception=True)
+# @login_required
 def password_reset(request):
 
     old_password = request.POST.get("old_password",False)
@@ -268,8 +298,7 @@ def password_reset(request):
         return render(request, 'uc_password_revise.html',{'message': '用户名或密码错误!'})
 
 
-#@login_required
-#@permission_required('user_management',raise_exception=True)
+# @login_required
 def usr_info_revise(request):
     username = request.POST.get("username",False)
     department_name = request.POST.get("department_name",False)
@@ -286,8 +315,8 @@ def usr_info_revise(request):
     else:
         return render(request,{'message':'用户不存在！'})
 
-#@login_required
-#@permission_required('user_management',raise_exception=True)
+# @login_required
+# @permission_required('user_management',raise_exception=True)
 def add_usr(request):
     username = request.POST.get("username", False)
     password= request.POST.get("password1", False)
@@ -298,8 +327,8 @@ def add_usr(request):
     user.save()
     return render(request,'am_add_Account.html',{'message':'添加成功'})
 
-#@login_required
-#@permission_required('user_management',raise_exception=True)
+# @login_required
+# @permission_required('user_management',raise_exception=True)
 def delete_usr(request):
     username = request.POST.get('username',False)
     user=User.objects.filter(username=username)
@@ -309,8 +338,8 @@ def delete_usr(request):
 
 
 
-#@login_required
-#@permission_required('user_management',raise_exception=True)
+# @login_required
+# @permission_required('user_management',raise_exception=True)
 def permission_revise(request):
     userid = request.POST.get("id", False)
     check_box = request.POST.get('permission_value',False)
@@ -329,8 +358,8 @@ def permission_revise(request):
     user['user_permissions']= user_permissions
     return HttpResponse(json.dumps({"user":user},cls=DjangoJSONEncoder))
 
-#@login_required
-#@permission_required('user_management',raise_exception=True)
+# @login_required
+# @permission_required('user_management',raise_exception=True)
 def _account_inquiry(request):
     message = request.POST.get('message',False)
     query_method=request.POST.get('query_method',False)
@@ -354,9 +383,9 @@ def _account_inquiry(request):
           return render(request,'am_account_Inquiry.html',{'message1':'查找结果为空！'})
 
 
-
-#@login_required
-#@permission_required('user_management',raise_exception=True)
+#
+# @login_required
+# @permission_required('user_management',raise_exception=True)
 def _permissions_query(request):
     message = request.POST.get('message',False)
     query_method = request.POST.get('query_method', False)
@@ -391,7 +420,8 @@ def check_username(request):
     else:
         return HttpResponse("true")
 
-
+# @login_required
+# @permission_required('user_management',raise_exception=True)
 def status_revise(request):
     #raw_dic=request.raw_post_data()
     #dic=json.loads(raw_dic,cls=DjangoJSONEncoder)
@@ -402,7 +432,8 @@ def status_revise(request):
     user.save()
     return HttpResponse("success")
 
-
+# @login_required(login_url='/login/')
+# @permission_required('ibuild_management',raise_exception=True)
 def save_draw(request):
     raw_dic = request.POST.get('coordi', False)
     name = request.POST.get('name', False)
@@ -459,7 +490,8 @@ def test(request):
     #DB_Workshop.saveImage('/media/zhou/文档/yaogan')
 
 
-
+# @login_required
+# @permission_required('resource_management',raise_exception=True)
 def _gs_show_list(request):
     query_name = request.GET.get('query_name', '')
     query_type = request.GET.get('query_type', '')

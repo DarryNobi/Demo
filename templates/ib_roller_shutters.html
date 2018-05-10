@@ -55,6 +55,7 @@
 <div id="map_1" class="map"></div>
 <div id="map_2" class="map "></div>
 <script>
+ var status=true;
     var map_1 =  map = new ol.Map({
         target:"map_1",
         view:new ol.View({
@@ -81,17 +82,18 @@
         ]
     });
    $("#map_1").on("mousemove",function(e){
-        console.log(e);
+        //console.log(e);
         e.stopPropagation();
         var  offsetX=e.x,offsetY=e.y,width=document.body.clientWidth,height=document.body.clientHeight;
         document.getElementById('map_2').style.clip='rect(0px,'+offsetX+'px,'+height+'px,0px)';
     });
      $("#map_2").on("mousemove",function(e){
-        console.log(e);
+        //console.log(e);
         e.stopPropagation();
         var  offsetX=e.x,offsetY=e.y,width=document.body.clientWidth,height=document.body.clientHeight;
         document.getElementById('map_2').style.clip='rect(0px,'+offsetX+'px,'+height+'px,0px)';
     });
+    function roller
 <!--$("#map_1").on("dbclick",function(){-->
 
 
