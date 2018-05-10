@@ -81,29 +81,18 @@
             })
         ]
     });
-   $("#map_1").on("mousemove",function(e){
-        //console.log(e);
+    document.getElementById('map_2').onmousemove=function(e){
+        console.log(e);
         e.stopPropagation();
         var  offsetX=e.x,offsetY=e.y,width=document.body.clientWidth,height=document.body.clientHeight;
         document.getElementById('map_2').style.clip='rect(0px,'+offsetX+'px,'+height+'px,0px)';
-    });
-     $("#map_2").on("mousemove",function(e){
-        //console.log(e);
+    }
+    document.getElementById('map_1').onmousemove=function(e){
+        console.log(e);
         e.stopPropagation();
         var  offsetX=e.x,offsetY=e.y,width=document.body.clientWidth,height=document.body.clientHeight;
         document.getElementById('map_2').style.clip='rect(0px,'+offsetX+'px,'+height+'px,0px)';
-    });
-    function roller
-<!--$("#map_1").on("dbclick",function(){-->
-
-
-
-<!--});-->
-<!--$("#map_2").on("dbclick",function(){-->
-
-
-
-<!--});-->
+    }
 </script>
 </body>
 </html>
