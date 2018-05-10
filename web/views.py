@@ -138,6 +138,23 @@ def move_out(request):
     return render(request,
                   template_name='view_demolition.html')
 
+
+def demolition_management(request):
+    return render(request,
+                  template_name='de_management.html')
+
+def demolition_compare(request):
+    return render(request,
+                  template_name='de_compare.html')
+
+def demolition_plotting(request):
+    return render(request,
+                  template_name='de_plotting.html')
+
+def developing(request):
+    return render(request,
+                  template_name='developing.html')
+
 def ib_plotting(request):
     return render(request,
                   template_name='ib_plotting.html')
@@ -162,6 +179,9 @@ def default(request):
     return render(request,
                   template_name='default_municipal.html')
 
+def ib_plotting(request):
+    return render(request,
+                  template_name='ib_plotting.html')
 def resource_search(request):
     response=urllib.request.urlopen('http://172.20.53.158:8089/deliver_map/')
     sourceMaps=json.loads(json.loads(response.read().decode('utf-8'))['d_maps'])
@@ -227,10 +247,10 @@ def login_check(request):
     if user:
         request.session['username']=username
         auth.login(request, user)
-        return render(request, 'index_new.html', {'message1': '登录成功'})
-
+        user=model_to_dict(user)
+        return JsonResponse({"status": True,'user':user})
     else:
-       return render(request, 'login.html', {'message1': '用户名或密码错误'})
+        return JsonResponse({"status": False,'message':'用户名或密码错误'})
 
 
 def mylogout(request):
@@ -311,7 +331,7 @@ def permission_revise(request):
         tmp = user['user_permissions'][j].name
         user_permissions.append(tmp)
     user['user_permissions']= user_permissions
-    return HttpResponse(json.dumps({"user":user}))
+    return HttpResponse(json.dumps({"user":user},cls=DjangoJSONEncoder))
 
 #@login_required
 #@permission_required('user_management',raise_exception=True)
@@ -384,7 +404,7 @@ def status_revise(request):
     user=User.objects.get(id=id)
     user.is_active=is_active
     user.save()
-    return render(request,'am_permissions_management.html',{'userid':id,'isactive':is_active})
+    return HttpResponse("success")
 
 
 def save_draw(request):

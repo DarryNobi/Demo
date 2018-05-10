@@ -3,8 +3,9 @@
 <head>
      {% load staticfiles %}
     <title>地图卷帘效果</title>
+
     <link rel="stylesheet" href="https://openlayers.org/en/v4.6.4/css/ol.css" type="text/css">
-    <script src="https://openlayers.org/en/v4.6.4/build/ol.js"></script>
+   <script src="{% static 'js/openlayers_v4.5.0/build/ol.js' %}"></script>
     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap-theme.min.css">
     <!--[if lt IE 9]>
@@ -25,7 +26,9 @@
             padding: 0;
             margin: 0;
         }
-
+        .map {
+            overflow-y:auto;
+        }
     </style>
 </head>
 <body>
@@ -52,6 +55,7 @@
 <div id="map_1" class="map"></div>
 <div id="map_2" class="map "></div>
 <script>
+ var status=true;
     var map_1 =  map = new ol.Map({
         target:"map_1",
         view:new ol.View({
@@ -77,18 +81,29 @@
             })
         ]
     });
-    document.getElementById('map_2').onmousemove=function(e){
-        console.log(e);
+   $("#map_1").on("mousemove",function(e){
+        //console.log(e);
         e.stopPropagation();
         var  offsetX=e.x,offsetY=e.y,width=document.body.clientWidth,height=document.body.clientHeight;
         document.getElementById('map_2').style.clip='rect(0px,'+offsetX+'px,'+height+'px,0px)';
-    }
-    document.getElementById('map_1').onmousemove=function(e){
-        console.log(e);
+    });
+     $("#map_2").on("mousemove",function(e){
+        //console.log(e);
         e.stopPropagation();
         var  offsetX=e.x,offsetY=e.y,width=document.body.clientWidth,height=document.body.clientHeight;
         document.getElementById('map_2').style.clip='rect(0px,'+offsetX+'px,'+height+'px,0px)';
-    }
+    });
+    function roller
+<!--$("#map_1").on("dbclick",function(){-->
+
+
+
+<!--});-->
+<!--$("#map_2").on("dbclick",function(){-->
+
+
+
+<!--});-->
 </script>
 </body>
 </html>

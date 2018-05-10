@@ -21,13 +21,9 @@ from web import views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-
-    url(r'^index/', views.index),
     url(r'^default/', views.default),
     url(r'^index_new/', views.index_new),
-    url(r'^register/', views.register),
     url(r'^login/', views.login),
-    url(r'^map/', views.loadmap),
     url(r'^add_account/', views.add_account),
     url(r'^password_revise/', views.password_revise),
     url(r'^permissions_query/', views.permissions_query),
@@ -35,9 +31,11 @@ urlpatterns = [
     url(r'^ib_roller_shutters/', views.ib_roller_shutters),
     url(r'^info_revise/', views.info_revise),
     url(r'^authority_management/', views.authority_management),
-    url(r'^ranging/', views.ranging),
     url(r'^home_municipal/', views.home_municipal),
     url(r'^move_out/', views.move_out),
+    url(r'^demolition_management/', views.demolition_management),
+    url(r'^demolition_compare/', views.demolition_compare),
+    url(r'^demolition_plotting/', views.demolition_plotting),
     url(r'^ib_plotting/', views.ib_plotting),
     url(r'^offence_build/', views.offence_build),
     url(r'^general_survey/', views.general_survey),
@@ -47,19 +45,18 @@ urlpatterns = [
     url(r'^ib_event_management/', views.ib_event_management),
     url(r'^gs_show_map/', views.gs_show_map),
     url(r'^gs_show_list/', views.gs_show_list),
-
+    url(r'^ib_plotting/', views.ib_plotting),
+    url(r'^developing/', views.developing),
 ##########################################################################
 
     url(r'^is_authenticated/', views.is_authenticated),
     url(r'^delete_usr/', views. delete_usr),
-    url(r'^register_db/', views.regist_db),
     url(r'^login_check/', views.login_check),
     url(r'^password_reset/', views.password_reset),
     url(r'^usr_info_revise/', views.usr_info_revise),
     url(r'^logout/', views.mylogout),
     url(r'^permission_revise/', views.permission_revise),
     url(r'^add_usr/', views.add_usr),
-    url(r'^password_reset/', views.password_reset),
     url(r'^_account_inquiry/', views._account_inquiry),
     url(r'^check_username/', views.check_username),
     url(r'^_permissions_query/',views._permissions_query),

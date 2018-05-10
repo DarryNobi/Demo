@@ -1,8 +1,9 @@
-﻿<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" style="height:100%">
 <head>
     {% load staticfiles %}
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="Keywords" content="天津未来科技城卫星遥感资源管理系统"/>
     <title>home</title>
@@ -27,11 +28,7 @@
        <!-- CUSTOM SCRIPTS -->
     <script src="{% static 'js/custom.js' %}"></script>
     <script src="{% static 'js/common.js' %}"></script>
-    <script >
-      $.ajaxSetup({
-         data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
-      });
-     </script>
+
     <style type="text/css">
         #container{
 	        background:#0a86e1;
@@ -49,13 +46,33 @@
             height:100%;
         }
         .nav-tabs li a:hover {
-            background: #3178f5;
+            background: -webkit-linear-gradient(#359ae4, #0c17f3);
+            background: -o-linear-gradient(#359ae4, #0c17f3);
+            background: -moz-linear-gradient(#359ae4, #0c17f3);
+            background: linear-gradient(#359ae4, #0c17f3);
+            border:none;
         }
         .nav-tabs li a:active {
-            background-color: #3178f5;
+            background: -webkit-linear-gradient(#359ae4, #0c17f3);
+            background: -o-linear-gradient(#359ae4, #0c17f3);
+            background: -moz-linear-gradient(#359ae4, #0c17f3);
+            background: linear-gradient(#359ae4, #0c17f3);
+            border:none;
         }
         .nav-tabs li a:visited {
-            background-color: #3178f5;
+            background: -webkit-linear-gradient(#359ae4, #0c17f3);
+            background: -o-linear-gradient(#359ae4, #0c17f3);
+            background: -moz-linear-gradient(#359ae4, #0c17f3);
+            background: linear-gradient(#359ae4, #0c17f3);
+            border:none;
+        }
+        .nav-tabs li a:focus {
+            background: -webkit-linear-gradient(#359ae4, #0c17f3);
+            background: -o-linear-gradient(#359ae4, #0c17f3);
+            background: -moz-linear-gradient(#359ae4, #0c17f3);
+            background: linear-gradient(#359ae4, #0c17f3);
+            outline:none;
+            border:none;
         }
         .nav-tabs li a{
             margin:0;
@@ -69,10 +86,11 @@
         }
         .nav-img-p{
             height:70%;
+            text-align:-moz-center;
         }
-        .nav-img{
-            height:90%;
-        }
+        <!--.nav-img{-->
+            <!--height:90%;-->
+        <!--}-->
         .nav-text-p{
             height:30%;
         }
@@ -80,26 +98,81 @@
             color: #fff;
             padding-left:10px;
         }
+        #login_page {
+            position:absolute;
+            z-index:10000;
+            width:370px;
+            float:left;
+            height:400px;
+            display:none;
+            background:#fff;
+            border:2px solid #DCDCF3;
+            border-radius:10px;
+        }
+        .input-group-addon,.username_input,.password_input {
+            height:35px;
+        }
+        .username_input,.password_input {
+            border-radius: 0 20px 20px 0;
+        }
+        .input-group-addon {
+            border-radius: 20px 0 0 20px;
+        }
+        #message {
+            margin-top: 10px;
+            color: #f51b0b;
+        }
     </style>
 </head>
 
 <body style="height:100%;">
+    <div id="login_page">
+        <div>
+            <span style="float:right; padding-top:14px; padding-right:14px;"><img id="close_login" src="{% static 'img/close.png' %}"></span>
+        </div>
+        <div style="text-align:center; padding-top:40px; font-size:2.5rem; color:#428bca;">
+            <span>卫星遥感资源管理系统</span>
+        </div>
+        <div class="panel-body">
+            <!--form模块-->
+            <div>
+                {% csrf_token %}
+                <hr/>
+                <h4>请输入用户信息</h4>
+                <br/>
+                <div class="form-group input-group">
+                    <span class="input-group-addon username-group-span"><img id="username_img" src="{% static 'img/user.png' %}"></span>
+                    <input type="text" name="username" id="user_input" class="form-control username_input username-group" placeholder="用户名 " />
+                </div>
+                <div class="form-group input-group">
+                    <span class="input-group-addon password-group"><img id="password_img" src="{% static 'img/pwswd.png' %}"></span>
+                    <input type="password" name="password" id="pwd_input" class="form-control password_input password-group"  placeholder="密码" />
+                </div>
+                <div class="form-group">
+                    <span>不是用户<a href="/register/" >点击这里 </a></span>
+                    <span style="float:right;"><a style="color:#999999" href="">忘记密码？</a></span>
+                </div>
+                <div class="subBut" style="text-align:center;"><button id="login_but" class="btn btn-primary" style="width:50%;border-radius:30px;">登录系统</button></div>
+            </div>
+            <p id="message"></p>
+        </div>
+    </div>
     <div id="wrapper" style="height:100%">
         <div id="container" style="height:20%; min-height:200px">
             <div style="width:100%; display:inline-flex; height:100%; color:white">
                 <div style="width:50%; padding-left: 20px;">
                     <p style="width:100%; height:100%; display:-webkit-flex; align-items:center">
                         <img style="height:50%" src="{% static 'img/spaceflight.png' %}">
-                        <font size="6"><b style="font-size:3.5rem">天津未来科技城卫星遥感资源管理系统</b></font>
+                        <span style="font-size:3.5rem">天津未来科技城卫星遥感资源管理系统</span>
                     </p>
                 </div>
                 <div style="width:50%; height:100%">
                 <div style="width:100%; display:inline-flex; height:30%; padding-top:16px">
                     <span style="width:30%; margin-left:65%; height:100%; font-size:16px; display:inline-flex">
                         <img style="height:50%" src="{% static 'img/user_logo.png' %}">
-                        <a id="login" href="/login/" title="Login"><em class="glyphicon glyphicon-plus"></em>登录</a>
+                        <a id="login" title="Login"><em class="glyphicon glyphicon-plus"></em>登录</a>
                         <span id="user_name" style="padding-left:10px"></span>
-                        <a id="logout" href="/logout/" class="" title="Logout"><em class="glyphicon glyphicon-home"></em>登出</a>
+                        <a id="logout" href="/logout/" class="" style="display:none" title="Logout"><em class="glyphicon glyphicon-home"></em>登出</a>
                     </span>
                     <p style="width:20%; margin-left:-20%">
                         <span class="view-button"><img src="{% static 'img/q.png' %}"></span>
@@ -112,37 +185,37 @@
                         <ul class="nav nav-tabs head-ul" style="height:100%">
                             <li>
                                 <a class="" href="javascript:void(0)" onclick="open_link('/home_municipal/');" >
-                                    <p class="nav-img-p"><img class="nav-img" src="{% static 'img/municipal.png' %}"></p>
+                                    <p class="nav-img-p"><img class="nav-img img-responsive" src="{% static 'img/municipal.png' %}"></p>
                                     <p class="nav-text-p">市政管理</p>
                                 </a>
                             </li>
                             <li role="presentation">
-                                <a href="javascript:void(0)" onclick="open_link('');">
-                                    <p class="nav-img-p"><img class="nav-img" src="{% static 'img/agriculture.png' %}"></p>
+                                <a href="javascript:void(0)" onclick="open_link('/developing/');">
+                                    <p class="nav-img-p"><img class="nav-img img-responsive" src="{% static 'img/agriculture.png' %}"></p>
                                     <p class="nav-text-p">农业管理</p>
                                 </a>
                             </li>
                             <li role="presentation">
-                                <a href="javascript:void(0)">
-                                    <p class="nav-img-p"><img class="nav-img" src="{% static 'img/forestry.png' %}"></p>
+                                <a href="javascript:void(0)" onclick="open_link('/developing/');">
+                                    <p class="nav-img-p"><img class="nav-img img-responsive" src="{% static 'img/forestry.png' %}"></p>
                                     <p class="nav-text-p">林业管理</p>
                                 </a>
                             </li>
                             <li role="presentation">
-                                <a href="javascript:void(0)">
-                                    <p class="nav-img-p"><img class="nav-img" src="{% static 'img/environment.png' %}"></p>
+                                <a href="javascript:void(0)" onclick="open_link('/developing/');">
+                                    <p class="nav-img-p"><img class="nav-img img-responsive" src="{% static 'img/environment.png' %}"></p>
                                     <p class="nav-text-p">环境管理</p>
                                 </a>
                             </li>
                             <li role="presentation">
-                                <a href="javascript:void(0)">
-                                    <p class="nav-img-p"><img class="nav-img" src="{% static 'img/road.png' %}"></p>
+                                <a href="javascript:void(0)" onclick="open_link('/developing/');">
+                                    <p class="nav-img-p"><img class="nav-img img-responsive" src="{% static 'img/road.png' %}"></p>
                                     <p class="nav-text-p">道路管理</p>
                                 </a>
                             </li>
                             <li role="presentation">
-                                <a href="javascript:void(0)">
-                                    <p class="nav-img-p"><img class="nav-img" src="{% static 'img/sedimentation.png' %}"></p>
+                                <a href="javascript:void(0)" onclick="open_link('/developing/');">
+                                    <p class="nav-img-p"><img class="nav-img img-responsive" src="{% static 'img/sedimentation.png' %}"></p>
                                     <p class="nav-text-p">沉降检测</p>
                                 </a>
                             </li>
@@ -170,9 +243,14 @@
         <!-- /. PAGE WRAPPER  -->
     </div>
     <!-- /. WRAPPER  -->
-
+<script >
+      $.ajaxSetup({
+         data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+      });
+     </script>
     <script>
     window.onload=function(){
+
         //默认获取当前日期
         var today = new Date();
         var nowdate = (today.getFullYear()) + "-" + (today.getMonth() + 1) + "-" + today.getDate();
@@ -183,26 +261,68 @@
         var mydate = date.getFullYear() + "-" + (mon < 10 ? "0" + mon : mon) + "-" + (day < 10 ? "0" + day : day);
         $("#nowdate").val(mydate);
         $(".date-span").html(mydate);
-        $.ajax({
-            type:'get',
-            url:'/is_authenticated/',
-            dataType:'json',
-            success:function(data){
-                if (data) {
-                    if (data.islogin) {
-                        $("#login").css("display","none");
-                        $("#user_name").css("display","block");
-                        $("#user_name").html(data.username);
-                        $("#logout").css("display","block");
-                    } else {
-                        $("#login").css("display","block");
-                        $("#user_name").css("display","none");
-                        $("#logout").css("display","none");
-                    }
-                }
-            },
-        });
     };
+
+        $("#login").click(function(){
+            var _top=($(window).height())/10;
+            var _right=($(window).width())/7;
+            $("#login_page").css({top:_top,right:_right});
+            $("#login_page").show();
+            $("#message").text('');
+        });
+
+        $("#close_login").click(function(){
+            $("#login_page").hide();
+        });
+
+        $("#user_input").focus(function (){
+            $("#username_img").attr("src","{% static 'img/username.png' %}");
+        });
+        $("#user_input").blur(function (){
+            $("#username_img").attr("src","{% static 'img/user.png' %}");
+        });
+
+        $("#pwd_input").focus(function (){
+            $("#password_img").attr("src","{% static 'img/password.png' %}");
+        });
+        $("#pwd_input").blur(function (){
+            $("#password_img").attr("src","{% static 'img/pwswd.png' %}");
+        });
+
+        $("#login_but").click(function(){
+            var username = $("#user_input").val();
+            var password = $("#pwd_input").val();
+            $.ajax({
+                type:'POST',
+                url:'/login_check/',
+                data:{
+                    'username':username,
+                    'password':password
+                },
+                dataType:'json',
+                success:function(data){
+                    if(data['status']){
+                        $("#login_page").hide();
+                        $("#login").hide();
+                        $("#user_name").show();
+                        $("#user_name").text(data.user.username);
+                        $("#logout").show();
+                        $("#message").text('');
+                    } else {
+                        $("#login_page").show();
+                        $("#login").show();
+                        $("#user_name").hide();
+                        $("#logout").hide();
+                        $("#message").text(data.message);
+                    }
+                },
+                error:function(){
+                    alert('error');
+                }
+            });
+        });
+
+
     </script>
 </body>
 </html>

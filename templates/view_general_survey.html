@@ -24,16 +24,20 @@
             background: #e6e7ea;
         }
         .nav-tabs li a {
+            margin-top:1px;
             height: 100%;
             text-align:center;
             display:-webkit-flex;
             align-items:center;
-            font-size:2.5rem;
+            font-size:2rem;
             color:#8a8a8a;
         }
-        .nav-tabs li a:hover {
+        .nav-tabs li a:hover, .nav-tabs li a:focus {
             color: #3178f5;
             background:#ffffff;
+            border-radius:10px 10px 0 0;
+            outline:none;
+            border:none;
         }
         .nav-img-p {
             height:100%;
@@ -65,7 +69,7 @@
     </head>
 
     <body style="height:100%;">
-        <div style="height:10%; min-height:80px;">
+        <div style="height:10%; min-height:60px;">
             <ul class="nav nav-tabs head-ul" style="height:100%; background: #c3c6cb;">
                 <li>
                     <a class="" href="javascript:void(0)" onclick="open_general_survey('/gs_show_list/')" >

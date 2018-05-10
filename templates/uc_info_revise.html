@@ -3,10 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>修改个人信息</title>
-<script src="http://libs.baidu.com/jquery/2.0.0/jquery['
 
-
-.min.js"></script>
 
 <style>
 @charset "utf-8";
@@ -72,12 +69,14 @@
 
 </head>
 <body>
+{% load staticfiles %}
+ <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-<div class="container">
+<div class="container" style="overflow-y:auto">
     <div class="col-md-8 col-md-offset-2">
         <form action='/usr_info_revise/' method="post" id="info_revise_form">
 		{% csrf_token %}

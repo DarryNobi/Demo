@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+     {% load staticfiles %}
+    <title>地图卷帘效果</title>
+    <link rel="stylesheet" href="https://openlayers.org/en/v4.6.4/css/ol.css" type="text/css">
+   <script src="{% static 'js/openlayers_v4.5.0/build/ol.js' %}"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap-theme.min.css">
+    <!--[if lt IE 9]>
+    <script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script>
+    <![endif]-->
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <style>
+        body{
+            overflow: hidden;
+        }
+        html,body,.map{
+            width: 100%;
+            height: 100%;
+            position:absolute;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        .map {
+            overflow-y:auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="compare container" style="background-color:white; display:inline-flex; width:100%; height:10%; min-height:100px">
+        <form role="form" name="compareForm" action="" method="post" style="width:100%; font-size:20px; height:100%">
+            <div class="row" style="width: 100%; display:-webkit-flex; align-items:center; height:100%;">
+                <div class="col-lg-11 col-xs-11" style="display:inline-flex; align-items:center; height:100%">
+                    <span class="picture-span" style="margin-left: 43px;">参考影像：</span>
+                    <span class="picture-date" ><input type="date" name="" class="form-control compare-input"/></span>
+                    <span class="picture-span" style="margin-left:42px;">对比影像：</span>
+                    <span class="picture-date"><input type="date" name="" class="form-control compare-input"/></span>
+                </div>
+                <div class="col-lg-1 col-xs-1" style="height:100%; align-items:center; display:-webkit-flex;">
+                    <span class="input-group-btn search-span" style="width:15%; min-width:150px; margin:0 auto;">
+                        <button style="border-radius:6px" type="submit" class="btn btn-primary compare-but">
+                            <img src="{% static 'img/contrast.png' %}" style="height:50%; margin-right:8px;">
+                            开始对比
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+<div id="map_1" class="map"></div>
+<div id="map_2" class="map "></div>
+<script>
+    var map_1 =  map = new ol.Map({
+        target:"map_1",
+        view:new ol.View({
+            projection: "EPSG:4326",
+            //center:[115.7555794477557, 22.6070466884657],
+            center: [117.45, 39.25],
+            zoom:15
+        }),
+        layers:[
+            new ol.layer.Tile({source:new ol.source.OSM()})
+        ]
+    });
+    var map_2 =  map = new ol.Map({
+        target:"map_2",
+        view:map_1.getView(),
+        layers:[
+            new ol.layer.Tile({
+                source: new ol.source.XYZ({
+                    url:'http://t3.tianditu.cn/DataServer?T=img_w&X={x}&Y={y}&L={z}'
+                }),
+                projection: "EPSG:4326",
+                id:"影像"
+            })
+        ]
+    });
+    document.getElementById('map_2').onmousemove=function(e){
+        console.log(e);
+        e.stopPropagation();
+        var  offsetX=e.x,offsetY=e.y,width=document.body.clientWidth,height=document.body.clientHeight;
+        document.getElementById('map_2').style.clip='rect(0px,'+offsetX+'px,'+height+'px,0px)';
+    }
+    document.getElementById('map_1').onmousemove=function(e){
+        console.log(e);
+        e.stopPropagation();
+        var  offsetX=e.x,offsetY=e.y,width=document.body.clientWidth,height=document.body.clientHeight;
+        document.getElementById('map_2').style.clip='rect(0px,'+offsetX+'px,'+height+'px,0px)';
+    }
+</script>
+</body>
+</html>
