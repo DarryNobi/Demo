@@ -38,8 +38,10 @@ urlpatterns = [
     url(r'^ranging/', views.ranging),
     url(r'^home_municipal/', views.home_municipal),
     url(r'^move_out/', views.move_out),
-    url(r'^move_compare/', views.move_compare),
+
     url(r'^demolition_management/', views.demolition_management),
+    url(r'^demolition_compare/', views.demolition_compare),
+    url(r'^demolition_plotting/', views.demolition_plotting),
     url(r'^ib_plotting/', views.ib_plotting),
     url(r'^offence_build/', views.offence_build),
     url(r'^general_survey/', views.general_survey),
@@ -49,7 +51,7 @@ urlpatterns = [
     url(r'^ib_event_management/', views.ib_event_management),
     url(r'^gs_show_map/', views.gs_show_map),
     url(r'^gs_show_list/', views.gs_show_list),
-
+    url(r'^ib_plotting/', views.ib_plotting),
 ##########################################################################
 
     url(r'^is_authenticated/', views.is_authenticated),

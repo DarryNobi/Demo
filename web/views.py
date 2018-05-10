@@ -138,13 +138,18 @@ def move_out(request):
     return render(request,
                   template_name='view_demolition.html')
 
-def move_compare(request):
-    return render(request,
-                  template_name='demolition_compare.html')
 
 def demolition_management(request):
     return render(request,
-                  template_name='demolition_management.html')
+                  template_name='de_management.html')
+
+def demolition_compare(request):
+    return render(request,
+                  template_name='de_compare.html')
+
+def demolition_plotting(request):
+    return render(request,
+                  template_name='de_plotting.html')
 
 def ib_plotting(request):
     return render(request,
@@ -170,6 +175,9 @@ def default(request):
     return render(request,
                   template_name='default_municipal.html')
 
+def ib_plotting(request):
+    return render(request,
+                  template_name='ib_plotting.html')
 def resource_search(request):
     response=urllib.request.urlopen('http://172.20.53.158:8089/deliver_map/')
     sourceMaps=json.loads(json.loads(response.read().decode('utf-8'))['d_maps'])
