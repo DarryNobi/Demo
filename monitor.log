@@ -23599,3 +23599,2170 @@ django.db.utils.InternalError: (1054, "Unknown column 'web_graphiclabel.graphict
 [2018-05-07 17:58:46,917] [INFO] "POST /status_revise/ HTTP/1.1" 200 9850
 [2018-05-07 17:58:58,438] [WARNING] "GET /static/css/bootstrap.css.map HTTP/1.1" 404 1801
 [2018-05-07 22:05:11,313] [INFO] "POST /status_revise/ HTTP/1.1" 200 9850
+[2018-05-08 14:33:07,546] [WARNING] Not Found: /
+[2018-05-08 14:33:07,533] [WARNING] Not Found: /
+[2018-05-08 14:33:07,548] [WARNING] "GET / HTTP/1.1" 404 8100
+[2018-05-08 14:33:07,549] [WARNING] "GET / HTTP/1.1" 404 8100
+[2018-05-08 14:33:07,635] [WARNING] Not Found: /favicon.ico
+[2018-05-08 14:33:07,657] [WARNING] Not Found: /favicon.ico
+[2018-05-08 14:33:07,658] [WARNING] "GET /favicon.ico HTTP/1.1" 404 8151
+[2018-05-08 14:33:07,659] [WARNING] "GET /favicon.ico HTTP/1.1" 404 8151
+[2018-05-08 14:33:20,917] [INFO] "GET /test HTTP/1.1" 301 0
+[2018-05-08 15:45:59,169] [INFO] "GET /index_new/ HTTP/1.1" 200 8671
+[2018-05-08 15:45:59,185] [INFO] "GET /static/css/bootstrap.css HTTP/1.1" 200 132546
+[2018-05-08 15:45:59,191] [INFO] "GET /static/css/font-awesome.css HTTP/1.1" 200 26651
+[2018-05-08 15:45:59,194] [INFO] "GET /static/css/basic.css HTTP/1.1" 200 5042
+[2018-05-08 15:45:59,198] [INFO] "GET /static/css/custom.css HTTP/1.1" 200 4962
+[2018-05-08 15:45:59,204] [INFO] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 200 293285
+[2018-05-08 15:45:59,207] [INFO] "GET /static/js/bootstrap.js HTTP/1.1" 200 60681
+[2018-05-08 15:45:59,211] [INFO] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 200 1386
+[2018-05-08 15:45:59,215] [INFO] "GET /static/js/custom.js HTTP/1.1" 200 2773
+[2018-05-08 15:45:59,220] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-05-08 15:45:59,224] [INFO] "GET /static/img/spaceflight.png HTTP/1.1" 200 4695
+[2018-05-08 15:45:59,227] [INFO] "GET /static/img/user_logo.png HTTP/1.1" 200 2522
+[2018-05-08 15:45:59,230] [INFO] "GET /static/img/q.png HTTP/1.1" 304 0
+[2018-05-08 15:45:59,234] [INFO] "GET /static/img/w.png HTTP/1.1" 304 0
+[2018-05-08 15:45:59,238] [INFO] "GET /static/img/e.png HTTP/1.1" 200 1068
+[2018-05-08 15:45:59,242] [INFO] "GET /static/img/municipal.png HTTP/1.1" 200 3227
+[2018-05-08 15:45:59,245] [INFO] "GET /static/img/agriculture.png HTTP/1.1" 200 2855
+[2018-05-08 15:45:59,249] [INFO] "GET /static/img/forestry.png HTTP/1.1" 200 2607
+[2018-05-08 15:45:59,252] [INFO] "GET /static/img/environment.png HTTP/1.1" 200 2671
+[2018-05-08 15:45:59,255] [INFO] "GET /static/img/road.png HTTP/1.1" 200 2625
+[2018-05-08 15:45:59,258] [INFO] "GET /static/img/sedimentation.png HTTP/1.1" 200 2946
+[2018-05-08 15:46:06,192] [WARNING] Not Found: /
+[2018-05-08 15:46:06,194] [WARNING] "GET / HTTP/1.1" 404 8100
+[2018-05-08 21:06:01,080] [ERROR] Internal Server Error: /test/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 139, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view web.views.test didn't return an HttpResponse object. It returned None instead.
+[2018-05-08 21:06:01,178] [ERROR] "GET /test/ HTTP/1.1" 500 63395
+[2018-05-08 21:13:41,348] [INFO] "GET /index_new/ HTTP/1.1" 200 8671
+[2018-05-08 21:13:41,394] [INFO] "GET /static/css/basic.css HTTP/1.1" 304 0
+[2018-05-08 21:13:41,395] [INFO] "GET /static/img/user_logo.png HTTP/1.1" 200 2522
+[2018-05-08 21:13:41,395] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-05-08 21:13:43,654] [INFO] "GET /static/img/environment.png HTTP/1.1" 200 2671
+[2018-05-08 21:13:43,656] [INFO] "GET /static/img/e.png HTTP/1.1" 200 1068
+[2018-05-08 21:13:43,658] [INFO] "GET /static/img/road.png HTTP/1.1" 200 2625
+[2018-05-08 21:13:43,658] [INFO] "GET /static/img/spaceflight.png HTTP/1.1" 304 0
+[2018-05-08 21:13:43,659] [INFO] "GET /static/img/sedimentation.png HTTP/1.1" 200 2946
+[2018-05-08 21:13:43,663] [INFO] "GET /static/img/q.png HTTP/1.1" 200 944
+[2018-05-08 21:13:43,666] [INFO] "GET /static/img/municipal.png HTTP/1.1" 200 3227
+[2018-05-08 21:13:43,666] [INFO] "GET /static/img/forestry.png HTTP/1.1" 200 2607
+[2018-05-08 21:13:43,667] [INFO] "GET /static/img/w.png HTTP/1.1" 200 983
+[2018-05-08 21:13:43,668] [INFO] "GET /static/img/agriculture.png HTTP/1.1" 200 2855
+[2018-05-08 21:13:43,701] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-08 21:13:44,367] [INFO] "GET /static/img/building.png HTTP/1.1" 200 3621
+[2018-05-08 21:13:44,367] [INFO] "GET /static/img/remove.png HTTP/1.1" 200 3236
+[2018-05-08 21:13:44,372] [INFO] "GET /static/img/resource.png HTTP/1.1" 200 4033
+[2018-05-08 21:13:44,374] [INFO] "GET /static/img/date.png HTTP/1.1" 200 2959
+[2018-05-08 21:13:44,374] [INFO] "GET /static/img/user_%20statistics%20.png HTTP/1.1" 200 3193
+[2018-05-08 21:13:44,375] [INFO] "GET /static/img/setting.png HTTP/1.1" 200 3733
+[2018-05-08 21:13:44,394] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-08 21:13:44,463] [INFO] "GET /static/img/500305658_wx.png HTTP/1.1" 304 0
+[2018-05-08 21:13:44,681] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=tVE9gQNMFXa5daUlMnksR6MImB7uhHZjs9AYboJB3i2dMnTvMRlv1NBRRWDUlpCj HTTP/1.1" 200 36
+[2018-05-08 21:13:45,489] [INFO] "GET /offence_build/ HTTP/1.1" 200 3592
+[2018-05-08 21:13:46,064] [INFO] "GET /static/img/event.png HTTP/1.1" 200 1488
+[2018-05-08 21:13:46,065] [INFO] "GET /static/img/view.png HTTP/1.1" 200 1469
+[2018-05-08 21:13:46,645] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12105
+[2018-05-08 21:13:46,671] [INFO] "GET /static/js/load_draw.js HTTP/1.1" 200 724
+[2018-05-08 21:13:46,673] [INFO] "GET /static/js/select_draw.js HTTP/1.1" 304 0
+[2018-05-08 21:13:46,676] [INFO] "GET /static/js/polygon.js HTTP/1.1" 304 0
+[2018-05-08 21:13:46,676] [INFO] "GET /static/js/geomap.js HTTP/1.1" 200 1650
+[2018-05-08 21:13:46,695] [INFO] "GET /static/img/stsff.png HTTP/1.1" 304 0
+[2018-05-08 21:13:46,696] [INFO] "GET /static/img/view_download.png HTTP/1.1" 200 2791
+[2018-05-08 21:13:46,939] [ERROR] Internal Server Error: /load_all_draw/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 411, in load_all_draw
+    for draw in all_draws:
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 272, in __iter__
+    self._fetch_all()
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/sql/compiler.py", line 1066, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+[2018-05-08 21:13:47,065] [ERROR] "GET /load_all_draw/?csrfmiddlewaretoken=8SJmLnt9gjgRFCINyfJaJ1uzB73owTZP76FbGVpYEE8ZePHXyJKdTIjI6szOABCP HTTP/1.1" 500 21717
+[2018-05-08 21:14:02,507] [INFO] "GET /index_new/ HTTP/1.1" 200 8671
+[2018-05-08 21:14:02,640] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-08 21:14:02,641] [INFO] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 200 23320
+[2018-05-08 21:14:02,763] [INFO] "GET /static/js/jquery-3.3.1.min.js HTTP/1.1" 200 86927
+[2018-05-08 21:14:02,767] [INFO] "GET /static/img/remove.png HTTP/1.1" 200 3236
+[2018-05-08 21:14:02,771] [INFO] "GET /static/img/building.png HTTP/1.1" 200 3621
+[2018-05-08 21:14:02,772] [INFO] "GET /static/img/resource.png HTTP/1.1" 200 4033
+[2018-05-08 21:14:02,772] [INFO] "GET /static/img/user_%20statistics%20.png HTTP/1.1" 200 3193
+[2018-05-08 21:14:02,773] [INFO] "GET /static/img/date.png HTTP/1.1" 200 2959
+[2018-05-08 21:14:02,774] [INFO] "GET /static/img/setting.png HTTP/1.1" 200 3733
+[2018-05-08 21:14:02,846] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-08 21:14:02,881] [INFO] "GET /static/img/500305658_wx.png HTTP/1.1" 200 702374
+[2018-05-08 21:14:03,212] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=bZ4kPtOSJcxcMSK7lQrFbQordoOHDXErz09guXAIAlhFAF4ssV1irGNwjBJwDn1v HTTP/1.1" 200 18
+[2018-05-08 21:14:03,248] [WARNING] Not Found: /favicon.ico
+[2018-05-08 21:14:03,249] [WARNING] "GET /favicon.ico HTTP/1.1" 404 8151
+[2018-05-08 21:14:05,146] [WARNING] "GET /static/css/bootstrap.css.map HTTP/1.1" 404 1801
+[2018-05-08 21:14:06,039] [INFO] "GET /offence_build/ HTTP/1.1" 200 3592
+[2018-05-08 21:14:06,063] [INFO] "GET /static/img/view.png HTTP/1.1" 200 1469
+[2018-05-08 21:14:06,064] [INFO] "GET /static/img/event.png HTTP/1.1" 200 1488
+[2018-05-08 21:14:06,065] [INFO] "GET /static/js/jquery-1.8.2.min.js HTTP/1.1" 200 93435
+[2018-05-08 21:14:06,065] [INFO] "GET /static/js/require.js HTTP/1.1" 200 86481
+[2018-05-08 21:14:08,261] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12105
+[2018-05-08 21:14:08,286] [INFO] "GET /static/js/select_draw.js HTTP/1.1" 200 2892
+[2018-05-08 21:14:08,289] [INFO] "GET /static/js/load_draw.js HTTP/1.1" 304 0
+[2018-05-08 21:14:08,290] [INFO] "GET /static/js/geomap.js HTTP/1.1" 200 1650
+[2018-05-08 21:14:08,290] [INFO] "GET /static/img/stsff.png HTTP/1.1" 200 3392
+[2018-05-08 21:14:08,291] [INFO] "GET /static/img/view_download.png HTTP/1.1" 200 2791
+[2018-05-08 21:14:08,291] [INFO] "GET /static/js/polygon.js HTTP/1.1" 200 3313
+[2018-05-08 21:14:08,294] [INFO] "GET /static/js/distance.js HTTP/1.1" 200 12215
+[2018-05-08 21:14:08,295] [INFO] "GET /static/js/area.js HTTP/1.1" 200 12482
+[2018-05-08 21:14:08,634] [ERROR] Internal Server Error: /load_all_draw/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 411, in load_all_draw
+    for draw in all_draws:
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 272, in __iter__
+    self._fetch_all()
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/sql/compiler.py", line 1066, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+[2018-05-08 21:14:08,767] [ERROR] "GET /load_all_draw/?csrfmiddlewaretoken=TjiYPlmsV3UgXMoDwPRerIEAu0wWEgvrhknUuP8iMcEJLzIYDUrRHy3FAdrLEGSv HTTP/1.1" 500 21669
+[2018-05-08 21:14:51,163] [INFO] "GET /index_new/ HTTP/1.1" 200 8671
+[2018-05-08 21:14:51,255] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-08 21:14:51,336] [WARNING] "GET /static/css/bootstrap.css.map HTTP/1.1" 404 1801
+[2018-05-08 21:14:51,372] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-08 21:14:51,498] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=Dg1lDYgkjWHZdfIjFs2zcKrsnul9RLdk1h6his2aa5rs122EMxCcsAQxtHgYRbAo HTTP/1.1" 200 18
+[2018-05-08 21:14:52,296] [INFO] "GET /offence_build/ HTTP/1.1" 200 3592
+[2018-05-08 21:14:52,805] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12105
+[2018-05-08 21:14:52,825] [INFO] "GET /static/js/geomap.js HTTP/1.1" 304 0
+[2018-05-08 21:14:53,034] [ERROR] Internal Server Error: /load_all_draw/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 411, in load_all_draw
+    for draw in all_draws:
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 272, in __iter__
+    self._fetch_all()
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/sql/compiler.py", line 1066, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+[2018-05-08 21:14:53,137] [ERROR] "GET /load_all_draw/?csrfmiddlewaretoken=1eY4UNd9zXJoYkkbTgn1GsJlyLhKSWGepf30zhZZq6tRM7Ew0lXEWi8qEYczSm3i HTTP/1.1" 500 21669
+[2018-05-08 21:14:58,703] [WARNING] "GET /static/css/bootstrap.css.map HTTP/1.1" 404 1801
+[2018-05-08 21:34:53,826] [INFO] "GET /index_new/ HTTP/1.1" 200 8671
+[2018-05-08 21:34:53,897] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-08 21:34:53,965] [WARNING] "GET /static/css/bootstrap.css.map HTTP/1.1" 404 1801
+[2018-05-08 21:34:54,006] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-08 21:34:54,149] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=DA78fr27CZwKnj9YD64Lrkyd7dYVXS3l1Bc4UVOXt8gdb6tjKbEoHaXidqTKXiqp HTTP/1.1" 200 18
+[2018-05-08 21:34:55,340] [INFO] "GET /offence_build/ HTTP/1.1" 200 3592
+[2018-05-08 21:34:55,886] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12105
+[2018-05-08 21:34:55,903] [INFO] "GET /static/js/geomap.js HTTP/1.1" 304 0
+[2018-05-08 21:34:56,085] [ERROR] Internal Server Error: /load_all_draw/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 411, in load_all_draw
+    for draw in all_draws:
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 272, in __iter__
+    self._fetch_all()
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/sql/compiler.py", line 1066, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+[2018-05-08 21:34:56,266] [ERROR] "GET /load_all_draw/?csrfmiddlewaretoken=LMiyVewTrz20Y6fDJzwUK0wyYppLaxYF9NnuAIiJiIMtMTzYQE6x0QVD4CkAaXlJ HTTP/1.1" 500 21669
+[2018-05-08 22:33:35,436] [ERROR] Internal Server Error: /test/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 442, in test
+    ImagePre.buildPyramid()
+  File "/home/zhou/PycharmProjects/Demo/web/ImageryServer/ImagePre.py", line 72, in buildPyramid
+    iWidth = DS.GetRasterXSize()
+  File "/usr/local/lib/python3.5/dist-packages/osgeo/gdal.py", line 1812, in <lambda>
+    __getattr__ = lambda self, name: _swig_getattr(self, Dataset, name)
+  File "/usr/local/lib/python3.5/dist-packages/osgeo/gdal.py", line 74, in _swig_getattr
+    return _swig_getattr_nondynamic(self, class_type, name, 0)
+  File "/usr/local/lib/python3.5/dist-packages/osgeo/gdal.py", line 69, in _swig_getattr_nondynamic
+    return object.__getattr__(self, name)
+AttributeError: type object 'object' has no attribute '__getattr__'
+[2018-05-08 22:33:35,754] [ERROR] "GET /test/ HTTP/1.1" 500 88528
+[2018-05-08 22:34:12,126] [ERROR] Internal Server Error: /test/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 442, in test
+    ImagePre.buildPyramid()
+  File "/home/zhou/PycharmProjects/Demo/web/ImageryServer/ImagePre.py", line 72, in buildPyramid
+    iWidth = DS.GetRasterXSize
+  File "/usr/local/lib/python3.5/dist-packages/osgeo/gdal.py", line 1812, in <lambda>
+    __getattr__ = lambda self, name: _swig_getattr(self, Dataset, name)
+  File "/usr/local/lib/python3.5/dist-packages/osgeo/gdal.py", line 74, in _swig_getattr
+    return _swig_getattr_nondynamic(self, class_type, name, 0)
+  File "/usr/local/lib/python3.5/dist-packages/osgeo/gdal.py", line 69, in _swig_getattr_nondynamic
+    return object.__getattr__(self, name)
+AttributeError: type object 'object' has no attribute '__getattr__'
+[2018-05-08 22:34:12,447] [ERROR] "GET /test/ HTTP/1.1" 500 88657
+[2018-05-08 22:40:36,069] [ERROR] Internal Server Error: /test/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 139, in _get_response
+    "returned None instead." % (callback.__module__, view_name)
+ValueError: The view web.views.test didn't return an HttpResponse object. It returned None instead.
+[2018-05-08 22:40:36,408] [ERROR] "GET /test/ HTTP/1.1" 500 63272
+[2018-05-08 22:43:19,229] [INFO] "GET /index_new/ HTTP/1.1" 200 8671
+[2018-05-08 22:43:19,272] [INFO] "GET /static/img/user_logo.png HTTP/1.1" 200 2522
+[2018-05-08 22:43:19,274] [INFO] "GET /static/img/q.png HTTP/1.1" 200 944
+[2018-05-08 22:43:19,275] [INFO] "GET /static/img/w.png HTTP/1.1" 200 983
+[2018-05-08 22:43:19,281] [INFO] "GET /static/img/e.png HTTP/1.1" 200 1068
+[2018-05-08 22:43:19,283] [INFO] "GET /static/img/municipal.png HTTP/1.1" 200 3227
+[2018-05-08 22:43:19,283] [INFO] "GET /static/img/agriculture.png HTTP/1.1" 200 2855
+[2018-05-08 22:43:19,284] [INFO] "GET /static/img/forestry.png HTTP/1.1" 200 2607
+[2018-05-08 22:43:19,331] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-08 22:43:19,446] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-08 22:43:19,600] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=vt4fnKKK17dQQYGuZPnMiZry8GwRUbosuH04iiGzps5YpbFEZjoPsGgHD12hYT1s HTTP/1.1" 200 36
+[2018-05-08 22:43:20,525] [INFO] "GET /offence_build/ HTTP/1.1" 200 3592
+[2018-05-08 22:43:20,577] [INFO] "GET /static/img/event.png HTTP/1.1" 304 0
+[2018-05-08 22:43:20,578] [INFO] "GET /static/img/view.png HTTP/1.1" 304 0
+[2018-05-08 22:43:21,077] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12105
+[2018-05-08 22:43:21,096] [INFO] "GET /static/js/geomap.js HTTP/1.1" 200 1650
+[2018-05-08 22:43:21,099] [INFO] "GET /static/js/load_draw.js HTTP/1.1" 200 724
+[2018-05-08 22:43:21,145] [INFO] "GET /static/img/view_download.png HTTP/1.1" 200 2791
+[2018-05-08 22:43:21,229] [ERROR] Internal Server Error: /load_all_draw/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 411, in load_all_draw
+    for draw in all_draws:
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 272, in __iter__
+    self._fetch_all()
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/sql/compiler.py", line 1066, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+[2018-05-08 22:43:21,367] [ERROR] "GET /load_all_draw/?csrfmiddlewaretoken=lle6GhSSaLIQxvOW3Rjx4r0XYIE5UnGhkzaVBPOHy6AY6IN63lkAe8P6t3avY5jh HTTP/1.1" 500 21717
+[2018-05-08 22:45:23,597] [INFO] "GET /index_new/ HTTP/1.1" 200 8671
+[2018-05-08 22:45:23,630] [INFO] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[2018-05-08 22:45:23,630] [INFO] "GET /static/css/font-awesome.css HTTP/1.1" 304 0
+[2018-05-08 22:45:23,633] [INFO] "GET /static/css/custom.css HTTP/1.1" 304 0
+[2018-05-08 22:45:23,634] [INFO] "GET /static/css/basic.css HTTP/1.1" 304 0
+[2018-05-08 22:45:23,635] [INFO] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 304 0
+[2018-05-08 22:45:23,642] [INFO] "GET /static/js/custom.js HTTP/1.1" 304 0
+[2018-05-08 22:45:23,642] [INFO] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 304 0
+[2018-05-08 22:45:23,642] [INFO] "GET /static/js/bootstrap.js HTTP/1.1" 304 0
+[2018-05-08 22:45:23,643] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-05-08 22:45:23,787] [INFO] "GET /static/img/user_logo.png HTTP/1.1" 304 0
+[2018-05-08 22:45:23,788] [INFO] "GET /static/img/spaceflight.png HTTP/1.1" 200 4695
+[2018-05-08 22:45:23,789] [INFO] "GET /static/img/q.png HTTP/1.1" 304 0
+[2018-05-08 22:45:23,794] [INFO] "GET /static/img/e.png HTTP/1.1" 304 0
+[2018-05-08 22:45:23,796] [INFO] "GET /static/img/municipal.png HTTP/1.1" 304 0
+[2018-05-08 22:45:23,798] [INFO] "GET /static/img/w.png HTTP/1.1" 304 0
+[2018-05-08 22:45:23,799] [INFO] "GET /static/img/agriculture.png HTTP/1.1" 304 0
+[2018-05-08 22:45:23,803] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-08 22:45:23,805] [INFO] "GET /static/img/forestry.png HTTP/1.1" 304 0
+[2018-05-08 22:45:23,808] [INFO] "GET /static/img/sedimentation.png HTTP/1.1" 304 0
+[2018-05-08 22:45:23,808] [INFO] "GET /static/img/environment.png HTTP/1.1" 304 0
+[2018-05-08 22:45:23,809] [INFO] "GET /static/img/road.png HTTP/1.1" 304 0
+[2018-05-08 22:45:23,961] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-08 22:45:24,112] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=RRvGJ3LbjCB5xcPU76EZ7hYWmNF7H9XnQ5rvEBH0HXtd6pO47AF2hYN5R8bxLRAn HTTP/1.1" 200 36
+[2018-05-08 22:45:25,065] [INFO] "GET /offence_build/ HTTP/1.1" 200 3592
+[2018-05-08 22:45:25,633] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12105
+[2018-05-08 22:45:25,661] [INFO] "GET /static/js/load_draw.js HTTP/1.1" 304 0
+[2018-05-08 22:45:25,728] [INFO] "GET /static/img/view_download.png HTTP/1.1" 200 2791
+[2018-05-08 22:45:25,748] [ERROR] Internal Server Error: /load_all_draw/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 411, in load_all_draw
+    for draw in all_draws:
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 272, in __iter__
+    self._fetch_all()
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/sql/compiler.py", line 1066, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+[2018-05-08 22:45:25,858] [ERROR] "GET /load_all_draw/?csrfmiddlewaretoken=kWXs2Cu8OboEGDQxi3ulo6EkIfgUlXBKjaThXaqXcwgMfQPHixvoyNttdAMkpFeK HTTP/1.1" 500 21717
+[2018-05-09 07:10:37,069] [ERROR] Internal Server Error: /test/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 442, in test
+    ImagePre.preprogress()
+  File "/home/zhou/PycharmProjects/Demo/web/ImageryServer/ImagePre.py", line 64, in preprogress
+    iWidth = DS.RasterXSize
+AttributeError: 'NoneType' object has no attribute 'RasterXSize'
+[2018-05-09 07:10:37,193] [ERROR] "GET /test/ HTTP/1.1" 500 87910
+[2018-05-09 10:01:50,339] [INFO] "GET /index_new/ HTTP/1.1" 200 8671
+[2018-05-09 10:01:50,376] [INFO] "GET /static/img/q.png HTTP/1.1" 200 944
+[2018-05-09 10:01:50,377] [INFO] "GET /static/img/w.png HTTP/1.1" 200 983
+[2018-05-09 10:01:50,378] [INFO] "GET /static/img/e.png HTTP/1.1" 200 1068
+[2018-05-09 10:01:50,381] [INFO] "GET /static/img/agriculture.png HTTP/1.1" 200 2855
+[2018-05-09 10:01:50,381] [INFO] "GET /static/img/municipal.png HTTP/1.1" 200 3227
+[2018-05-09 10:01:50,382] [INFO] "GET /static/img/sedimentation.png HTTP/1.1" 200 2946
+[2018-05-09 10:01:50,382] [INFO] "GET /static/img/forestry.png HTTP/1.1" 200 2607
+[2018-05-09 10:01:50,436] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-09 10:01:50,443] [INFO] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 200 8192
+[2018-05-09 10:01:50,484] [INFO] "GET /static/js/jquery-3.3.1.min.js HTTP/1.1" 304 0
+[2018-05-09 10:01:50,560] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-09 10:01:50,747] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=Bdzo25cdAV2obQCI4kqSdNlb5btJIcgwArvdXD82YgUwK3BS4OrVnuakAwZ9MUTw HTTP/1.1" 200 36
+[2018-05-09 10:01:51,918] [INFO] "GET /offence_build/ HTTP/1.1" 200 3592
+[2018-05-09 10:01:51,939] [INFO] "GET /static/js/jquery-1.8.2.min.js HTTP/1.1" 304 0
+[2018-05-09 10:01:52,800] [INFO] "GET /offence_build/ HTTP/1.1" 200 3592
+[2018-05-09 10:01:53,460] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12105
+[2018-05-09 10:01:53,485] [INFO] "GET /static/js/geomap.js HTTP/1.1" 200 1650
+[2018-05-09 10:01:53,486] [INFO] "GET /static/js/load_draw.js HTTP/1.1" 200 724
+[2018-05-09 10:01:53,494] [INFO] "GET /static/js/distance.js HTTP/1.1" 304 0
+[2018-05-09 10:01:53,495] [INFO] "GET /static/js/area.js HTTP/1.1" 304 0
+[2018-05-09 10:01:53,910] [ERROR] Internal Server Error: /load_all_draw/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 411, in load_all_draw
+    for draw in all_draws:
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 272, in __iter__
+    self._fetch_all()
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/sql/compiler.py", line 1066, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+[2018-05-09 10:01:54,054] [ERROR] "GET /load_all_draw/?csrfmiddlewaretoken=4TOFphrVZnfMhSmOMApsAfDPBrPtI2jK37KukPnKnI7UQ5lYM4qvKWsY6MlTMKWK HTTP/1.1" 500 21717
+[2018-05-09 10:22:54,184] [INFO] "GET /index_new/ HTTP/1.1" 200 8671
+[2018-05-09 10:22:54,218] [INFO] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[2018-05-09 10:22:54,219] [INFO] "GET /static/css/font-awesome.css HTTP/1.1" 304 0
+[2018-05-09 10:22:54,220] [INFO] "GET /static/css/basic.css HTTP/1.1" 304 0
+[2018-05-09 10:22:54,222] [INFO] "GET /static/css/custom.css HTTP/1.1" 304 0
+[2018-05-09 10:22:54,224] [INFO] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 304 0
+[2018-05-09 10:22:54,225] [INFO] "GET /static/js/bootstrap.js HTTP/1.1" 304 0
+[2018-05-09 10:22:54,227] [INFO] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 304 0
+[2018-05-09 10:22:54,228] [INFO] "GET /static/js/custom.js HTTP/1.1" 304 0
+[2018-05-09 10:22:54,230] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-05-09 10:22:56,555] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-09 10:22:56,556] [INFO] "GET /static/img/user_logo.png HTTP/1.1" 304 0
+[2018-05-09 10:22:56,560] [INFO] "GET /static/img/q.png HTTP/1.1" 304 0
+[2018-05-09 10:22:56,560] [INFO] "GET /static/img/spaceflight.png HTTP/1.1" 200 4695
+[2018-05-09 10:22:56,561] [INFO] "GET /static/img/e.png HTTP/1.1" 304 0
+[2018-05-09 10:22:56,562] [INFO] "GET /static/img/w.png HTTP/1.1" 304 0
+[2018-05-09 10:22:56,567] [INFO] "GET /static/img/agriculture.png HTTP/1.1" 304 0
+[2018-05-09 10:22:56,569] [INFO] "GET /static/img/road.png HTTP/1.1" 304 0
+[2018-05-09 10:22:56,570] [INFO] "GET /static/img/environment.png HTTP/1.1" 304 0
+[2018-05-09 10:22:56,572] [INFO] "GET /static/img/sedimentation.png HTTP/1.1" 304 0
+[2018-05-09 10:22:56,572] [INFO] "GET /static/img/municipal.png HTTP/1.1" 304 0
+[2018-05-09 10:22:56,573] [INFO] "GET /static/img/forestry.png HTTP/1.1" 304 0
+[2018-05-09 10:22:56,650] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-09 10:22:56,832] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=cHB6vf4BdyNjmwNrfuIcKkwacSsDpDfcbVxVqN0qBTFrVJMBfYJfU1ljHdY3tlSc HTTP/1.1" 200 36
+[2018-05-09 10:23:01,977] [INFO] "GET /index_new/ HTTP/1.1" 200 8671
+[2018-05-09 10:23:02,013] [INFO] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[2018-05-09 10:23:02,017] [INFO] "GET /static/css/font-awesome.css HTTP/1.1" 304 0
+[2018-05-09 10:23:02,019] [INFO] "GET /static/css/custom.css HTTP/1.1" 304 0
+[2018-05-09 10:23:02,019] [INFO] "GET /static/css/basic.css HTTP/1.1" 304 0
+[2018-05-09 10:23:02,021] [INFO] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 304 0
+[2018-05-09 10:23:02,023] [INFO] "GET /static/js/bootstrap.js HTTP/1.1" 304 0
+[2018-05-09 10:23:02,025] [INFO] "GET /static/js/custom.js HTTP/1.1" 304 0
+[2018-05-09 10:23:02,026] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-05-09 10:23:02,027] [INFO] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 304 0
+[2018-05-09 10:23:02,162] [INFO] "GET /static/img/spaceflight.png HTTP/1.1" 304 0
+[2018-05-09 10:23:02,163] [INFO] "GET /static/img/user_logo.png HTTP/1.1" 304 0
+[2018-05-09 10:23:02,164] [INFO] "GET /static/img/q.png HTTP/1.1" 304 0
+[2018-05-09 10:23:02,170] [INFO] "GET /static/img/e.png HTTP/1.1" 304 0
+[2018-05-09 10:23:02,172] [INFO] "GET /static/img/municipal.png HTTP/1.1" 304 0
+[2018-05-09 10:23:02,174] [INFO] "GET /static/img/w.png HTTP/1.1" 304 0
+[2018-05-09 10:23:02,176] [INFO] "GET /static/img/agriculture.png HTTP/1.1" 304 0
+[2018-05-09 10:23:02,178] [INFO] "GET /static/img/forestry.png HTTP/1.1" 304 0
+[2018-05-09 10:23:02,181] [INFO] "GET /static/img/environment.png HTTP/1.1" 304 0
+[2018-05-09 10:23:02,183] [INFO] "GET /static/img/sedimentation.png HTTP/1.1" 304 0
+[2018-05-09 10:23:02,184] [INFO] "GET /static/img/road.png HTTP/1.1" 304 0
+[2018-05-09 10:23:02,184] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-09 10:23:02,270] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-09 10:23:02,433] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=6EMfnLj5srvnpvWXyi0F2vIlYdBECOVd5SI4ijfUQMnvYIV7yM1Iccxuty74Gwyd HTTP/1.1" 200 36
+[2018-05-09 10:23:08,472] [INFO] "GET /offence_build/ HTTP/1.1" 200 3592
+[2018-05-09 10:23:09,197] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12105
+[2018-05-09 10:23:09,339] [ERROR] Internal Server Error: /load_all_draw/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 411, in load_all_draw
+    for draw in all_draws:
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 272, in __iter__
+    self._fetch_all()
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/sql/compiler.py", line 1066, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+[2018-05-09 10:23:09,439] [ERROR] "GET /load_all_draw/?csrfmiddlewaretoken=jD359Dg07aPSmtnElGgcrtXl3QAOoaSAiRZU4bcPvvH0VGmOlahfBaMuyb6esSvA HTTP/1.1" 500 21717
+[2018-05-09 10:26:11,764] [INFO] "GET /index_new/ HTTP/1.1" 200 8671
+[2018-05-09 10:26:11,793] [INFO] "GET /static/css/font-awesome.css HTTP/1.1" 304 0
+[2018-05-09 10:26:11,797] [INFO] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[2018-05-09 10:26:11,798] [INFO] "GET /static/css/basic.css HTTP/1.1" 304 0
+[2018-05-09 10:26:11,798] [INFO] "GET /static/css/custom.css HTTP/1.1" 304 0
+[2018-05-09 10:26:11,802] [INFO] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 304 0
+[2018-05-09 10:26:11,802] [INFO] "GET /static/js/custom.js HTTP/1.1" 304 0
+[2018-05-09 10:26:11,802] [INFO] "GET /static/js/bootstrap.js HTTP/1.1" 304 0
+[2018-05-09 10:26:11,806] [INFO] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 304 0
+[2018-05-09 10:26:11,807] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-05-09 10:26:12,109] [INFO] "GET /static/img/spaceflight.png HTTP/1.1" 304 0
+[2018-05-09 10:26:12,110] [INFO] "GET /static/img/user_logo.png HTTP/1.1" 304 0
+[2018-05-09 10:26:12,114] [INFO] "GET /static/img/q.png HTTP/1.1" 304 0
+[2018-05-09 10:26:12,118] [INFO] "GET /static/img/e.png HTTP/1.1" 304 0
+[2018-05-09 10:26:12,119] [INFO] "GET /static/img/w.png HTTP/1.1" 304 0
+[2018-05-09 10:26:12,121] [INFO] "GET /static/img/agriculture.png HTTP/1.1" 304 0
+[2018-05-09 10:26:12,123] [INFO] "GET /static/img/municipal.png HTTP/1.1" 304 0
+[2018-05-09 10:26:12,127] [INFO] "GET /static/img/forestry.png HTTP/1.1" 304 0
+[2018-05-09 10:26:12,129] [INFO] "GET /static/img/environment.png HTTP/1.1" 304 0
+[2018-05-09 10:26:12,129] [INFO] "GET /static/img/road.png HTTP/1.1" 304 0
+[2018-05-09 10:26:12,134] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-09 10:26:12,135] [INFO] "GET /static/img/sedimentation.png HTTP/1.1" 304 0
+[2018-05-09 10:26:12,224] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-09 10:26:12,380] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=njRndvQ8vIIOZyVmIMUaK5T9OGIFLFSAmxNc83MXT3AWyLUwIgVdUMIij1e5PnvA HTTP/1.1" 200 36
+[2018-05-09 10:26:13,441] [INFO] "GET /offence_build/ HTTP/1.1" 200 3592
+[2018-05-09 10:26:13,892] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12105
+[2018-05-09 10:26:14,006] [ERROR] Internal Server Error: /load_all_draw/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 411, in load_all_draw
+    for draw in all_draws:
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 272, in __iter__
+    self._fetch_all()
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/sql/compiler.py", line 1066, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+[2018-05-09 10:26:14,105] [ERROR] "GET /load_all_draw/?csrfmiddlewaretoken=XnjT5Sk1NXXj0264qpHPT7dNMlvbVZ6KWBfI0qgQbiPrzf5eqTIS3O2WhG1BZHJK HTTP/1.1" 500 21717
+[2018-05-09 10:27:05,468] [INFO] "GET /index_new/ HTTP/1.1" 200 8671
+[2018-05-09 10:27:05,500] [INFO] "GET /static/css/font-awesome.css HTTP/1.1" 304 0
+[2018-05-09 10:27:05,500] [INFO] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[2018-05-09 10:27:05,501] [INFO] "GET /static/css/basic.css HTTP/1.1" 304 0
+[2018-05-09 10:27:05,506] [INFO] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 304 0
+[2018-05-09 10:27:05,507] [INFO] "GET /static/css/custom.css HTTP/1.1" 304 0
+[2018-05-09 10:27:05,509] [INFO] "GET /static/js/bootstrap.js HTTP/1.1" 304 0
+[2018-05-09 10:27:05,512] [INFO] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 304 0
+[2018-05-09 10:27:05,512] [INFO] "GET /static/js/custom.js HTTP/1.1" 304 0
+[2018-05-09 10:27:05,513] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-05-09 10:27:05,653] [INFO] "GET /static/img/spaceflight.png HTTP/1.1" 304 0
+[2018-05-09 10:27:05,656] [INFO] "GET /static/img/user_logo.png HTTP/1.1" 304 0
+[2018-05-09 10:27:05,657] [INFO] "GET /static/img/q.png HTTP/1.1" 304 0
+[2018-05-09 10:27:05,659] [INFO] "GET /static/img/w.png HTTP/1.1" 304 0
+[2018-05-09 10:27:05,661] [INFO] "GET /static/img/e.png HTTP/1.1" 304 0
+[2018-05-09 10:27:05,663] [INFO] "GET /static/img/municipal.png HTTP/1.1" 304 0
+[2018-05-09 10:27:05,665] [INFO] "GET /static/img/agriculture.png HTTP/1.1" 304 0
+[2018-05-09 10:27:05,671] [INFO] "GET /static/img/sedimentation.png HTTP/1.1" 304 0
+[2018-05-09 10:27:05,671] [INFO] "GET /static/img/environment.png HTTP/1.1" 304 0
+[2018-05-09 10:27:05,675] [INFO] "GET /static/img/forestry.png HTTP/1.1" 304 0
+[2018-05-09 10:27:05,678] [INFO] "GET /static/img/road.png HTTP/1.1" 304 0
+[2018-05-09 10:27:05,678] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-09 10:27:05,762] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-09 10:27:05,905] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=cFwvehh1VkWl8UYspjYkgaoa66M7U6qPbTsk9PdQjFOtH7XCpNZnqRdjBrixYO3P HTTP/1.1" 200 36
+[2018-05-09 10:27:06,817] [INFO] "GET /offence_build/ HTTP/1.1" 200 3592
+[2018-05-09 10:27:07,364] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12105
+[2018-05-09 10:27:07,477] [ERROR] Internal Server Error: /load_all_draw/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 411, in load_all_draw
+    for draw in all_draws:
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 272, in __iter__
+    self._fetch_all()
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/sql/compiler.py", line 1066, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+[2018-05-09 10:27:07,577] [ERROR] "GET /load_all_draw/?csrfmiddlewaretoken=l4wUTFYfzZGD7CtF3KvuXCAtMBQHq2xskisJOdU4XkyLGPsP3ewx7jpChWm7uKas HTTP/1.1" 500 21717
+[2018-05-09 10:27:23,806] [INFO] "GET /index_new/ HTTP/1.1" 200 8671
+[2018-05-09 10:27:23,841] [INFO] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[2018-05-09 10:27:23,843] [INFO] "GET /static/css/font-awesome.css HTTP/1.1" 304 0
+[2018-05-09 10:27:23,844] [INFO] "GET /static/css/basic.css HTTP/1.1" 304 0
+[2018-05-09 10:27:23,847] [INFO] "GET /static/css/custom.css HTTP/1.1" 304 0
+[2018-05-09 10:27:23,849] [INFO] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 304 0
+[2018-05-09 10:27:23,851] [INFO] "GET /static/js/bootstrap.js HTTP/1.1" 304 0
+[2018-05-09 10:27:23,852] [INFO] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 304 0
+[2018-05-09 10:27:23,854] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-05-09 10:27:23,854] [INFO] "GET /static/js/custom.js HTTP/1.1" 304 0
+[2018-05-09 10:27:24,026] [INFO] "GET /static/img/spaceflight.png HTTP/1.1" 304 0
+[2018-05-09 10:27:24,029] [INFO] "GET /static/img/user_logo.png HTTP/1.1" 304 0
+[2018-05-09 10:27:24,031] [INFO] "GET /static/img/q.png HTTP/1.1" 304 0
+[2018-05-09 10:27:24,033] [INFO] "GET /static/img/w.png HTTP/1.1" 304 0
+[2018-05-09 10:27:24,038] [INFO] "GET /static/img/e.png HTTP/1.1" 304 0
+[2018-05-09 10:27:24,039] [INFO] "GET /static/img/municipal.png HTTP/1.1" 304 0
+[2018-05-09 10:27:24,040] [INFO] "GET /static/img/forestry.png HTTP/1.1" 304 0
+[2018-05-09 10:27:24,041] [INFO] "GET /static/img/agriculture.png HTTP/1.1" 304 0
+[2018-05-09 10:27:24,045] [INFO] "GET /static/img/environment.png HTTP/1.1" 304 0
+[2018-05-09 10:27:24,045] [INFO] "GET /static/img/road.png HTTP/1.1" 304 0
+[2018-05-09 10:27:24,047] [INFO] "GET /static/img/sedimentation.png HTTP/1.1" 304 0
+[2018-05-09 10:27:24,072] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-09 10:27:24,346] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-09 10:27:24,546] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=VuWLyx746iStMa2bYpOrbTriro6B0dlqUISAt53TuDKBln1lYTPulAgrWJC14VYq HTTP/1.1" 200 36
+[2018-05-09 10:27:26,008] [INFO] "GET /offence_build/ HTTP/1.1" 200 3592
+[2018-05-09 10:27:26,598] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12105
+[2018-05-09 10:27:26,772] [ERROR] Internal Server Error: /load_all_draw/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 411, in load_all_draw
+    for draw in all_draws:
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 272, in __iter__
+    self._fetch_all()
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/sql/compiler.py", line 1066, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+[2018-05-09 10:27:26,907] [ERROR] "GET /load_all_draw/?csrfmiddlewaretoken=Bspxwxm6XfG2HOGw3HmS8J0bVB46gPFbAGlmr5iVlAyag1FG3bnViqPkqWAwkxib HTTP/1.1" 500 21717
+[2018-05-09 10:27:35,810] [INFO] "GET /index_new/ HTTP/1.1" 200 8671
+[2018-05-09 10:27:35,937] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-09 10:27:36,108] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-09 10:27:36,220] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=KvTinOE49eSyw4CaKWbFGUL6VFHKxKtN8wYe2iqU0nC1kRWvR1LiWKab1SCzxaQR HTTP/1.1" 200 18
+[2018-05-09 10:27:36,243] [WARNING] Not Found: /favicon.ico
+[2018-05-09 10:27:36,243] [WARNING] "GET /favicon.ico HTTP/1.1" 404 8151
+[2018-05-09 10:27:38,031] [WARNING] "GET /static/css/bootstrap.css.map HTTP/1.1" 404 1801
+[2018-05-09 10:27:41,996] [INFO] "GET /offence_build/ HTTP/1.1" 200 3592
+[2018-05-09 10:27:42,906] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12105
+[2018-05-09 10:27:42,928] [INFO] "GET /static/js/geomap.js HTTP/1.1" 200 1597
+[2018-05-09 10:27:43,293] [ERROR] Internal Server Error: /load_all_draw/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 411, in load_all_draw
+    for draw in all_draws:
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 272, in __iter__
+    self._fetch_all()
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/sql/compiler.py", line 1066, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+[2018-05-09 10:27:43,402] [ERROR] "GET /load_all_draw/?csrfmiddlewaretoken=pNh5pTiFG8IAJukJ6CaH2Hl1S8u8QvABNOm14n4vxhs3xhE4dHKkixK6YlpXQVXF HTTP/1.1" 500 21669
+[2018-05-09 10:28:09,282] [INFO] "GET /index_new/ HTTP/1.1" 200 8671
+[2018-05-09 10:28:09,368] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-09 10:28:09,435] [WARNING] "GET /static/css/bootstrap.css.map HTTP/1.1" 404 1801
+[2018-05-09 10:28:09,468] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-09 10:28:09,602] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=Q3XkgjuJ0Rl3CdysZNdwzfLhi3Itq2DQe42gVNgzR05wq0SN6SN9P5amogDiqs0U HTTP/1.1" 200 18
+[2018-05-09 10:28:11,252] [INFO] "GET /offence_build/ HTTP/1.1" 200 3592
+[2018-05-09 10:28:11,753] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12105
+[2018-05-09 10:28:11,779] [INFO] "GET /static/js/geomap.js HTTP/1.1" 304 0
+[2018-05-09 10:28:11,964] [ERROR] Internal Server Error: /load_all_draw/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 411, in load_all_draw
+    for draw in all_draws:
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 272, in __iter__
+    self._fetch_all()
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/sql/compiler.py", line 1066, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+[2018-05-09 10:28:12,100] [ERROR] "GET /load_all_draw/?csrfmiddlewaretoken=tCJYlFwoutUPjLBevfo3Xf7lMckzqDJjRDOU09ielCEi7yVzCkYGd5wqSpfoq36n HTTP/1.1" 500 21669
+[2018-05-09 10:28:54,941] [INFO] "GET /index_new/ HTTP/1.1" 200 8671
+[2018-05-09 10:28:54,988] [INFO] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[2018-05-09 10:28:54,988] [INFO] "GET /static/css/font-awesome.css HTTP/1.1" 304 0
+[2018-05-09 10:28:54,991] [INFO] "GET /static/css/custom.css HTTP/1.1" 304 0
+[2018-05-09 10:28:54,991] [INFO] "GET /static/css/basic.css HTTP/1.1" 304 0
+[2018-05-09 10:28:54,994] [INFO] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 304 0
+[2018-05-09 10:28:54,999] [INFO] "GET /static/js/bootstrap.js HTTP/1.1" 304 0
+[2018-05-09 10:28:55,001] [INFO] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 304 0
+[2018-05-09 10:28:55,001] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-05-09 10:28:55,002] [INFO] "GET /static/js/custom.js HTTP/1.1" 304 0
+[2018-05-09 10:28:55,162] [INFO] "GET /static/img/user_logo.png HTTP/1.1" 304 0
+[2018-05-09 10:28:55,164] [INFO] "GET /static/img/spaceflight.png HTTP/1.1" 304 0
+[2018-05-09 10:28:55,164] [INFO] "GET /static/img/q.png HTTP/1.1" 304 0
+[2018-05-09 10:28:55,165] [INFO] "GET /static/img/w.png HTTP/1.1" 304 0
+[2018-05-09 10:28:55,177] [INFO] "GET /static/img/e.png HTTP/1.1" 304 0
+[2018-05-09 10:28:55,186] [INFO] "GET /static/img/municipal.png HTTP/1.1" 304 0
+[2018-05-09 10:28:55,194] [INFO] "GET /static/img/agriculture.png HTTP/1.1" 304 0
+[2018-05-09 10:28:55,196] [INFO] "GET /static/img/forestry.png HTTP/1.1" 304 0
+[2018-05-09 10:28:55,197] [INFO] "GET /static/img/environment.png HTTP/1.1" 304 0
+[2018-05-09 10:28:55,199] [INFO] "GET /static/img/road.png HTTP/1.1" 304 0
+[2018-05-09 10:28:55,199] [INFO] "GET /static/img/sedimentation.png HTTP/1.1" 304 0
+[2018-05-09 10:28:55,204] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-09 10:28:55,399] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-09 10:28:55,580] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=8nrsrm6Zcy1O6dywheslwhmmVvLa6AEl7BnhmU2OATTWFqxGhItoGYbvqQhAaihl HTTP/1.1" 200 36
+[2018-05-09 10:28:56,577] [INFO] "GET /offence_build/ HTTP/1.1" 200 3592
+[2018-05-09 10:28:57,175] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12105
+[2018-05-09 10:28:57,373] [ERROR] Internal Server Error: /load_all_draw/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 411, in load_all_draw
+    for draw in all_draws:
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 272, in __iter__
+    self._fetch_all()
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/sql/compiler.py", line 1066, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+[2018-05-09 10:28:57,476] [ERROR] "GET /load_all_draw/?csrfmiddlewaretoken=jpD9JLveJ0xdbfPfG7Od7bvYX9niqydKiDzYEjr37lplKsOpGBPghSk7suTIugQK HTTP/1.1" 500 21717
+[2018-05-09 10:32:18,346] [INFO] "GET /index_new/ HTTP/1.1" 200 8671
+[2018-05-09 10:32:18,424] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-09 10:32:18,528] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-09 10:32:18,663] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=OA5u9AP752BVsOQEEKbgYCiR8W63K5hucBaqO4BXWblogBaZLPLTesHWe91SKvEy HTTP/1.1" 200 18
+[2018-05-09 10:32:19,080] [WARNING] "GET /static/css/bootstrap.css.map HTTP/1.1" 404 1801
+[2018-05-09 10:32:20,403] [INFO] "GET /offence_build/ HTTP/1.1" 200 3592
+[2018-05-09 10:32:20,900] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12105
+[2018-05-09 10:32:20,922] [INFO] "GET /static/js/geomap.js HTTP/1.1" 304 0
+[2018-05-09 10:32:21,111] [ERROR] Internal Server Error: /load_all_draw/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 411, in load_all_draw
+    for draw in all_draws:
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 272, in __iter__
+    self._fetch_all()
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/sql/compiler.py", line 1066, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+[2018-05-09 10:32:21,248] [ERROR] "GET /load_all_draw/?csrfmiddlewaretoken=DCqvbBuMMgEVj5IBlQSJ5Clj6ucd2dYQ1DvrQ5gCDpoo7S2WsVsmlsKocH722DlU HTTP/1.1" 500 21669
+[2018-05-09 10:32:34,945] [INFO] "GET /index_new/ HTTP/1.1" 200 8671
+[2018-05-09 10:32:34,969] [INFO] "GET /static/css/bootstrap.css HTTP/1.1" 200 132546
+[2018-05-09 10:32:34,978] [INFO] "GET /static/css/basic.css HTTP/1.1" 200 5042
+[2018-05-09 10:32:34,980] [INFO] "GET /static/css/custom.css HTTP/1.1" 200 4962
+[2018-05-09 10:32:34,980] [INFO] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 200 1386
+[2018-05-09 10:32:34,981] [INFO] "GET /static/js/bootstrap.js HTTP/1.1" 200 60681
+[2018-05-09 10:32:34,981] [INFO] "GET /static/css/font-awesome.css HTTP/1.1" 200 26651
+[2018-05-09 10:32:34,985] [INFO] "GET /static/js/custom.js HTTP/1.1" 200 2773
+[2018-05-09 10:32:34,985] [INFO] "GET /static/js/common.js HTTP/1.1" 200 920
+[2018-05-09 10:32:34,986] [INFO] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 200 293285
+[2018-05-09 10:32:34,988] [INFO] "GET /static/img/spaceflight.png HTTP/1.1" 200 4695
+[2018-05-09 10:32:34,990] [INFO] "GET /static/img/user_logo.png HTTP/1.1" 200 2522
+[2018-05-09 10:32:34,992] [INFO] "GET /static/img/q.png HTTP/1.1" 200 944
+[2018-05-09 10:32:34,994] [INFO] "GET /static/img/w.png HTTP/1.1" 200 983
+[2018-05-09 10:32:34,996] [INFO] "GET /static/img/e.png HTTP/1.1" 200 1068
+[2018-05-09 10:32:34,998] [INFO] "GET /static/img/municipal.png HTTP/1.1" 200 3227
+[2018-05-09 10:32:35,001] [INFO] "GET /static/img/agriculture.png HTTP/1.1" 200 2855
+[2018-05-09 10:32:35,002] [INFO] "GET /static/img/forestry.png HTTP/1.1" 200 2607
+[2018-05-09 10:32:35,004] [INFO] "GET /static/img/environment.png HTTP/1.1" 200 2671
+[2018-05-09 10:32:35,006] [INFO] "GET /static/img/road.png HTTP/1.1" 200 2625
+[2018-05-09 10:32:35,007] [INFO] "GET /static/img/sedimentation.png HTTP/1.1" 200 2946
+[2018-05-09 10:32:35,619] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-09 10:32:35,636] [WARNING] "GET /static/css/bootstrap.css.map HTTP/1.1" 404 1801
+[2018-05-09 10:32:35,636] [INFO] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 200 23320
+[2018-05-09 10:32:35,673] [INFO] "GET /static/img/remove.png HTTP/1.1" 200 3236
+[2018-05-09 10:32:35,673] [INFO] "GET /static/img/building.png HTTP/1.1" 200 3621
+[2018-05-09 10:32:35,674] [INFO] "GET /static/img/resource.png HTTP/1.1" 200 4033
+[2018-05-09 10:32:35,675] [INFO] "GET /static/js/jquery-3.3.1.min.js HTTP/1.1" 200 86927
+[2018-05-09 10:32:35,682] [INFO] "GET /static/img/date.png HTTP/1.1" 200 2959
+[2018-05-09 10:32:35,682] [INFO] "GET /static/img/setting.png HTTP/1.1" 200 3733
+[2018-05-09 10:32:35,683] [INFO] "GET /static/img/user_%20statistics%20.png HTTP/1.1" 200 3193
+[2018-05-09 10:32:37,271] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-09 10:32:37,301] [INFO] "GET /static/img/500305658_wx.png HTTP/1.1" 200 702374
+[2018-05-09 10:32:37,402] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=ygLiAV8OlGJEzQZYR0ixorYQlxzRC5p5WhQefpUEcPt7nDjjY5SaEhnVrKuGCvM9 HTTP/1.1" 200 18
+[2018-05-09 10:32:37,909] [INFO] "GET /offence_build/ HTTP/1.1" 200 3592
+[2018-05-09 10:32:37,934] [INFO] "GET /static/img/view.png HTTP/1.1" 200 1469
+[2018-05-09 10:32:37,934] [INFO] "GET /static/img/event.png HTTP/1.1" 200 1488
+[2018-05-09 10:32:37,936] [INFO] "GET /static/js/require.js HTTP/1.1" 200 86481
+[2018-05-09 10:32:37,936] [INFO] "GET /static/js/jquery-1.8.2.min.js HTTP/1.1" 200 93435
+[2018-05-09 10:32:39,657] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12105
+[2018-05-09 10:32:39,684] [INFO] "GET /static/js/select_draw.js HTTP/1.1" 200 2892
+[2018-05-09 10:32:39,685] [INFO] "GET /static/js/load_draw.js HTTP/1.1" 200 724
+[2018-05-09 10:32:39,685] [INFO] "GET /static/img/stsff.png HTTP/1.1" 200 3392
+[2018-05-09 10:32:39,686] [INFO] "GET /static/img/view_download.png HTTP/1.1" 200 2791
+[2018-05-09 10:32:39,686] [INFO] "GET /static/js/polygon.js HTTP/1.1" 200 3313
+[2018-05-09 10:32:39,687] [INFO] "GET /static/js/geomap.js HTTP/1.1" 200 1597
+[2018-05-09 10:32:39,692] [INFO] "GET /static/js/distance.js HTTP/1.1" 200 12215
+[2018-05-09 10:32:39,693] [INFO] "GET /static/js/area.js HTTP/1.1" 200 12482
+[2018-05-09 10:32:40,624] [ERROR] Internal Server Error: /load_all_draw/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 411, in load_all_draw
+    for draw in all_draws:
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 272, in __iter__
+    self._fetch_all()
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/sql/compiler.py", line 1066, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+[2018-05-09 10:32:40,731] [ERROR] "GET /load_all_draw/?csrfmiddlewaretoken=crSRGGlV7C6I9uRVoBXeQOmBqzbwYuq5AsXNla7LYLQbXhbgvGxR6ELGwM6lYUN9 HTTP/1.1" 500 21669
+[2018-05-09 10:33:46,343] [INFO] "GET /index_new/ HTTP/1.1" 200 8671
+[2018-05-09 10:33:46,387] [INFO] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[2018-05-09 10:33:46,389] [INFO] "GET /static/css/font-awesome.css HTTP/1.1" 304 0
+[2018-05-09 10:33:46,392] [INFO] "GET /static/css/basic.css HTTP/1.1" 304 0
+[2018-05-09 10:33:46,392] [INFO] "GET /static/css/custom.css HTTP/1.1" 304 0
+[2018-05-09 10:33:46,394] [INFO] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 304 0
+[2018-05-09 10:33:46,397] [INFO] "GET /static/js/custom.js HTTP/1.1" 304 0
+[2018-05-09 10:33:46,398] [INFO] "GET /static/js/bootstrap.js HTTP/1.1" 304 0
+[2018-05-09 10:33:46,400] [INFO] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 304 0
+[2018-05-09 10:33:46,400] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-05-09 10:33:48,729] [INFO] "GET /static/img/spaceflight.png HTTP/1.1" 304 0
+[2018-05-09 10:33:48,738] [INFO] "GET /static/img/user_logo.png HTTP/1.1" 304 0
+[2018-05-09 10:33:48,746] [INFO] "GET /static/img/q.png HTTP/1.1" 304 0
+[2018-05-09 10:33:48,747] [INFO] "GET /static/img/w.png HTTP/1.1" 304 0
+[2018-05-09 10:33:48,747] [INFO] "GET /static/img/e.png HTTP/1.1" 304 0
+[2018-05-09 10:33:48,754] [INFO] "GET /static/img/municipal.png HTTP/1.1" 304 0
+[2018-05-09 10:33:48,758] [INFO] "GET /static/img/agriculture.png HTTP/1.1" 304 0
+[2018-05-09 10:33:48,759] [INFO] "GET /static/img/forestry.png HTTP/1.1" 304 0
+[2018-05-09 10:33:48,762] [INFO] "GET /static/img/environment.png HTTP/1.1" 304 0
+[2018-05-09 10:33:48,763] [INFO] "GET /static/img/road.png HTTP/1.1" 304 0
+[2018-05-09 10:33:48,768] [INFO] "GET /static/img/sedimentation.png HTTP/1.1" 304 0
+[2018-05-09 10:33:48,768] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-09 10:33:48,952] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-09 10:33:49,160] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=QcXTcf8JjTmzg53AU8vswotxhNf1h9hyPqTI7N4yHeeHPi2KUCwvG5iGM8LrlRUy HTTP/1.1" 200 36
+[2018-05-09 10:33:49,611] [INFO] "GET /offence_build/ HTTP/1.1" 200 3592
+[2018-05-09 10:33:50,238] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12111
+[2018-05-09 10:33:50,411] [ERROR] Internal Server Error: /load_all_draw/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 411, in load_all_draw
+    for draw in all_draws:
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 272, in __iter__
+    self._fetch_all()
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/sql/compiler.py", line 1066, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+[2018-05-09 10:33:50,510] [ERROR] "GET /load_all_draw/?csrfmiddlewaretoken=ftjUrC1DvhCMW79bd1BLN0U8cFXQFCfxeHfJmaXsTCuUvk8ldvCOXHJhH0tgJkSx HTTP/1.1" 500 21717
+[2018-05-09 10:35:07,011] [INFO] "GET /index_new/ HTTP/1.1" 200 8671
+[2018-05-09 10:35:07,087] [INFO] "GET /static/css/basic.css HTTP/1.1" 200 5042
+[2018-05-09 10:35:07,088] [INFO] "GET /static/css/font-awesome.css HTTP/1.1" 200 26651
+[2018-05-09 10:35:07,091] [INFO] "GET /static/css/custom.css HTTP/1.1" 200 4962
+[2018-05-09 10:35:07,095] [INFO] "GET /static/js/bootstrap.js HTTP/1.1" 200 60681
+[2018-05-09 10:35:07,095] [INFO] "GET /static/css/bootstrap.css HTTP/1.1" 200 132546
+[2018-05-09 10:35:07,096] [INFO] "GET /static/js/common.js HTTP/1.1" 200 920
+[2018-05-09 10:35:07,096] [INFO] "GET /static/js/custom.js HTTP/1.1" 200 2773
+[2018-05-09 10:35:07,097] [INFO] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 200 1386
+[2018-05-09 10:35:07,098] [INFO] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 200 293285
+[2018-05-09 10:35:09,641] [INFO] "GET /static/img/user_logo.png HTTP/1.1" 200 2522
+[2018-05-09 10:35:09,642] [INFO] "GET /static/img/spaceflight.png HTTP/1.1" 200 4695
+[2018-05-09 10:35:09,646] [INFO] "GET /static/img/q.png HTTP/1.1" 200 944
+[2018-05-09 10:35:09,655] [INFO] "GET /static/img/e.png HTTP/1.1" 200 1068
+[2018-05-09 10:35:09,655] [INFO] "GET /static/img/w.png HTTP/1.1" 200 983
+[2018-05-09 10:35:09,657] [INFO] "GET /static/img/environment.png HTTP/1.1" 200 2671
+[2018-05-09 10:35:09,657] [INFO] "GET /static/img/municipal.png HTTP/1.1" 200 3227
+[2018-05-09 10:35:09,658] [INFO] "GET /static/img/sedimentation.png HTTP/1.1" 200 2946
+[2018-05-09 10:35:09,658] [INFO] "GET /static/img/agriculture.png HTTP/1.1" 200 2855
+[2018-05-09 10:35:09,662] [INFO] "GET /static/img/road.png HTTP/1.1" 200 2625
+[2018-05-09 10:35:09,663] [INFO] "GET /static/img/forestry.png HTTP/1.1" 200 2607
+[2018-05-09 10:35:09,723] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-09 10:35:09,725] [INFO] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 200 23320
+[2018-05-09 10:35:09,757] [INFO] "GET /static/js/jquery-3.3.1.min.js HTTP/1.1" 200 86927
+[2018-05-09 10:35:09,770] [INFO] "GET /static/img/building.png HTTP/1.1" 200 3621
+[2018-05-09 10:35:09,771] [INFO] "GET /static/img/remove.png HTTP/1.1" 200 3236
+[2018-05-09 10:35:10,540] [INFO] "GET /static/img/setting.png HTTP/1.1" 200 3733
+[2018-05-09 10:35:10,541] [INFO] "GET /static/img/date.png HTTP/1.1" 200 2959
+[2018-05-09 10:35:10,542] [INFO] "GET /static/img/resource.png HTTP/1.1" 200 4033
+[2018-05-09 10:35:10,542] [INFO] "GET /static/img/user_%20statistics%20.png HTTP/1.1" 200 3193
+[2018-05-09 10:35:10,595] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-09 10:35:10,633] [INFO] "GET /static/img/500305658_wx.png HTTP/1.1" 200 702374
+[2018-05-09 10:35:11,327] [INFO] "GET /offence_build/ HTTP/1.1" 200 3592
+[2018-05-09 10:35:11,358] [INFO] "GET /static/js/require.js HTTP/1.1" 200 86481
+[2018-05-09 10:35:11,358] [INFO] "GET /static/js/jquery-1.8.2.min.js HTTP/1.1" 200 93435
+[2018-05-09 10:35:12,166] [INFO] "GET /static/img/event.png HTTP/1.1" 200 1488
+[2018-05-09 10:35:12,166] [INFO] "GET /static/img/view.png HTTP/1.1" 200 1469
+[2018-05-09 10:35:12,262] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=7Bc6nqnXDA7EuKMCCKFYBapOrIS8gi6XCb4qZOa78MV5E7L96yxSzYWcYtykT0nd HTTP/1.1" 200 18
+[2018-05-09 10:35:13,938] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12111
+[2018-05-09 10:35:13,973] [INFO] "GET /static/js/load_draw.js HTTP/1.1" 200 724
+[2018-05-09 10:35:13,974] [INFO] "GET /static/js/select_draw.js HTTP/1.1" 200 2892
+[2018-05-09 10:35:13,974] [INFO] "GET /static/js/geomap.js HTTP/1.1" 200 1597
+[2018-05-09 10:35:13,978] [INFO] "GET /static/img/stsff.png HTTP/1.1" 200 3392
+[2018-05-09 10:35:13,980] [INFO] "GET /static/img/view_download.png HTTP/1.1" 200 2791
+[2018-05-09 10:35:13,981] [INFO] "GET /static/js/polygon.js HTTP/1.1" 200 3313
+[2018-05-09 10:35:13,984] [INFO] "GET /static/js/distance.js HTTP/1.1" 200 12215
+[2018-05-09 10:35:13,985] [INFO] "GET /static/js/area.js HTTP/1.1" 200 12482
+[2018-05-09 10:35:14,867] [ERROR] Internal Server Error: /load_all_draw/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 411, in load_all_draw
+    for draw in all_draws:
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 272, in __iter__
+    self._fetch_all()
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/sql/compiler.py", line 1066, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+[2018-05-09 10:35:14,968] [ERROR] "GET /load_all_draw/?csrfmiddlewaretoken=Uxa6Cm2fiyaOslyGHpeXWtTJlqI5USx9p72qeKPpNKYfCIxdbd6RUhq7SbohxAOp HTTP/1.1" 500 21636
+[2018-05-09 10:35:30,377] [INFO] "GET /index_new/ HTTP/1.1" 200 8671
+[2018-05-09 10:35:30,462] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-09 10:35:30,519] [WARNING] "GET /static/css/bootstrap.css.map HTTP/1.1" 404 1801
+[2018-05-09 10:35:30,566] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-09 10:35:30,699] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=j31BmeqcGbSFo6tSFxa07yqO2YogstouH46x1Ic2xkC8cTNdMCKDnoPT8bj5sTLy HTTP/1.1" 200 18
+[2018-05-09 10:35:31,883] [INFO] "GET /offence_build/ HTTP/1.1" 200 3592
+[2018-05-09 10:35:32,393] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12111
+[2018-05-09 10:35:32,417] [INFO] "GET /static/js/geomap.js HTTP/1.1" 304 0
+[2018-05-09 10:35:32,613] [ERROR] Internal Server Error: /load_all_draw/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 411, in load_all_draw
+    for draw in all_draws:
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 272, in __iter__
+    self._fetch_all()
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/sql/compiler.py", line 1066, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+[2018-05-09 10:35:32,781] [ERROR] "GET /load_all_draw/?csrfmiddlewaretoken=xaUJa2FScwfIv4WlnfiXsmi8rD7xKIzwVbZFPwrI3FZbjRgGukSAIcHdxQ2mK8WA HTTP/1.1" 500 21669
+[2018-05-09 10:36:27,044] [INFO] "GET /index_new/ HTTP/1.1" 200 8671
+[2018-05-09 10:36:27,142] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-09 10:36:27,172] [WARNING] "GET /static/css/bootstrap.css.map HTTP/1.1" 404 1801
+[2018-05-09 10:36:27,258] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-09 10:36:27,396] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=EqbhEO5jhKC54qzWQYchKdoyGwF320Xg2rgdjiR98TmySdThX3MU03NDMJAS2qkk HTTP/1.1" 200 18
+[2018-05-09 10:36:28,260] [INFO] "GET /offence_build/ HTTP/1.1" 200 3592
+[2018-05-09 10:36:28,786] [INFO] "GET /ib_plotting/ HTTP/1.1" 200 12111
+[2018-05-09 10:36:28,986] [ERROR] Internal Server Error: /load_all_draw/
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/usr/local/lib/python3.5/dist-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/zhou/PycharmProjects/Demo/web/views.py", line 411, in load_all_draw
+    for draw in all_draws:
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 272, in __iter__
+    self._fetch_all()
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 1179, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/query.py", line 53, in __iter__
+    results = compiler.execute_sql(chunked_fetch=self.chunked_fetch, chunk_size=self.chunk_size)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/models/sql/compiler.py", line 1066, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 100, in execute
+    return super().execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 68, in execute
+    return self._execute_with_wrappers(sql, params, many=False, executor=self._execute)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 77, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/utils.py", line 89, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/utils.py", line 85, in _execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python3.5/dist-packages/django/db/backends/mysql/base.py", line 71, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 165, in execute
+    result = self._query(query)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/cursors.py", line 321, in _query
+    conn.query(q)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 860, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1061, in _read_query_result
+    result.read()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1349, in read
+    first_packet = self.connection._read_packet()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 1018, in _read_packet
+    packet.check_error()
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/connections.py", line 384, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.5/dist-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+django.db.utils.InternalError: (1054, "Unknown column 'web_graphiclabel.graphictype' in 'field list'")
+[2018-05-09 10:36:29,098] [ERROR] "GET /load_all_draw/?csrfmiddlewaretoken=Rf78bcEyzveBlAz1KMtVjXIrX5mivX58fgc4QGqoqEY49nTmRR3yzN7w3ih7vnsc HTTP/1.1" 500 21669
+[2018-05-09 21:56:39,758] [INFO] "GET /index/ HTTP/1.1" 200 9072
+[2018-05-09 21:56:39,788] [INFO] "GET /index/u3.png HTTP/1.1" 200 9072
+[2018-05-09 21:56:39,789] [INFO] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 200 1386
+[2018-05-09 21:56:39,789] [INFO] "GET /static/js/custom.js HTTP/1.1" 200 2773
+[2018-05-09 21:56:39,790] [INFO] "GET /static/js/bootstrap.js HTTP/1.1" 200 60681
+[2018-05-09 21:56:39,807] [INFO] "GET /index/u3.png HTTP/1.1" 200 9072
+[2018-05-09 21:56:39,863] [INFO] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 200 8192
+[2018-05-09 21:56:39,868] [INFO] "GET /static/fonts/fontawesome-webfont.woff?v=4.2.0 HTTP/1.1" 200 65452
+[2018-05-09 21:56:39,959] [WARNING] Not Found: /favicon.ico
+[2018-05-09 21:56:39,966] [WARNING] Not Found: /favicon.ico
+[2018-05-09 21:56:39,966] [WARNING] "GET /favicon.ico HTTP/1.1" 404 8151
+[2018-05-09 21:56:39,966] [WARNING] "GET /favicon.ico HTTP/1.1" 404 8151
+[2018-05-09 21:56:46,747] [INFO] "GET /index_new/ HTTP/1.1" 200 8671
+[2018-05-09 21:56:46,787] [INFO] "GET /static/img/spaceflight.png HTTP/1.1" 200 4695
+[2018-05-09 21:56:46,839] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-09 21:56:46,851] [INFO] "GET /static/img/building.png HTTP/1.1" 200 3621
+[2018-05-09 21:56:46,974] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-09 21:56:47,204] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=6vfeyEa4Vky01mQmzXgEgYo2t43ko3r0B57ya2XeqwmrbJPT3L8yeMVq0PJw1LIg HTTP/1.1" 200 18
+[2018-05-09 21:58:45,489] [INFO] "GET /index_new/ HTTP/1.1" 200 8671
+[2018-05-09 21:58:45,506] [INFO] "GET /static/css/basic.css HTTP/1.1" 200 5042
+[2018-05-09 21:58:45,508] [INFO] "GET /static/css/custom.css HTTP/1.1" 200 4962
+[2018-05-09 21:58:45,509] [INFO] "GET /static/css/font-awesome.css HTTP/1.1" 200 26651
+[2018-05-09 21:58:45,514] [INFO] "GET /static/css/bootstrap.css HTTP/1.1" 200 132546
+[2018-05-09 21:58:45,514] [INFO] "GET /static/js/bootstrap.js HTTP/1.1" 200 60681
+[2018-05-09 21:58:45,515] [INFO] "GET /static/js/common.js HTTP/1.1" 200 920
+[2018-05-09 21:58:45,515] [INFO] "GET /static/js/custom.js HTTP/1.1" 200 2773
+[2018-05-09 21:58:45,516] [INFO] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 200 1386
+[2018-05-09 21:58:45,517] [INFO] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 200 293285
+[2018-05-09 21:58:47,837] [INFO] "GET /static/img/spaceflight.png HTTP/1.1" 200 4695
+[2018-05-09 21:58:47,838] [INFO] "GET /static/img/user_logo.png HTTP/1.1" 200 2522
+[2018-05-09 21:58:47,840] [INFO] "GET /static/img/q.png HTTP/1.1" 200 944
+[2018-05-09 21:58:47,842] [INFO] "GET /static/img/e.png HTTP/1.1" 200 1068
+[2018-05-09 21:58:47,842] [INFO] "GET /static/img/municipal.png HTTP/1.1" 200 3227
+[2018-05-09 21:58:47,844] [INFO] "GET /static/img/w.png HTTP/1.1" 200 983
+[2018-05-09 21:58:47,848] [INFO] "GET /static/img/sedimentation.png HTTP/1.1" 200 2946
+[2018-05-09 21:58:47,848] [INFO] "GET /static/img/agriculture.png HTTP/1.1" 200 2855
+[2018-05-09 21:58:47,848] [INFO] "GET /static/img/road.png HTTP/1.1" 200 2625
+[2018-05-09 21:58:47,853] [INFO] "GET /static/img/environment.png HTTP/1.1" 200 2671
+[2018-05-09 21:58:47,853] [INFO] "GET /static/img/forestry.png HTTP/1.1" 200 2607
+[2018-05-09 21:58:47,879] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-09 21:58:47,890] [INFO] "GET /static/js/common.js HTTP/1.1" 200 920
+[2018-05-09 21:58:47,891] [INFO] "GET /static/js/jquery-3.3.1.min.js HTTP/1.1" 200 86927
+[2018-05-09 21:58:48,884] [INFO] "GET /static/img/building.png HTTP/1.1" 200 3621
+[2018-05-09 21:58:48,890] [INFO] "GET /static/img/remove.png HTTP/1.1" 200 3236
+[2018-05-09 21:58:48,891] [INFO] "GET /static/img/resource.png HTTP/1.1" 200 4033
+[2018-05-09 21:58:48,895] [INFO] "GET /static/img/user_%20statistics%20.png HTTP/1.1" 200 3193
+[2018-05-09 21:58:48,896] [INFO] "GET /static/img/date.png HTTP/1.1" 200 2959
+[2018-05-09 21:58:48,896] [INFO] "GET /static/img/setting.png HTTP/1.1" 200 3733
+[2018-05-09 21:58:48,897] [INFO] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 200 23320
+[2018-05-09 21:58:48,938] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-09 21:58:48,946] [INFO] "GET /static/js/common.js HTTP/1.1" 200 920
+[2018-05-09 21:58:48,947] [INFO] "GET /static/js/jquery-3.3.1.min.js HTTP/1.1" 200 86927
+[2018-05-09 21:58:48,951] [INFO] "GET /static/img/500305658_wx.png HTTP/1.1" 200 702374
+[2018-05-09 21:58:51,530] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=97TVc4BRj9VZu8lCwDT9IKNUCrbo6l5SBF2plqN2C83qs9qZqIbYGKs9UhDeYKAF HTTP/1.1" 200 18
+[2018-05-10 09:01:38,761] [INFO] "GET /offence_build/ HTTP/1.1" 200 3592
+[2018-05-10 09:01:38,782] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-05-10 09:34:22,581] [INFO] "GET /index_new/ HTTP/1.1" 200 8671
+[2018-05-10 09:34:22,614] [INFO] "GET /static/css/font-awesome.css HTTP/1.1" 304 0
+[2018-05-10 09:34:22,616] [INFO] "GET /static/css/bootstrap.css HTTP/1.1" 304 0
+[2018-05-10 09:34:22,618] [INFO] "GET /static/css/basic.css HTTP/1.1" 304 0
+[2018-05-10 09:34:22,622] [INFO] "GET /static/css/custom.css HTTP/1.1" 304 0
+[2018-05-10 09:34:22,625] [INFO] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 200 1386
+[2018-05-10 09:34:22,625] [INFO] "GET /static/js/custom.js HTTP/1.1" 200 2773
+[2018-05-10 09:34:22,626] [INFO] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 304 0
+[2018-05-10 09:34:22,627] [INFO] "GET /static/js/common.js HTTP/1.1" 200 920
+[2018-05-10 09:34:22,627] [INFO] "GET /static/js/bootstrap.js HTTP/1.1" 200 60681
+[2018-05-10 09:34:24,914] [INFO] "GET /static/img/user_logo.png HTTP/1.1" 200 2522
+[2018-05-10 09:34:24,915] [INFO] "GET /static/img/spaceflight.png HTTP/1.1" 200 4695
+[2018-05-10 09:34:24,917] [INFO] "GET /static/img/e.png HTTP/1.1" 304 0
+[2018-05-10 09:34:24,918] [INFO] "GET /static/img/q.png HTTP/1.1" 200 944
+[2018-05-10 09:34:24,918] [INFO] "GET /static/img/w.png HTTP/1.1" 304 0
+[2018-05-10 09:34:24,921] [INFO] "GET /static/img/municipal.png HTTP/1.1" 304 0
+[2018-05-10 09:34:24,921] [INFO] "GET /static/img/forestry.png HTTP/1.1" 304 0
+[2018-05-10 09:34:24,929] [INFO] "GET /static/img/agriculture.png HTTP/1.1" 304 0
+[2018-05-10 09:34:24,930] [INFO] "GET /static/img/sedimentation.png HTTP/1.1" 200 2946
+[2018-05-10 09:34:24,931] [INFO] "GET /home_municipal/ HTTP/1.1" 200 5881
+[2018-05-10 09:34:24,931] [INFO] "GET /static/img/environment.png HTTP/1.1" 304 0
+[2018-05-10 09:34:24,932] [INFO] "GET /static/img/road.png HTTP/1.1" 304 0
+[2018-05-10 09:34:25,039] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-10 09:34:25,223] [INFO] "GET /is_authenticated/?csrfmiddlewaretoken=YR1zFDf6Rb4e7owRPxkIOttoiaBxXdMMtrTTh12gmnSFhLvojlcCMh0MPVhJAV32 HTTP/1.1" 200 18
+[2018-05-10 16:34:47,069] [INFO] "GET /index/ HTTP/1.1" 200 9072
+[2018-05-10 16:34:47,097] [INFO] "GET /index/u3.png HTTP/1.1" 200 9072
+[2018-05-10 16:34:47,123] [INFO] "GET /index/u3.png HTTP/1.1" 200 9072
+[2018-05-10 16:34:47,161] [INFO] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 200 8192
+[2018-05-10 16:34:47,164] [INFO] "GET /static/fonts/fontawesome-webfont.woff?v=4.2.0 HTTP/1.1" 200 8192
+[2018-05-10 16:34:47,216] [WARNING] Not Found: /favicon.ico
+[2018-05-10 16:34:47,217] [WARNING] "GET /favicon.ico HTTP/1.1" 404 8151
+[2018-05-10 16:39:09,458] [INFO] "GET /index/ HTTP/1.1" 200 9072
+[2018-05-10 16:39:09,471] [INFO] "GET /static/css/font-awesome.css HTTP/1.1" 200 26651
+[2018-05-10 16:39:09,471] [INFO] "GET /static/css/basic.css HTTP/1.1" 200 5042
+[2018-05-10 16:39:09,473] [INFO] "GET /static/js/common.js HTTP/1.1" 200 920
+[2018-05-10 16:39:09,473] [INFO] "GET /static/css/custom.css HTTP/1.1" 200 4962
+[2018-05-10 16:39:09,478] [INFO] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 200 1386
+[2018-05-10 16:39:09,479] [INFO] "GET /static/css/bootstrap.css HTTP/1.1" 200 132546
+[2018-05-10 16:39:09,479] [INFO] "GET /static/js/custom.js HTTP/1.1" 200 2773
+[2018-05-10 16:39:09,480] [INFO] "GET /static/js/bootstrap.js HTTP/1.1" 200 60681
+[2018-05-10 16:39:09,480] [INFO] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 200 293285
+[2018-05-10 16:39:10,023] [INFO] "GET /index/u3.png HTTP/1.1" 200 9072
+[2018-05-10 16:39:10,043] [INFO] "GET /index/u3.png HTTP/1.1" 200 9072
+[2018-05-10 16:39:10,063] [INFO] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 200 23320
+[2018-05-10 16:39:10,065] [INFO] "GET /static/fonts/fontawesome-webfont.woff?v=4.2.0 HTTP/1.1" 200 65452

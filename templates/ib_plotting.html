@@ -251,7 +251,7 @@
      var map = new ol.Map({
        target: 'map',
        view: new ol.View({
-         center: ol.proj.fromLonLat([102.6, 24.4]),
+         center: ol.proj.fromLonLat([102.6, 24.4],"EPSG:4326"),
          zoom: 13,
          maxZoom:17,
          minZoom:10
@@ -273,8 +273,8 @@
     //map.addLayer(default_geo_layer2);
     map.addLayer(default_geo_layer);
     map.addLayer(geoserver_layer);
-    map.addLayer(geoserver_layer3);
-    map.addLayer(geoserver_layer2);
+    //map.addLayer(geoserver_layer3);
+    //map.addLayer(geoserver_layer2);
     map.render();
 
     location_btn=document.getElementById("location_btn");

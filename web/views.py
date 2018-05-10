@@ -25,7 +25,7 @@ User = get_user_model()
 from web.ImageryServer import DB_Workshop
 from web.ImageryServer import ImagePubMan
 import urllib.request
-from web.ImageryServer import ImagePreprogress
+from web.ImageryServer import ImagePre
 # Create your views here.
 ##################################################
 #from web.models import Map
@@ -439,7 +439,7 @@ def map_inquiry(request):
         return render(request, 'rm_resource_search.html', {'message': '查找结果为空！'})
 
 def test(request):
-    ImagePreprogress.preprogress()
+    ImagePre.preprogress()
     #DB_Workshop.saveImage('/media/zhou/文档/yaogan')
 
 
