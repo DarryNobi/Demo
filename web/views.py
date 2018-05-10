@@ -151,6 +151,10 @@ def demolition_plotting(request):
     return render(request,
                   template_name='de_plotting.html')
 
+def developing(request):
+    return render(request,
+                  template_name='developing.html')
+
 def ib_plotting(request):
     return render(request,
                   template_name='ib_plotting.html')
