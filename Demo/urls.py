@@ -46,6 +46,7 @@ urlpatterns = [
     url(r'^gs_show_map/', views.gs_show_map),
     url(r'^gs_show_list/', views.gs_show_list),
     url(r'^ib_plotting/', views.ib_plotting),
+    url(r'^developing/', views.developing),
 ##########################################################################
 
     url(r'^is_authenticated/', views.is_authenticated),
