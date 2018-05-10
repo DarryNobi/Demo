@@ -25,7 +25,7 @@ User = get_user_model()
 from web.ImageryServer import DB_Workshop
 from web.ImageryServer import ImagePubMan
 import urllib.request
-from web.ImageryServer import ImagePreprogress
+from web.ImageryServer import ImagePre
 # Create your views here.
 ##################################################
 #from web.models import Map
@@ -81,6 +81,11 @@ def info_revise(request):
     username= request.session['username']
     user=User.objects.get(username=username)
     user=model_to_dict(user)
+    user_permissions = []
+    for j in range(len(user['user_permissions'])):
+        tmp = user['user_permissions'][j].name
+        user_permissions.append(tmp)
+    user['user_permissions'] = user_permissions
     return render(request,'uc_info_revise.html',{'user':json.dumps(user,cls=DjangoJSONEncoder)})
 
 def password_revise(request):
@@ -95,15 +100,39 @@ def ib_roller_shutters(request):
     return render(request,
                   template_name='ib_roller_shutters.html')
 #####################################################
-
+@login_required
 def user_center(request):
     return render(request,
                   template_name='view_user_center.html')
-
+@login_required
+@permission_required('web.user_management',raise_exception=True)
 def account_management(request):
     return render(request,
                   template_name='view_account_management.html')
-users_temp=User.objects.all()
+@login_required
+@permission_required('web.demolition_management',raise_exception=True)
+def move_out(request):
+    return render(request,
+                  template_name='view_demolition.html')
+
+@login_required
+@permission_required('web.ibuild_management',raise_exception=True)
+def offence_build(request):
+    return render(request,
+                  template_name='view_illegal_building.html')
+@login_required
+@permission_required('web.recource_management',raise_exception=True)
+def general_survey(request):
+    return render(request,
+                  template_name='view_general_survey.html')
+
+@login_required
+@permission_required('web.recource_management',raise_exception=True)
+def resource_management(request):
+    return render(request,
+                  template_name='view_resource_management.html')
+
+
 def uploadImage(request):
 
     imageID=request.POST.get('ImageID',False)
@@ -144,9 +173,6 @@ def home_municipal(request):
     return render(request,
                   template_name='home_municipal.html')
 
-def move_out(request):
-    return render(request,
-                  template_name='view_demolition.html')
 
 
 def demolition_management(request):
@@ -169,21 +195,10 @@ def ib_plotting(request):
     return render(request,
                   template_name='ib_plotting.html')
 
-def offence_build(request):
-    return render(request,
-                  template_name='view_illegal_building.html')
-
-def general_survey(request):
-    return render(request,
-                  template_name='view_general_survey.html')
 
 def graphic_look(request):
     return render(request,
                   template_name='gs_show_list.html')
-
-def resource_management(request):
-    return render(request,
-                  template_name='view_resource_management.html')
 
 def default(request):
     return render(request,
@@ -257,8 +272,8 @@ def login_check(request):
     if user:
         request.session['username']=username
         auth.login(request, user)
-        user=model_to_dict(user)
-        return JsonResponse({"status": True,'user':user})
+
+        return JsonResponse({"status": True,'username':username})
     else:
         return JsonResponse({"status": False,'message':'用户名或密码错误'})
 
@@ -335,6 +350,7 @@ def permission_revise(request):
     for i in check_box:
        permission = Permission.objects.get(codename=permission_dict[i])
        user.user_permissions.add( permission )
+    user.save()
     user=model_to_dict(user)
     user_permissions = []
     for j in range(len(user['user_permissions'])):
@@ -469,7 +485,7 @@ def map_inquiry(request):
         return render(request, 'rm_resource_search.html', {'message': '查找结果为空！'})
 
 def test(request):
-    ImagePreprogress.preprogress()
+    ImagePre.preprogress()
     #DB_Workshop.saveImage('/media/zhou/文档/yaogan')
 
 
@@ -508,3 +524,9 @@ def _ib_event_search(request):
     for i in range(len(ib_draws)):
         d_ib_draws[i] = model_to_dict(ib_draws[i])
     return JsonResponse({'data': d_ib_draws})
+
+def ibuild_search(request):
+    name=request.POST.get('name', False)
+    date= request.POST.get('time', False)
+    graphictype= request.POST.get('graphictype', False)
+    graphicaddress=request.POST.get('graphicaddress', False)
