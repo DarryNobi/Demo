@@ -28,11 +28,7 @@
        <!-- CUSTOM SCRIPTS -->
     <script src="{% static 'js/custom.js' %}"></script>
     <script src="{% static 'js/common.js' %}"></script>
-    <script >
-      $.ajaxSetup({
-         data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
-      });
-     </script>
+
     <style type="text/css">
         #container{
 	        background:#0a86e1;
@@ -247,7 +243,11 @@
         <!-- /. PAGE WRAPPER  -->
     </div>
     <!-- /. WRAPPER  -->
-
+<script >
+      $.ajaxSetup({
+         data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+      });
+     </script>
     <script>
     window.onload=function(){
 
