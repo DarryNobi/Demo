@@ -318,31 +318,10 @@
     $("#location_btn").click(function (){
     var lontitude=$("#lontitude").val();
     var lantitude=$("#lantitude").val()*1.0;
-
-
      var location=ol.proj.fromLonLat([lontitude,lantitude]);
-
      //map.getView().setCenter(location);
      map.getView().animate({zoom:map.getView().getZoom()-1},{center:location},{zoom:map.getView().getZoom()+1},{duration:3000});
-
-
     });
-    <!--location_btn=document.getElementById("location_btn");-->
-    <!--location_btn.onclick=function location(){-->
-        <!--var lontitude=document.getElementById("lontitude").value;-->
-        <!--var lantitude=document.getElementById("lantitude").value;-->
-        <!--var newview=new ol.View({-->
-             <!--center: ol.proj.fromLonLat([lontitude, lantitude]),-->
-             <!--zoom: 12,-->
-             <!--maxZoom:18,-->
-             <!--minZoom:5-->
-           <!--});-->
-        <!--//view.setCenter([lontitude,lantitude]);-->
-        <!--alert(lontitude);-->
-        <!--//view.animate({zoom:view.getZoom()/2},{center:[lontitude,lantitude]},{zoom:view.getZoom()*2},{duration:2000} );-->
-        <!--map.setView(newview);-->
-        <!--map.render();-->
-    <!--}-->
 
 </script>
 
@@ -352,6 +331,3 @@
 <script src="{% static 'js/area.js' %}"></script>
  </body>
 </html>
-
-<!-- http://172.20.53.157:8080/geoserver/test/wms
-https://openlayers.org/en/v4.6.5/build/ol.js-->

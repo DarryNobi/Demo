@@ -138,9 +138,18 @@ def move_out(request):
     return render(request,
                   template_name='view_demolition.html')
 
-def move_compare(request):
+
+def demolition_management(request):
     return render(request,
-                  template_name='demolition_compare.html')
+                  template_name='de_management.html')
+
+def demolition_compare(request):
+    return render(request,
+                  template_name='de_compare.html')
+
+def demolition_plotting(request):
+    return render(request,
+                  template_name='de_plotting.html')
 
 def ib_plotting(request):
     return render(request,
@@ -205,7 +214,7 @@ def gs_show_list(request):
 
 def is_authenticated(request):
     if request.user.is_authenticated:
-        return JsonResponse({'islogin': True,'username':request.user.username})
+        return JsonResponse({'islogin':True,'username':request.user.username})
     else:
         return JsonResponse({'islogin': False})
 
@@ -237,7 +246,7 @@ def login_check(request):
         user=model_to_dict(user)
         return JsonResponse({"status": True,'user':user})
     else:
-        return JsonResponse({"status": False})
+        return JsonResponse({"status": False,'message':'用户名或密码错误'})
 
 
 def mylogout(request):

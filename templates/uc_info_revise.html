@@ -69,13 +69,14 @@
 
 </head>
 <body>
+{% load staticfiles %}
  <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-<div class="container">
+<div class="container" style="overflow-y:auto">
     <div class="col-md-8 col-md-offset-2">
         <form action='/usr_info_revise/' method="post" id="info_revise_form">
 		{% csrf_token %}

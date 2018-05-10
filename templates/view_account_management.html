@@ -29,6 +29,7 @@
             background: #e6e7ea;
         }
         .nav-tabs li a {
+            margin-top:1px;
             height: 100%;
             text-align:center;
             display:-webkit-flex;
@@ -36,9 +37,12 @@
             font-size:2rem;
             color:#8a8a8a;
         }
-        .nav-tabs li a:hover {
+        .nav-tabs li a:hover, .nav-tabs li a:focus {
             color: #3178f5;
             background:#ffffff;
+            border-radius:10px 10px 0 0;
+            outline:none;
+            border:none;
         }
         .nav-img-p {
             height:100%;
@@ -146,7 +150,6 @@
             display:-webkit-flex;
             align-items:center;
         }
-
     </style>
 
    <script src="{% static 'js/jquery-1.8.2.min.js' %}"></script>

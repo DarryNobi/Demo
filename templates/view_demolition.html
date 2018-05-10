@@ -24,6 +24,7 @@
             background: #e6e7ea;
         }
         .nav-tabs li a {
+            margin-top:1px;
             height: 100%;
             text-align:center;
             display:-webkit-flex;
@@ -31,9 +32,12 @@
             font-size:2rem;
             color:#8a8a8a;
         }
-        .nav-tabs li a:hover {
+        .nav-tabs li a:hover, .nav-tabs li a:focus {
             color: #3178f5;
             background:#ffffff;
+            border-radius:10px 10px 0 0;
+            outline:none;
+            border:none;
         }
         .nav-img-p {
             height:100%;
@@ -61,14 +65,20 @@
  <body style="height:100%;">
     <div style="height:10%; min-height:60px;">
         <ul class="nav nav-tabs head-ul" style="height:100%; background: #c3c6cb;">
+             <li role="presentation">
+                <a href="javascript:void(0)" onclick="open_demolition('/demolition_plotting/')">
+                    <span class="nav-img-p"><img class="nav-img" src="{% static 'img/event.png' %}"></span>
+                    <span class="nav-text-p">拆迁标绘</span>
+                </a>
+            </li>
             <li>
-                <a class="" href="javascript:void(0)" onclick="open_demolition('/move_compare/')" >
+                <a class="" href="javascript:void(0)" onclick="open_demolition('/demolition_compare/')" >
                     <span class="nav-img-p"><img class="nav-img" src="{% static 'img/view.png' %}"></span>
                     <span class="nav-text-p">拆迁影像对比</span>
                 </a>
             </li>
             <li role="presentation">
-                <a href="javascript:void(0)" onclick="">
+                <a href="javascript:void(0)" onclick="open_demolition('/demolition_management/')">
                     <span class="nav-img-p"><img class="nav-img" src="{% static 'img/event.png' %}"></span>
                     <span class="nav-text-p">拆迁事件管理</span>
                 </a>

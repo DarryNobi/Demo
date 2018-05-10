@@ -3,6 +3,7 @@
 <head>
     {% load staticfiles %}
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="Keywords" content="天津未来科技城卫星遥感资源管理系统"/>
     <title>home</title>
@@ -49,13 +50,33 @@
             height:100%;
         }
         .nav-tabs li a:hover {
-            background: #3178f5;
+            background: -webkit-linear-gradient(#359ae4, #0c17f3);
+            background: -o-linear-gradient(#359ae4, #0c17f3);
+            background: -moz-linear-gradient(#359ae4, #0c17f3);
+            background: linear-gradient(#359ae4, #0c17f3);
+            border:none;
         }
         .nav-tabs li a:active {
-            background-color: #3178f5;
+            background: -webkit-linear-gradient(#359ae4, #0c17f3);
+            background: -o-linear-gradient(#359ae4, #0c17f3);
+            background: -moz-linear-gradient(#359ae4, #0c17f3);
+            background: linear-gradient(#359ae4, #0c17f3);
+            border:none;
         }
         .nav-tabs li a:visited {
-            background-color: #3178f5;
+            background: -webkit-linear-gradient(#359ae4, #0c17f3);
+            background: -o-linear-gradient(#359ae4, #0c17f3);
+            background: -moz-linear-gradient(#359ae4, #0c17f3);
+            background: linear-gradient(#359ae4, #0c17f3);
+            border:none;
+        }
+        .nav-tabs li a:focus {
+            background: -webkit-linear-gradient(#359ae4, #0c17f3);
+            background: -o-linear-gradient(#359ae4, #0c17f3);
+            background: -moz-linear-gradient(#359ae4, #0c17f3);
+            background: linear-gradient(#359ae4, #0c17f3);
+            outline:none;
+            border:none;
         }
         .nav-tabs li a{
             margin:0;
@@ -100,6 +121,10 @@
         .input-group-addon {
             border-radius: 20px 0 0 20px;
         }
+        #message {
+            margin-top: 10px;
+            color: #f51b0b;
+        }
     </style>
 </head>
 
@@ -132,7 +157,7 @@
                 </div>
                 <div class="subBut" style="text-align:center;"><button id="login_but" class="btn btn-primary" style="width:50%;border-radius:30px;">登录系统</button></div>
             </div>
-            <p>{{message1}}</p>
+            <p id="message"></p>
         </div>
     </div>
     <div id="wrapper" style="height:100%">
@@ -242,6 +267,7 @@
             var _right=($(window).width())/7;
             $("#login_page").css({top:_top,right:_right});
             $("#login_page").show();
+            $("#message").text('');
         });
 
         $("#close_login").click(function(){
@@ -280,13 +306,14 @@
                         $("#user_name").show();
                         $("#user_name").text(data.user.username);
                         $("#logout").show();
+                        $("#message").text('');
                     } else {
                         $("#login_page").show();
                         $("#login").show();
                         $("#user_name").hide();
                         $("#logout").hide();
+                        $("#message").text(data.message);
                     }
-                     alert("success");
                 },
                 error:function(){
                     alert('error');
