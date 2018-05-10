@@ -3,6 +3,7 @@
 <head>
      {% load staticfiles %}
     <title>地图卷帘效果</title>
+
     <link rel="stylesheet" href="https://openlayers.org/en/v4.6.4/css/ol.css" type="text/css">
    <script src="{% static 'js/openlayers_v4.5.0/build/ol.js' %}"></script>
     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap.min.css">
@@ -77,18 +78,28 @@
             })
         ]
     });
-    document.getElementById('map_2').onmousemove=function(e){
+   $("#map_1").on("mousemove",function(e){
         console.log(e);
         e.stopPropagation();
         var  offsetX=e.x,offsetY=e.y,width=document.body.clientWidth,height=document.body.clientHeight;
         document.getElementById('map_2').style.clip='rect(0px,'+offsetX+'px,'+height+'px,0px)';
-    }
-    document.getElementById('map_1').onmousemove=function(e){
+    });
+     $("#map_2").on("mousemove",function(e){
         console.log(e);
         e.stopPropagation();
         var  offsetX=e.x,offsetY=e.y,width=document.body.clientWidth,height=document.body.clientHeight;
         document.getElementById('map_2').style.clip='rect(0px,'+offsetX+'px,'+height+'px,0px)';
-    }
+    });
+<!--$("#map_1").on("dbclick",function(){-->
+
+
+
+<!--});-->
+<!--$("#map_2").on("dbclick",function(){-->
+
+
+
+<!--});-->
 </script>
 </body>
 </html>
