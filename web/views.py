@@ -52,6 +52,16 @@ def login(request):
     return render(request,
                   template_name='login.html')
 
+def not_login(request):
+    # if request.method == "POST":
+    #    uf = User
+    return render(request,
+                  template_name='not_login.html')
+
+def no_permissions(request):
+    return render(request,
+                  template_name='no_permissions.html')
+
 
 def register(request):
     return render(request,
