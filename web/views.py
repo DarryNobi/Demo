@@ -25,7 +25,7 @@ User = get_user_model()
 from web.ImageryServer import DB_Workshop
 from web.ImageryServer import ImagePubMan
 import urllib.request
-from web.ImageryServer import ImagePre
+#from web.ImageryServer import ImagePre
 # Create your views here.
 ##################################################
 #from web.models import Map
