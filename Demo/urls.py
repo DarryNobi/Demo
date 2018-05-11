@@ -68,6 +68,8 @@ urlpatterns = [
     url(r'^map_inquiry/', views.map_inquiry),
     url(r'^_gs_show_list/',views._gs_show_list),
     url(r'^_ib_event_search/',views._ib_event_search),
+    url(r'^no_permissions/',views.no_permissions),
+    url(r'^not_login/',views.not_login),
 
     ##########################################################
     url(r'^user_center/', views.user_center),

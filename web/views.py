@@ -26,6 +26,7 @@ from web.ImageryServer import DB_Workshop
 from web.ImageryServer import ImagePubMan
 import urllib.request
 #from web.ImageryServer import ImagePre
+# from web.ImageryServer import ImagePre
 # Create your views here.
 ##################################################
 #from web.models import Map
@@ -51,6 +52,16 @@ def login(request):
     #    uf = User
     return render(request,
                   template_name='login.html')
+
+def not_login(request):
+    # if request.method == "POST":
+    #    uf = User
+    return render(request,
+                  template_name='not_login.html')
+
+def no_permissions(request):
+    return render(request,
+                  template_name='no_permissions.html')
 
 
 def register(request):
