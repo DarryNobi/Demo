@@ -25,7 +25,7 @@ User = get_user_model()
 from web.ImageryServer import DB_Workshop
 from web.ImageryServer import ImagePubMan
 import urllib.request
-from web.ImageryServer import ImagePre
+# from web.ImageryServer import ImagePre
 # Create your views here.
 ##################################################
 #from web.models import Map
@@ -105,7 +105,7 @@ def user_center(request):
     return render(request,
                   template_name='view_user_center.html')
 @login_required
-@permission_required('web.user_management',raise_exception=True)
+#@permission_required('web.user_management',raise_exception=True)
 def account_management(request):
     return render(request,
                   template_name='view_account_management.html')

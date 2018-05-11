@@ -279,7 +279,7 @@
                     </a>
                     <!--</div>-->
                     <!--<div style="width:100%; height:50%; color:#ffa711" class="stsff">-->
-                        <div style="margin-top:52px;"><img style="width:50%" src="{% static 'img/stsff.png' %}"></div>
+                        <div style="margin-top:52px; cursor:pointer;" id="de_plotting_stsff"><img style="width:50%" src="{% static 'img/stsff.png' %}"></div>
                         <div style="color:#ffa711">量标</div>
                     <!--</div>-->
                 </div>
@@ -324,6 +324,10 @@
      var location=ol.proj.fromLonLat([lontitude,lantitude]);
      //map.getView().setCenter(location);
      map.getView().animate({zoom:map.getView().getZoom()-1},{center:location},{zoom:map.getView().getZoom()+1},{duration:3000});
+    });
+
+    $("#de_plotting_stsff").click(function(){
+        $("#draw_button_div").click();
     });
 
 </script>
