@@ -25766,3 +25766,207 @@ django.db.utils.InternalError: (1054, "Unknown column 'web_graphiclabel.graphict
 [2018-05-10 16:39:10,043] [INFO] "GET /index/u3.png HTTP/1.1" 200 9072
 [2018-05-10 16:39:10,063] [INFO] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 200 23320
 [2018-05-10 16:39:10,065] [INFO] "GET /static/fonts/fontawesome-webfont.woff?v=4.2.0 HTTP/1.1" 200 65452
+[2018-05-10 21:16:01,919] [WARNING] Not Found: /index/
+[2018-05-10 21:16:01,920] [WARNING] "GET /index/ HTTP/1.1" 404 8065
+[2018-05-10 21:16:01,977] [WARNING] Not Found: /favicon.ico
+[2018-05-10 21:16:01,978] [WARNING] "GET /favicon.ico HTTP/1.1" 404 8080
+[2018-05-10 21:16:07,284] [INFO] "GET /index_new/ HTTP/1.1" 200 14022
+[2018-05-10 21:16:07,320] [INFO] "GET /static/img/user.png HTTP/1.1" 200 1209
+[2018-05-10 21:16:07,323] [INFO] "GET /static/img/user_logo.png HTTP/1.1" 200 2522
+[2018-05-10 21:16:07,323] [INFO] "GET /static/img/pwswd.png HTTP/1.1" 200 1187
+[2018-05-10 21:16:07,323] [INFO] "GET /static/img/spaceflight.png HTTP/1.1" 200 4695
+[2018-05-10 21:16:07,324] [INFO] "GET /static/img/close.png HTTP/1.1" 200 1520
+[2018-05-10 21:16:07,325] [INFO] "GET /static/img/q.png HTTP/1.1" 200 944
+[2018-05-10 21:16:07,327] [INFO] "GET /static/img/sedimentation.png HTTP/1.1" 200 2946
+[2018-05-10 21:16:07,367] [INFO] "GET /home_municipal/ HTTP/1.1" 200 6078
+[2018-05-10 21:16:07,399] [INFO] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 200 8192
+[2018-05-10 21:16:07,399] [INFO] "GET /static/img/date.png HTTP/1.1" 200 2959
+[2018-05-10 21:16:07,400] [INFO] "GET /static/img/resource.png HTTP/1.1" 200 4033
+[2018-05-10 21:16:07,400] [INFO] "GET /static/img/user_%20statistics%20.png HTTP/1.1" 200 3193
+[2018-05-10 21:16:07,400] [INFO] "GET /static/img/setting.png HTTP/1.1" 200 3733
+[2018-05-10 21:16:07,829] [INFO] "GET /static/img/building.png HTTP/1.1" 304 0
+[2018-05-10 21:16:07,829] [INFO] "GET /static/img/remove.png HTTP/1.1" 304 0
+[2018-05-10 21:16:07,856] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-10 21:16:07,919] [INFO] "GET /static/img/500305658_wx.png HTTP/1.1" 304 0
+[2018-05-10 21:16:09,252] [INFO] "GET /offence_build/ HTTP/1.1" 302 0
+[2018-05-10 21:16:09,260] [WARNING] Not Found: /accounts/login/
+[2018-05-10 21:16:09,261] [WARNING] "GET /accounts/login/?next=/offence_build/ HTTP/1.1" 404 8113
+[2018-05-10 21:16:10,793] [INFO] "GET /move_out/ HTTP/1.1" 302 0
+[2018-05-10 21:16:10,806] [WARNING] Not Found: /accounts/login/
+[2018-05-10 21:16:10,807] [WARNING] "GET /accounts/login/?next=/move_out/ HTTP/1.1" 404 8108
+[2018-05-10 21:16:11,244] [INFO] "GET /resource_management/ HTTP/1.1" 302 0
+[2018-05-10 21:16:11,261] [WARNING] Not Found: /accounts/login/
+[2018-05-10 21:16:11,262] [WARNING] "GET /accounts/login/?next=/resource_management/ HTTP/1.1" 404 8119
+[2018-05-10 21:16:13,006] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-10 21:16:13,020] [WARNING] Not Found: /accounts/login/
+[2018-05-10 21:16:13,021] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-10 21:16:13,537] [INFO] "GET /general_survey/ HTTP/1.1" 302 0
+[2018-05-10 21:16:13,546] [WARNING] Not Found: /accounts/login/
+[2018-05-10 21:16:13,547] [WARNING] "GET /accounts/login/?next=/general_survey/ HTTP/1.1" 404 8114
+[2018-05-10 21:16:15,086] [INFO] "GET /user_center/ HTTP/1.1" 302 0
+[2018-05-10 21:16:15,101] [WARNING] Not Found: /accounts/login/
+[2018-05-10 21:16:15,101] [WARNING] "GET /accounts/login/?next=/user_center/ HTTP/1.1" 404 8111
+[2018-05-10 21:19:21,810] [INFO] "GET /index_new/ HTTP/1.1" 200 14022
+[2018-05-10 21:19:21,829] [INFO] "GET /static/css/basic.css HTTP/1.1" 200 5042
+[2018-05-10 21:19:21,829] [INFO] "GET /static/css/font-awesome.css HTTP/1.1" 200 26651
+[2018-05-10 21:19:21,830] [INFO] "GET /static/css/custom.css HTTP/1.1" 200 4962
+[2018-05-10 21:19:21,835] [INFO] "GET /static/js/jquery.metisMenu.js HTTP/1.1" 200 1386
+[2018-05-10 21:19:21,836] [INFO] "GET /static/js/bootstrap.js HTTP/1.1" 200 60681
+[2018-05-10 21:19:21,836] [INFO] "GET /static/css/bootstrap.css HTTP/1.1" 200 132547
+[2018-05-10 21:19:21,837] [INFO] "GET /static/js/custom.js HTTP/1.1" 200 2773
+[2018-05-10 21:19:21,838] [INFO] "GET /static/js/common.js HTTP/1.1" 200 1036
+[2018-05-10 21:19:21,839] [INFO] "GET /static/js/jquery-1.10.2.js HTTP/1.1" 200 293285
+[2018-05-10 21:19:24,108] [INFO] "GET /static/img/close.png HTTP/1.1" 200 1520
+[2018-05-10 21:19:24,110] [INFO] "GET /static/img/user.png HTTP/1.1" 200 1209
+[2018-05-10 21:19:24,110] [INFO] "GET /static/img/pwswd.png HTTP/1.1" 200 1187
+[2018-05-10 21:19:24,112] [INFO] "GET /static/img/spaceflight.png HTTP/1.1" 200 4695
+[2018-05-10 21:19:24,117] [INFO] "GET /static/img/user_logo.png HTTP/1.1" 200 2522
+[2018-05-10 21:19:24,120] [INFO] "GET /static/img/q.png HTTP/1.1" 200 944
+[2018-05-10 21:19:24,120] [INFO] "GET /static/img/forestry.png HTTP/1.1" 200 2607
+[2018-05-10 21:19:24,122] [INFO] "GET /static/img/agriculture.png HTTP/1.1" 200 2855
+[2018-05-10 21:19:24,126] [INFO] "GET /static/img/municipal.png HTTP/1.1" 200 3227
+[2018-05-10 21:19:24,130] [INFO] "GET /static/img/sedimentation.png HTTP/1.1" 200 2946
+[2018-05-10 21:19:24,132] [INFO] "GET /static/img/w.png HTTP/1.1" 200 983
+[2018-05-10 21:19:24,133] [INFO] "GET /static/img/road.png HTTP/1.1" 200 2625
+[2018-05-10 21:19:24,133] [INFO] "GET /static/img/e.png HTTP/1.1" 200 1068
+[2018-05-10 21:19:24,135] [INFO] "GET /static/img/environment.png HTTP/1.1" 200 2671
+[2018-05-10 21:19:24,160] [INFO] "GET /home_municipal/ HTTP/1.1" 200 6078
+[2018-05-10 21:19:24,168] [INFO] "GET /static/js/common.js HTTP/1.1" 200 1036
+[2018-05-10 21:19:24,169] [INFO] "GET /static/js/jquery-3.3.1.min.js HTTP/1.1" 200 86927
+[2018-05-10 21:19:24,916] [INFO] "GET /static/img/remove.png HTTP/1.1" 200 3236
+[2018-05-10 21:19:24,917] [INFO] "GET /static/img/building.png HTTP/1.1" 200 3621
+[2018-05-10 21:19:24,921] [INFO] "GET /static/img/resource.png HTTP/1.1" 200 4033
+[2018-05-10 21:19:24,922] [INFO] "GET /static/img/date.png HTTP/1.1" 200 2959
+[2018-05-10 21:19:24,923] [INFO] "GET /static/img/setting.png HTTP/1.1" 200 3733
+[2018-05-10 21:19:24,923] [INFO] "GET /static/img/user_%20statistics%20.png HTTP/1.1" 200 3193
+[2018-05-10 21:19:24,927] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-10 21:19:24,935] [INFO] "GET /static/js/common.js HTTP/1.1" 200 1036
+[2018-05-10 21:19:24,935] [INFO] "GET /static/js/jquery-3.3.1.min.js HTTP/1.1" 200 86927
+[2018-05-10 21:19:25,206] [INFO] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 200 23320
+[2018-05-10 21:19:26,420] [INFO] "GET /static/img/500305658_wx.png HTTP/1.1" 200 702374
+[2018-05-11 09:54:53,626] [INFO] "GET /index_new/ HTTP/1.1" 200 14022
+[2018-05-11 09:54:53,653] [INFO] "GET /static/js/custom.js HTTP/1.1" 304 0
+[2018-05-11 09:54:53,653] [INFO] "GET /static/js/common.js HTTP/1.1" 200 1036
+[2018-05-11 09:54:53,951] [INFO] "GET /static/img/close.png HTTP/1.1" 304 0
+[2018-05-11 09:54:53,951] [INFO] "GET /static/img/user.png HTTP/1.1" 304 0
+[2018-05-11 09:54:53,956] [INFO] "GET /home_municipal/ HTTP/1.1" 200 6078
+[2018-05-11 09:54:53,956] [INFO] "GET /static/img/pwswd.png HTTP/1.1" 304 0
+[2018-05-11 09:54:53,985] [INFO] "GET /static/js/jquery-3.3.1.min.js HTTP/1.1" 304 0
+[2018-05-11 09:54:54,079] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-11 15:54:19,678] [WARNING] Not Found: /index/
+[2018-05-11 15:54:19,679] [WARNING] "GET /index/ HTTP/1.1" 404 8065
+[2018-05-11 15:54:19,738] [WARNING] Not Found: /favicon.ico
+[2018-05-11 15:54:19,739] [WARNING] "GET /favicon.ico HTTP/1.1" 404 8080
+[2018-05-11 15:54:26,645] [INFO] "GET /index_new/ HTTP/1.1" 200 14022
+[2018-05-11 15:54:26,688] [INFO] "GET /static/img/pwswd.png HTTP/1.1" 200 1187
+[2018-05-11 15:54:26,689] [INFO] "GET /static/img/user_logo.png HTTP/1.1" 200 2522
+[2018-05-11 15:54:26,690] [INFO] "GET /static/img/spaceflight.png HTTP/1.1" 200 4695
+[2018-05-11 15:54:26,692] [INFO] "GET /static/img/w.png HTTP/1.1" 200 983
+[2018-05-11 15:54:26,692] [INFO] "GET /static/img/q.png HTTP/1.1" 200 944
+[2018-05-11 15:54:26,694] [INFO] "GET /static/img/e.png HTTP/1.1" 200 1068
+[2018-05-11 15:54:26,695] [INFO] "GET /static/js/common.js HTTP/1.1" 304 0
+[2018-05-11 15:54:26,698] [INFO] "GET /static/img/close.png HTTP/1.1" 304 0
+[2018-05-11 15:54:26,698] [INFO] "GET /static/img/user.png HTTP/1.1" 304 0
+[2018-05-11 15:54:26,737] [INFO] "GET /home_municipal/ HTTP/1.1" 200 6078
+[2018-05-11 15:54:26,757] [INFO] "GET /static/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 200 23320
+[2018-05-11 15:54:26,899] [INFO] "GET /default/ HTTP/1.1" 200 4501
+[2018-05-11 15:54:28,188] [INFO] "GET /resource_management/ HTTP/1.1" 302 0
+[2018-05-11 15:54:28,201] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:54:28,202] [WARNING] "GET /accounts/login/?next=/resource_management/ HTTP/1.1" 404 8119
+[2018-05-11 15:54:30,700] [INFO] "GET /resource_management/ HTTP/1.1" 302 0
+[2018-05-11 15:54:30,716] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:54:30,716] [WARNING] "GET /accounts/login/?next=/resource_management/ HTTP/1.1" 404 8119
+[2018-05-11 15:54:30,893] [INFO] "GET /resource_management/ HTTP/1.1" 302 0
+[2018-05-11 15:54:30,906] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:54:30,906] [WARNING] "GET /accounts/login/?next=/resource_management/ HTTP/1.1" 404 8119
+[2018-05-11 15:54:31,072] [INFO] "GET /resource_management/ HTTP/1.1" 302 0
+[2018-05-11 15:54:31,083] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:54:31,084] [WARNING] "GET /accounts/login/?next=/resource_management/ HTTP/1.1" 404 8119
+[2018-05-11 15:54:31,243] [INFO] "GET /resource_management/ HTTP/1.1" 302 0
+[2018-05-11 15:54:31,258] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:54:31,259] [WARNING] "GET /accounts/login/?next=/resource_management/ HTTP/1.1" 404 8119
+[2018-05-11 15:54:31,437] [INFO] "GET /resource_management/ HTTP/1.1" 302 0
+[2018-05-11 15:54:31,455] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:54:31,455] [WARNING] "GET /accounts/login/?next=/resource_management/ HTTP/1.1" 404 8119
+[2018-05-11 15:54:45,400] [INFO] "GET /static/img/username.png HTTP/1.1" 200 1209
+[2018-05-11 15:55:02,062] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:02,076] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:02,077] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-11 15:55:05,162] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:05,172] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:05,173] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-11 15:55:06,171] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:06,182] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:06,183] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-11 15:55:06,362] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:06,379] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:06,380] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-11 15:55:06,554] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:06,567] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:06,567] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-11 15:55:06,738] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:06,750] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:06,751] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-11 15:55:06,937] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:06,947] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:06,948] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-11 15:55:07,122] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:07,131] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:07,132] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-11 15:55:07,322] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:07,333] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:07,334] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-11 15:55:07,532] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:07,548] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:07,548] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-11 15:55:08,715] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:08,727] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:08,728] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-11 15:55:08,906] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:08,920] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:08,920] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-11 15:55:09,092] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:09,107] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:09,108] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-11 15:55:09,282] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:09,293] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:09,293] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-11 15:55:09,460] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:09,473] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:09,473] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-11 15:55:09,652] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:09,665] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:09,666] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-11 15:55:09,859] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:09,872] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:09,873] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-11 15:55:10,028] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:10,042] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:10,043] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-11 15:55:10,747] [INFO] "GET /offence_build/ HTTP/1.1" 302 0
+[2018-05-11 15:55:10,759] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:10,759] [WARNING] "GET /accounts/login/?next=/offence_build/ HTTP/1.1" 404 8113
+[2018-05-11 15:55:11,810] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:11,821] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:11,822] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-11 15:55:11,979] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:11,991] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:11,992] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-11 15:55:12,147] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:12,163] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:12,164] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-11 15:55:12,331] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:12,343] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:12,343] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-11 15:55:12,529] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:12,544] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:12,544] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-11 15:55:12,690] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:12,704] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:12,704] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-11 15:55:12,845] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:12,859] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:12,860] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
+[2018-05-11 15:55:13,044] [INFO] "GET /account_management/ HTTP/1.1" 302 0
+[2018-05-11 15:55:13,056] [WARNING] Not Found: /accounts/login/
+[2018-05-11 15:55:13,056] [WARNING] "GET /accounts/login/?next=/account_management/ HTTP/1.1" 404 8118
