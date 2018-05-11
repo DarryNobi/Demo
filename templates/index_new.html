@@ -79,13 +79,16 @@
         }
         .nav-img-p{
             height:70%;
-            text-align:-moz-center;
+            display:-webkit-flex;
+            align-items:center;
+            margin:0;
         }
         <!--.nav-img{-->
             <!--height:90%;-->
         <!--}-->
         .nav-text-p{
             height:30%;
+            margin: 0;
         }
         #login, #logout{
             color: #fff;
@@ -178,37 +181,37 @@
                         <ul class="nav nav-tabs head-ul" style="height:100%">
                             <li>
                                 <a class="" href="javascript:void(0)" onclick="open_link('/home_municipal/');" >
-                                    <p class="nav-img-p"><img class="nav-img img-responsive" src="{% static 'img/municipal.png' %}"></p>
+                                    <p class="nav-img-p"><img class="nav-img img-responsive center-block" src="{% static 'img/municipal.png' %}"></p>
                                     <p class="nav-text-p">市政管理</p>
                                 </a>
                             </li>
                             <li role="presentation">
                                 <a href="javascript:void(0)" onclick="open_link('/developing/');">
-                                    <p class="nav-img-p"><img class="nav-img img-responsive" src="{% static 'img/agriculture.png' %}"></p>
+                                    <p class="nav-img-p"><img class="nav-img img-responsive center-block" src="{% static 'img/agriculture.png' %}"></p>
                                     <p class="nav-text-p">农业管理</p>
                                 </a>
                             </li>
                             <li role="presentation">
                                 <a href="javascript:void(0)" onclick="open_link('/developing/');">
-                                    <p class="nav-img-p"><img class="nav-img img-responsive" src="{% static 'img/forestry.png' %}"></p>
+                                    <p class="nav-img-p"><img class="nav-img img-responsive center-block" src="{% static 'img/forestry.png' %}"></p>
                                     <p class="nav-text-p">林业管理</p>
                                 </a>
                             </li>
                             <li role="presentation">
                                 <a href="javascript:void(0)" onclick="open_link('/no_permissions/');">
-                                    <p class="nav-img-p"><img class="nav-img img-responsive" src="{% static 'img/environment.png' %}"></p>
+                                    <p class="nav-img-p"><img class="nav-img img-responsive center-block" src="{% static 'img/environment.png' %}"></p>
                                     <p class="nav-text-p">环境管理</p>
                                 </a>
                             </li>
                             <li role="presentation">
                                 <a href="javascript:void(0)" onclick="open_link('/developing/');">
-                                    <p class="nav-img-p"><img class="nav-img img-responsive" src="{% static 'img/road.png' %}"></p>
+                                    <p class="nav-img-p"><img class="nav-img img-responsive center-block" src="{% static 'img/road.png' %}"></p>
                                     <p class="nav-text-p">道路管理</p>
                                 </a>
                             </li>
                             <li role="presentation">
                                 <a href="javascript:void(0)" onclick="open_link('/developing/');">
-                                    <p class="nav-img-p"><img class="nav-img img-responsive" src="{% static 'img/sedimentation.png' %}"></p>
+                                    <p class="nav-img-p"><img class="nav-img img-responsive center-block" src="{% static 'img/sedimentation.png' %}"></p>
                                     <p class="nav-text-p">沉降检测</p>
                                 </a>
                             </li>
