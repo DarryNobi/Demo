@@ -528,3 +528,8 @@ def ibuild_search(request):
     date= request.POST.get('time', False)
     graphictype= request.POST.get('graphictype', False)
     graphicaddress=request.POST.get('graphicaddress', False)
+    label_temp=GraphicLabel.objects.filter(name=name,date=date,graphictype=graphictype,graphicaddress=graphicaddress,graphiclabel='违建')
+    labels = {}
+    for i in range(len(label_temp)):
+        labels[i] = model_to_dict(label_temp[i])
+    return render(request,ib_event_management.html,{'labels':json.dumps(labels,cls=DjangoJSONEncoder)})
