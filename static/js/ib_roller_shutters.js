@@ -14,11 +14,22 @@ $(function(){
         iscompare=true;
         }
     });
-
+    var map_1 =  map = new ol.Map({
+        target:"map_1",
+        view:new ol.View({
+            projection: "EPSG:4326",
+            //center:[115.7555794477557, 22.6070466884657],
+            center: [117.45, 39.25],
+            zoom:15
+        }),
+        layers:[
+            new ol.layer.Tile({source:new ol.source.OSM()})
+        ]
+    });
     var map_2 = new ol.Map({
         target:"map_2",
         view:map.getView(),
-        layers:[ new ol.layer.Tile({source:new ol.source.OSM()}) ]
+        //layers:[ new ol.layer.Tile({source:new ol.source.OSM()}) ]
     });
 
     function event_map1(e){
