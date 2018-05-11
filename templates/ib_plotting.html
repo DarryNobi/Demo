@@ -44,7 +44,7 @@
         .picture-span {
             color:#666666;
             width:7%;
-            min-width:100px;
+            min-width:80px;
             text-align:center;
         }
         .picture-date {
@@ -55,15 +55,13 @@
             align-items:center;
         }
         .compare-input {
-            height:50%;
-            min-height:50px;
+            height:34px;
         }
         .compare-but {
-            height: 50%;
+            height: 34px;
             width:100%;
             border-radius:4px;
-            font-size:20px;
-            min-height:50px;
+            font-size:14px;
             display:-webkit-flex;
             align-items:center;
         }
@@ -164,6 +162,27 @@
             margin-top: 10px;
             color: #999999;
         }
+        #map_compare a, #vedio_compare a {
+            border-radius:6px;
+            display:table;
+            border:1px solid #d3d5d8;
+            background:#d3d5d8;
+            padding:0;
+            display:-webkit-flex;
+            align-items:center;
+            height:100%;
+            color:black;
+            outline: none;
+        }
+        .vedio_compare_span, .map_compare_span{
+            border-left:1px solid #a7a9ad;
+            height: 100%;
+            display: -webkit-flex;
+            align-items: center;
+            margin-left: 10px;
+            border-radius: 4px;
+            padding-left: 3px;
+        }
     </style>
 
      <script src="{% static 'js/jquery-1.8.2.min.js' %}"></script>
@@ -182,38 +201,33 @@
  </head>
 
  <body style="height:100%;">
-    <div class="compare container" style="background-color:white; display:inline-flex; width:100%; height:10%; min-height:100px">
+    <div class="compare container" style="background-color:white; display:inline-flex; width:100%; height:50px;">
         {% csrf_token %}
         <div class="row" style="width: 100%; display:-webkit-flex; align-items:center; height:100%;">
-            <div class="col-lg-11 col-xs-11" style="display:inline-flex; align-items:center; height:100%">
+            <div class="col-lg-5 col-xs-5" style="display:inline-flex; align-items:center; height:100%">
                 <span class="picture-span">经度：</span>
                 <input type="text" class="compare-input" id="lontitude">
                 <span class="picture-span">纬度：</span>
                 <input type="text" class="compare-input" id="lantitude">
-                <span style="height:100%; display:-webkit-flex; align-items:center; width:7%; margin-left:42px;">
-                    <button class="btn btn-primary" style="border-radius:6px; height:50%; width:100%; min-height:50px; font-size:20px" id="location_btn" >查询</button>
+                <span style="height:100%; display:-webkit-flex; align-items:center; margin-left:10px;">
+                    <button class="btn btn-primary" style="border-radius:6px; height:34px; width:100%; font-size:14px" id="location_btn" >查询</button>
+                </span>
+            </div>
+            <div class="col-lg-5 col-xs-5" style="display:inline-flex; align-items:center; height:100%">
+                <span class="picture-span">参考影像：</span>
+                <span class="picture-date"><input type="date" name="" class="form-control compare-input"/></span>
+                <span class="picture-span">对比影像：</span>
+                <span class="picture-date"><input type="date" name="" class="form-control compare-input"/></span>
+            </div>
+            <div class="col-lg-1 col-xs-1" style="height:100%; align-items:center; display:-webkit-flex;">
+                <span class="input-group-btn search-span" style="margin:0 auto; width:100%">
+                    <button style="border-radius:6px; display:table;" class="btn btn-primary compare-but" id="button_compare">
+                        <img src="{% static 'img/contrast.png' %}" style="height:60%; margin-right:8px; margin-bottom:3px;">
+                        <span>开始对比</span>
+                    </button>
                 </span>
             </div>
         </div>
-        <div class="compare container" style="background-color:white; display:inline-flex; width:100%; height:10%; min-height:100px">
-            <div class="row" style="width: 100%; display:-webkit-flex; align-items:center; height:100%;">
-                <div class="col-lg-11 col-xs-11" style="display:inline-flex; align-items:center; height:100%">
-                    <span class="picture-span" style="margin-left: 43px;">参考影像：</span>
-                    <span class="picture-date" ><input type="date" name="" class="form-control compare-input"/></span>
-                    <span class="picture-span" style="margin-left:42px;">对比影像：</span>
-                    <span class="picture-date"><input type="date" name="" class="form-control compare-input"/></span>
-                </div>
-                <div class="col-lg-1 col-xs-1" style="height:100%; align-items:center; display:-webkit-flex;">
-                    <span class="input-group-btn search-span" style="width:15%; min-width:150px; margin:0 auto;">
-                        <button style="border-radius:6px" class="btn btn-primary compare-but" id="button_compare">
-                            <img src="{% static 'img/contrast.png' %}" style="height:50%; margin-right:8px;">
-                            开始对比
-                        </button>
-                    </span>
-                </div>
-            </div>
-    </div>
-
     </div>
     <div class="container" style="width:100%; height:90%">
         <div class="row" style="width:100%; height:100%">
@@ -291,6 +305,20 @@
             </div>
             <div class="col-lg-1 col-xs-1" style="height:100%; text-align:center; font-size:20px;">
                 <div style="height:100%; width:100%; margin-to:50%;">
+                        <ul class="map_vedio_compare" style="padding:0">
+                            <li class="compare-but" id="map_compare">
+                                <a id="map_a" href="javascript:void(0)">
+                                    <img src="{% static 'img/map.png' %}" style="height:20px; margin-right:8px; padding-left:5px;">
+                                    <span class="map_compare_span">地图</span>
+                                </a>
+                            </li>
+                            <li class="compare-but" id="vedio_compare" style="margin-top:5px;">
+                                <a id="vedio_a" href="javascript:void(0)">
+                                    <img src="{% static 'img/vedio.png' %}" style="height:20px; margin-right:8px; padding-left:5px;">
+                                    <span class="vedio_compare_span">影像</span>
+                                </a>
+                            </li>
+                        </ul>
                     <!--<div class="img_download" style="width:100%; height:50%; color:#0090ff">-->
                         <a href="javascript:void(0)" onclick="open_download('/resource_management/');" style="text-decoration:none">
                             <div style="margin-top:150%"><img style="width:50%;" src="{% static 'img/view_download.png' %}"></div>
@@ -338,6 +366,34 @@
     $("#ib_plotting_stsff").click(function(){
         $("#draw_button_div").click();
     });
+    var firstClick = true;
+    $("#map_compare").click(function(){
+        if (firstClick) {
+            $("#map_compare").css({"background":"#0a86e1","color":"white","outline":"none"});
+            $("#map_a").css({"background":"#0a86e1","color":"white","outline":"none","border":"none"});
+            $(".map_compare_span").css({"background":"#0a86e1","color":"white","outline":"none","border-left":"1px solid #a7a9ad"});
+            firstClick = false;
+        } else {
+            $("#map_a").css({"background":"#d3d5d8","color":"black","outline":"none"});
+            $("#map_compare").css({"background":"#d3d5d8","color":"black","outline":"none"});
+            $(".map_compare_span").css({"background":"#d3d5d8","color":"black","outline":"none","border-left":"1px solid #a7a9ad"});
+            firstClick = true;
+        }
+    })
+
+    $("#vedio_compare").click(function(){
+        if (firstClick) {
+            $("#vedio_compare").css({"background":"#0a86e1","color":"white","outline":"none"});
+            $("#vedio_a").css({"background":"#0a86e1","color":"white","outline":"none","border":"none"});
+            $(".vedio_compare_span").css({"background":"#0a86e1","color":"white","outline":"none","border-left":"1px solid #a7a9ad"});
+            firstClick = false;
+        } else {
+            $("#vedio_a").css({"background":"#d3d5d8","color":"black","outline":"none"});
+            $("#vedio_compare").css({"background":"#d3d5d8","color":"black","outline":"none"});
+            $(".vedio_compare_span").css({"background":"#d3d5d8","color":"black","outline":"none","border-left":"1px solid #a7a9ad"});
+            firstClick = true;
+        }
+    })
 
 </script>
 
