@@ -183,18 +183,36 @@
 
  <body style="height:100%;">
     <div class="compare container" style="background-color:white; display:inline-flex; width:100%; height:10%; min-height:100px">
-            {% csrf_token %}
+        {% csrf_token %}
+        <div class="row" style="width: 100%; display:-webkit-flex; align-items:center; height:100%;">
+            <div class="col-lg-11 col-xs-11" style="display:inline-flex; align-items:center; height:100%">
+                <span class="picture-span">经度：</span>
+                <input type="text" class="compare-input" id="lontitude">
+                <span class="picture-span">纬度：</span>
+                <input type="text" class="compare-input" id="lantitude">
+                <span style="height:100%; display:-webkit-flex; align-items:center; width:7%; margin-left:42px;">
+                    <button class="btn btn-primary" style="border-radius:6px; height:50%; width:100%; min-height:50px; font-size:20px" id="location_btn" >查询</button>
+                </span>
+            </div>
+        </div>
+        <div class="compare container" style="background-color:white; display:inline-flex; width:100%; height:10%; min-height:100px">
             <div class="row" style="width: 100%; display:-webkit-flex; align-items:center; height:100%;">
                 <div class="col-lg-11 col-xs-11" style="display:inline-flex; align-items:center; height:100%">
-                    <span class="picture-span">经度：</span>
-                    <input type="text" class="compare-input" id="lontitude">
-                    <span class="picture-span">纬度：</span>
-                    <input type="text" class="compare-input" id="lantitude">
-                    <span style="height:100%; display:-webkit-flex; align-items:center; width:7%; margin-left:42px;">
-                        <button class="btn btn-primary" style="border-radius:6px; height:50%; width:100%; min-height:50px; font-size:20px" id="location_btn" >查询</button>
+                    <span class="picture-span" style="margin-left: 43px;">参考影像：</span>
+                    <span class="picture-date" ><input type="date" name="" class="form-control compare-input"/></span>
+                    <span class="picture-span" style="margin-left:42px;">对比影像：</span>
+                    <span class="picture-date"><input type="date" name="" class="form-control compare-input"/></span>
+                </div>
+                <div class="col-lg-1 col-xs-1" style="height:100%; align-items:center; display:-webkit-flex;">
+                    <span class="input-group-btn search-span" style="width:15%; min-width:150px; margin:0 auto;">
+                        <button style="border-radius:6px" class="btn btn-primary compare-but" id="button_compare">
+                            <img src="{% static 'img/contrast.png' %}" style="height:50%; margin-right:8px;">
+                            开始对比
+                        </button>
                     </span>
                 </div>
             </div>
+    </div>
 
     </div>
     <div class="container" style="width:100%; height:90%">
@@ -269,6 +287,7 @@
                    <div id="popup_info"></div>
                    <div id="popup_button"></div>
                 </div>
+                <div id="map_2" class="map "></div>
             </div>
             <div class="col-lg-1 col-xs-1" style="height:100%; text-align:center; font-size:20px;">
                 <div style="height:100%; width:100%; margin-to:50%;">
@@ -335,8 +354,10 @@
 </script>
 
 
-<script src="{% static 'js/polygon.js' %}"></script>
+    <script src="{% static 'js/ib_roller_shutters.js' %}"></script>
+    <script src="{% static 'js/polygon.js' %}"></script>
     <script src="{% static 'js/distance.js' %}"></script>
-<script src="{% static 'js/area.js' %}"></script>
+    <script src="{% static 'js/area.js' %}"></script>
+
  </body>
 </html>
