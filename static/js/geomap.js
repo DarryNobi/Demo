@@ -4,7 +4,7 @@
                 url:'http://172.20.53.157:8080/geoserver/wms',
                 projection:'EPSG:4326',
                 params:{
-                LAYERS: 'GF2:GF2_PMS1_E102.9_N24.8_20160809_L1A0001751590-MSS1_fusionRT'}
+                LAYERS: 'GF2:Mosic'}
             }),
             projection: "EPSG:4326",
             opacity:0.5,
