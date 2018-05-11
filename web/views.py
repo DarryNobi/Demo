@@ -25,11 +25,10 @@ User = get_user_model()
 from web.ImageryServer import DB_Workshop
 from web.ImageryServer import ImagePubMan
 import urllib.request
-#from web.ImageryServer import ImagePre
-# from web.ImageryServer import ImagePre
+from web.ImageryServer import ImagePre
 # Create your views here.
 ##################################################
-#from web.models import Map
+from web.models import Map
 ###############################################
 
 
@@ -105,30 +104,30 @@ def ib_roller_shutters(request):
 def user_center(request):
     return render(request,
                   template_name='view_user_center.html')
-@login_required
-@permission_required('web.user_management',raise_exception=True)
+#@login_required
+#@permission_required('web.user_management',raise_exception=True)
 def account_management(request):
     return render(request,
                   template_name='view_account_management.html')
 @login_required
-@permission_required('web.demolition_management',raise_exception=True)
+#@permission_required('web.demolition_management',raise_exception=True)
 def move_out(request):
     return render(request,
                   template_name='view_demolition.html')
 
 @login_required
-@permission_required('web.ibuild_management',raise_exception=True)
+#@permission_required('web.ibuild_management',raise_exception=True)
 def offence_build(request):
     return render(request,
                   template_name='view_illegal_building.html')
 @login_required
-@permission_required('web.recource_management',raise_exception=True)
+#@permission_required('web.recource_management',raise_exception=True)
 def general_survey(request):
     return render(request,
                   template_name='view_general_survey.html')
 
 @login_required
-@permission_required('web.recource_management',raise_exception=True)
+#@permission_required('web.recource_management',raise_exception=True)
 def resource_management(request):
     return render(request,
                   template_name='view_resource_management.html')
@@ -217,7 +216,9 @@ def resource_search(request):
     if localMapsTemp:
         for i in range(len(localMapsTemp)):
             localMaps[localMapsTemp[i].GlobeID]=model_to_dict(localMapsTemp[i])
-            #localGloID.append(localMaps[i]['GlobeID'])
+            #localGloID.append(localMaps[i]['GlobeID'])、
+    else:
+        return render(request, 'rm_resource_search.html', {'message': '查找结果为空！'})
     if sourceMaps:
         return render(request, 'rm_resource_search.html', {'sourceMaps': json.dumps(sourceMaps, cls=DjangoJSONEncoder),
                       'localMaps':json.dumps(localMaps,cls=DjangoJSONEncoder)})

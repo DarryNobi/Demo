@@ -166,19 +166,19 @@
         }
     </style>
 
-   <script src="{% static 'js/jquery-1.8.2.min.js' %}"></script>
+     <script src="{% static 'js/jquery-1.8.2.min.js' %}"></script>
      <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-   <script>
+     <script>
        $.ajaxSetup({
            data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
        });
-   </script>
-   <script src="{% static 'js/openlayers_v4.5.0/build/ol.js' %}"></script>
+     </script>
+     <script src="{% static 'js/openlayers_v4.5.0/build/ol.js' %}"></script>
      <script src="{% static 'js/require.js' %}"></script>
-   <script src="{% static 'js/geomap.js' %}"></script>
-   <!-- <script src="{% static 'js/baidumap.js' %}"></script> -->
-   <script src="{% static 'js/load_draw.js' %}"></script>
-   <script src="{% static 'js/select_draw.js' %}"></script>
+     <script src="{% static 'js/geomap.js' %}"></script>
+     <script src="{% static 'js/load_draw.js' %}"></script>
+     <script src="{% static 'js/select_draw.js' %}"></script>
+    <script src="{% static 'js/ib_roller_shutters.js' %}"></script>
  </head>
 
  <body style="height:100%;">
@@ -314,23 +314,11 @@
      var map = new ol.Map({
        target: 'map',
        view: new ol.View({
-         center: ol.proj.fromLonLat([102.6, 20.2]),
+         center: ol.proj.fromLonLat([102.5, 24.5]),
          zoom: 13,
          maxZoom:17,
          minZoom:10
        }),
-       controls: ol.control.defaults().extend([
-            new ol.control.ScaleLine({  }),
-            new ol.control.MousePosition({
-                coordinateFormat: ol.coordinate.createStringXY(4),
-                projection: 'EPSG:4326'
-            }),
-            new ol.control.ScaleLine({  }),
-            new ol.control.ZoomSlider({
-                maxResolution:1000,
-                minResolution:1000
-            })
-      ]),
      });
     //map.addLayer(baidu_layer);
     map.addLayer(default_geo_layer);
@@ -354,7 +342,6 @@
 </script>
 
 
-    <script src="{% static 'js/ib_roller_shutters.js' %}"></script>
     <script src="{% static 'js/polygon.js' %}"></script>
     <script src="{% static 'js/distance.js' %}"></script>
     <script src="{% static 'js/area.js' %}"></script>
