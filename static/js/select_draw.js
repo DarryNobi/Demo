@@ -72,9 +72,10 @@ $(function(){
 
         }
         remove.onclick=function(){
-            $.get("/delete_draw/",{'id':id}, function(ret){
+            $.get("/_delete_draw/",{'id':id}, function(ret){
                 popup_info.innerHTML='';
             });
+            location.reload();
         }
         cancel.onclick=function(){
             popup_info.innerHTML='';

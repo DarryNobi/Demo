@@ -230,6 +230,7 @@ def ib_event_management(request):
         d_ib_draws[i] = model_to_dict(ib_draws[i])
     return render(request,'ib_event_management.html',{'d_ib_draws': json.dumps(d_ib_draws, cls=DjangoJSONEncoder)})
 
+
 def gs_show_map(request):
     return render(request,
                   template_name='gs_show_map.html')
