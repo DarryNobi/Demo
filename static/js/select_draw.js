@@ -67,7 +67,7 @@ $(function(){
 
         var revise = document.getElementById("revise");
         var remove = document.getElementById("delete");
-        var cancel = document.getElementById("cancel");
+        var cancel1 = document.getElementById("cancel");
         var container = document.getElementById('popup');
         var name = $("#name");
         var graphictype = $("#graphictype");
@@ -133,8 +133,9 @@ $(function(){
             });
             location.reload();
         }
-        cancel.onclick=function(){
+        cancel1.onclick=function(){
             popup_info.innerHTML='';
         }
     }
+
 });
