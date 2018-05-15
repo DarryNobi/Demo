@@ -47,7 +47,7 @@ $(function(){
         overlay.setPosition(coordinate);
         map.addOverlay(overlay);
         var submit = document.getElementById("save_submit");
-        var cancel = document.getElementById("save_cancel");
+
         submit.onclick=function(){
             var name = document.getElementById("name").value;
             var graphictype = document.getElementById("graphictype").value;
@@ -72,8 +72,10 @@ $(function(){
                 error:function(){
                     alert('error')}
              });
+             location.reload();
         }
-  cancel.onclick=function(){
+        var cancel=document.getElementById("save_cancel");
+        cancel.onclick=function(){
         container.style.display="none";
         }
 
