@@ -26,6 +26,15 @@ $(function(){
             drawinfo=ret['drawinfo'];
             //alert(drawinfo.name)
 
+            var square = $("#popup_info_square");
+            var type = $("#popup_info_type");
+            var address = $("#popup_info_address");
+            var time = $("#popup_info_time");
+            square.text(drawinfo.square);
+            type.text(drawinfo.graphiclabel);
+            address.text(drawinfo.address);
+            time.text(drawinfo.time);
+
             var popup_info = document.getElementById("popup_info");
             var popup = new ol.Overlay({
               element:popup_info,
@@ -35,7 +44,8 @@ $(function(){
               }
             });
             popup.setPosition(coords[0][0]);
-            popup_info.innerHTML=drawinfo.name
+            //popup_info.innerHTML=drawinfo.name
+
             map.addOverlay(popup);
         });
     }
@@ -52,7 +62,7 @@ $(function(){
         var coords=e.selected[0].getGeometry().getCoordinates();
         var id=e.selected[0].getProperties().id;
 
-        var popup_info = document.getElementById("popup_button");
+        var popup_button = document.getElementById("popup_button");
         var popup = new ol.Overlay({
           element:popup_button,
           autoPan: true,
@@ -62,7 +72,7 @@ $(function(){
         });
         popup.setPosition(coords[0][0]);
 
-        popup_info.innerHTML="<p><button id='revise'>修改</button><button id='delete'>删除</button><button id='cancel'>取消</button></p>"
+        popup_button.innerHTML="<p><button id='revise'>修改</button><button id='delete'>删除</button><button id='cancel'>取消</button></p>"
         map.addOverlay(popup);
 
         var revise = document.getElementById("revise");
@@ -75,7 +85,7 @@ $(function(){
         var discrib =$("#discrib");
         var square = $("#square");
         var foundtime = $("#foundtime");
-        var graphicaddress = $("#graphicaddress");
+        var address = $("#graphicaddress");
         var save_button=$("#save_submit");
         var update_button=$("#save_update");
         var cancel = document.getElementById("save_cancel");
@@ -91,7 +101,7 @@ $(function(){
          discrib.val(drawinfo.discrib);
          square.val(drawinfo.square);
          foundtime.val(drawinfo.foundtime);
-         graphicaddress.val(drawinfo.graphicaddress);
+         address.val(drawinfo.address);
          });
 
 
@@ -114,7 +124,7 @@ $(function(){
             var graphiclabel = document.getElementById("graphiclabel").value;
             var discrib = document.getElementById("discrib").value;
             var foundtime = document.getElementById("foundtime").value;
-            var graphicaddress = document.getElementById("graphicaddress").value;
+            var address = document.getElementById("graphicaddress").value;
             $.ajax({
                 type:'post',
                 url:'/update_draw/',
@@ -125,7 +135,7 @@ $(function(){
                     'graphiclabel':graphiclabel,
                     'discrib':discrib,
                     'foundtime':foundtime,
-                    'graphicaddress';graphicaddress
+                    'address':address
                 },
                 success:function(){
                     alert('success')},
@@ -136,12 +146,12 @@ $(function(){
         }
         remove.onclick=function(){
             $.get("/_delete_draw/",{'id':id}, function(ret){
-                popup_info.innerHTML='';
+                popup_button.innerHTML='';
             });
             location.reload();
         }
         cancel1.onclick=function(){
-            popup_info.innerHTML='';
+            popup_button.innerHTML='';
         }
     }
 

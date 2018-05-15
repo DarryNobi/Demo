@@ -55,7 +55,7 @@ $(function(){
             var discrib = document.getElementById("discrib").value;
             var square = document.getElementById("square").value;
             var foundtime = document.getElementById("foundtime").value;
-            var graphicaddress = document.getElementById("graphicaddress").value;
+            var address = document.getElementById("graphicaddress").value;
             $.ajax({
                 type:'post',
                 url:'/save_draw/',
@@ -67,7 +67,7 @@ $(function(){
                     'discrib':discrib,
                     'square':square,
                     'foundtime':foundtime,
-                    'graphicaddress':graphicaddress
+                    'address':address
                 },
                 success:function(){
                     alert('success')},

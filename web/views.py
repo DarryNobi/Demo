@@ -443,7 +443,7 @@ def save_draw(request):
     discrib = request.POST.get('discrib', False)
     square = request.POST.get('square', 0)
     foundtime = request.POST.get('foundtime',False )
-    graphicaddress= request.POST.get('graphicaddress', False)
+    address= request.POST.get('address', '无')
 
 
     coordis=raw_dic.replace(",",";").split(";")
@@ -451,7 +451,7 @@ def save_draw(request):
     coordis_list=[coordis_num[i:i+2] for i in range(0,len(coordis_num),2)]
     jsonstr={'type':'Feature','geometry':{'type':'Polygon','coordinates':[coordis_list]},'properties':{'id':0}}
     jsondata=json.dumps(jsonstr)
-    draw_obj = GraphicLabel.objects.create(name=name,context=jsondata,graphictype=graphictype,graphiclabel=graphiclabel,graphic_provide=request.user,discrib=discrib,foundtime=foundtime,graphicaddress=graphicaddress)
+    draw_obj = GraphicLabel.objects.create(name=name,context=jsondata,graphictype=graphictype,graphiclabel=graphiclabel,graphic_provide=request.user,discrib=discrib,square=square,foundtime=foundtime,address=address)
     draw_obj.save()
     return render(request,'map_geo.html',{'message':'success'})
     #return HttpResponse("success")
@@ -463,6 +463,9 @@ def update_draw(request):
     graphictype = request.POST.get('graphictype', False)
     graphiclabel = request.POST.get('graphiclabel', False)
     discrib = request.POST.get('discrib', False)
+    square = request.POST.get('square', 0)
+    foundtime = request.POST.get('foundtime',False )
+    address= request.POST.get('address', '无')
     draw_obj=GraphicLabel.objects.get(id=id)
     if draw_obj:
         draw_obj.name=name
