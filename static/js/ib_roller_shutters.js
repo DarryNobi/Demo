@@ -6,11 +6,13 @@ $(function(){
     button_compare.click(function(){
     if(iscompare){
         document.getElementById("map_2").style.display="none";//隐藏
+        //map2.hide();
         map1.off('mousemove');
         map2.off('mousemove');
         iscompare=false;
     }else{
-        document.getElementById("map_2").style.display="inline";//显示
+        document.getElementById("map_2").style.display="block";//显示
+        //map2.show();
         map1.on('mousemove',event_map1);
         map2.on('mousemove',event_map2);
         iscompare=true;

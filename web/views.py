@@ -438,8 +438,8 @@ def status_revise(request):
 def save_draw(request):
     raw_dic = request.POST.get('coordi', False)
     name = request.POST.get('name', False)
-    graphictype = request.POST.get('grahpictype', False)
-    graphiclabel = request.POST.get('grahpiclabel', False)
+    graphictype = request.POST.get('graphictype', False)
+    graphiclabel = request.POST.get('graphiclabel', False)
     discrib = request.POST.get('discrib', False)
     square = request.POST.get('square', 0)
     coordinate = request.POST.get('coordinate', False)
@@ -452,6 +452,25 @@ def save_draw(request):
     draw_obj = GraphicLabel.objects.create(name=name,context=jsondata,graphictype=graphictype,graphiclabel=graphiclabel,graphic_provide=request.user,discrib=discrib)
     draw_obj.save()
     return render(request,'map_geo.html',{'message':'success'})
+    #return HttpResponse("success")
+
+
+def update_draw(request):
+    id= request.POST.get('id', False)
+    name = request.POST.get('name', False)
+    graphictype = request.POST.get('graphictype', False)
+    graphiclabel = request.POST.get('graphiclabel', False)
+    discrib = request.POST.get('discrib', False)
+    draw_obj=GraphicLabel.objects.get(id=id)
+    if draw_obj:
+        draw_obj.name=name
+        draw_obj.graphictype=graphictype
+        draw_obj.graphiclabel=graphiclabel
+        draw_obj.discrib=discrib
+        draw_obj.save()
+        return render(request, 'map_geo.html', {'message': 'success'})
+    else:
+        return render(request, 'map_geo.html', {'message': 'fail'})
 
 
 def load_all_draw(request):
@@ -467,6 +486,8 @@ def load_all_draw(request):
 def query_draw(request):
     id = request.GET.get('id', False)
     draw=model_to_dict(GraphicLabel.objects.get(id=id))
+    x=draw['graphictype']
+    y=draw['graphiclabel']
     return JsonResponse({'drawinfo':draw})
 
 
