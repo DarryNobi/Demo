@@ -104,30 +104,30 @@ def ib_roller_shutters(request):
 def user_center(request):
     return render(request,
                   template_name='view_user_center.html')
-#@login_required
-#@permission_required('web.user_management',raise_exception=True)
+@login_required
+@permission_required('web.user_management',raise_exception=True)
 def account_management(request):
     return render(request,
                   template_name='view_account_management.html')
 @login_required
-#@permission_required('web.demolition_management',raise_exception=True)
+@permission_required('web.demolition_management',raise_exception=True)
 def move_out(request):
     return render(request,
                   template_name='view_demolition.html')
 
 @login_required
-#@permission_required('web.ibuild_management',raise_exception=True)
+@permission_required('web.ibuild_management',raise_exception=True)
 def offence_build(request):
     return render(request,
                   template_name='view_illegal_building.html')
 @login_required
-#@permission_required('web.recource_management',raise_exception=True)
+@permission_required('web.recource_management',raise_exception=True)
 def general_survey(request):
     return render(request,
                   template_name='view_general_survey.html')
 
 @login_required
-#@permission_required('web.recource_management',raise_exception=True)
+@permission_required('web.recource_management',raise_exception=True)
 def resource_management(request):
     return render(request,
                   template_name='view_resource_management.html')
