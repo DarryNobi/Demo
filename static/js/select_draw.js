@@ -74,7 +74,8 @@ $(function(){
         var graphiclabel = $("#graphiclabel");
         var discrib =$("#discrib");
         var square = $("#square");
-        var coordinate = $("#coordinate");
+        var foundtime = $("#foundtime");
+        var graphicaddress = $("#graphicaddress");
         var save_button=$("#save_submit");
         var update_button=$("#save_update");
         var cancel = document.getElementById("save_cancel");
@@ -88,7 +89,10 @@ $(function(){
          graphictype.val(drawinfo['graphictype']);
          graphiclabel.val(drawinfo['graphiclabel']);
          discrib.val(drawinfo.discrib);
-         square.val(drawinfo.square);});
+         square.val(drawinfo.square);
+         foundtime.val(drawinfo.foundtime);
+         graphicaddress.val(drawinfo.graphicaddress);
+         });
 
 
          container.style.display="block"
@@ -109,7 +113,8 @@ $(function(){
             var graphictype = document.getElementById("graphictype").value;
             var graphiclabel = document.getElementById("graphiclabel").value;
             var discrib = document.getElementById("discrib").value;
-
+            var foundtime = document.getElementById("foundtime").value;
+            var graphicaddress = document.getElementById("graphicaddress").value;
             $.ajax({
                 type:'post',
                 url:'/update_draw/',
@@ -119,6 +124,8 @@ $(function(){
                     'graphictype':graphictype,
                     'graphiclabel':graphiclabel,
                     'discrib':discrib,
+                    'foundtime':foundtime,
+                    'graphicaddress';graphicaddress
                 },
                 success:function(){
                     alert('success')},

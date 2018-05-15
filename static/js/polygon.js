@@ -54,7 +54,8 @@ $(function(){
             var graphiclabel = document.getElementById("graphiclabel").value;
             var discrib = document.getElementById("discrib").value;
             var square = document.getElementById("square").value;
-            var coordinate = document.getElementById("coordinate").value;
+            var foundtime = document.getElementById("foundtime").value;
+            var graphicaddress = document.getElementById("graphicaddress").value;
             $.ajax({
                 type:'post',
                 url:'/save_draw/',
@@ -65,7 +66,8 @@ $(function(){
                     'graphiclabel':graphiclabel,
                     'discrib':discrib,
                     'square':square,
-                    'coordinate':coordinate
+                    'foundtime':foundtime,
+                    'graphicaddress':graphicaddress
                 },
                 success:function(){
                     alert('success')},
