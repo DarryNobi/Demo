@@ -68,8 +68,64 @@ $(function(){
         var revise = document.getElementById("revise");
         var remove = document.getElementById("delete");
         var cancel = document.getElementById("cancel");
-        revise.onclick=function(){
+        var container = document.getElementById('popup');
+        var name = $("#name");
+        var graphictype = $("#graphictype");
+        var graphiclabel = $("#graphiclabel");
+        var discrib =$("#discrib");
+        var square = $("#square");
+        var coordinate = $("#coordinate");
+        var save_button=$("#save_submit");
+        var update_button=$("#save_update");
+        var cancel = document.getElementById("save_cancel");
+        cancel.onclick=function(){
+        container.style.display="none";
+        }
+         revise.onclick=function(){
+         $.get("/query_draw/",{'id':id}, function(ret){
+            drawinfo=ret['drawinfo'];
+             name.val(drawinfo.name);
+         graphictype.val(drawinfo['graphictype']);
+         graphiclabel.val(drawinfo['graphiclabel']);
+         discrib.val(drawinfo.discrib);
+         square.val(drawinfo.square);});
 
+
+         container.style.display="block"
+         save_button.hide();
+         update_button.show();
+         var overlay = new ol.Overlay(/** @type {olx.OverlayOptions} */ ({
+            element: container,
+            autoPan: true,
+            autoPanAnimation: {
+                duration: 250   //当Popup超出地图边界时，为了Popup全部可见，地图移动的速度.
+            }
+        }));
+        overlay.setPosition(coords[0][0]);
+        map.addOverlay(overlay);
+          var update = document.getElementById("save_update");
+        update.onclick=function(){
+            var name = document.getElementById("name").value;
+            var graphictype = document.getElementById("graphictype").value;
+            var graphiclabel = document.getElementById("graphiclabel").value;
+            var discrib = document.getElementById("discrib").value;
+
+            $.ajax({
+                type:'post',
+                url:'/update_draw/',
+                data: {
+                    'id':id,
+                    'name':name,
+                    'graphictype':graphictype,
+                    'graphiclabel':graphiclabel,
+                    'discrib':discrib,
+                },
+                success:function(){
+                    alert('success')},
+                error:function(){
+                    alert('error')}
+             });
+        }
         }
         remove.onclick=function(){
             $.get("/_delete_draw/",{'id':id}, function(ret){
