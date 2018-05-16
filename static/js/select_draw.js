@@ -21,6 +21,7 @@ $(function(){
     function singleClickEvent(e){
         var coords=e.selected[0].getGeometry().getCoordinates();
         var id=e.selected[0].getProperties().id;
+
         //alert(e.selected[0].getProperties().id)
         $.get("/query_draw/",{'id':id}, function(ret){
             drawinfo=ret['drawinfo'];
@@ -33,9 +34,10 @@ $(function(){
             square.text(drawinfo.square);
             type.text(drawinfo.graphiclabel);
             address.text(drawinfo.address);
-            time.text(drawinfo.time);
+            time.text(drawinfo.foundtime);
 
             var popup_info = document.getElementById("popup_info");
+            popup_info.style.display="block";
             var popup = new ol.Overlay({
               element:popup_info,
               autoPan: true,
@@ -154,5 +156,8 @@ $(function(){
             popup_button.innerHTML='';
         }
     }
+      $("#close_login").click(function(){
+            $("#popup_info").hide();
+        });
 
 });
