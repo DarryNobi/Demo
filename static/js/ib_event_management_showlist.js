@@ -21,7 +21,7 @@ function showList(){
               locale:'zh-CN',//中文支持
               pagination: true,//是否开启分页（*）
               pageNumber:1,//初始化加载第一页，默认第一页
-              pageSize: 3,//每页的记录行数（*）
+              pageSize: 5,//每页的记录行数（*）
               pageList: [10, 25, 50, 100],//可供选择的每页的行数（*）
               sidePagination: "client", //分页方式：client客户端分页，server服务端分页（*）
               showRefresh:false,//刷新按钮
@@ -30,18 +30,18 @@ function showList(){
               columns: [
                   {field: 'id', title:'序号', width:'10%', align:'center'},
                   {field: 'name', title:'名称', width:'10%', align:'center'},
-                  {field: 'square', title:'面积', width:'10%', align:'center'},
-                  {field: 'graphictype', title:'类型', width:'10%', align:'center'},
+                  {field: 'square', title:    '面积', width:'10%', align:'center'},
+                  {field: 'graphictype', title:'地物类型', width:'10%', align:'center'},
                   {field: 'coordinate_x+item.coordinate_y', title:'现场地址', width:'20%', align:'center'},
                   {field: 'discrib', title:'细节描述', width:'10%', align:'center'},
                   {field: 'graphic_provide_id', title:'处理人', width:'10%', align:'center'},
                   {field: '', title:'录入时间', width:'10%', align:'center'},
                   {field: 'tool',title: '操作', align: 'center',
                           formatter: function (value,row,index){
-                              var element = "<a href='#' class='operate check_href' id='check"+row.id +"' data-id='"+row.id +"' onclick='query()' onmouseover='check_mouseOver(\" "+row.id+" \")' onmouseout='check_mouseOut(\" "+row.id+" \")'>"
+                              var element = "<a href='#' class='operate check_href' id='check"+row.id +"' data-id='"+row.id +"' onclick='show_item(\" "+row.id+" \")' onmouseover='check_mouseOver(\" "+row.id+" \")' onmouseout='check_mouseOut(\" "+row.id+" \")'>"
                               + "<img id='check_img"+row.id+"' class='nav-img' src='../static/img/check.png'>"
                               + "</a>"
-                              + "<a href='#' class='operate delete_href' id='delete"+row.id +"' data-id='"+row.id +"' onclick='changeStatus(\" "+row.id+" \")' onmouseover='del_mouseOver(\" "+row.id+" \")' onmouseout='del_mouseOut(\" "+row.id+" \")'>"
+                              + "<a href='#' class='operate delete_href' id='delete"+row.id +"' data-id='"+row.id +"' onclick='delete_item(\" "+row.id+" \")' onmouseover='del_mouseOver(\" "+row.id+" \")' onmouseout='del_mouseOut(\" "+row.id+" \")'>"
                               + "<img id='del_img"+row.id+"' class='nav-img' src='../static/img/delete.png'>"
                               + "</a>";
                               return element;
@@ -98,7 +98,7 @@ function query(){
          });
     }
 
-function changeStatus(data){
+function delete_item(data){
     var num=data;
     $.ajax({
         url:'/_delete_draw/',
@@ -111,4 +111,8 @@ function changeStatus(data){
             })
         }
     });
+}
+function show_item(data){
+    var num=data;
+    location.href="/ib_plotting/"+'?id='+num
 }

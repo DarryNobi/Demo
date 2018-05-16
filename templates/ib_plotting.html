@@ -109,13 +109,11 @@
                 </script>
             </div>
             <div class="col-lg-5 col-xs-5" style="display:inline-flex; align-items:center; height:100%">
-                <span class="picture-span">参考影像：</span>
+                <span class="picture-span" style="width: 30%;">参考影像：</span>
                 <span class="picture-date"><input type="date" name="" class="form-control compare-input"/></span>
-                <span class="picture-span">对比影像：</span>
+                <span class="picture-span" style="width: 30%;">对比影像：</span>
                 <span class="picture-date"><input type="date" name="" class="form-control compare-input"/></span>
-            </div>
-            <div class="col-lg-1 col-xs-1" style="height:100%; align-items:center; display:-webkit-flex;">
-                <span class="input-group-btn search-span" style="margin:0 auto; width:100%">
+                 <span class="input-group-btn search-span" style="margin:0 auto; width:100%;margin-right:10%">
                     <button style="border-radius:6px; display:table;" class="btn btn-primary compare-but" id="button_compare">
                         <img src="{% static 'img/contrast.png' %}" style="height:60%; margin-right:8px; margin-bottom:3px;">
                         <span>开始对比</span>
@@ -311,11 +309,7 @@
     map.addLayer(geoserver_layer3);
     map.addLayer(geoserver_layer2);
 
-    var map_2 = new ol.Map({
-        target:"map_2",
-        view:map.getView(),
-        layers:[ new ol.layer.Tile({source:new ol.source.OSM()}) ]
-    });
+
     </script>
     <script>
        $.ajaxSetup({

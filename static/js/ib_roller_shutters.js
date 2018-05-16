@@ -28,11 +28,11 @@ $(function(){
 //            new ol.layer.Tile({source:new ol.source.OSM()})
 //        ]
 //    });
-//    map_2 = new ol.Map({
-//        target:"map_2",
-//        view:map.getView(),
-//        layers:[ new ol.layer.Tile({source:new ol.source.OSM()}) ]
-//    });
+    map_2 = new ol.Map({
+        target:"map_2",
+        view:map.getView(),
+        layers:[ new ol.layer.Tile({source:new ol.source.OSM()}) ]
+    });
 
     function event_map1(e){
         //console.log(e);
