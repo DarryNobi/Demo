@@ -21,12 +21,23 @@ $(function(){
     function singleClickEvent(e){
         var coords=e.selected[0].getGeometry().getCoordinates();
         var id=e.selected[0].getProperties().id;
+
         //alert(e.selected[0].getProperties().id)
         $.get("/query_draw/",{'id':id}, function(ret){
             drawinfo=ret['drawinfo'];
             //alert(drawinfo.name)
 
+            var square = $("#popup_info_square");
+            var type = $("#popup_info_type");
+            var address = $("#popup_info_address");
+            var time = $("#popup_info_time");
+            square.text(drawinfo.square);
+            type.text(drawinfo.graphiclabel);
+            address.text(drawinfo.address);
+            time.text(drawinfo.foundtime);
+
             var popup_info = document.getElementById("popup_info");
+            popup_info.style.display="block";
             var popup = new ol.Overlay({
               element:popup_info,
               autoPan: true,
@@ -35,7 +46,8 @@ $(function(){
               }
             });
             popup.setPosition(coords[0][0]);
-            popup_info.innerHTML=drawinfo.name
+            //popup_info.innerHTML=drawinfo.name
+
             map.addOverlay(popup);
         });
     }
@@ -52,7 +64,7 @@ $(function(){
         var coords=e.selected[0].getGeometry().getCoordinates();
         var id=e.selected[0].getProperties().id;
 
-        var popup_info = document.getElementById("popup_button");
+        var popup_button = document.getElementById("popup_button");
         var popup = new ol.Overlay({
           element:popup_button,
           autoPan: true,
@@ -62,23 +74,90 @@ $(function(){
         });
         popup.setPosition(coords[0][0]);
 
-        popup_info.innerHTML="<p><button id='revise'>修改</button><button id='delete'>删除</button><button id='cancel'>取消</button></p>"
+        popup_button.innerHTML="<p><button id='revise'>修改</button><button id='delete'>删除</button><button id='cancel'>取消</button></p>"
         map.addOverlay(popup);
 
         var revise = document.getElementById("revise");
         var remove = document.getElementById("delete");
-        var cancel = document.getElementById("cancel");
-        revise.onclick=function(){
+        var cancel1 = document.getElementById("cancel");
+        var container = document.getElementById('popup');
+        var name = $("#name");
+        var graphictype = $("#graphictype");
+        var graphiclabel = $("#graphiclabel");
+        var discrib =$("#discrib");
+        var square = $("#square");
+        var foundtime = $("#foundtime");
+        var address = $("#graphicaddress");
+        var save_button=$("#save_submit");
+        var update_button=$("#save_update");
+        var cancel = document.getElementById("save_cancel");
+        cancel.onclick=function(){
+        container.style.display="none";
+        }
+         revise.onclick=function(){
+         $.get("/query_draw/",{'id':id}, function(ret){
+            drawinfo=ret['drawinfo'];
+             name.val(drawinfo.name);
+         graphictype.val(drawinfo['graphictype']);
+         graphiclabel.val(drawinfo['graphiclabel']);
+         discrib.val(drawinfo.discrib);
+         square.val(drawinfo.square);
+         foundtime.val(drawinfo.foundtime);
+         address.val(drawinfo.address);
+         });
 
+
+         container.style.display="block"
+         save_button.hide();
+         update_button.show();
+         var overlay = new ol.Overlay(/** @type {olx.OverlayOptions} */ ({
+            element: container,
+            autoPan: true,
+            autoPanAnimation: {
+                duration: 250   //当Popup超出地图边界时，为了Popup全部可见，地图移动的速度.
+            }
+        }));
+        overlay.setPosition(coords[0][0]);
+        map.addOverlay(overlay);
+          var update = document.getElementById("save_update");
+        update.onclick=function(){
+            var name = document.getElementById("name").value;
+            var graphictype = document.getElementById("graphictype").value;
+            var graphiclabel = document.getElementById("graphiclabel").value;
+            var discrib = document.getElementById("discrib").value;
+            var foundtime = document.getElementById("foundtime").value;
+            var address = document.getElementById("graphicaddress").value;
+            $.ajax({
+                type:'post',
+                url:'/update_draw/',
+                data: {
+                    'id':id,
+                    'name':name,
+                    'graphictype':graphictype,
+                    'graphiclabel':graphiclabel,
+                    'discrib':discrib,
+                    'foundtime':foundtime,
+                    'address':address
+                },
+                success:function(){
+                    alert('success')},
+                error:function(){
+                    alert('error')}
+             });
+        }
         }
         remove.onclick=function(){
             $.get("/_delete_draw/",{'id':id}, function(ret){
-                popup_info.innerHTML='';
+                popup_button.innerHTML='';
             });
             location.reload();
         }
-        cancel.onclick=function(){
-            popup_info.innerHTML='';
+        cancel1.onclick=function(){
+            popup_button.innerHTML='';
         }
     }
+      $("#close_login").click(function(){
+            $("#popup_info").hide();
+        });
+
 });

@@ -103,4 +103,5 @@ class GraphicLabel(models.Model):
     coordinate_x = models.FloatField(default=0)
     coordinate_y = models.FloatField(default=0)
     createtime=models.DateField(auto_now_add=True)
-    graphicaddress=models.CharField(max_length=16,default='default')
+    foundtime=models.DateTimeField(blank=True,default=timezone.now)
+    address=models.CharField(max_length=16,default='无')

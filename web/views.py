@@ -1,3 +1,6 @@
+
+
+
 from __future__ import unicode_literals
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -22,7 +25,7 @@ User = get_user_model()
 from web.ImageryServer import DB_Workshop
 from web.ImageryServer import ImagePubMan
 import urllib.request
-from web.ImageryServer import ImagePre
+#from web.ImageryServer import ImagePre
 # Create your views here.
 ##################################################
 #from web.models import Map
@@ -48,6 +51,16 @@ def login(request):
     #    uf = User
     return render(request,
                   template_name='login.html')
+
+def not_login(request):
+    # if request.method == "POST":
+    #    uf = User
+    return render(request,
+                  template_name='not_login.html')
+
+def no_permissions(request):
+    return render(request,
+                  template_name='no_permissions.html')
 
 
 def register(request):
@@ -86,14 +99,6 @@ def permissions_query(request):
 def ib_roller_shutters(request):
     return render(request,
                   template_name='ib_roller_shutters.html')
-
-def no_permissions(request):
-    return render(request,
-                  template_name='no_permissions.html')
-
-def not_login(request):
-    return render(request,
-                  template_name='not_login.html')
 #####################################################
 @login_required
 def user_center(request):
@@ -213,7 +218,9 @@ def resource_search(request):
     if localMapsTemp:
         for i in range(len(localMapsTemp)):
             localMaps[localMapsTemp[i].GlobeID]=model_to_dict(localMapsTemp[i])
-            #localGloID.append(localMaps[i]['GlobeID'])
+            #localGloID.append(localMaps[i]['GlobeID'])、
+    else:
+        return render(request, 'rm_resource_search.html', {'message': '查找结果为空！'})
     if sourceMaps:
         return render(request, 'rm_resource_search.html', {'sourceMaps': json.dumps(sourceMaps, cls=DjangoJSONEncoder),
                       'localMaps':json.dumps(localMaps,cls=DjangoJSONEncoder)})
@@ -434,20 +441,44 @@ def status_revise(request):
 def save_draw(request):
     raw_dic = request.POST.get('coordi', False)
     name = request.POST.get('name', False)
-    graphictype = request.POST.get('grahpictype', False)
-    graphiclabel = request.POST.get('grahpiclabel', False)
+    graphictype = request.POST.get('graphictype', False)
+    graphiclabel = request.POST.get('graphiclabel', False)
     discrib = request.POST.get('discrib', False)
     square = request.POST.get('square', 0)
-    coordinate = request.POST.get('coordinate', False)
+    foundtime = request.POST.get('foundtime',False )
+    address= request.POST.get('address', '无')
+
 
     coordis=raw_dic.replace(",",";").split(";")
     coordis_num=[float(c) for c in coordis]
     coordis_list=[coordis_num[i:i+2] for i in range(0,len(coordis_num),2)]
     jsonstr={'type':'Feature','geometry':{'type':'Polygon','coordinates':[coordis_list]},'properties':{'id':0}}
     jsondata=json.dumps(jsonstr)
-    draw_obj = GraphicLabel.objects.create(name=name,context=jsondata,graphictype=graphictype,graphiclabel=graphiclabel,graphic_provide=request.user,discrib=discrib)
+    draw_obj = GraphicLabel.objects.create(name=name,context=jsondata,graphictype=graphictype,graphiclabel=graphiclabel,graphic_provide=request.user,discrib=discrib,square=square,foundtime=foundtime,address=address)
     draw_obj.save()
     return render(request,'map_geo.html',{'message':'success'})
+    #return HttpResponse("success")
+
+
+def update_draw(request):
+    id= request.POST.get('id', False)
+    name = request.POST.get('name', False)
+    graphictype = request.POST.get('graphictype', False)
+    graphiclabel = request.POST.get('graphiclabel', False)
+    discrib = request.POST.get('discrib', False)
+    square = request.POST.get('square', 0)
+    foundtime = request.POST.get('foundtime',False )
+    address= request.POST.get('address', '无')
+    draw_obj=GraphicLabel.objects.get(id=id)
+    if draw_obj:
+        draw_obj.name=name
+        draw_obj.graphictype=graphictype
+        draw_obj.graphiclabel=graphiclabel
+        draw_obj.discrib=discrib
+        draw_obj.save()
+        return render(request, 'map_geo.html', {'message': 'success'})
+    else:
+        return render(request, 'map_geo.html', {'message': 'fail'})
 
 
 def load_all_draw(request):
@@ -463,6 +494,8 @@ def load_all_draw(request):
 def query_draw(request):
     id = request.GET.get('id', False)
     draw=model_to_dict(GraphicLabel.objects.get(id=id))
+    x=draw['graphictype']
+    y=draw['graphiclabel']
     return JsonResponse({'drawinfo':draw})
 
 

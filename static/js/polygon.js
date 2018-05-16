@@ -31,8 +31,11 @@ $(function(){
 
 
         var container = document.getElementById('popup');
-        container.style.display="block"
-
+        var save_button=$("#save_submit");
+        var update_button=$("#save_update");
+        container.style.display="block";
+        update_button.hide();
+        save_button.show();
         var overlay = new ol.Overlay(/** @type {olx.OverlayOptions} */ ({
             element: container,
             autoPan: true,
@@ -43,40 +46,45 @@ $(function(){
         var coordinate = coordinates[0][0];
         overlay.setPosition(coordinate);
         map.addOverlay(overlay);
-
         var submit = document.getElementById("save_submit");
-        var cancel = document.getElementById("save_cancel");
 
         submit.onclick=function(){
             var name = document.getElementById("name").value;
-            var grahpictype = document.getElementById("grahpictype").value;
-            var grahpiclabel = document.getElementById("grahpiclabel").value;
+            var graphictype = document.getElementById("graphictype").value;
+            var graphiclabel = document.getElementById("graphiclabel").value;
             var discrib = document.getElementById("discrib").value;
             var square = document.getElementById("square").value;
-            var coordinate = document.getElementById("coordinate").value;
+            var foundtime = document.getElementById("foundtime").value;
+            var address = document.getElementById("graphicaddress").value;
             $.ajax({
                 type:'post',
                 url:'/save_draw/',
                 data: {
                     'coordi':geostr,
                     'name':name,
-                    'grahpictype':grahpictype,
-                    'grahpiclabel':grahpiclabel,
+                    'graphictype':graphictype,
+                    'graphiclabel':graphiclabel,
                     'discrib':discrib,
                     'square':square,
-                    'coordinate':coordinate
+                    'foundtime':foundtime,
+                    'address':address
                 },
                 success:function(){
                     alert('success')},
                 error:function(){
                     alert('error')}
              });
+             location.reload();
         }
+        var cancel=document.getElementById("save_cancel");
         cancel.onclick=function(){
-            container.style.display="none";
+        container.style.display="none";
         }
 
     });
+
+
+
 
     draw_btn=document.getElementById("draw_button_div");
     draw_btn.onclick=function(){

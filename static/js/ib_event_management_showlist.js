@@ -30,12 +30,11 @@ function showList(){
               columns: [
                   {field: 'id', title:'序号', width:'10%', align:'center'},
                   {field: 'name', title:'名称', width:'10%', align:'center'},
-                  {field: 'square', title:    '面积', width:'10%', align:'center'},
-                  {field: 'graphictype', title:'地物类型', width:'10%', align:'center'},
-                  {field: 'coordinate_x+item.coordinate_y', title:'现场地址', width:'20%', align:'center'},
+                  {field: 'square', title:'面积', width:'10%', align:'center'},
+                  {field: 'graphictype', title:'类型', width:'10%', align:'center'},
+                  {field: 'address', title:'现场地址', width:'20%', align:'center'},
                   {field: 'discrib', title:'细节描述', width:'10%', align:'center'},
-                  {field: 'graphic_provide_id', title:'处理人', width:'10%', align:'center'},
-                  {field: '', title:'录入时间', width:'10%', align:'center'},
+                  {field: 'createtime', title:'录入时间', width:'10%', align:'center'},
                   {field: 'tool',title: '操作', align: 'center',
                           formatter: function (value,row,index){
                               var element = "<a href='#' class='operate check_href' id='check"+row.id +"' data-id='"+row.id +"' onclick='show_item(\" "+row.id+" \")' onmouseover='check_mouseOver(\" "+row.id+" \")' onmouseout='check_mouseOut(\" "+row.id+" \")'>"
