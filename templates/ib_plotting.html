@@ -14,7 +14,9 @@
     <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-     <script src="{% static 'js/common.js' %}"></script>
+    <script src="{% static 'js/common.js' %}"></script>
+    <script src="{% static 'js/html2canvas.min.js' %}"></script>
+    <script src="{% static 'js/canvas2image.js' %}"></script>
     <style>
         body{
             overflow: hidden;
@@ -125,7 +127,7 @@
         </div>
     </div>
     <div class="container" style="width:100%; height:90%">
-        <div class="row" style="width:100%; height:100%">
+        <div class="row" id="image" style="width:100%; height:100%">
             <div class="col-lg-11 col-xs-11" style="height:100%">
                 <div id="map" class="map" ></div>
                 <div id="map_2" class="map " style="display:none"></div>
@@ -255,10 +257,11 @@
                             })
                         </script>
                     </ul>
-                    <a href="javascript:void(0)" onclick="open_download('/resource_management/');" style="text-decoration:none">
-                        <div style="margin-top:150%"><img style="width:50%;" src="{% static 'img/view_download.png' %}"></div>
-                        <div style="color:#0090ff">影像下载</div>
-                    </a>
+
+                       <a class="down" id="image_download" href="" download="downImg"> <div  style="margin-top:150%"><img style="width:50%;" src="{% static 'img/view_download.png' %}"></div>
+                           <div  style="color:#0090ff">影像下载</div>
+                       </a>
+
                     <!--</div>-->
                     <!--<div style="width:100%; height:50%; color:#ffa711" class="stsff">-->
                     <div style="margin-top:52px; cursor:pointer;" id="ib_plotting">
@@ -277,8 +280,22 @@
                                     clicked=true;
                                 }
                                 });
+
                          </script>
+
                     </div>
+                    <script>
+
+    //创建一个新的canvas
+    var canvas2 = document.createElement("canvas");
+
+     html2canvas(document.getElementById("image"),{canvas:canvas2}).then(function(canvas) {
+            document.body.appendChild(canvas);
+            //canvas转换成url，然后利用a标签的download属性，直接下载，绕过上传服务器再下载
+            document.getElementById("image_download").setAttribute('href',canvas.toDataURL());
+     });
+
+                        </script>
                     <!--</div>-->
                     <!--<div id="menu">-->
                     <div id =plotting_menu style="display:none">

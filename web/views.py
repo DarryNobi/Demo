@@ -100,34 +100,34 @@ def ib_roller_shutters(request):
     return render(request,
                   template_name='ib_roller_shutters.html')
 #####################################################
-@login_required
+@login_required(login_url="/not_login/")
 def user_center(request):
     return render(request,
                   template_name='view_user_center.html')
-@login_required
-@permission_required('web.user_management',raise_exception=True)
+@login_required(login_url="/not_login/")
+@permission_required('web.user_management',login_url='/no_permissions/')
 def account_management(request):
     return render(request,
                   template_name='view_account_management.html')
-@login_required
-@permission_required('web.demolition_management',raise_exception=True)
+@login_required(login_url="/not_login/")
+@permission_required('web.demolition_management',login_url='/no_permissions/')
 def move_out(request):
     return render(request,
                   template_name='view_demolition.html')
 
-@login_required
-@permission_required('web.ibuild_management',raise_exception=True)
+@login_required(login_url="/not_login/")
+@permission_required('web.ibuild_management',login_url='/no_permissions/')
 def offence_build(request):
     return render(request,
                   template_name='view_illegal_building.html')
-@login_required
-@permission_required('web.recource_management',raise_exception=True)
+@login_required(login_url="/not_login/")
+@permission_required('web.recource_management',login_url='/no_permissions/')
 def general_survey(request):
     return render(request,
                   template_name='view_general_survey.html')
 
-@login_required
-@permission_required('web.recource_management',raise_exception=True)
+@login_required(login_url="/not_login/")
+@permission_required('web.recource_management',login_url='/no_permissions/')
 def resource_management(request):
     return render(request,
                   template_name='view_resource_management.html')
@@ -539,13 +539,32 @@ def _ib_event_search(request):
     graphictype=request.GET.get('query_type',False)
     createtime=request.GET.get('query_time',False)
     graphicaddress=request.GET.get('query_address',False)
-    ib_draws = GraphicLabel.objects.all()
+    ib_draws = GraphicLabel.objects.filter(graphiclabel="违建")
     if(graphictype):
         ib_draws=GraphicLabel.objects.filter(graphictype=graphictype)
     if(name):
         ib_draws=GraphicLabel.objects.filter(name=name)
     if(graphicaddress):
-        ib_draws=GraphicLabel.objects.filter(graphicaddress=graphicaddress)
+        ib_draws=GraphicLabel.objects.filter(address=address)
+    if(createtime):
+        ib_draws=GraphicLabel.objects.filter(createtime=createtime)
+    d_ib_draws = {}
+    for i in range(len(ib_draws)):
+        d_ib_draws[i] = model_to_dict(ib_draws[i])
+    return JsonResponse({'data': d_ib_draws})
+
+def _de_event_search(request):
+    name=request.GET.get('query_name',False)
+    graphictype=request.GET.get('query_type',False)
+    createtime=request.GET.get('query_time',False)
+    graphicaddress=request.GET.get('query_address',False)
+    ib_draws = GraphicLabel.objects.filter(graphiclabel="拆迁")
+    if(graphictype):
+        ib_draws=GraphicLabel.objects.filter(graphictype=graphictype)
+    if(name):
+        ib_draws=GraphicLabel.objects.filter(name=name)
+    if(graphicaddress):
+        ib_draws=GraphicLabel.objects.filter(address=address)
     if(createtime):
         ib_draws=GraphicLabel.objects.filter(createtime=createtime)
     d_ib_draws = {}

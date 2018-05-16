@@ -78,9 +78,8 @@ function query(){
     var query_address = $("#query_address").val()
     $.ajax({
             type:'get',
-            url:'/_ib_event_search/',
+            url:'/_de_event_search/',
             data: {
-                'kind':"拆迁",
                 'query_name':query_name,
                 'query_type':query_type,
                 'query_time':query_time,
