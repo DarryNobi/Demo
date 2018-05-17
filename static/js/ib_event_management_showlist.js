@@ -2,6 +2,7 @@
     var data = [];
 
     for(var i in d_ib_draws){
+    d_ib_draws[i]['num']=i+1;
         data.push(d_ib_draws[i]);
     }
 
@@ -29,7 +30,7 @@ function showList(){
               search: false,
               data:data,
               columns: [
-                  {field: 'id', title:'序号', width:'10%', align:'center'},
+                  {field: 'num', title:'序号', width:'10%', align:'center'},
                   {field: 'name', title:'名称', width:'10%', align:'center'},
                   {field: 'square', title:'面积', width:'10%', align:'center'},
                   {field: 'graphictype', title:'类型', width:'10%', align:'center'},
