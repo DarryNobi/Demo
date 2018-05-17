@@ -18,6 +18,7 @@ var demolition_tab = $("#demolition_tab");
 function showList(){
 
     demolition_tab.bootstrapTable({
+              striped: true,//开启条纹
               locale:'zh-CN',//中文支持
               pagination: true,//是否开启分页（*）
               pageNumber:1,//初始化加载第一页，默认第一页

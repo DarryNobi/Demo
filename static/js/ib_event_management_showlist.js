@@ -19,6 +19,7 @@ var ib_event_tab = $("#ib_event_tab");
 function showList(){
 
     ib_event_tab.bootstrapTable({
+              striped: true,//开启条纹
               locale:'zh-CN',//中文支持
               pagination: true,//是否开启分页（*）
               pageNumber:1,//初始化加载第一页，默认第一页
