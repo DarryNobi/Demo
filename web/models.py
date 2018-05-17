@@ -62,7 +62,7 @@ class Myuser(AbstractUser):
     is_staff=models.BooleanField(default=True,blank=True)
     is_superuser=models.BooleanField(default=False,blank=True)
     date_joined=models.DateTimeField(blank=True,default=timezone.now)
-    department_name=models.CharField(max_length=20,default='a',blank=True)
+    department_name=models.CharField(max_length=20,default='无',blank=True)
     contact_usr=models.CharField(max_length=20,blank=True,default='a')
     phone=models.CharField(max_length=20,blank=True,default='123')
 

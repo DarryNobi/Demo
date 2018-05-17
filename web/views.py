@@ -25,10 +25,10 @@ User = get_user_model()
 from web.ImageryServer import DB_Workshop
 from web.ImageryServer import ImagePubMan
 import urllib.request
-# from web.ImageryServer import ImagePre
+#from web.ImageryServer import ImagePre
 # Create your views here.
 ##################################################
-from web.models import Map
+#from web.models import Map
 ###############################################
 
 
@@ -192,8 +192,13 @@ def developing(request):
                   template_name='developing.html')
 
 def ib_plotting(request):
-    return render(request,
-                  template_name='ib_plotting.html')
+    id=request.GET.get('id',False)
+    x=0;y=0;
+    if id:
+        draw=GraphicLabel.objects.get(id=id)
+        x=draw.coordinate_x
+        y=draw.coordinate_y
+    return render(request,'ib_plotting.html',{'x':x,'y':y})
 
 
 def graphic_look(request):
@@ -204,9 +209,6 @@ def default(request):
     return render(request,
                   template_name='default_municipal.html')
 
-def ib_plotting(request):
-    return render(request,
-                  template_name='ib_plotting.html')
 def resource_search(request):
     response=urllib.request.urlopen('http://172.20.53.158:8089/deliver_map/')
     sourceMaps=json.loads(json.loads(response.read().decode('utf-8'))['d_maps'])
@@ -233,6 +235,7 @@ def ib_event_management(request):
     for i in range(len(ib_draws)):
         d_ib_draws[i] = model_to_dict(ib_draws[i])
     return render(request,'ib_event_management.html',{'d_ib_draws': json.dumps(d_ib_draws, cls=DjangoJSONEncoder)})
+
 
 def gs_show_map(request):
     return render(request,

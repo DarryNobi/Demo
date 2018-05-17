@@ -285,16 +285,14 @@
 
                     </div>
                     <script>
+                    //创建一个新的canvas
+                    var canvas2 = document.createElement("canvas");
 
-    //创建一个新的canvas
-    var canvas2 = document.createElement("canvas");
-
-     html2canvas(document.getElementById("xyz"),{canvas:canvas2}).then(function(canvas) {
-            document.body.appendChild(canvas);
-            //canvas转换成url，然后利用a标签的download属性，直接下载，绕过上传服务器再下载
-            document.getElementById("image_download").setAttribute('href',canvas.toDataURL());
-     });
-
+                     html2canvas(document.getElementById("image"),{canvas:canvas2}).then(function(canvas) {
+                            document.body.appendChild(canvas);
+                            //canvas转换成url，然后利用a标签的download属性，直接下载，绕过上传服务器再下载
+                            document.getElementById("image_download").setAttribute('href',canvas.toDataURL());
+                     });
                         </script>
                     <!--</div>-->
                     <!--<div id="menu">-->
