@@ -1,5 +1,4 @@
-﻿﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" style="height:100%">
+﻿<html xmlns="http://www.w3.org/1999/xhtml" style="height:100%">
 <head>
     {% load staticfiles %}
     <meta charset="utf-8" />
@@ -260,6 +259,22 @@
         var mydate = date.getFullYear() + "-" + (mon < 10 ? "0" + mon : mon) + "-" + (day < 10 ? "0" + day : day);
         $("#nowdate").val(mydate);
         $(".date-span").html(mydate);
+
+        $.ajax({
+                type:'POST',
+                url:'/is_authenticated/',
+                dataType:'json',
+                success:function(data){
+                    if(data['islogin']){
+                        $("#login_page").hide();
+                        $("#login").hide();
+                        $("#user_name").show();
+                        $("#user_name").text(data['username']);
+                        $("#logout").show();
+                        $("#message").text('');
+                    }
+                }
+                });
     };
 
         $("#login").click(function(){

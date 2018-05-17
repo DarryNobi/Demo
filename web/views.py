@@ -218,9 +218,7 @@ def resource_search(request):
     if localMapsTemp:
         for i in range(len(localMapsTemp)):
             localMaps[localMapsTemp[i].GlobeID]=model_to_dict(localMapsTemp[i])
-            #localGloID.append(localMaps[i]['GlobeID'])、
-    else:
-        return render(request, 'rm_resource_search.html', {'message': '查找结果为空！'})
+            #localGloID.append(localMaps[i]['GlobeID'])
     if sourceMaps:
         return render(request, 'rm_resource_search.html', {'sourceMaps': json.dumps(sourceMaps, cls=DjangoJSONEncoder),
                       'localMaps':json.dumps(localMaps,cls=DjangoJSONEncoder)})
