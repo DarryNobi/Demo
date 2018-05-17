@@ -71,7 +71,6 @@
             margin:0;
             color:white;
             font-size:2.5rem;
-            padding-top:20px;
             height:100%
         }
         .view-button {
@@ -82,13 +81,17 @@
             display:-webkit-flex;
             align-items:center;
             margin:0;
+            transform: scale(1.5);
         }
         <!--.nav-img{-->
-            <!--height:90%;-->
+            <!--height:100%;-->
         <!--}-->
         .nav-text-p{
             height:30%;
             margin: 0;
+        }
+        .nav-container{
+            padding: 0;
         }
         #login, #logout{
             color: #fff;
@@ -156,61 +159,61 @@
     <div id="wrapper" style="height:100%">
         <div id="container" style="height:20%; min-height:200px">
             <div style="width:100%; display:inline-flex; height:100%; color:white">
-                <div style="width:50%; padding-left: 20px;">
+                <div style="width:40%; padding-left: 20px;" href="javascript:void(0)" onclick="open_link('/home_municipal/');">
                     <p style="width:100%; height:100%; display:-webkit-flex; align-items:center">
-                        <img style="height:50%" src="{% static 'img/spaceflight.png' %}">
-                        <span style="font-size:3.5rem">天津未来科技城卫星遥感资源管理系统</span>
+                        <img style="height:50%;margin-left: 2%;" src="{% static 'img/spaceflight.png' %}">
+                        <span style="font-size:5rem;margin-left: 3%;">卫星遥感资源管理系统</span>
                     </p>
                 </div>
-                <div style="width:50%; height:100%">
-                <div style="width:100%; display:inline-flex; height:30%; padding-top:16px">
-                    <span style="width:30%; margin-left:65%; height:100%; font-size:16px; display:inline-flex">
-                        <img style="height:50%" src="{% static 'img/user_logo.png' %}">
-                        <a id="login" title="Login"><em class="glyphicon glyphicon-plus"></em>登录</a>
-                        <span id="user_name" style="padding-left:10px"></span>
-                        <a id="logout" href="/logout/" class="" style="display:none" title="Logout"><em class="glyphicon glyphicon-home"></em>登出</a>
-                    </span>
-                    <p style="width:20%; margin-right: 0;">
-                        <span class="view-button"><img src="{% static 'img/q.png' %}"></span>
-                        <span class="view-button"><img src="{% static 'img/w.png' %}"></span>
-                        <span class="view-button"><img src="{% static 'img/e.png' %}"></span>
-                    </p>
-                </div>
+                <div style="width:60%; height:100%">
+                    <div style="width:100%; display:inline-flex; height:30%;">
+                        <span style="width:30%; margin-left:80%; height:100%; font-size:16px; display:inline-flex">
+                            <img style="height:50%;transform: scale(1.2);align-self: center;" src="{% static 'img/user_logo.png' %}">
+                            <a id="login" title="Login" style="align-self: center;"><em class="glyphicon glyphicon-plus"></em>登录</a>
+                            <span id="user_name" style="padding-left:10px;align-self: center;"></span>
+                            <a id="logout" href="/logout/" class="" style="display:none;align-self: center;" title="Logout"><em class="glyphicon glyphicon-home"></em>登出</a>
+                        </span>
+                        <p style="width:20%; margin-right: 0;align-self: center;">
+                            <span class="view-button"><img src="{% static 'img/q.png' %}"></span>
+                            <span class="view-button"><img src="{% static 'img/w.png' %}"></span>
+                            <span class="view-button"><img src="{% static 'img/e.png' %}"></span>
+                        </p>
+                    </div>
                     <div style="width:100%; height:70%">
                     <!--<nav class="collapse navbar-collapse" style="padding-left:10px">-->
                         <ul class="nav nav-tabs head-ul" style="height:100%">
                             <li>
-                                <a class="" href="javascript:void(0)" onclick="open_link('/home_municipal/');" >
+                                <a class="nav-container" href="javascript:void(0)" onclick="open_link('/home_municipal/');" >
                                     <p class="nav-img-p"><img class="nav-img img-responsive center-block" src="{% static 'img/municipal.png' %}"></p>
                                     <p class="nav-text-p">市政管理</p>
                                 </a>
                             </li>
                             <li role="presentation">
-                                <a href="javascript:void(0)" onclick="open_link('/developing/');">
+                                <a class="nav-container" href="javascript:void(0)" onclick="open_link('/developing/');">
                                     <p class="nav-img-p"><img class="nav-img img-responsive center-block" src="{% static 'img/agriculture.png' %}"></p>
                                     <p class="nav-text-p">农业管理</p>
                                 </a>
                             </li>
                             <li role="presentation">
-                                <a href="javascript:void(0)" onclick="open_link('/developing/');">
+                                <a class="nav-container" href="javascript:void(0)" onclick="open_link('/developing/');">
                                     <p class="nav-img-p"><img class="nav-img img-responsive center-block" src="{% static 'img/forestry.png' %}"></p>
                                     <p class="nav-text-p">林业管理</p>
                                 </a>
                             </li>
                             <li role="presentation">
-                                <a href="javascript:void(0)" onclick="open_link('/no_permissions/');">
+                                <a class="nav-container" href="javascript:void(0)" onclick="open_link('/no_permissions/');">
                                     <p class="nav-img-p"><img class="nav-img img-responsive center-block" src="{% static 'img/environment.png' %}"></p>
                                     <p class="nav-text-p">环境管理</p>
                                 </a>
                             </li>
                             <li role="presentation">
-                                <a href="javascript:void(0)" onclick="open_link('/developing/');">
+                                <a class="nav-container" href="javascript:void(0)" onclick="open_link('/developing/');">
                                     <p class="nav-img-p"><img class="nav-img img-responsive center-block" src="{% static 'img/road.png' %}"></p>
                                     <p class="nav-text-p">道路管理</p>
                                 </a>
                             </li>
                             <li role="presentation">
-                                <a href="javascript:void(0)" onclick="open_link('/developing/');">
+                                <a class="nav-container" href="javascript:void(0)" onclick="open_link('/developing/');">
                                     <p class="nav-img-p"><img class="nav-img img-responsive center-block" src="{% static 'img/sedimentation.png' %}"></p>
                                     <p class="nav-text-p">沉降检测</p>
                                 </a>
