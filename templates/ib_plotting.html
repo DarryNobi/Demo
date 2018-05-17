@@ -92,7 +92,7 @@
     <div class="compare container" style="background-color:white; display:inline-flex; width:100%; height:10%; min-height:100px">
         {% csrf_token %}
         <div class="row" style="width: 100%; display:-webkit-flex; align-items:center; height:100%;">
-            <div class="col-lg-5 col-xs-5" style="display:inline-flex; align-items:center; height:100%">
+            <div id="xyz" class="col-lg-5 col-xs-5" style="display:inline-flex; align-items:center; height:100%">
                 <span class="picture-span">经度：</span>
                 <input type="text" class="compare-input" id="lontitude">
                 <span class="picture-span">纬度：</span>
@@ -129,8 +129,8 @@
     <div class="container" style="width:100%; height:90%">
         <div class="row" id="image" style="width:100%; height:100%">
             <div class="col-lg-11 col-xs-11" style="height:100%">
-                <div id="map" class="map" style="width:100%; height:95%"></div>
-                <div id="map_2" class="map " style="width:100%; height:95%;display:none"></div>
+                <div id="map" class="map" ></div>
+                <div id="map_2" class="map " style="display:none"></div>
                 <div id="popup" class="ol-popup" style=" display:none">
                     <div id="popup-content" style="width:300px;">
                         <div role="form" name="indexForm"  style="background-color:white; text-align:center;  border-radius:6px;">
