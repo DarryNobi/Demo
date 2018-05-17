@@ -228,11 +228,8 @@ def resource_search(request):
 
 
 def ib_event_management(request):
-    ib_draws=GraphicLabel.objects.filter(graphiclabel='违建')
-    d_ib_draws = {}
-    for i in range(len(ib_draws)):
-        d_ib_draws[i] = model_to_dict(ib_draws[i])
-    return render(request,'ib_event_management.html',{'d_ib_draws': json.dumps(d_ib_draws, cls=DjangoJSONEncoder)})
+    return render(request,
+                  template_name='ib_event_management.html')
 
 
 def gs_show_map(request):
@@ -535,17 +532,18 @@ def _gs_show_list(request):
     else:
         return JsonResponse({'message': '查找结果为空！'})
 
+
 def _ib_event_search(request):
     name=request.GET.get('query_name',False)
     graphictype=request.GET.get('query_type',False)
     createtime=request.GET.get('query_time',False)
-    graphicaddress=request.GET.get('query_address',False)
+    address=request.GET.get('query_address',False)
     ib_draws = GraphicLabel.objects.filter(graphiclabel="违建")
     if(graphictype):
         ib_draws=GraphicLabel.objects.filter(graphictype=graphictype)
     if(name):
         ib_draws=GraphicLabel.objects.filter(name=name)
-    if(graphicaddress):
+    if(address):
         ib_draws=GraphicLabel.objects.filter(address=address)
     if(createtime):
         ib_draws=GraphicLabel.objects.filter(createtime=createtime)
@@ -554,17 +552,18 @@ def _ib_event_search(request):
         d_ib_draws[i] = model_to_dict(ib_draws[i])
     return JsonResponse({'data': d_ib_draws})
 
+
 def _de_event_search(request):
     name=request.GET.get('query_name',False)
     graphictype=request.GET.get('query_type',False)
     createtime=request.GET.get('query_time',False)
-    graphicaddress=request.GET.get('query_address',False)
+    address=request.GET.get('query_address',False)
     ib_draws = GraphicLabel.objects.filter(graphiclabel="拆迁")
     if(graphictype):
         ib_draws=GraphicLabel.objects.filter(graphictype=graphictype)
     if(name):
         ib_draws=GraphicLabel.objects.filter(name=name)
-    if(graphicaddress):
+    if(address):
         ib_draws=GraphicLabel.objects.filter(address=address)
     if(createtime):
         ib_draws=GraphicLabel.objects.filter(createtime=createtime)

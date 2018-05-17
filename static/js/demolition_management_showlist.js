@@ -1,9 +1,5 @@
 
-    var data = [];
 
-//    for(var i in d_ib_draws){
-//        data.push(d_ib_draws[i])
-//    }
 
     window.onload = function() {
         query();
@@ -25,11 +21,11 @@ function showList(){
               pageSize: 3,//每页的记录行数（*）
               pageList: [10, 25, 50, 100],//可供选择的每页的行数（*）
               sidePagination: "client", //分页方式：client客户端分页，server服务端分页（*）
-              showRefresh:false,//刷新按钮
-              search: false,
+              showRefresh:true,//刷新按钮
+              search: true,
               data:data,
               columns: [
-                  {field: 'id', title:'序号', width:'10%', align:'center'},
+                  {field: 'num', title:'序号', width:'10%', align:'center'},
                   {field: 'name', title:'名称', width:'10%', align:'center'},
                   {field: 'square', title:'面积', width:'10%', align:'center'},
                   {field: 'graphictype', title:'类型', width:'10%', align:'center'},
@@ -87,10 +83,15 @@ function query(){
                 'query_address':query_address,
             },
             success:function(result){
+
                 data=[];
                 result_data=result['data'];
-                for(var i in result_data)
+                var count=1;
+                for(var i in result_data){
+                    result_data[i]['num']=count;
+                    count=count+1;
                     data.push(result_data[i]);
+                    }
                 showList();
                 },
             error:function(){

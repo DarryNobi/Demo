@@ -160,7 +160,8 @@
 
             <div class="row" style="width: 100%; display:-webkit-flex; align-items:center; height:100%;">
                 <div class="col-xs-12 col-lg-12">
-                    <form role="form" name="compareForm" action="/_ib_event_search/" method="post" style="width:100%; font-size:14px; height:100%; margin-left:15px;">
+                    <div role="form" name="compareForm" action="/_ib_event_search/" method="post" style="width:100%; font-size:14px; height:100%; margin-left:15px;">
+                        {% csrf_token %}
                         <div style="display:inline-flex; align-items:center; width:95%">
                             <div style="width:93%">
                                 <span class="picture-span" style="margin-left:0;">名称：</span>
@@ -187,7 +188,7 @@
                                 </span>
                             </div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
 
@@ -208,7 +209,7 @@
              $.ajaxSetup({
                  data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
              });
-             var d_ib_draws={{ d_ib_draws|safe }};
+
         </script>
         <script src="{% static 'js/ib_event_management_showlist.js' %}"></script>
     </body>

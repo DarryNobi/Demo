@@ -1,14 +1,9 @@
 
-    var data = [];
 
-    for(var i in d_ib_draws){
-    d_ib_draws[i]['num']=i+1;
-        data.push(d_ib_draws[i]);
-    }
 
     window.onload = function() {
         query();
-        var query_btn = $("#query_btn")
+        var query_btn = $("#query_btn");
         query_btn.click(function(){
             query();
         });
@@ -23,11 +18,11 @@ function showList(){
               locale:'zh-CN',//中文支持
               pagination: true,//是否开启分页（*）
               pageNumber:1,//初始化加载第一页，默认第一页
-              pageSize: 10,//每页的记录行数（*）
+              pageSize: 3,//每页的记录行数（*）
               pageList: [10, 25, 50, 100],//可供选择的每页的行数（*）
               sidePagination: "client", //分页方式：client客户端分页，server服务端分页（*）
-              showRefresh:false,//刷新按钮
-              search: false,
+              showRefresh:true,//刷新按钮
+              search: true,
               data:data,
               columns: [
                   {field: 'num', title:'序号', width:'10%', align:'center'},
@@ -88,10 +83,15 @@ function query(){
                 'query_address':query_address,
             },
             success:function(result){
+            alert("success");
                 data=[];
                 result_data=result['data'];
-                for(var i in result_data)
+                var count=1;
+                for(var i in result_data){
+                    result_data[i]['num']=count;
+                    count=count+1;
                     data.push(result_data[i]);
+                    }
                 showList();
                 },
             error:function(){
@@ -100,6 +100,7 @@ function query(){
     }
 
 function changeStatus(data){
+
     var num=data;
     $.ajax({
         url:'/_delete_draw/',
