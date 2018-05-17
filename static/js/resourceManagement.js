@@ -35,7 +35,7 @@ function showList(){
             {field: 'map_name', title:'影像资源', width:'10%', align:'center'},
             {field: 'create_time', title:'入库时间', width:'10%', align:'center'},
             {field: 'satelite', title:'卫星', width:'10%', align:'center'},
-            {field: 'type', title:'影像类别', width:'20%', align:'center'},
+            {field: 'imagry_type', title:'影像类别', width:'20%', align:'center'},
             {field: 'download_times', title:'下载次数', width:'10%', align:'center'},
             {field: 'tool',title: '操作', align: 'center',
                 formatter: function (value,row,index){
