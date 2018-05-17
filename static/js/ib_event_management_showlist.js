@@ -3,7 +3,6 @@
 
     for(var i in d_ib_draws){
         data.push(d_ib_draws[i]);
-        alert(d_ib_draws[i]["name"]);
     }
 
     window.onload = function() {
@@ -23,7 +22,7 @@ function showList(){
               locale:'zh-CN',//中文支持
               pagination: true,//是否开启分页（*）
               pageNumber:1,//初始化加载第一页，默认第一页
-              pageSize: 3,//每页的记录行数（*）
+              pageSize: 10,//每页的记录行数（*）
               pageList: [10, 25, 50, 100],//可供选择的每页的行数（*）
               sidePagination: "client", //分页方式：client客户端分页，server服务端分页（*）
               showRefresh:false,//刷新按钮
