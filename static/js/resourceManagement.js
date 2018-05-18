@@ -1,8 +1,10 @@
 var data=[];
 for(var i in sourceMaps){
     data.push(sourceMaps[i])
-}
-
+};
+//for(var i in localMaps){
+//    alert (localMaps)
+//};
 window.onload=function(){
     //默认获取当前日期
     var today = new Date();
@@ -42,10 +44,10 @@ function showList(){
                     var element = "<a href='#' class='operate' id='change_resource"+row.id +"' data-id='"+row.id +"' style='margin-left:0;' onclick='query()' onmouseover='check_mouseOver(\" "+row.id+" \")' onmouseout='check_mouseOut(\" "+row.id+" \")'>"
                           + "<img id='check_img"+row.id+"' class='nav-img' src='../static/img/check.png'>"
                           + "</a>"
-                          + "<a href='#' class='operate' id='download"+row.id +"' data-id='"+row.id +"' onclick='' onmouseover='download_mouseOver(\" "+row.id+" \")' onmouseout='download_mouseOut(\" "+row.id+" \")'>"
+                          + "<a href='#' class='operate' id='download"+row.id +"' data-id='"+row.id +"' onclick='downloadImg(\" "+row.id+" \")' onmouseover='download_mouseOver(\" "+row.id+" \")' onmouseout='download_mouseOut(\" "+row.id+" \")'>"
                           + "<img id='download_img"+row.id+"' class='nav-img' src='../static/img/download.png'>"
                           + "</a>"
-                          + "<a href='#' class='operate' id='delete_resource"+row.id +"' data-id='"+row.id +"' onclick='changeStatus(\" "+row.id+" \")' onmouseover='del_mouseOver(\" "+row.id+" \")' onmouseout='del_mouseOut(\" "+row.id+" \")'>"
+                          + "<a href='#' class='operate' id='delete_resource"+row.id +"' data-id='"+row.id +"' onclick='deleteImg(\" "+row.id+" \")' onmouseover='del_mouseOver(\" "+row.id+" \")' onmouseout='del_mouseOut(\" "+row.id+" \")'>"
                           + "<img id='del_img"+row.id+"' class='nav-img' src='../static/img/delete.png'>"
                           + "</a>";
 //                    } else {
@@ -91,7 +93,46 @@ function del_mouseOut(data) {
     var num = parseInt(data);
     $("#del_img"+num).attr("src","../static/img/delete.png");
 }
-
+function downloadImg(id){
+    var globeID=parseInt(id);
+    var button=$("#download"+globeID);
+    $.ajax({
+              type: 'POST',
+              url: '/downloadImage/',
+              data: {ImageID:globeID},
+              success:function(message){
+                  alert(message);
+                  //button.removeAttr("disabled");
+                  //if(message=="发布成功！")
+                       //button.text("取消发布");
+                  //else
+                       //button.text("发布");
+              },
+              error:function(error){
+                  alert(error);
+              }
+        });
+}
+function deleteImg(id){
+    var globeID=parseInt(id);
+    var button=$("#del_img"+globeID);
+    $.ajax({
+              type: 'POST',
+              url: '/deleteImage/',
+              data: {ImageID:globeID},
+              success:function(message){
+                  alert(message);
+                  //button.removeAttr("disabled");
+                  //if(message=="发布成功！")
+                       //button.text("取消发布");
+                  //else
+                       //button.text("发布");
+              },
+              error:function(error){
+                  alert(error);
+              }
+        });
+}
 function release(data){
     var id=parseInt(data);
     var button=$("#release"+id);

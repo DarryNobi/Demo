@@ -29,7 +29,7 @@ from django.db.models import Q
 #from web.ImageryServer import ImagePre
 # Create your views here.
 ##################################################
-#from web.models import Map
+from web.models import Map
 ###############################################
 
 
@@ -534,7 +534,6 @@ def _gs_show_list(request):
         return JsonResponse({'data':d_draws})
     else:
         return JsonResponse({'message': '查找结果为空！'})
-
 
 def _ib_event_search(request):
     name=request.GET.get('query_name',False)
