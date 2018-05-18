@@ -35,16 +35,16 @@
 	<div class="container" style="background-color:white; display:inline-flex; width:100%; height:10%; min-height:50px">
         <div class="row" style="width: 100%; display:-webkit-flex; align-items:center; height:100%;">
             <div class="col-xs-12 col-lg-12">
-                <form role="form" name="account_inquiry_form" action="/_account_inquiry/" method="post" style="width:100%; font-size:14px; height:100%; margin-left:15px;">
+                <div role="form" name="account_inquiry_form" style="width:100%; font-size:14px; height:100%; margin-left:15px;">
                     <div style="display:inline-flex; align-items:center; width:95%">
                         <div style="width:93%; display:-webkit-flex; align-items:center;">
-                            <input type='text' class="search-input" style="width:45%" placeholder="请输入帐号、部门名称、联系人、电话等"/>
+                            <input type='text' class="search-input" style="width:45%" placeholder="请输入帐号、部门名称、联系人、电话等" id="message" name="message"/>
                             <span style="height:100%; display:-webkit-flex; align-items:center; width:7%; margin-left:10px;">
-                                <button class="btn btn-primary" style="border-radius:6px; height:50%; width:100%; min-height:34px; font-size:14px" type="submit" ><img src="{% static 'img/search.png' %}" style="padding-left:5px;">查询</button>
+                                <button class="btn btn-primary" style="border-radius:6px; height:50%; width:100%; min-height:34px; font-size:14px"  id="search_button"><img src="{% static 'img/search.png' %}" style="padding-left:5px;">查询</button>
                             </span>
                         </div>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
@@ -59,55 +59,11 @@
             </div>
         </div>
     </div>
-<script type="text/javascript">
-
-	window.onload = function () {
-		search();
-	}
-	/*dataArray为请求返回的数据*/
-	var dataArray = [
-		{number:111123,dep:'违建管理部门',contact:'张三',contactNumber:'18888888888',status:'登录'},
-		{number:111124,dep:'农业管理部门',contact:'李四',contactNumber:'17777777777',status:'离线'},
-		{number:111125,dep:'林业管理部门',contact:'王五',contactNumber:'15899999999',status:'离开'},
-		{number:111126,dep:'违建管理部门',contact:'赵六',contactNumber:'18888888888',status:'登录'},
-		
-	];
-	var data = [];
-
-	// background_data为后台数据
-	// dataArray.push(background_data);
-
-
-	/*判断是否有搜索条件，根据搜索条件去渲染表格*/
-
-	var account_inquiry_tab = $("#account_inquiry_tab");
-
-	function search() {
-
-		account_inquiry_tab.bootstrapTable({
-		      striped: true,//开启条纹
-              locale:'zh-CN',//中文支持
-              pagination: true,//是否开启分页（*）
-              pageNumber:1,//初始化加载第一页，默认第一页
-              pageSize: 3,//每页的记录行数（*）
-              pageList: [10, 25, 50, 100],//可供选择的每页的行数（*）
-              sidePagination: "client", //分页方式：client客户端分页，server服务端分页（*）
-              showRefresh:false,//刷新按钮
-              search: true,
-              data:data,
-              columns: [
-                  {field: 'number', title:'帐号', width:'10%', align:'center'},
-                  {field: 'dep', title:'部门', width:'10%', align:'center'},
-                  {field: 'contact', title:'联系人', width:'10%', align:'center'},
-                  {field: 'contactNumber', title:'联系电话', width:'10%', align:'center'},
-                  {field: 'status', title:'状态', width:'10%', align:'center'},
-                  {field: 'permissions', title:'权限', width:'10%', align:'center'},
-              ],
-
-          })
-	}
-
-	
-</script>
+    <script>
+         $.ajaxSetup({
+                 data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+             });
+    </script>
+<script src="{% static 'js/account_inquire.js' %}"></script>
 </body>
 </html>

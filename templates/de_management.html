@@ -164,11 +164,11 @@
                         <div style="display:inline-flex; align-items:center; width:95%">
                             <div style="width:93%">
                                 <span class="picture-span" style="margin-left:0;">名称：</span>
-                                <input type="text" class="compare-input" id="query_nme" placeholder="请输入名称">
+                                <input type="text" class="compare-input" id="query_name" placeholder="请输入名称">
                                 <span class="picture-span" style="margin-left:0;">时间：</span>
-                                <input type='date' class="nowdate search-input"/>
+                                <input type='date' id="query_time" class="nowdate search-input"/>
                                 <span class="picture-span">种类：</span>
-                                <select class="search-input">
+                                <select class="search-input" id="query_type">
                                           <option>建筑</option>
                                           <option>道路</option>
                                           <option>水域</option>
@@ -208,6 +208,8 @@
              $.ajaxSetup({
                  data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
              });
+              d_ib_draws={{ d_ib_draws|safe }};
+
         </script>
         <script src="{% static 'js/demolition_management_showlist.js' %}"></script>
     </body>

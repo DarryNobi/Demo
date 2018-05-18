@@ -165,11 +165,11 @@
                         <div style="display:inline-flex; align-items:center; width:95%">
                             <div style="width:93%">
                                 <span class="picture-span" style="margin-left:0;">名称：</span>
-                                <input type="text" class="compare-input" id="query_nme" name="name" placeholder="请输入名称">
+                                <input type="text" class="compare-input" id="query_name" name="name" placeholder="请输入名称">
                                 <span class="picture-span" style="margin-left:0;">时间：</span>
-                                <input type='date' name="time" class="nowdate search-input"/>
+                                <input type='date'  id="query_time" name="time" class="nowdate search-input"/>
                                 <span class="picture-span">种类：</span>
-                                <select class="search-input" name="graphictype" >
+                                <select class="search-input"  id="query_type" name="graphictype" >
                                     <option value="建筑">建筑</option>
                                     <option value="道路">道路</option>
                                     <option value="水域">水域</option>
@@ -180,7 +180,7 @@
                                     <option value="其他">其他</option>
                                 </select>
                                 <span class="picture-span">地址：</span>
-                                <input type="text" class="compare-input" id="graphicaddress" name="graphicaddress" placeholder="请输入地址">
+                                <input type="text" id="query_address" class="compare-input" id="graphicaddress" name="address" placeholder="请输入地址">
                             </div>
                             <div style="width:7%">
                                 <span style="height:100%; display:-webkit-flex; align-items:center; width:100%;">
@@ -209,7 +209,7 @@
              $.ajaxSetup({
                  data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
              });
-
+          d_ib_draws={{ d_ib_draws|safe }};
         </script>
         <script src="{% static 'js/ib_event_management_showlist.js' %}"></script>
     </body>
