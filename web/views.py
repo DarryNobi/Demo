@@ -404,12 +404,6 @@ def _permissions_query(request):
     users_temp = []
     if query_method == '1':
         users_temp = User.objects.filter(username=message)
-    if query_method == '2':
-        users_temp = User.objects.filter(department_name=message)
-    if query_method == '3':
-        users_temp = User.objects.filter(phone=message)
-    if query_method == '4':
-        users_temp = User.objects.filter(contact_usr=message)
     users={}
     for i in range(len(users_temp)):
        users[i]=model_to_dict(users_temp[i])
@@ -453,8 +447,6 @@ def save_draw(request):
     square = request.POST.get('square', 0)
     foundtime = request.POST.get('foundtime',False )
     address= request.POST.get('address', '无')
-
-
     coordis=raw_dic.replace(",",";").split(";")
     coordis_num=[float(c) for c in coordis]
     coordis_list=[coordis_num[i:i+2] for i in range(0,len(coordis_num),2)]
@@ -549,6 +541,8 @@ def _ib_event_search(request):
     graphictype=request.GET.get('query_type',False)
     createtime=request.GET.get('query_time',False)
     address=request.GET.get('query_address',False)
+    users_temp = User.objects.filter(Q(name=name) \
+                                     | Q(address=address) | Q(graphictype=graphictype) | Q(createtime=createtime),graphiclabel="违建")
     ib_draws = GraphicLabel.objects.filter(graphiclabel="违建")
     if(graphictype):
         ib_draws=GraphicLabel.objects.filter(graphictype=graphictype,graphiclabel="违建")
@@ -578,7 +572,6 @@ def _de_event_search(request):
         ib_draws=GraphicLabel.objects.filter(address=address,graphiclabel="拆迁")
     if(createtime):
         ib_draws=GraphicLabel.objects.filter(createtime=createtime,graphiclabel="拆迁")
-    ib_draws = GraphicLabel.objects.filter(createtime=createtime, graphiclabel="拆迁",graphictype=graphictype,name=name,address=address)
     d_ib_draws = {}
     for i in range(len(ib_draws)):
         d_ib_draws[i] = model_to_dict(ib_draws[i])

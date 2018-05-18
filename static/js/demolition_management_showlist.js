@@ -96,13 +96,13 @@ function query(){
 
                data1=[];
                 result_data=result['d_ib_draws'];
-                alert(result_data);
+
                 var count=1;
                 for(var i in result_data){
                     result_data[i]['num']=count;
                     count=count+1;
                     data1.push(result_data[i]);
-                    alert(count);
+
                     }
 
               $("#demolition_tab").bootstrapTable('load',data1);

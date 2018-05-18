@@ -93,7 +93,7 @@ function query(){
                 'query_address':query_address,
             },
             success:function(result){
-            alert("success");
+
                data1=[];
                 result_data=result['d_ib_draws'];
                 ;
