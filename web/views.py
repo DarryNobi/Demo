@@ -25,7 +25,8 @@ User = get_user_model()
 from web.ImageryServer import DB_Workshop
 from web.ImageryServer import ImagePubMan
 import urllib.request
-# from web.ImageryServer import ImagePre
+from django.db.models import Q
+#from web.ImageryServer import ImagePre
 # Create your views here.
 ##################################################
 from web.models import Map
@@ -176,8 +177,18 @@ def home_municipal(request):
 
 
 def demolition_management(request):
-    return render(request,
-                  template_name='de_management.html')
+    ib_draws = GraphicLabel.objects.filter(graphiclabel="拆迁")
+    d_ib_draws = {}
+    for i in range(len(ib_draws)):
+        d_ib_draws[i] = model_to_dict(ib_draws[i])
+    return render(request, 'de_management.html', {'d_ib_draws': json.dumps(d_ib_draws, cls=DjangoJSONEncoder)})
+
+def ib_event_management(request):
+    ib_draws = GraphicLabel.objects.filter(graphiclabel="违建")
+    d_ib_draws = {}
+    for i in range(len(ib_draws)):
+        d_ib_draws[i] = model_to_dict(ib_draws[i])
+    return render(request,'ib_event_management.html',{'d_ib_draws': json.dumps(d_ib_draws,cls=DjangoJSONEncoder)})
 
 def demolition_compare(request):
     return render(request,
@@ -192,8 +203,13 @@ def developing(request):
                   template_name='developing.html')
 
 def ib_plotting(request):
-    return render(request,
-                  template_name='ib_plotting.html')
+    id=request.GET.get('id',False)
+    x=0;y=0;
+    if id:
+        draw=GraphicLabel.objects.get(id=id)
+        x=draw.coordinate_x
+        y=draw.coordinate_y
+    return render(request,'ib_plotting.html',{'x':x,'y':y})
 
 
 def graphic_look(request):
@@ -204,9 +220,6 @@ def default(request):
     return render(request,
                   template_name='default_municipal.html')
 
-def ib_plotting(request):
-    return render(request,
-                  template_name='ib_plotting.html')
 def resource_search(request):
     response=urllib.request.urlopen('http://172.20.53.158:8089/deliver_map/')
     sourceMaps=json.loads(json.loads(response.read().decode('utf-8'))['d_maps'])
@@ -216,7 +229,7 @@ def resource_search(request):
     if localMapsTemp:
         for i in range(len(localMapsTemp)):
             localMaps[localMapsTemp[i].GlobeID]=model_to_dict(localMapsTemp[i])
-            #localGloID.append(localMaps[i]['GlobeID'])、
+            #localGloID.append(localMaps[i]['GlobeID'])
     if sourceMaps:
         return render(request, 'rm_resource_search.html', {'sourceMaps': json.dumps(sourceMaps, cls=DjangoJSONEncoder),
                       'localMaps':json.dumps(localMaps,cls=DjangoJSONEncoder)})
@@ -225,12 +238,8 @@ def resource_search(request):
         return render(request, 'rm_resource_search.html', {'message': '查找结果为空！'})
 
 
-def ib_event_management(request):
-    ib_draws=GraphicLabel.objects.filter(graphiclabel='违建')
-    d_ib_draws = {}
-    for i in range(len(ib_draws)):
-        d_ib_draws[i] = model_to_dict(ib_draws[i])
-    return render(request,'ib_event_management.html',{'d_ib_draws': json.dumps(d_ib_draws, cls=DjangoJSONEncoder)})
+
+
 
 def gs_show_map(request):
     return render(request,
@@ -363,25 +372,27 @@ def permission_revise(request):
 #@permission_required('user_management',raise_exception=True)
 def _account_inquiry(request):
     message = request.POST.get('message',False)
-    query_method=request.POST.get('query_method',False)
-    #method_dic={'1':'username','2':'department_name','3':'phone','4':'contact_usr'}
-    #method=method_dic[query_method]
-    users_temp=[]
-    if query_method == '1':
-     users_temp=User.objects.filter(username=message)
-    if query_method == '2':
-     users_temp=User.objects.filter(department_name=message)
-    if query_method == '3':
-     users_temp=User.objects.filter(phone=message)
-    if query_method == '4':
-     users_temp=User.objects.filter(contact_usr=message)
+    users_temp=User.objects.filter(Q(username=message)\
+    |Q(phone=message)|Q(department_name=message)|Q(contact_usr=message))
     users = {}
+    count=1
     for i in range(len(users_temp)):
           users[i] = model_to_dict(users_temp[i])
+          users[i]["num"]=count
+          count=count+1
+          if(users[i]["is_active"]):
+              users[i]["is_active"]="启用"
+          else:
+              users[i]["is_active"]="禁用"
+          user_permissions=[]
+          for j in range(len(users[i]['user_permissions'])):
+              tmp = users[i]['user_permissions'][j].name
+              user_permissions.append(tmp)
+          users[i]['user_permissions'] = user_permissions
     if users:
-          return render(request,'am_account_Inquiry.html',locals())
+          return JsonResponse({"users":users,"status":True})
     else:
-          return render(request,'am_account_Inquiry.html',{'message1':'查找结果为空！'})
+          return JsonResponse({"message":"查找结果为空！","status":False})
 
 
 
@@ -536,39 +547,41 @@ def _ib_event_search(request):
     name=request.GET.get('query_name',False)
     graphictype=request.GET.get('query_type',False)
     createtime=request.GET.get('query_time',False)
-    graphicaddress=request.GET.get('query_address',False)
+    address=request.GET.get('query_address',False)
     ib_draws = GraphicLabel.objects.filter(graphiclabel="违建")
     if(graphictype):
-        ib_draws=GraphicLabel.objects.filter(graphictype=graphictype)
+        ib_draws=GraphicLabel.objects.filter(graphictype=graphictype,graphiclabel="违建")
     if(name):
-        ib_draws=GraphicLabel.objects.filter(name=name)
-    if(graphicaddress):
-        ib_draws=GraphicLabel.objects.filter(address=address)
+        ib_draws=GraphicLabel.objects.filter(name=name,graphiclabel="违建")
+    if(address):
+        ib_draws=GraphicLabel.objects.filter(address=address,graphiclabel="违建")
     if(createtime):
-        ib_draws=GraphicLabel.objects.filter(createtime=createtime)
+        ib_draws=GraphicLabel.objects.filter(createtime=createtime,graphiclabel="违建")
     d_ib_draws = {}
     for i in range(len(ib_draws)):
         d_ib_draws[i] = model_to_dict(ib_draws[i])
-    return JsonResponse({'data': d_ib_draws})
+    return JsonResponse({'d_ib_draws': d_ib_draws})
+
 
 def _de_event_search(request):
     name=request.GET.get('query_name',False)
     graphictype=request.GET.get('query_type',False)
     createtime=request.GET.get('query_time',False)
-    graphicaddress=request.GET.get('query_address',False)
+    address=request.GET.get('query_address',False)
     ib_draws = GraphicLabel.objects.filter(graphiclabel="拆迁")
     if(graphictype):
-        ib_draws=GraphicLabel.objects.filter(graphictype=graphictype)
+        ib_draws=GraphicLabel.objects.filter(graphictype=graphictype,graphiclabel="拆迁")
     if(name):
-        ib_draws=GraphicLabel.objects.filter(name=name)
-    if(graphicaddress):
-        ib_draws=GraphicLabel.objects.filter(address=address)
+        ib_draws=GraphicLabel.objects.filter(name=name,graphiclabel="拆迁")
+    if(address):
+        ib_draws=GraphicLabel.objects.filter(address=address,graphiclabel="拆迁")
     if(createtime):
-        ib_draws=GraphicLabel.objects.filter(createtime=createtime)
+        ib_draws=GraphicLabel.objects.filter(createtime=createtime,graphiclabel="拆迁")
+    ib_draws = GraphicLabel.objects.filter(createtime=createtime, graphiclabel="拆迁",graphictype=graphictype,name=name,address=address)
     d_ib_draws = {}
     for i in range(len(ib_draws)):
         d_ib_draws[i] = model_to_dict(ib_draws[i])
-    return JsonResponse({'data': d_ib_draws})
+    return JsonResponse({'d_ib_draws': d_ib_draws})
 
 def ibuild_search(request):
     name=request.POST.get('name', False)

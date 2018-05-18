@@ -15,7 +15,9 @@ $(document).ready(function(){
               });
 
             var vectorLayer = new ol.layer.Vector({
-                source: vectorSource
+                source: vectorSource({
+                  crossOrigin: 'anonymous'
+                })
             });
 
             map.addLayer(vectorLayer);
