@@ -17,18 +17,9 @@ class Map(models.Model):
                     ('3','资源一号')
     )
     SatelliteID=models.CharField(max_length=20,choices=SatelliteID,default=False)
-    Maptype=(
-        ('1','多光谱'),
-        ('2','全色彩'),
-        ('3','融合')
-    )
-    Maptype=models.CharField(max_length=8,choices=Maptype,default=False,blank=True)
     SensorID=models.CharField(max_length=20,default=False,blank=True)
     ReceiveTime=models.DateField(default=False,blank=True)
     name=models.TextField(max_length=500,default=False,blank=True)
-    Bands=models.IntegerField(default=False,blank=True)
-    WidthInPixels=models.IntegerField(default=False,blank=True)
-    HeightInPixels=models.IntegerField(default=False,blank=True)
     EarthEllipsoid=models.CharField(max_length=10,default=False,blank=True)
     TopLeftLatitude=models.FloatField(default=False,blank=True)
     TopLeftLongitude=models.FloatField(default=False,blank=True)
@@ -39,14 +30,12 @@ class Map(models.Model):
     BottomLeftLatitude=models.FloatField(default=False,blank=True)
     BottomLeftLongitude=models.FloatField(default=False,blank=True)
     filepath=models.TextField(max_length=500,default=False,blank=True)
-    cut_row=models.IntegerField(default=False,blank=True)
-    cut_col=models.IntegerField(default=False,blank=True)
     gen_date=models.DateField(default=False,blank=True)
     folder=models.TextField(max_length=500,default=False,blank=True)
     isPublish=models.BooleanField(default=False,blank=True)
     ProductLevel=models.CharField(max_length=10,default=False,blank=True)
     ImageDesc=models.TextField(max_length=500,default='Describe This Image')
-    IsUnit8=models.BooleanField(default=False)
+    jpgPath=models.TextField(max_length=500,blank=True)
 
 class SliceMap(models.Model):
     index_raw=models.IntegerField()
