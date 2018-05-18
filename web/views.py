@@ -578,7 +578,6 @@ def _de_event_search(request):
         ib_draws=GraphicLabel.objects.filter(address=address,graphiclabel="拆迁")
     if(createtime):
         ib_draws=GraphicLabel.objects.filter(createtime=createtime,graphiclabel="拆迁")
-    ib_draws = GraphicLabel.objects.filter(createtime=createtime, graphiclabel="拆迁",graphictype=graphictype,name=name,address=address)
     d_ib_draws = {}
     for i in range(len(ib_draws)):
         d_ib_draws[i] = model_to_dict(ib_draws[i])
