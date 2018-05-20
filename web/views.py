@@ -452,7 +452,7 @@ def save_draw(request):
     coordis_list=[coordis_num[i:i+2] for i in range(0,len(coordis_num),2)]
     jsonstr={'type':'Feature','geometry':{'type':'Polygon','coordinates':[coordis_list]},'properties':{'id':0}}
     jsondata=json.dumps(jsonstr)
-    draw_obj = GraphicLabel.objects.create(name=name,context=jsondata,graphictype=graphictype,graphiclabel=graphiclabel,graphic_provide=request.user,discrib=discrib,square=square,foundtime=foundtime,address=address)
+    draw_obj = GraphicLabel.objects.create(name=name,context=jsondata,graphictype=graphictype,graphiclabel=graphiclabel,graphic_provide=request.user.id,discrib=discrib,square=square,foundtime=foundtime,address=address)
     draw_obj.save()
     return render(request,'map_geo.html',{'message':'success'})
     #return HttpResponse("success")
@@ -485,6 +485,7 @@ def load_all_draw(request):
         json_context=json.loads(draw.context)
         json_context['properties']['id']=draw.id
         draw.context=json.dumps(json_context)
+
     all_draws_data = [draw.context for draw in all_draws]
     return JsonResponse({'all_draws':all_draws_data})
 

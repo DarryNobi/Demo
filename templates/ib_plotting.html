@@ -133,9 +133,9 @@
                 <div id="map_2" class="map " style="display:none"></div>
                 <div id="popup" class="ol-popup" style=" display:none">
                     <div id="popup-content" style="width:300px;">
-                        <div role="form" name="indexForm"  style="background-color:white; text-align:center;  border-radius:6px;">
+                        <form role="form" name="indexForm"  style="background-color:white; text-align:center;  border-radius:6px;">
                             {% csrf_token %}
-                             <h5 style="font-size:18px; height:30px; line-height:30px;">请输入标绘信息</h5>
+                             <h5 style="font-size:18px; height:30px; line-height:30px;">请输入违建或拆迁信息</h5>
                              <div class="input-div">
                                     <p class="input-span">名称：</p>
                                     <input id="name" type="text" class="form-input" placeholder="请输入名称"/>
@@ -161,6 +161,7 @@
                                     <select id="graphiclabel" class="selectpicker">
                                         <option>拆迁</option>
                                         <option>违建</option>
+                                        <option>疑似拆迁</option>
                                     </select>
                                 </p>
                             </div>
@@ -192,7 +193,7 @@
                                     </div>
                             </div>
 
-                        </div>
+                        </form>
                     </div>
                 </div>
                 <div id="popup_info" style="background-color:white;border-radius:5px;width: 150%;display:none;">

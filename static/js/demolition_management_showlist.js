@@ -119,7 +119,7 @@ function changeStatus(data){
         data: {'id':num},
         success: function(){
             alert('删除成功！');
-            ib_event_tab.bootstrapTable('remove',{
+            $("#demolition_tab").bootstrapTable('remove',{
                 field: 'id',
                 values: [parseInt(data)],
             })
