@@ -4,9 +4,9 @@
      {% load staticfiles %}
     <title>地图卷帘效果</title>
 
-    <link rel="stylesheet" href="https://openlayers.org/en/v4.6.4/css/ol.css" type="text/css">
     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'js/openlayers_v4.5.0/css/ol.css' %}" type="text/css">
     <script src="{% static 'js/openlayers_v4.5.0/build/ol.js' %}"></script>
     <!--[if lt IE 9]>
     <script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script>
@@ -68,14 +68,13 @@
         #ib_map_compare a, #ib_image_compare a {
             border-radius:0.2em;
             display:table;
-            border:1px solid #0a86e1;
-            background:#0a86e1;
+            border:1px solid #8a8a8a;
             padding:0;
             display:-webkit-flex;
             align-items:center;
             height:100%;
-            color:black;
             outline: none;
+            background:#f3f5f8;
         }
         .image_compare_span, .map_compare_span{
             border-left:1px solid #a7a9ad;
@@ -85,6 +84,8 @@
             margin-left: 10px;
             border-radius: 4px;
             padding-left: 3px;
+            background:#0a86e1;
+            color:white
         }
     </style>
 </head>
@@ -92,10 +93,10 @@
     <div class="compare container" style="background-color:white; display:inline-flex; width:100%; height:10%; min-height:100px">
         {% csrf_token %}
         <div class="row" style="width: 100%; display:-webkit-flex; align-items:center; height:100%;">
-            <div id="xyz" class="col-lg-5 col-xs-5" style="display:inline-flex; align-items:center; height:100%">
+            <div id="xyz" class="col-lg-5 col-xs-5" style="display:inline-flex; align-items:center; height:100%;padding-left: 5%;">
                 <span class="picture-span">经度：</span>
                 <input type="text" class="compare-input" id="lontitude">
-                <span class="picture-span">纬度：</span>
+                <span class="picture-span" style="padding-left: 5%;">纬度：</span>
                 <input type="text" class="compare-input" id="lantitude">
                 <span style="height:100%; display:-webkit-flex; align-items:center; margin-left:10px;">
                     <button class="btn btn-primary" style="border-radius:6px; height:34px; width:100%; font-size:14px" id="location_btn" >查询</button>
@@ -110,23 +111,21 @@
                     });
                 </script>
             </div>
-            <div class="col-lg-5 col-xs-5" style="display:inline-flex; align-items:center; height:100%">
+            <div class="col-lg-5 col-xs-5" style="display:inline-flex; align-items:center; height:100%;padding-left: 5%;">
                 <span class="picture-span">参考影像：</span>
                 <span class="picture-date"><input type="date" name="" class="form-control compare-input"/></span>
-                <span class="picture-span">对比影像：</span>
+                <span class="picture-span" style="padding-left: 5%;">对比影像：</span>
                 <span class="picture-date"><input type="date" name="" class="form-control compare-input"/></span>
-            </div>
-            <div class="col-lg-1 col-xs-1" style="height:100%; align-items:center; display:-webkit-flex;">
-                <span class="input-group-btn search-span" style="margin:0 auto; width:100%">
-                    <button style="border-radius:6px; display:table;" class="btn btn-primary compare-but" id="button_compare">
-                        <img src="{% static 'img/contrast.png' %}" style="height:60%; margin-right:8px; margin-bottom:3px;">
-                        <span>开始对比</span>
+                <span style="height:100%; display:-webkit-flex; align-items:center; margin-left:10px;">
+                    <button style="border-radius:6px;padding-left: 5%;" class="btn btn-primary compare-but" id="button_compare">
+                            <img src="{% static 'img/contrast.png' %}" style="height:60%; margin-right:8px; margin-bottom:3px;">
+                            <span>开始对比</span>
                     </button>
                 </span>
             </div>
         </div>
     </div>
-    <div class="container" style="width:100%; height:90%">
+    <div class="container" style="width:100%; height:87%">
         <div class="row" id="image" style="width:100%; height:100%">
             <div class="col-lg-11 col-xs-11" style="height:100%">
                 <div id="map" class="map" ></div>
@@ -209,17 +208,17 @@
             <div class="col-lg-1 col-xs-1" style="height:100%; text-align:center; font-size:20px;">
                 <div style="height:100%; width:100%; margin-to:50%;">
                     <!--<div class="img_download" style="width:100%; height:50%; color:#0090ff">-->
-                    <ul class="map_image_compare" style="padding:0">
+                    <ul class="map_image_compare" style="white-space: nowrap;">
                         <li class="compare-but" id="ib_map_compare" style="list-style-type:none">
                             <a id="ib_map_a" href="javascript:void(0)">
-                                <img src="{% static 'img/map.png' %}" style="height:20px; margin-right:8px; padding-left:5px;">
-                                <span class="map_compare_span">地图</span>
+                                <img src="{% static 'img/map.png' %}" style="padding-left:5px;">
+                                <p class="map_compare_span">地图</p>
                             </a>
                         </li>
                         <li class="compare-but" id="ib_image_compare" style="margin-top:10%;list-style-type:none">
                             <a id="ib_image_a" href="javascript:void(0)">
-                                <img src="{% static 'img/vedio.png' %}" style="height:20px; margin-right:8px; padding-left:5px;">
-                                <span class="image_compare_span">影像</span>
+                                <img src="{% static 'img/vedio.png' %}" style="padding-left:5px;">
+                                <p class="image_compare_span">影像</p>
                             </a>
                         </li>
                         <script>
@@ -227,14 +226,10 @@
                             var image_selected = true;
                             $("#ib_map_compare").click(function(){
                                 if (map_selected) {
-                                    $("#ib_map_a").css({"background":"#d3d5d8","color":"black","outline":"none"});
-                                    $("#ib_map_compare").css({"background":"#d3d5d8","color":"black","outline":"none"});
-                                    $(".map_compare_span").css({"background":"#d3d5d8","color":"black","outline":"none","border-left":"1px solid #a7a9ad"});
+                                    $(".map_compare_span").css({"background":"#ffffff","color":"black","outline":"none","border-left":"1px solid #a7a9ad"});
                                     map_selected = false;
                                     map.removeLayer(default_geo_layer);
                                 } else {
-                                    $("#ib_map_compare").css({"background":"#0a86e1","color":"white","outline":"none"});
-                                    $("#ib_map_a").css({"background":"#0a86e1","color":"white","outline":"none","border":"none"});
                                     $(".map_compare_span").css({"background":"#0a86e1","color":"white","outline":"none","border-left":"1px solid #a7a9ad"});
                                     map_selected = true;
                                     map.addLayer(default_geo_layer);
@@ -243,14 +238,10 @@
 
                             $("#ib_image_compare").click(function(){
                                 if (image_selected) {
-                                    $("#ib_image_a").css({"background":"#d3d5d8","color":"black","outline":"none"});
-                                    $("#ib_image_compare").css({"background":"#d3d5d8","color":"black","outline":"none"});
-                                    $(".image_compare_span").css({"background":"#d3d5d8","color":"black","outline":"none","border-left":"1px solid #a7a9ad"});
+                                    $(".image_compare_span").css({"background":"#ffffff","color":"black","outline":"none","border-left":"1px solid #a7a9ad"});
                                     image_selected = false;
                                     map.removeLayer(default_geo_layer2);
                                 } else {
-                                    $("#ib_image_compare").css({"background":"#0a86e1","color":"white","outline":"none"});
-                                    $("#ib_image_a").css({"background":"#0a86e1","color":"white","outline":"none","border":"none"});
                                     $(".image_compare_span").css({"background":"#0a86e1","color":"white","outline":"none","border-left":"1px solid #a7a9ad"});
                                     image_selected = true;
                                     map.addLayer(default_geo_layer2);
@@ -259,12 +250,9 @@
                         </script>
                     </ul>
 
-                       <a class="down" id="image_download" href="" download="downImg"> <div  style="margin-top:150%"><img style="width:50%;" src="{% static 'img/view_download.png' %}"></div>
-                           <div  style="color:#0090ff">影像下载</div>
-                       </a>
-
-                    <!--</div>-->
-                    <!--<div style="width:100%; height:50%; color:#ffa711" class="stsff">-->
+                   <a class="down" id="image_download" href="" download="downImg"> <div  style="margin-top:150%"><img style="width:50%;" src="{% static 'img/view_download.png' %}"></div>
+                       <div  style="color:#0090ff">影像下载</div>
+                   </a>
                     <div style="margin-top:52px; cursor:pointer;" id="ib_plotting">
                         <div><img style="width:50%" src="{% static 'img/stsff.png' %}"></div>
                         <div id ="plotting_id" style="color:#ffa711">量标</div>
@@ -285,8 +273,6 @@
                          </script>
 
                     </div>
-                    <!--</div>-->
-                    <!--<div id="menu">-->
                     <div id =plotting_menu style="display:none">
                        <button id='draw_button_div' class="btn btn-primary function-but">标绘</button><br/>
                        <button id='distance_button_div' class="btn btn-primary function-but">测距</button><br/>
