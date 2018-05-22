@@ -75,8 +75,25 @@ def add_account(request):
 #@login_required(login_url='/login/')
 #@permission_required('resource_permission',login_url='/index/',raise_exception=True)
 def account_inquiry(request):
-    return render(request,
-                  template_name='am_account_Inquiry.html')
+    users_temp=User.objects.all()
+    users = {}
+    count = 1
+    for i in range(len(users_temp)):
+        users[i] = model_to_dict(users_temp[i])
+        users[i]["num"] = count
+        count = count + 1
+        if (users[i]["is_active"]):
+            users[i]["is_active"] = "启用"
+        else:
+            users[i]["is_active"] = "禁用"
+        user_permissions = []
+        for j in range(len(users[i]['user_permissions'])):
+            tmp = users[i]['user_permissions'][j].name
+            user_permissions.append(tmp)
+        users[i]['user_permissions'] = user_permissions
+    return render(request, 'am_account_Inquiry.html', {'users': json.dumps(users, cls=DjangoJSONEncoder)})
+
+
 
 def info_revise(request):
     username= request.session['username']
@@ -181,6 +198,9 @@ def demolition_management(request):
     d_ib_draws = {}
     for i in range(len(ib_draws)):
         d_ib_draws[i] = model_to_dict(ib_draws[i])
+        id=d_ib_draws[i]["graphic_provide"]
+        user=User.objects.get(id=id)
+        d_ib_draws[i]["graphic_provide"]=user.contact_usr
     return render(request, 'de_management.html', {'d_ib_draws': json.dumps(d_ib_draws, cls=DjangoJSONEncoder)})
 
 def ib_event_management(request):
@@ -188,6 +208,9 @@ def ib_event_management(request):
     d_ib_draws = {}
     for i in range(len(ib_draws)):
         d_ib_draws[i] = model_to_dict(ib_draws[i])
+        id = d_ib_draws[i]["graphic_provide"]
+        user = User.objects.get(id=id)
+        d_ib_draws[i]["graphic_provide"] = user.contact_usr
     return render(request,'ib_event_management.html',{'d_ib_draws': json.dumps(d_ib_draws,cls=DjangoJSONEncoder)})
 
 def demolition_compare(request):
@@ -439,6 +462,7 @@ def status_revise(request):
 
 
 def save_draw(request):
+    user=request.user
     raw_dic = request.POST.get('coordi', False)
     name = request.POST.get('name', False)
     graphictype = request.POST.get('graphictype', False)
@@ -452,7 +476,7 @@ def save_draw(request):
     coordis_list=[coordis_num[i:i+2] for i in range(0,len(coordis_num),2)]
     jsonstr={'type':'Feature','geometry':{'type':'Polygon','coordinates':[coordis_list]},'properties':{'id':0}}
     jsondata=json.dumps(jsonstr)
-    draw_obj = GraphicLabel.objects.create(name=name,context=jsondata,graphictype=graphictype,graphiclabel=graphiclabel,graphic_provide=request.user.id,discrib=discrib,square=square,foundtime=foundtime,address=address)
+    draw_obj = GraphicLabel.objects.create(name=name,context=jsondata,graphictype=graphictype,graphiclabel=graphiclabel,graphic_provide=request.user,discrib=discrib,square=square,foundtime=foundtime,address=address)
     draw_obj.save()
     return render(request,'map_geo.html',{'message':'success'})
     #return HttpResponse("success")
@@ -555,6 +579,9 @@ def _ib_event_search(request):
     d_ib_draws = {}
     for i in range(len(ib_draws)):
         d_ib_draws[i] = model_to_dict(ib_draws[i])
+        id = d_ib_draws[i]["graphic_provide"]
+        user = User.objects.get(id=id)
+        d_ib_draws[i]["graphic_provide"] = user.contact_usr
     return JsonResponse({'d_ib_draws': d_ib_draws})
 
 
@@ -575,6 +602,9 @@ def _de_event_search(request):
     d_ib_draws = {}
     for i in range(len(ib_draws)):
         d_ib_draws[i] = model_to_dict(ib_draws[i])
+        id = d_ib_draws[i]["graphic_provide"]
+        user = User.objects.get(id=id)
+        d_ib_draws[i]["graphic_provide"] = user.contact_usr
     return JsonResponse({'d_ib_draws': d_ib_draws})
 
 def ibuild_search(request):

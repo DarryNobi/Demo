@@ -9,11 +9,9 @@
                     d_ib_draws[i]['num']=count;
                     count=count+1;
                     data.push(d_ib_draws[i]);
-                    alert(d_ib_draws[i]["createtime"]);
-                    alert(d_ib_draws[i]["foundtime"]);
                     }
               showList();
-//        query();
+
         var query_btn = $("#query_btn");
         query_btn.click(function(){
             query();
@@ -21,7 +19,7 @@
         });
     }
 
-//var ib_event_tab = $("#ib_event_tab");
+
 
 function showList(){
 
@@ -43,6 +41,7 @@ function showList(){
                   {field: 'graphictype', title:'类型', width:'10%', align:'center'},
                   {field: 'address', title:'现场地址', width:'20%', align:'center'},
                   {field: 'discrib', title:'细节描述', width:'10%', align:'center'},
+                  {field: 'graphic_provide', title:'处理人', width:'10%', align:'center'},
                   {field: 'foundtime', title:'录入时间', width:'10%', align:'center'},
                   {field: 'tool',title: '操作', align: 'center',
                           formatter: function (value,row,index){

@@ -1,7 +1,9 @@
 window.onload = function(){
     data=[];
-    search();
-    account_inquiry();
+     for(var i in users){
+      data.push(users[i]);
+                    }
+      search();
     $("#search_button").click(account_inquiry);
 }
 
@@ -10,9 +12,7 @@ window.onload = function(){
 		$.ajax({
             type:"post",
             url:"/_account_inquiry/",
-            data:{
-            "message":message},
-
+            data:{"message":message},
             success:function(users){
                 if(users["status"]){
                     data1=[];

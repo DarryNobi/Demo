@@ -73,8 +73,8 @@ $(function(){
                     alert('success')},
                 error:function(){
                     alert('error')}
-             });
-             location.reload();
+              });
+           // location.reload();
         }
         var cancel=document.getElementById("save_cancel");
         cancel.onclick=function(){

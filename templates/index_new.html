@@ -1,6 +1,8 @@
 ﻿﻿<html xmlns="http://www.w3.org/1999/xhtml" style="height:100%">
 <head>
     {% load staticfiles %}
+
+    <link REL="SHORTCUT ICON" HREF="{% static 'img/favicon.ico' %}"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -182,37 +184,37 @@
                     <!--<nav class="collapse navbar-collapse" style="padding-left:10px">-->
                         <ul class="nav nav-tabs head-ul" style="height:100%">
                             <li>
-                                <a class="nav-container" href="javascript:void(0)" onclick="open_link('/home_municipal/');" >
+                                <a id="1" class="nav-container" href="javascript:void(0)" onclick="open_link('/home_municipal/');" >
                                     <p class="nav-img-p"><img class="nav-img img-responsive center-block" src="{% static 'img/municipal.png' %}"></p>
                                     <p class="nav-text-p">市政管理</p>
                                 </a>
                             </li>
                             <li role="presentation">
-                                <a class="nav-container" href="javascript:void(0)" onclick="open_link('/developing/');">
+                                <a id="2" class="nav-container" href="javascript:void(0)" onclick="open_link('/developing/');">
                                     <p class="nav-img-p"><img class="nav-img img-responsive center-block" src="{% static 'img/agriculture.png' %}"></p>
                                     <p class="nav-text-p">农业管理</p>
                                 </a>
                             </li>
                             <li role="presentation">
-                                <a class="nav-container" href="javascript:void(0)" onclick="open_link('/developing/');">
+                                <a id="3" class="nav-container" href="javascript:void(0)" onclick="open_link('/developing/');">
                                     <p class="nav-img-p"><img class="nav-img img-responsive center-block" src="{% static 'img/forestry.png' %}"></p>
                                     <p class="nav-text-p">林业管理</p>
                                 </a>
                             </li>
                             <li role="presentation">
-                                <a class="nav-container" href="javascript:void(0)" onclick="open_link('/no_permissions/');">
+                                <a id="4" class="nav-container" href="javascript:void(0)" onclick="open_link('/developing/');">
                                     <p class="nav-img-p"><img class="nav-img img-responsive center-block" src="{% static 'img/environment.png' %}"></p>
                                     <p class="nav-text-p">环境管理</p>
                                 </a>
                             </li>
                             <li role="presentation">
-                                <a class="nav-container" href="javascript:void(0)" onclick="open_link('/developing/');">
+                                <a id="5" class="nav-container" href="javascript:void(0)" onclick="open_link('/developing/');">
                                     <p class="nav-img-p"><img class="nav-img img-responsive center-block" src="{% static 'img/road.png' %}"></p>
                                     <p class="nav-text-p">道路管理</p>
                                 </a>
                             </li>
                             <li role="presentation">
-                                <a class="nav-container" href="javascript:void(0)" onclick="open_link('/developing/');">
+                                <a id="6" class="nav-container" href="javascript:void(0)" onclick="open_link('/developing/');">
                                     <p class="nav-img-p"><img class="nav-img img-responsive center-block" src="{% static 'img/sedimentation.png' %}"></p>
                                     <p class="nav-text-p">沉降检测</p>
                                 </a>
@@ -338,5 +340,11 @@
 
 
     </script>
+<!--<script>-->
+    <!--$("#1").on("click",tohome,changecss);-->
+    <!--function tohome(){-->
+    <!--open_link('/home_municipal/');-->
+    <!--}-->
+<!--</script>-->
 </body>
 </html>

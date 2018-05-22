@@ -15,6 +15,11 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <script src="{% static 'js/common.js' %}"></script>
+     <script >
+         $.ajaxSetup({
+             data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+         });
+    </script>
     <!--<script src="{% static 'js/html2canvas.min.js' %}"></script>-->
     <!--<script src="{% static 'js/canvas2image.js' %}"></script>-->
     <style>
@@ -133,7 +138,7 @@
                 <div id="map_2" class="map " style="display:none"></div>
                 <div id="popup" class="ol-popup" style=" display:none">
                     <div id="popup-content" style="width:300px;">
-                        <div role="form" name="indexForm"  style="background-color:white; text-align:center;  border-radius:6px;">
+                        <form role="form" name="indexForm"  style="background-color:white; text-align:center;  border-radius:6px;">
                             {% csrf_token %}
                              <h5 style="font-size:18px; height:30px; line-height:30px;">请输入标绘信息</h5>
                              <div class="input-div">
@@ -192,7 +197,7 @@
                                     </div>
                             </div>
 
-                        </div>
+                        </form>
                     </div>
                 </div>
                 <div id="popup_info" style="background-color:white;border-radius:5px;width: 150%;display:none;">
