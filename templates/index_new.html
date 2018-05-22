@@ -54,13 +54,6 @@
             outline:none;
             border:none;
         }
-        .nav-tabs li a:visited {
-            background: -webkit-linear-gradient(#359ae4, #0c17f3);
-            background: -o-linear-gradient(#359ae4, #0c17f3);
-            background: -moz-linear-gradient(#359ae4, #0c17f3);
-            background: linear-gradient(#359ae4, #0c17f3);
-            border:none;
-        }
         .nav-tabs li a:hover {
             background: -webkit-linear-gradient(#359ae4, #0c17f3);
             background: -o-linear-gradient(#359ae4, #0c17f3);
@@ -243,7 +236,7 @@
         <!-- /. PAGE WRAPPER  -->
     </div>
     <!-- /. WRAPPER  -->
-<script >
+    <script >
       $.ajaxSetup({
          data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
       });
@@ -340,11 +333,56 @@
 
 
     </script>
-<!--<script>-->
-    <!--$("#1").on("click",tohome,changecss);-->
-    <!--function tohome(){-->
-    <!--open_link('/home_municipal/');-->
-    <!--}-->
-<!--</script>-->
+
+    <script>
+    var css_selected={
+            background: "-webkit-linear-gradient(#359ae4, #0c17f3)",
+            background: "-o-linear-gradient(#359ae4, #0c17f3)",
+            background: "-moz-linear-gradient(#359ae4, #0c17f3)",
+            background: "linear-gradient(#359ae4, #0c17f3)",
+            outline:"none",
+            border:"none"
+            };
+    var css_unselected={
+            background: "#0a86e1",
+            outline:"none",
+            border:"none"
+            };
+
+    var lis=[$("#1"),$("#2"),$("#3"),$("#4"),$("#5"),$("#6")];
+    lis[0].css(css_selected);
+
+    lis[0].click(function(){
+        for(var i=0;i<6;i++)
+            lis[i].css(css_unselected);
+        lis[0].css(css_selected);
+    });
+    lis[1].click(function(){
+        for(var i=0;i<6;i++)
+            lis[i].css(css_unselected);
+        lis[1].css(css_selected);
+    });
+    lis[2].click(function(){
+        for(var i=0;i<6;i++)
+            lis[i].css(css_unselected);
+        lis[2].css(css_selected);
+    });
+    lis[3].click(function(){
+        for(var i=0;i<6;i++)
+            lis[i].css(css_unselected);
+        lis[3].css(css_selected);
+    });
+    lis[4].click(function(){
+        for(var i=0;i<6;i++)
+            lis[i].css(css_unselected);
+        lis[4].css(css_selected);
+    });
+    lis[5].click(function(){
+        for(var i=0;i<6;i++)
+            lis[i].css(css_unselected);
+        lis[5].css(css_selected);
+    });
+    </script>
+
 </body>
 </html>

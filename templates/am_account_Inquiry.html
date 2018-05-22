@@ -63,8 +63,7 @@
          $.ajaxSetup({
                  data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
              });
-             users={{ users|safe }};
     </script>
-<script src="{% static 'js/account_inquire.js' %}"></script>
+    <script src="{% static 'js/account_inquire.js' %}"></script>
 </body>
 </html>

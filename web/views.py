@@ -395,27 +395,46 @@ def permission_revise(request):
 #@permission_required('user_management',raise_exception=True)
 def _account_inquiry(request):
     message = request.POST.get('message',False)
-    users_temp=User.objects.filter(Q(username=message)\
-    |Q(phone=message)|Q(department_name=message)|Q(contact_usr=message))
-    users = {}
-    count=1
-    for i in range(len(users_temp)):
-          users[i] = model_to_dict(users_temp[i])
-          users[i]["num"]=count
-          count=count+1
-          if(users[i]["is_active"]):
-              users[i]["is_active"]="启用"
-          else:
-              users[i]["is_active"]="禁用"
-          user_permissions=[]
-          for j in range(len(users[i]['user_permissions'])):
-              tmp = users[i]['user_permissions'][j].name
-              user_permissions.append(tmp)
-          users[i]['user_permissions'] = user_permissions
-    if users:
-          return JsonResponse({"users":users,"status":True})
+    if message=='':
+        users_temp = User.objects.all()
+        users = {}
+        count = 1
+        for i in range(len(users_temp)):
+            users[i] = model_to_dict(users_temp[i])
+            users[i]["num"] = count
+            count = count + 1
+            if (users[i]["is_active"]):
+                users[i]["is_active"] = "启用"
+            else:
+                users[i]["is_active"] = "禁用"
+            user_permissions = []
+            for j in range(len(users[i]['user_permissions'])):
+                tmp = users[i]['user_permissions'][j].name
+                user_permissions.append(tmp)
+            users[i]['user_permissions'] = user_permissions
+        return JsonResponse({"users": users, "status": True})
     else:
-          return JsonResponse({"message":"查找结果为空！","status":False})
+        users_temp=User.objects.filter(Q(username=message)\
+        |Q(phone=message)|Q(department_name=message)|Q(contact_usr=message))
+        users = {}
+        count=1
+        for i in range(len(users_temp)):
+              users[i] = model_to_dict(users_temp[i])
+              users[i]["num"]=count
+              count=count+1
+              if(users[i]["is_active"]):
+                  users[i]["is_active"]="启用"
+              else:
+                  users[i]["is_active"]="禁用"
+              user_permissions=[]
+              for j in range(len(users[i]['user_permissions'])):
+                  tmp = users[i]['user_permissions'][j].name
+                  user_permissions.append(tmp)
+              users[i]['user_permissions'] = user_permissions
+        if users:
+              return JsonResponse({"users":users,"status":True})
+        else:
+              return JsonResponse({"message":"查找结果为空！","status":False})
 
 
 

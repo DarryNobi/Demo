@@ -68,13 +68,13 @@
  <body>
     <div style="height:8%; min-height:60px;">
         <ul class="nav nav-tabs head-ul" style="height:100%; background: #c3c6cb;">
-             <li role="presentation" onclick="change1()">
+             <li id="1" role="presentation" onclick="change1()">
                 <a href="javascript:void(0)" onclick="open_illegal_building('/ib_plotting/')" onmouseout="restore1()" onmouseover="change1()" >
                     <span class="nav-img-p"><img id="image1" class="nav-img" src="{% static 'img/compare.png' %}" ></span>
                     <span class="nav-text-p">违建影像对比</span>
                 </a>
             </li>
-            <li role="presentation" onclick="change2()">
+            <li id="2" role="presentation" onclick="change2()">
                 <a href="javascript:void(0)" onclick="open_illegal_building('/ib_event_management/')" onmouseout="restore2()" onmouseover="change2()" >
                     <span class="nav-img-p"><img id="image2" class="nav-img" src="{% static 'img/event.png' %}" ></span>
                     <span class="nav-text-p">违建事件管理</span>
@@ -89,19 +89,46 @@
         </div>
     </div>
  <script>
-
     function change1(){
-document.getElementById('image1').src="{% static 'img/compare1.png' %}";
+        document.getElementById('image1').src="{% static 'img/compare1.png' %}";
     }
-        function change2(){
-document.getElementById('image2').src="{% static 'img/event1.png' %}";
+    function change2(){
+        document.getElementById('image2').src="{% static 'img/event1.png' %}";
     }
-            function restore1(){
-document.getElementById('image1').src="{% static 'img/compare.png' %}";
+    function restore1(){
+        document.getElementById('image1').src="{% static 'img/compare.png' %}";
     }
-            function restore2(){
-document.getElementById('image2').src="{% static 'img/event.png' %}";
+    function restore2(){
+        document.getElementById('image2').src="{% static 'img/event.png' %}";
     }
+
+    var css_selected={
+        color: "#3178f5",
+        background:"#ffffff",
+        "border-radius":"10px 10px 0 0",
+        outline:"none",
+        border:"none"
+    };
+    var css_unselected={
+        color: "#8a8a8a",
+        background:"#e6e7ea",
+        "border-radius":"10px 10px 0 0",
+        outline:"none",
+        border:"none"
+    };
+
+    var lis=[$("#1"),$("#2")];
+    lis[0].click(function(){
+        lis[1].css(css_unselected)
+        lis[0].css(css_selected);
+        change1();
+    });
+    lis[1].click(function(){
+        lis[0].css(css_unselected)
+        lis[1].css(css_selected);
+        change2()
+    });
+
 </script>
 
  </body>

@@ -109,9 +109,9 @@
         </div>
     </div>
     <script>
-        $.ajaxSetup({
-             data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
-         });
+         $.ajaxSetup({
+                 data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+             });
     </script>
     <script src="{% static 'js/gs_show_list.js' %}"></script>
 

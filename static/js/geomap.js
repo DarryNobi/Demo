@@ -43,11 +43,11 @@
             }),
             projection: "EPSG:4326",
             id:"影像",
-            opacity:0.7,
+            opacity:0.9,
         });
 
         var default_geo_layer = new ol.layer.Tile({
             source: new ol.source.OSM(),
             projection: "EPSG:4326",
-            opacity:0.7,
+            opacity:0.2,
         });

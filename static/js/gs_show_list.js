@@ -10,7 +10,6 @@
     }
 
 
-
     function query(){
     var query_name = $("#gra_name").val()
     var query_type = $("#gra_type").val()
