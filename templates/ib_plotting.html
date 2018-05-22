@@ -118,9 +118,17 @@
             </div>
             <div class="col-lg-5 col-xs-5" style="display:inline-flex; align-items:center; height:100%;padding-left: 5%;">
                 <span class="picture-span">参考影像：</span>
-                <span class="picture-date"><input type="date" name="" class="form-control compare-input"/></span>
+                <span class="picture-date">
+                    <select  name="" class="form-control compare-input">
+                        <option>无</option>
+                    </select>
+                </span>
                 <span class="picture-span" style="padding-left: 5%;">对比影像：</span>
-                <span class="picture-date"><input type="date" name="" class="form-control compare-input"/></span>
+                <span class="picture-date">
+                    <select  name="" class="form-control compare-input">
+                        <option>无</option>
+                    </select>
+                </span>
                 <span style="height:100%; display:-webkit-flex; align-items:center; margin-left:10px;">
                     <button style="border-radius:6px;padding-left: 5%;" class="btn btn-primary compare-but" id="button_compare">
                             <img src="{% static 'img/contrast.png' %}" style="height:60%; margin-right:8px; margin-bottom:3px;">
@@ -163,9 +171,8 @@
                                 <p clss="type_select">
                                     <p class="input-span">类型：</p>
                                     <select id="graphiclabel" class="selectpicker">
-                                        <option>拆迁</option>
                                         <option>违建</option>
-                                        <option>疑似拆迁</option>
+                                        <option>疑似违建</option>
                                     </select>
                                 </p>
                             </div>
