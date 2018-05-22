@@ -255,22 +255,28 @@
                         </script>
                     </ul>
 
-                   <a class="down" id="image_download"> <div  style="margin-top:150%"><img style="width:50%;" src="{% static 'img/view_download.png' %}"></div>
-                       <div  style="color:#0090ff">影像下载</div>
+                   <a class="down" id="image_download"> <div  style="margin-top:150%"><img id="img1" style="width:50%;" src="{% static 'img/image_download.png' %}"></div>
+                       <div  style="color:#999999">影像下载</div>
                    </a>
                     <div style="margin-top:52px; cursor:pointer;" id="ib_plotting">
-                        <div><img style="width:50%" src="{% static 'img/stsff.png' %}"></div>
-                        <div id ="plotting_id" style="color:#ffa711">量标</div>
+                        <div><img id="img2" style="width:50%" src="{% static 'img/measure.png' %}"></div>
+                        <div id ="plotting_id" style="color:#999999">量标</div>
                          <script>
                             var clicked=false;
                             $("#ib_plotting").click(function(){
                                 if (clicked) {
+                                    var path1="{% static 'img/measure.png' %}";
                                     $("#plotting_menu").css("display","none");
                                     $("#plotting_id").html("标量");
+                                    $("#img2").attr("src",path1);
+                                    $("#plotting_id").css("color","#999999")
                                     clicked=false;
                                 }else{
+                                    var path2="{% static 'img/stsff.png' %}"
                                     $("#plotting_menu").css("display","inline");
                                     $("#plotting_id").html("取消标量");
+                                    $("#plotting_id").css("color","#ffa711")
+                                     $("#img2").attr("src",path2);
                                     clicked=true;
                                 }
                                 });
