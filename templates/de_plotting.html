@@ -263,7 +263,7 @@
                         </script>
                     </ul>
 
-                       <a class="down" id="image_download" href="" download="downImg"> <div  style="margin-top:150%"><img style="width:50%;" src="{% static 'img/view_download.png' %}"></div>
+                       <a class="down" id="image_download"> <div  style="margin-top:150%"><img style="width:50%;" src="{% static 'img/view_download.png' %}"></div>
                            <div  style="color:#0090ff">影像下载</div>
                        </a>
 
@@ -338,6 +338,27 @@
         layers:[ new ol.layer.Tile({source:new ol.source.OSM()}) ]
     });
 
+    </script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+    <script>
+    //下载影像图片
+        download_button=$("#image_download");
+        download_button.click(download);
+        function download(){
+            map.once('postcompose', function(event) {
+              var canvas = event.context.canvas;
+              if (navigator.msSaveBlob) {
+                navigator.msSaveBlob(canvas.msToBlob(), 'map.png');
+              } else {
+                canvas.toBlob(function(blob) {
+                  saveAs(blob, 'map.png');
+                });
+              }
+            });
+            map.renderSync();
+        }
     </script>
     <script src="{% static 'js/ib_roller_shutters.js' %}"></script>
     <script src="{% static 'js/load_draw.js' %}"></script>
