@@ -28,8 +28,16 @@ $(function(){
         var coordinates=geo.getCoordinates();
         var geostr = coordinates[0].join(";");
         //alert(geostr);
-
-
+ //默认获取当前日期
+        var today = new Date();
+        var nowdate = (today.getFullYear()) + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+        //对日期格式进行处理
+        var date = new Date(nowdate);
+        var mon = date.getMonth() + 1;
+        var day = date.getDate();
+        var mydate = date.getFullYear() + "-" + (mon < 10 ? "0" + mon : mon) + "-" + (day < 10 ? "0" + day : day);
+        $("#foundtime").val(mydate);
+        $("#foundtime").attr("diabled",true);
         var container = document.getElementById('popup');
         var save_button=$("#save_submit");
         var update_button=$("#save_update");
@@ -54,7 +62,6 @@ $(function(){
             var graphiclabel = document.getElementById("graphiclabel").value;
             var discrib = document.getElementById("discrib").value;
             var square = document.getElementById("square").value;
-            var foundtime = document.getElementById("foundtime").value;
             var address = document.getElementById("graphicaddress").value;
             $.ajax({
                 type:'post',
@@ -66,7 +73,6 @@ $(function(){
                     'graphiclabel':graphiclabel,
                     'discrib':discrib,
                     'square':square,
-                    'foundtime':foundtime,
                     'address':address
                 },
                 success:function(){

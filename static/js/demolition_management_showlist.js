@@ -41,7 +41,7 @@ function showList(){
                   {field: 'graphictype', title:'类型', width:'10%', align:'center'},
                   {field: 'address', title:'现场地址', width:'20%', align:'center'},
                   {field: 'discrib', title:'细节描述', width:'10%', align:'center'},
-                  {field: 'createtime', title:'录入时间', width:'10%', align:'center'},
+                  {field: 'foundtime', title:'录入时间', width:'10%', align:'center'},
                   {field: 'graphic_provide', title:'处理人', width:'10%', align:'center'},
                   {field: 'tool',title: '操作', align: 'center',
                           formatter: function (value,row,index){
