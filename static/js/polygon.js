@@ -70,11 +70,11 @@ $(function(){
                     'address':address
                 },
                 success:function(){
-                    alert('success')},
+                    alert('保存成功！')},
                 error:function(){
-                    alert('error')}
+                    alert('保存失败')}
               });
-           // location.reload();
+            location.reload();
         }
         var cancel=document.getElementById("save_cancel");
         cancel.onclick=function(){
