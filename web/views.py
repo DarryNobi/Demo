@@ -617,3 +617,6 @@ def ibuild_search(request):
     for i in range(len(label_temp)):
         labels[i] = model_to_dict(label_temp[i])
     return render(request,ib_event_management.html,{'labels':json.dumps(labels,cls=DjangoJSONEncoder)})
+
+def login_page(request):
+    return render(request,"index_new.html",{"status":True})
