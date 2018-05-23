@@ -11,7 +11,7 @@ $(function(){
         map2.off('mousemove');
         iscompare=false;
     }else{
-        document.getElementById("map_2").style.display="block";//显示
+        document.getElementById("map_2").style.display="inline";//显示
         //map2.show();
         map1.on('mousemove',event_map1);
         map2.on('mousemove',event_map2);
