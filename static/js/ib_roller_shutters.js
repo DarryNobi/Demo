@@ -1,4 +1,18 @@
 $(function(){
+
+    $.ajax({
+            type:'get',
+            url:'/_map_inquiry/',
+            data: {
+            },
+            success:function(d_maps){
+            alert(d_maps);
+
+            }
+         });
+
+
+
     var iscompare=false;
     var button_compare=$("#button_compare");
     var map1=$("#map");
@@ -10,12 +24,14 @@ $(function(){
         map1.off('mousemove');
         map2.off('mousemove');
         iscompare=false;
+        $("#compare_span").text('开始对比');
     }else{
         document.getElementById("map_2").style.display="inline";//显示
         //map2.show();
         map1.on('mousemove',event_map1);
         map2.on('mousemove',event_map2);
         iscompare=true;
+        $("#compare_span").text('取消对比');
         }
     });
 //    var map_1 = new ol.Map({
