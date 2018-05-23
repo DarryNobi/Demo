@@ -164,9 +164,20 @@
             <div class="row" style="width: 100%; display:-webkit-flex; align-items:center; height:100%;">
                 <div class="col-lg-11 col-xs-11" style="display:inline-flex; align-items:center; height:100%">
                     <span class="picture-span">影像选择</span>
-                    <input type="text" class="compare-input" id="lontitude">
-                    <span class="picture-span">地上物类型：</span>
-                    <input type="text" class="compare-input" id="lantitude">
+                    <select type="text" class="compare-input" id="imagery" style="width: 15%;">
+                          <option>无</option>
+                    </select>
+                    <span class="picture-span" style="padding-left: 10%;width: auto;">地上物类型：</span>
+                    <select type="text" class="compare-input" id="type" style="width: 10%;">
+                          <option>全貌</option>
+                          <option>建筑</option>
+                          <option>道路</option>
+                          <option>水域</option>
+                          <option>草地</option>
+                          <option>林地</option>
+                          <option>耕地</option>
+                          <option>大棚</option>
+                    </select>
                     <span style="height:100%; display:-webkit-flex; align-items:center; width:7%; margin-left:42px;">
                         <button class="btn btn-primary" style="border-radius:6px; height:50%; width:100%; min-height:50px; font-size:20px" id="location_btn" >确定</button>
                     </span>
