@@ -1,13 +1,20 @@
 $(function(){
 
+    selection1=document.getElementById("compare1");
+    selection2=document.getElementById("compare2");
     $.ajax({
             type:'get',
             url:'/_map_inquiry/',
             data: {
             },
             success:function(d_maps){
-            alert(d_maps);
-
+                maps=JSON.parse(d_maps);
+                for(m in maps){
+                    name=maps[m].name;
+                    id=maps[m].GlobeID;
+                    selection1.add(new Option(name,id))
+                    selection2.add(new Option(name,id))
+                }
             }
          });
 
@@ -26,6 +33,43 @@ $(function(){
         iscompare=false;
         $("#compare_span").text('开始对比');
     }else{
+
+
+        var index1 = selection1.selectedIndex;
+        var text1 = selection1.options[index1].text;
+        var value1 = selection1.options[index1].value;
+        var index2 = selection2.selectedIndex;
+        var text2 = selection2.options[index2].text;
+        var value2 = selection2.options[index2].value;
+//        alert(value1);
+//         alert(value2);
+
+        var temp_layer1 = new ol.layer.Image({
+            source: new ol.source.ImageWMS({
+//              crossOrigin: 'anonymous',
+                url:'http://172.20.53.157:8080/geoserver/wms',
+                projection:'EPSG:4326',
+                params:{
+                LAYERS: value1.toString()}
+            }),
+            projection: "EPSG:4326",
+           // opacity:0.5,
+        });
+        var temp_layer2 = new ol.layer.Image({
+            source: new ol.source.ImageWMS({
+//              crossOrigin: 'anonymous',
+                url:'http://172.20.53.157:8080/geoserver/wms',
+                projection:'EPSG:4326',
+                params:{
+                LAYERS: value2.toString()}
+            }),
+            projection: "EPSG:4326",
+            //opacity:0.5,
+        });
+
+        map.addLayer(temp_layer1);
+        map_2.addLayer(temp_layer2);
+
         document.getElementById("map_2").style.display="block";//显示
         //map2.show();
         map1.on('mousemove',event_map1);
@@ -46,11 +90,11 @@ $(function(){
 //            new ol.layer.Tile({source:new ol.source.OSM()})
 //        ]
 //    });
-    map_2 = new ol.Map({
-        target:"map_2",
-        view:map.getView(),
-        layers:[ new ol.layer.Tile({source:new ol.source.OSM()}) ]
-    });
+//    map_2 = new ol.Map({
+//        target:"map_2",
+//        view:map.getView(),
+//        layers:[ new ol.layer.Tile({source:new ol.source.OSM()}) ]
+//    });
 
     function event_map1(e){
         //console.log(e);
