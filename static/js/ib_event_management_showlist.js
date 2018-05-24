@@ -11,7 +11,7 @@
                     data.push(d_ib_draws[i]);
                     }
               showList();
-//        query();
+
         var query_btn = $("#query_btn");
         query_btn.click(function(){
             query();
@@ -19,7 +19,7 @@
         });
     }
 
-//var ib_event_tab = $("#ib_event_tab");
+
 
 function showList(){
 
@@ -41,7 +41,8 @@ function showList(){
                   {field: 'graphictype', title:'类型', width:'10%', align:'center'},
                   {field: 'address', title:'现场地址', width:'20%', align:'center'},
                   {field: 'discrib', title:'细节描述', width:'10%', align:'center'},
-                  {field: 'createtime', title:'录入时间', width:'10%', align:'center'},
+                  {field: 'graphic_provide', title:'处理人', width:'10%', align:'center'},
+                  {field: 'foundtime', title:'录入时间', width:'10%', align:'center'},
                   {field: 'tool',title: '操作', align: 'center',
                           formatter: function (value,row,index){
                               var element = "<a href='#' class='operate check_href' id='check"+row.id +"' data-id='"+row.id +"' onclick='query()' onmouseover='check_mouseOver(\" "+row.id+" \")' onmouseout='check_mouseOut(\" "+row.id+" \")'>"
@@ -121,7 +122,7 @@ function changeStatus(data){
         data: {'id':num},
         success: function(){
             alert('删除成功！');
-            ib_event_tab.bootstrapTable('remove',{
+             $("#ib_event_tab").bootstrapTable('remove',{
                 field: 'id',
                 values: [parseInt(data)],
             })

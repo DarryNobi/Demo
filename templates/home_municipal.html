@@ -47,8 +47,10 @@
             display: table-cell;
             text-align: center;
             vertical-align: middle;
+             color: #000000;
         }
-        #main-menu li a:focus {
+
+        #main-menu li a:focus, #main-menu li a:visited{
             outline:none;
             border:none;
             background:#0a86e1;
@@ -61,6 +63,9 @@
             margin-top: 10px;
             color: #999999;
         }
+        <!--.black_font_color {-->
+            <!--color: #000000;-->
+        <!--}-->
     </style>
 </head>
 <body style="height:100%;">
@@ -70,45 +75,45 @@
                 <div class="panel-body" style="overflow-x:auto; height:100%">
                     <div class="sidebar-collapse" style="height:100%">
                         <ul class="nav" id="main-menu" style="height:100%">
-                            <li>
+                            <li id="1">
                                 <a href="javascript:void(0)" onclick="open_municipal_management('/offence_build/');">
                                     <span><img src="{% static 'img/building.png' %}"></span>
-                                    <span>违建管理</span>
+                                    <span class="black_font_color">违建管理</span>
                                 </a>
                             </li>
 
-                            <li>
+                            <li id="2">
                                 <!--<a href="javascript:void(0)" onclick="open_municipal_management('/move_out/');">-->
                                 <a href="javascript:void(0)" onclick="open_municipal_management('/move_out/');">
                                     <span><img src="{% static 'img/remove.png' %}"></span>
-                                    <span>拆迁管理</span>
+                                    <span class="black_font_color">拆迁管理</span>
                                 </a>
                             </li>
 
-                            <li>
+                            <li id="3">
                                 <a href="javascript:void(0)" onclick="open_municipal_management('/resource_management/');">
                                     <span><img src="{% static 'img/resource.png' %}"></span>
-                                    <span>资源管理</span>
+                                    <span class="black_font_color">资源管理</span>
                                 </a>
                             </li>
 
-                            <li>
+                            <li id="4">
                                 <a href="javascript:void(0)" onclick="open_municipal_management('/general_survey/');">
                                     <span><img src="{% static 'img/date.png' %}"></span>
-                                    <span>普查管理</span>
+                                    <span class="black_font_color">普查管理</span>
                                 </a>
                             </li>
 
-                             <li>
+                             <li id="5">
                                 <a href="javascript:void(0)" onclick="open_municipal_management('/account_management/');">
                                     <span><img src="{% static 'img/user_ statistics .png' %}"></span>
-                                    <span>帐号管理</span>
+                                    <span class="black_font_color">帐号管理</span>
                                 </a>
                             </li>
-                            <li>
+                            <li id="6">
                                 <a href="javascript:void(0)" onclick="open_municipal_management('/user_center/');">
                                     <span><img src="{% static 'img/setting.png' %}"></span>
-                                    <span>个人中心</span>
+                                    <span class="black_font_color">个人中心</span>
                                 </a>
                             </li>
                         </ul>
@@ -136,6 +141,55 @@
         $("#nowdate").val(mydate);
         $(".date-span").html(mydate);
     };
+    </script>
+    <script>
+        var css_selected={
+            background:"#0a86e1",
+            color:"white",
+            "border-radius":"6px",
+            outline:"none",
+            border:"none"
+        };
+        var css_unselected={
+            background:"white",
+            color:"black",
+            "border-radius":"6px",
+            outline:"none",
+            border:"none"
+        };
+
+        var lis=[$("#1"),$("#2"),$("#3"),$("#4"),$("#5"),$("#6")];
+
+        lis[0].click(function(){
+            for(var i=0;i<6;i++)
+                lis[i].css(css_unselected);
+            lis[0].css(css_selected);
+        });
+        lis[1].click(function(){
+            for(var i=0;i<6;i++)
+                lis[i].css(css_unselected);
+            lis[1].css(css_selected);
+        });
+        lis[2].click(function(){
+            for(var i=0;i<6;i++)
+                lis[i].css(css_unselected);
+            lis[2].css(css_selected);
+        });
+        lis[3].click(function(){
+            for(var i=0;i<6;i++)
+                lis[i].css(css_unselected);
+            lis[3].css(css_selected);
+        });
+        lis[4].click(function(){
+            for(var i=0;i<6;i++)
+                lis[i].css(css_unselected);
+            lis[4].css(css_selected);
+        });
+        lis[5].click(function(){
+            for(var i=0;i<6;i++)
+                lis[i].css(css_unselected);
+            lis[5].css(css_selected);
+        });
     </script>
 </body>
 </html>

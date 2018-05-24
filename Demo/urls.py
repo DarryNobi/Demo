@@ -67,6 +67,7 @@ urlpatterns = [
     url(r'^query_draw/', views.query_draw),
     url(r'^_delete_draw/', views._delete_draw),
     url(r'^map_inquiry/', views.map_inquiry),
+    url(r'^_map_inquiry/', views._map_inquiry),
     url(r'^_gs_show_list/',views._gs_show_list),
     url(r'^_ib_event_search/',views._ib_event_search),
     url(r'^_de_event_search/',views._de_event_search),
@@ -80,7 +81,8 @@ urlpatterns = [
     url(r'^cancelPublish/',views.cancelPublish),
     url(r'^deleteImage/',views.deleteImage),
     url(r'^downloadImage/',views.downloadImage),
-    url(r'^test/',views.test)
+    url(r'^test/',views.test),
+    url(r'^login_page/', views.login_page)
 ]
 
 urlpatterns += staticfiles_urlpatterns()

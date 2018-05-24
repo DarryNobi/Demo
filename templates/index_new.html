@@ -1,6 +1,8 @@
-﻿<html xmlns="http://www.w3.org/1999/xhtml" style="height:100%">
+﻿﻿<html xmlns="http://www.w3.org/1999/xhtml" style="height:100%">
 <head>
     {% load staticfiles %}
+
+    <link REL="SHORTCUT ICON" HREF="{% static 'img/favicon.ico' %}"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -50,13 +52,6 @@
             background: -moz-linear-gradient(#359ae4, #0c17f3);
             background: linear-gradient(#359ae4, #0c17f3);
             outline:none;
-            border:none;
-        }
-        .nav-tabs li a:visited {
-            background: -webkit-linear-gradient(#359ae4, #0c17f3);
-            background: -o-linear-gradient(#359ae4, #0c17f3);
-            background: -moz-linear-gradient(#359ae4, #0c17f3);
-            background: linear-gradient(#359ae4, #0c17f3);
             border:none;
         }
         .nav-tabs li a:hover {
@@ -170,7 +165,7 @@
                             <img style="height:50%;transform: scale(1.2);align-self: center;" src="{% static 'img/user_logo.png' %}">
                             <a id="login" title="Login" style="align-self: center;"><em class="glyphicon glyphicon-plus"></em>登录</a>
                             <span id="user_name" style="padding-left:10px;align-self: center;"></span>
-                            <a id="logout" href="/logout/" class="" style="display:none;align-self: center;" title="Logout"><em class="glyphicon glyphicon-home"></em>登出</a>
+                            <a id="logout" href="/logout/" class="" style="display:none;align-self: center;" title="Logout"><em class="glyphicon glyphicon-home"></em>退出</a>
                         </span>
                         <p style="width:20%; margin-right: 0;align-self: center;">
                             <span class="view-button"><img src="{% static 'img/q.png' %}"></span>
@@ -182,37 +177,37 @@
                     <!--<nav class="collapse navbar-collapse" style="padding-left:10px">-->
                         <ul class="nav nav-tabs head-ul" style="height:100%">
                             <li>
-                                <a class="nav-container" href="javascript:void(0)" onclick="open_link('/home_municipal/');" >
+                                <a id="1" class="nav-container" href="javascript:void(0)" onclick="open_link('/home_municipal/');" >
                                     <p class="nav-img-p"><img class="nav-img img-responsive center-block" src="{% static 'img/municipal.png' %}"></p>
                                     <p class="nav-text-p">市政管理</p>
                                 </a>
                             </li>
                             <li role="presentation">
-                                <a class="nav-container" href="javascript:void(0)" onclick="open_link('/developing/');">
+                                <a id="2" class="nav-container" href="javascript:void(0)" onclick="open_link('/developing/');">
                                     <p class="nav-img-p"><img class="nav-img img-responsive center-block" src="{% static 'img/agriculture.png' %}"></p>
                                     <p class="nav-text-p">农业管理</p>
                                 </a>
                             </li>
                             <li role="presentation">
-                                <a class="nav-container" href="javascript:void(0)" onclick="open_link('/developing/');">
+                                <a id="3" class="nav-container" href="javascript:void(0)" onclick="open_link('/developing/');">
                                     <p class="nav-img-p"><img class="nav-img img-responsive center-block" src="{% static 'img/forestry.png' %}"></p>
                                     <p class="nav-text-p">林业管理</p>
                                 </a>
                             </li>
                             <li role="presentation">
-                                <a class="nav-container" href="javascript:void(0)" onclick="open_link('/no_permissions/');">
+                                <a id="4" class="nav-container" href="javascript:void(0)" onclick="open_link('/developing/');">
                                     <p class="nav-img-p"><img class="nav-img img-responsive center-block" src="{% static 'img/environment.png' %}"></p>
                                     <p class="nav-text-p">环境管理</p>
                                 </a>
                             </li>
                             <li role="presentation">
-                                <a class="nav-container" href="javascript:void(0)" onclick="open_link('/developing/');">
+                                <a id="5" class="nav-container" href="javascript:void(0)" onclick="open_link('/developing/');">
                                     <p class="nav-img-p"><img class="nav-img img-responsive center-block" src="{% static 'img/road.png' %}"></p>
                                     <p class="nav-text-p">道路管理</p>
                                 </a>
                             </li>
                             <li role="presentation">
-                                <a class="nav-container" href="javascript:void(0)" onclick="open_link('/developing/');">
+                                <a id="6" class="nav-container" href="javascript:void(0)" onclick="open_link('/developing/');">
                                     <p class="nav-img-p"><img class="nav-img img-responsive center-block" src="{% static 'img/sedimentation.png' %}"></p>
                                     <p class="nav-text-p">沉降检测</p>
                                 </a>
@@ -241,12 +236,13 @@
         <!-- /. PAGE WRAPPER  -->
     </div>
     <!-- /. WRAPPER  -->
-<script >
+    <script >
       $.ajaxSetup({
          data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
       });
      </script>
     <script>
+
     window.onload=function(){
 
         //默认获取当前日期
@@ -338,5 +334,56 @@
 
 
     </script>
+
+    <script>
+    var css_selected={
+            background: "-webkit-linear-gradient(#359ae4, #0c17f3)",
+            background: "-o-linear-gradient(#359ae4, #0c17f3)",
+            background: "-moz-linear-gradient(#359ae4, #0c17f3)",
+            background: "linear-gradient(#359ae4, #0c17f3)",
+            outline:"none",
+            border:"none"
+            };
+    var css_unselected={
+            background: "#0a86e1",
+            outline:"none",
+            border:"none"
+            };
+
+    var lis=[$("#1"),$("#2"),$("#3"),$("#4"),$("#5"),$("#6")];
+    lis[0].css(css_selected);
+
+    lis[0].click(function(){
+        for(var i=0;i<6;i++)
+            lis[i].css(css_unselected);
+        lis[0].css(css_selected);
+    });
+    lis[1].click(function(){
+        for(var i=0;i<6;i++)
+            lis[i].css(css_unselected);
+        lis[1].css(css_selected);
+    });
+    lis[2].click(function(){
+        for(var i=0;i<6;i++)
+            lis[i].css(css_unselected);
+        lis[2].css(css_selected);
+    });
+    lis[3].click(function(){
+        for(var i=0;i<6;i++)
+            lis[i].css(css_unselected);
+        lis[3].css(css_selected);
+    });
+    lis[4].click(function(){
+        for(var i=0;i<6;i++)
+            lis[i].css(css_unselected);
+        lis[4].css(css_selected);
+    });
+    lis[5].click(function(){
+        for(var i=0;i<6;i++)
+            lis[i].css(css_unselected);
+        lis[5].css(css_selected);
+    });
+    </script>
+
 </body>
 </html>

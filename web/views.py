@@ -75,8 +75,25 @@ def add_account(request):
 #@login_required(login_url='/login/')
 #@permission_required('resource_permission',login_url='/index/',raise_exception=True)
 def account_inquiry(request):
-    return render(request,
-                  template_name='am_account_Inquiry.html')
+    users_temp=User.objects.all()
+    users = {}
+    count = 1
+    for i in range(len(users_temp)):
+        users[i] = model_to_dict(users_temp[i])
+        users[i]["num"] = count
+        count = count + 1
+        if (users[i]["is_active"]):
+            users[i]["is_active"] = "启用"
+        else:
+            users[i]["is_active"] = "禁用"
+        user_permissions = []
+        for j in range(len(users[i]['user_permissions'])):
+            tmp = users[i]['user_permissions'][j].name
+            user_permissions.append(tmp)
+        users[i]['user_permissions'] = user_permissions
+    return render(request, 'am_account_Inquiry.html', {'users': json.dumps(users, cls=DjangoJSONEncoder)})
+
+
 
 def info_revise(request):
     username= request.session['username']
@@ -181,6 +198,9 @@ def demolition_management(request):
     d_ib_draws = {}
     for i in range(len(ib_draws)):
         d_ib_draws[i] = model_to_dict(ib_draws[i])
+        id=d_ib_draws[i]["graphic_provide"]
+        user=User.objects.get(id=id)
+        d_ib_draws[i]["graphic_provide"]=user.contact_usr
     return render(request, 'de_management.html', {'d_ib_draws': json.dumps(d_ib_draws, cls=DjangoJSONEncoder)})
 
 def ib_event_management(request):
@@ -188,6 +208,9 @@ def ib_event_management(request):
     d_ib_draws = {}
     for i in range(len(ib_draws)):
         d_ib_draws[i] = model_to_dict(ib_draws[i])
+        id = d_ib_draws[i]["graphic_provide"]
+        user = User.objects.get(id=id)
+        d_ib_draws[i]["graphic_provide"] = user.contact_usr
     return render(request,'ib_event_management.html',{'d_ib_draws': json.dumps(d_ib_draws,cls=DjangoJSONEncoder)})
 
 def demolition_compare(request):
@@ -372,27 +395,46 @@ def permission_revise(request):
 #@permission_required('user_management',raise_exception=True)
 def _account_inquiry(request):
     message = request.POST.get('message',False)
-    users_temp=User.objects.filter(Q(username=message)\
-    |Q(phone=message)|Q(department_name=message)|Q(contact_usr=message))
-    users = {}
-    count=1
-    for i in range(len(users_temp)):
-          users[i] = model_to_dict(users_temp[i])
-          users[i]["num"]=count
-          count=count+1
-          if(users[i]["is_active"]):
-              users[i]["is_active"]="启用"
-          else:
-              users[i]["is_active"]="禁用"
-          user_permissions=[]
-          for j in range(len(users[i]['user_permissions'])):
-              tmp = users[i]['user_permissions'][j].name
-              user_permissions.append(tmp)
-          users[i]['user_permissions'] = user_permissions
-    if users:
-          return JsonResponse({"users":users,"status":True})
+    if message=='':
+        users_temp = User.objects.all()
+        users = {}
+        count = 1
+        for i in range(len(users_temp)):
+            users[i] = model_to_dict(users_temp[i])
+            users[i]["num"] = count
+            count = count + 1
+            if (users[i]["is_active"]):
+                users[i]["is_active"] = "启用"
+            else:
+                users[i]["is_active"] = "禁用"
+            user_permissions = []
+            for j in range(len(users[i]['user_permissions'])):
+                tmp = users[i]['user_permissions'][j].name
+                user_permissions.append(tmp)
+            users[i]['user_permissions'] = user_permissions
+        return JsonResponse({"users": users, "status": True})
     else:
-          return JsonResponse({"message":"查找结果为空！","status":False})
+        users_temp=User.objects.filter(Q(username=message)\
+        |Q(phone=message)|Q(department_name=message)|Q(contact_usr=message))
+        users = {}
+        count=1
+        for i in range(len(users_temp)):
+              users[i] = model_to_dict(users_temp[i])
+              users[i]["num"]=count
+              count=count+1
+              if(users[i]["is_active"]):
+                  users[i]["is_active"]="启用"
+              else:
+                  users[i]["is_active"]="禁用"
+              user_permissions=[]
+              for j in range(len(users[i]['user_permissions'])):
+                  tmp = users[i]['user_permissions'][j].name
+                  user_permissions.append(tmp)
+              users[i]['user_permissions'] = user_permissions
+        if users:
+              return JsonResponse({"users":users,"status":True})
+        else:
+              return JsonResponse({"message":"查找结果为空！","status":False})
 
 
 
@@ -439,20 +481,20 @@ def status_revise(request):
 
 
 def save_draw(request):
+    user=request.user
     raw_dic = request.POST.get('coordi', False)
     name = request.POST.get('name', False)
     graphictype = request.POST.get('graphictype', False)
     graphiclabel = request.POST.get('graphiclabel', False)
     discrib = request.POST.get('discrib', False)
     square = request.POST.get('square', 0)
-    foundtime = request.POST.get('foundtime',False )
     address= request.POST.get('address', '无')
     coordis=raw_dic.replace(",",";").split(";")
     coordis_num=[float(c) for c in coordis]
     coordis_list=[coordis_num[i:i+2] for i in range(0,len(coordis_num),2)]
     jsonstr={'type':'Feature','geometry':{'type':'Polygon','coordinates':[coordis_list]},'properties':{'id':0}}
     jsondata=json.dumps(jsonstr)
-    draw_obj = GraphicLabel.objects.create(name=name,context=jsondata,graphictype=graphictype,graphiclabel=graphiclabel,graphic_provide=request.user,discrib=discrib,square=square,foundtime=foundtime,address=address)
+    draw_obj = GraphicLabel.objects.create(name=name,context=jsondata,graphictype=graphictype,graphiclabel=graphiclabel,graphic_provide=request.user,discrib=discrib,square=square,address=address)
     draw_obj.save()
     return render(request,'map_geo.html',{'message':'success'})
     #return HttpResponse("success")
@@ -485,6 +527,7 @@ def load_all_draw(request):
         json_context=json.loads(draw.context)
         json_context['properties']['id']=draw.id
         draw.context=json.dumps(json_context)
+
     all_draws_data = [draw.context for draw in all_draws]
     return JsonResponse({'all_draws':all_draws_data})
 
@@ -512,6 +555,16 @@ def map_inquiry(request):
         return render(request, 'rm_resource_search.html', {'d_maps': json.dumps(d_maps, cls=DjangoJSONEncoder)})
     else:
         return render(request, 'rm_resource_search.html', {'message': '查找结果为空！'})
+
+def _map_inquiry(request):
+    maps_temp = Map.objects.all()
+    d_maps = {}
+    for i in range(len(maps_temp)):
+        d_maps[i] = model_to_dict(maps_temp[i])
+    if d_maps:
+        return HttpResponse(json.dumps(d_maps, cls=DjangoJSONEncoder))
+    else:
+        return HttpResponse({'message': '查找结果为空！'})
 
 def test(request):
     ImagePre.preprogress()
@@ -554,6 +607,9 @@ def _ib_event_search(request):
     d_ib_draws = {}
     for i in range(len(ib_draws)):
         d_ib_draws[i] = model_to_dict(ib_draws[i])
+        id = d_ib_draws[i]["graphic_provide"]
+        user = User.objects.get(id=id)
+        d_ib_draws[i]["graphic_provide"] = user.contact_usr
     return JsonResponse({'d_ib_draws': d_ib_draws})
 
 
@@ -574,6 +630,9 @@ def _de_event_search(request):
     d_ib_draws = {}
     for i in range(len(ib_draws)):
         d_ib_draws[i] = model_to_dict(ib_draws[i])
+        id = d_ib_draws[i]["graphic_provide"]
+        user = User.objects.get(id=id)
+        d_ib_draws[i]["graphic_provide"] = user.contact_usr
     return JsonResponse({'d_ib_draws': d_ib_draws})
 
 def ibuild_search(request):
@@ -586,3 +645,6 @@ def ibuild_search(request):
     for i in range(len(label_temp)):
         labels[i] = model_to_dict(label_temp[i])
     return render(request,ib_event_management.html,{'labels':json.dumps(labels,cls=DjangoJSONEncoder)})
+
+def login_page(request):
+    return render(request,"index_new.html",{"status":True})

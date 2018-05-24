@@ -1,7 +1,8 @@
 window.onload = function(){
     data=[];
     search();
-    account_inquiry();
+    account_inquiry()
+
     $("#search_button").click(account_inquiry);
 }
 
@@ -10,9 +11,7 @@ window.onload = function(){
 		$.ajax({
             type:"post",
             url:"/_account_inquiry/",
-            data:{
-            "message":message},
-
+            data:{"message":message},
             success:function(users){
                 if(users["status"]){
                     data1=[];
@@ -35,7 +34,7 @@ window.onload = function(){
               locale:'zh-CN',//中文支持
               pagination: true,//是否开启分页（*）
               pageNumber:1,//初始化加载第一页，默认第一页
-              pageSize: 3,//每页的记录行数（*）
+              pageSize: 10,//每页的记录行数（*）
               pageList: [10, 25, 50, 100],//可供选择的每页的行数（*）
               sidePagination: "client", //分页方式：client客户端分页，server服务端分页（*）
               showRefresh:false,//刷新按钮
