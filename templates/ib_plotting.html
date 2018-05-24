@@ -304,8 +304,8 @@
        view: new ol.View({
          center: ol.proj.fromLonLat([102.53, 24.41]),
          zoom: 15,
-         maxZoom:18,
-         minZoom:13
+         //maxZoom:18,
+         //minZoom:13
        }),
        controls: ol.control.defaults().extend([
             new ol.control.ScaleLine({  }),
@@ -314,10 +314,10 @@
                 projection: 'EPSG:4326'
             }),
             new ol.control.ScaleLine({  }),
-            new ol.control.ZoomSlider({
-                maxResolution:1000,
-                minResolution:1000
-            })
+            //new ol.control.ZoomSlider({
+                //maxResolution:1000,
+                //minResolution:1000
+            //})
       ]),
      });
     //map.addLayer(baidu_layer);
