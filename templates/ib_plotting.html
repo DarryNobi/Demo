@@ -119,13 +119,13 @@
             <div class="col-lg-5 col-xs-5" style="display:inline-flex; align-items:center; height:100%;padding-left: 5%;">
                 <span class="picture-span">参考影像：</span>
                 <span class="picture-date" style="width: 20%;">
-                    <select  name="" class="form-control compare-input">
+                    <select  id="compare1" class="form-control compare-input">
                         <option>无</option>
                     </select>
                 </span>
                 <span class="picture-span" style="padding-left: 5%;">对比影像：</span>
                 <span class="picture-date" style="width: 20%;">
-                    <select  name="" class="form-control compare-input">
+                    <select  id="compare2" class="form-control compare-input">
                         <option>无</option>
                     </select>
                 </span>
@@ -326,7 +326,7 @@
      var map = new ol.Map({
        target: 'map',
        view: new ol.View({
-         center: ol.proj.fromLonLat([102.53, 24.41]),
+         center: ol.proj.fromLonLat([117.53, 39.18]),
          zoom: 15,
          //maxZoom:18,
          //minZoom:13
@@ -344,22 +344,20 @@
             //})
       ]),
      });
-    //map.addLayer(baidu_layer);
     map.addLayer(default_geo_layer);
     map.addLayer(default_geo_layer2);
-    map.addLayer(geoserver_layer);
-    map.addLayer(geoserver_layer3);
-    map.addLayer(geoserver_layer2);
+
 
     var map_2 = new ol.Map({
         target:"map_2",
         view:map.getView(),
-        layers:[ new ol.layer.Tile({source:new ol.source.OSM()}) ]
-    });
-
+        //layers:[ new ol.layer.Tile({source:new ol.source.OSM()}) ]
+   });
+//map_2.addLayer(default_geo_layer);
+//map.addLayer(default_geo_layer);
     </script>
-    <script src="{% static 'js/ib_roller_shutters.js' %}"></script>
     <script src="{% static 'js/load_draw.js' %}"></script>
+    <script src="{% static 'js/ib_roller_shutters.js' %}"></script>
     <script src="{% static 'js/select_draw.js' %}"></script>
     <script src="{% static 'js/polygon.js' %}"></script>
     <script src="{% static 'js/distance.js' %}"></script>

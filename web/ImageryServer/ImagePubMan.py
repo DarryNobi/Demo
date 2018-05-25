@@ -97,7 +97,7 @@ def downloadImage(ImageID):
 
         info.close()
 
-        cat = Catalog("http://localhost:8080/geoserver/rest/", 'admin', 'geoserver')
+        cat = Catalog("http://172.20.53.157:8080/geoserver/rest/", 'admin', 'geoserver')
         wkspce = cat.get_workspace('GF2')
         cat.create_coveragestore_external_geotiff(name=ImageID,data='file://'+imagePath.encode('utf-8').decode(),
                                                   workspace=wkspce)
