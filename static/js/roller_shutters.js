@@ -24,8 +24,13 @@ $(function(){
     var button_compare=$("#button_compare");
     var map1=$("#map");
     var map2=$("#map_2");
+    var temp_layer1;
+    var temp_layer2;
     button_compare.click(function(){
     if(iscompare){
+        map.removeLayer(temp_layer1);
+        map.removeLayer(temp_layer2);
+
         document.getElementById("map_2").style.display="none";//隐藏
         //map2.hide();
         map1.off('mousemove');
@@ -41,13 +46,22 @@ $(function(){
         var index2 = selection2.selectedIndex;
         var text2 = selection2.options[index2].text;
         var value2 = selection2.options[index2].value;
-//        alert(value1);
-//         alert(value2);
+        //alert(value1);
+        //alert(value2);
+        for(m in maps){
+                    id=maps[m].GlobeID;
+                    if(id==value2){
+                        cord_x=(maps[m].TopLeftLongitude+maps[m].TopRightLongitude)/2.0;
+                        cord_y=(maps[m].TopLeftLatitude+maps[m].BottomLeftLatitude)/2.0;
+                        var location=ol.proj.fromLonLat([cord_x,cord_y]);
+                        map.getView().animate({center:location});
+                    }
+                }
 
-        var temp_layer1 = new ol.layer.Image({
+        temp_layer1 = new ol.layer.Image({
             source: new ol.source.ImageWMS({
 //              crossOrigin: 'anonymous',
-                url:'http://172.20.53.157:8080/geoserver/wms',
+                url:'http://172.20.53.158:8080/geoserver/wms',
                 projection:'EPSG:4326',
                 params:{
                 LAYERS: value1.toString()}
@@ -55,10 +69,10 @@ $(function(){
             projection: "EPSG:4326",
            // opacity:0.5,
         });
-        var temp_layer2 = new ol.layer.Image({
+        temp_layer2 = new ol.layer.Image({
             source: new ol.source.ImageWMS({
 //              crossOrigin: 'anonymous',
-                url:'http://172.20.53.157:8080/geoserver/wms',
+                url:'http://172.20.53.158:8080/geoserver/wms',
                 projection:'EPSG:4326',
                 params:{
                 LAYERS: value2.toString()}

@@ -37,10 +37,11 @@ def cancelPublish(ImageID):
         return str(err)
 def downloadImage(ImageID):
     try:
+        if Map.objects.filter(GlobeID=ImageID):
+            return "图像已下载"
         url='http://172.20.53.158:8089/_download_map/?id='+str(ImageID)
         downloadPath=os.path.join(baseURL,str(ImageID))+'.tar.gz'
-        if os.path.exists(downloadPath):
-            return "图像已下载"
+
         urllib.request.urlretrieve(url,os.path.join(baseURL,str(ImageID))+'.tar.gz')
         downloadFile=tarfile.open(os.path.join(baseURL,str(ImageID)+'.tar.gz'),'r')
         extractFile=os.path.join(baseURL,ImageID)
@@ -97,29 +98,45 @@ def downloadImage(ImageID):
 
         info.close()
 
-        cat = Catalog("http://172.20.53.157:8080/geoserver/rest/", 'admin', 'geoserver')
+        cat = Catalog("http://172.20.53.158:8080/geoserver/rest/", 'admin', 'geoserver')
         wkspce = cat.get_workspace('GF2')
         cat.create_coveragestore_external_geotiff(name=ImageID,data='file://'+imagePath.encode('utf-8').decode(),
                                                   workspace=wkspce)
-        Map.objects.filter(id=ImageID).update(isPublish=1)
+        Map.objects.filter(GlobeID=ImageID).update(isPublish=1)
 
         return ('下载成功！')
 
     except Exception as err:
+        if Map.objects.filter(GlobeID=ImageID):
+            image = Map.objects.get(GlobeID=ImageID)
+            cat = Catalog("http://172.20.53.158:8080/geoserver/rest/", 'admin', 'geoserver')
+            if cat.get_layer(image.GlobeID):
+                cat.delete(cat.get_layer(image.GlobeID))
+                cat.reload()
+            if cat.get_store(name=str(image.GlobeID), workspace=image.SatelliteID):
+                cat.delete(cat.get_store(name=str(image.GlobeID), workspace=image.SatelliteID))
+                cat.reload()
+
+            Map.objects.get(GlobeID=ImageID).delete()
+            shutil.rmtree(os.path.join(baseURL, str(ImageID)))
+            os.remove(os.path.join(baseURL, str(ImageID) + '.tar.gz'))
         return str(err)
 
 
 def deleteImage(ImageID):
     try:
+        if not Map.objects.filter(GlobeID=ImageID):
+            return "请先下载图像"
         image = Map.objects.get(GlobeID=ImageID)
-        cat = Catalog("http://localhost:8080/geoserver/rest/", 'admin', 'geoserver')
-        cat.delete(cat.get_layer(image.GlobeID))
-        cat.reload()
+        cat = Catalog("http://172.20.53.158:8080/geoserver/rest/", 'admin', 'geoserver')
+        if cat.get_layer(image.GlobeID):
+            cat.delete(cat.get_layer(image.GlobeID))
+            cat.reload()
+        if cat.get_store(name=str(image.GlobeID),workspace=image.SatelliteID):
+            cat.delete(cat.get_store(name=str(image.GlobeID),workspace=image.SatelliteID))
+            cat.reload()
 
-        cat.delete(cat.get_store(name=str(image.GlobeID),workspace=image.SatelliteID))
-        cat.reload()
-
-        Map.objects.filter(GlobeID=ImageID).delete()
+        Map.objects.get(GlobeID=ImageID).delete()
         shutil.rmtree(os.path.join(baseURL,str(ImageID)))
         os.remove(os.path.join(baseURL,str(ImageID)+'.tar.gz'))
 

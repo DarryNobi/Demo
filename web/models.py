@@ -80,7 +80,9 @@ class GraphicLabel(models.Model):
     )
     GraphicLabel = (
         ('1', '拆迁'),
-        ('2', '违建')
+        ('1', '疑似拆迁'),
+        ('2', '违建'),
+        ('2', '疑似违建')
     )
     name = models.CharField(max_length=16)
     graphictype = models.CharField(max_length=4,choices=GraphicType)#地物类型如建筑、森林、河流
