@@ -54,8 +54,8 @@ $(function(){
         var coordinate = coordinates[0][0];
         overlay.setPosition(coordinate);
         map.addOverlay(overlay);
-        var submit = document.getElementById("save_submit");
 
+        var submit = document.getElementById("save_submit");
         submit.onclick=function(){
             var name = document.getElementById("name").value;
             var graphictype = document.getElementById("graphictype").value;
@@ -76,12 +76,15 @@ $(function(){
                     'address':address
                 },
                 success:function(){
-                    alert('保存成功！')},
+                    alert('保存成功！');
+                    //location.reload();
+                    },
                 error:function(){
-                    alert('保存失败')}
+                    alert('保存失败');
+                    }
               });
-            location.reload();
         }
+
         var cancel=document.getElementById("save_cancel");
         cancel.onclick=function(){
         container.style.display="none";

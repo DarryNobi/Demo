@@ -69,6 +69,8 @@ $(function(){
 
         map.addLayer(temp_layer1);
         map_2.addLayer(temp_layer2);
+        map.render();
+        map_2.render();
 
         document.getElementById("map_2").style.display="block";//显示
         //map2.show();

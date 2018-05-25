@@ -45,7 +45,7 @@ function showList(){
                   {field: 'graphic_provide', title:'处理人', width:'10%', align:'center'},
                   {field: 'tool',title: '操作', align: 'center',
                           formatter: function (value,row,index){
-                              var element = "<a href='#' class='operate check_href' id='check"+row.id +"' data-id='"+row.id +"' onclick='query()' onmouseover='check_mouseOver(\" "+row.id+" \")' onmouseout='check_mouseOut(\" "+row.id+" \")'>"
+                              var element = "<a href='#' class='operate check_href' id='check"+row.id +"' data-id='"+row.id +"' onclick='jump2draw(\" "+row.id+" \")' onmouseover='check_mouseOver(\" "+row.id+" \")' onmouseout='check_mouseOut(\" "+row.id+" \")'>"
                               + "<img id='check_img"+row.id+"' class='nav-img' src='../static/img/check.png'>"
                               + "</a>"
                               + "<a href='#' class='operate delete_href' id='delete"+row.id +"' data-id='"+row.id +"' onclick='changeStatus(\" "+row.id+" \")' onmouseover='del_mouseOver(\" "+row.id+" \")' onmouseout='del_mouseOut(\" "+row.id+" \")'>"
@@ -126,4 +126,10 @@ function changeStatus(data){
             })
         }
     });
+}
+function jump2draw(data){
+
+    var num=data;
+    window.location.href="/demolition_plotting/?id="+num;
+
 }

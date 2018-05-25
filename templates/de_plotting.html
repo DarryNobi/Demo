@@ -73,14 +73,13 @@
         #de_map_compare a, #de_image_compare a {
             border-radius:0.2em;
             display:table;
-            border:1px solid #0a86e1;
-            background:#0a86e1;
+            border:1px solid #8a8a8a;
             padding:0;
             display:-webkit-flex;
             align-items:center;
             height:100%;
-            color:black;
             outline: none;
+            background:#f3f5f8;
         }
         .image_compare_span, .map_compare_span{
             border-left:1px solid #a7a9ad;
@@ -90,6 +89,8 @@
             margin-left: 10px;
             border-radius: 4px;
             padding-left: 3px;
+            background:#0a86e1;
+            color:white
         }
     </style>
 </head>
@@ -97,10 +98,10 @@
     <div class="compare container" style="background-color:white; display:inline-flex; width:100%; height:10%; min-height:100px">
         {% csrf_token %}
         <div class="row" style="width: 100%; display:-webkit-flex; align-items:center; height:100%;">
-            <div id="xyz" class="col-lg-5 col-xs-5" style="display:inline-flex; align-items:center; height:100%">
+            <div id="xyz" class="col-lg-5 col-xs-5" style="display:inline-flex; align-items:center; height:100%;padding-left: 5%;">
                 <span class="picture-span">经度：</span>
                 <input type="text" class="compare-input" id="lontitude">
-                <span class="picture-span">纬度：</span>
+                <span class="picture-span" style="padding-left: 5%;">纬度：</span>
                 <input type="text" class="compare-input" id="lantitude">
                 <span style="height:100%; display:-webkit-flex; align-items:center; margin-left:10px;">
                     <button class="btn btn-primary" style="border-radius:6px; height:34px; width:100%; font-size:14px" id="location_btn" >查询</button>
@@ -115,25 +116,23 @@
                     });
                 </script>
             </div>
-            <div class="col-lg-5 col-xs-5" style="display:inline-flex; align-items:center; height:100%">
+            <div class="col-lg-5 col-xs-5" style="display:inline-flex; align-items:center; height:100%;padding-left: 5%;">
                 <span class="picture-span">参考影像：</span>
                 <span class="picture-date" style="width: 20%;">
-                    <select  name="" class="form-control compare-input">
-                        <option>无</option>
+                    <select  id="compare1" class="form-control compare-input">
+                        <option>default</option>
                     </select>
                 </span>
-                <span class="picture-span">对比影像：</span>
+                <span class="picture-span" style="padding-left: 5%;">对比影像：</span>
                 <span class="picture-date" style="width: 20%;">
-                    <select  name="" class="form-control compare-input">
-                        <option>无</option>
+                    <select  id="compare2" class="form-control compare-input">
+                        <option>default</option>
                     </select>
                 </span>
-            </div>
-            <div class="col-lg-1 col-xs-1" style="height:100%; align-items:center; display:-webkit-flex;">
-                <span class="input-group-btn search-span" style="margin:0 auto; width:100%">
-                    <button style="border-radius:6px; display:table;" class="btn btn-primary compare-but" id="button_compare">
-                        <img src="{% static 'img/contrast.png' %}" style="height:60%; margin-right:8px; margin-bottom:3px;">
-                        <span>开始对比</span>
+                <span style="height:100%; display:-webkit-flex; align-items:center; margin-left:10px;">
+                    <button style="border-radius:6px;padding-left: 5%;" class="btn btn-primary compare-but" id="button_compare">
+                            <img src="{% static 'img/contrast.png' %}" style="height:60%; margin-right:8px; margin-bottom:3px;">
+                            <span id="compare_span">开始对比</span>
                     </button>
                 </span>
             </div>
@@ -146,7 +145,7 @@
                 <div id="map_2" class="map " style="display:none"></div>
                 <div id="popup" class="ol-popup" style=" display:none">
                     <div id="popup-content" style="width:300px;">
-                        <form role="form" name="indexForm"  style="background-color:white; text-align:center;  border-radius:6px;">
+                        <div role="form" name="indexForm"  style="background-color:white; text-align:center;  border-radius:6px;">
                             {% csrf_token %}
                              <h5 style="font-size:18px; height:30px; line-height:30px;">请输入标绘信息</h5>
                              <div class="input-div">
@@ -205,7 +204,7 @@
                                     </div>
                             </div>
 
-                        </form>
+                        </div>
                     </div>
                 </div>
                 <div id="popup_info" style="background-color:white;border-radius:5px;width: 150%;display:none;">
@@ -221,17 +220,17 @@
             <div class="col-lg-1 col-xs-1" style="height:100%; text-align:center; font-size:20px;">
                 <div style="height:100%; width:100%; margin-to:50%;">
                     <!--<div class="img_download" style="width:100%; height:50%; color:#0090ff">-->
-                    <ul class="map_image_compare" style="padding:0">
+                    <ul class="map_image_compare" style="white-space: nowrap;">
                         <li class="compare-but" id="de_map_compare" style="list-style-type:none">
                             <a id="de_map_a" href="javascript:void(0)">
-                                <img src="{% static 'img/map.png' %}" style="height:20px; margin-right:8px; padding-left:5px;">
-                                <span class="map_compare_span">地图</span>
+                                <img src="{% static 'img/map.png' %}" style="padding-left:5px;width:50%;">
+                                <p class="map_compare_span" style="width:50%;margin:0 0 0 0;">地图</p>
                             </a>
                         </li>
                         <li class="compare-but" id="de_image_compare" style="margin-top:10%;list-style-type:none">
                             <a id="de_image_a" href="javascript:void(0)">
-                                <img src="{% static 'img/vedio.png' %}" style="height:20px; margin-right:8px; padding-left:5px;">
-                                <span class="image_compare_span">影像</span>
+                                <img src="{% static 'img/vedio.png' %}" style="padding-left:5px;width:50%;">
+                                <p class="image_compare_span" style="width:50%;margin:0 0 0 0;">影像</p>
                             </a>
                         </li>
                         <script>
@@ -239,14 +238,10 @@
                             var image_selected = true;
                             $("#de_map_compare").click(function(){
                                 if (map_selected) {
-                                    $("#de_map_a").css({"background":"#d3d5d8","color":"black","outline":"none"});
-                                    $("#de_map_compare").css({"background":"#d3d5d8","color":"black","outline":"none"});
-                                    $(".map_compare_span").css({"background":"#d3d5d8","color":"black","outline":"none","border-left":"1px solid #a7a9ad"});
+                                    $(".map_compare_span").css({"background":"#ffffff","color":"black","outline":"none","border-left":"1px solid #a7a9ad"});
                                     map_selected = false;
                                     map.removeLayer(default_geo_layer);
                                 } else {
-                                    $("#de_map_compare").css({"background":"#0a86e1","color":"white","outline":"none"});
-                                    $("#de_map_a").css({"background":"#0a86e1","color":"white","outline":"none","border":"none"});
                                     $(".map_compare_span").css({"background":"#0a86e1","color":"white","outline":"none","border-left":"1px solid #a7a9ad"});
                                     map_selected = true;
                                     map.addLayer(default_geo_layer);
@@ -255,14 +250,10 @@
 
                             $("#de_image_compare").click(function(){
                                 if (image_selected) {
-                                    $("#de_image_a").css({"background":"#d3d5d8","color":"black","outline":"none"});
-                                    $("#de_image_compare").css({"background":"#d3d5d8","color":"black","outline":"none"});
-                                    $(".image_compare_span").css({"background":"#d3d5d8","color":"black","outline":"none","border-left":"1px solid #a7a9ad"});
+                                    $(".image_compare_span").css({"background":"#ffffff","color":"black","outline":"none","border-left":"1px solid #a7a9ad"});
                                     image_selected = false;
                                     map.removeLayer(default_geo_layer2);
                                 } else {
-                                    $("#de_image_compare").css({"background":"#0a86e1","color":"white","outline":"none"});
-                                    $("#de_image_a").css({"background":"#0a86e1","color":"white","outline":"none","border":"none"});
                                     $(".image_compare_span").css({"background":"#0a86e1","color":"white","outline":"none","border-left":"1px solid #a7a9ad"});
                                     image_selected = true;
                                     map.addLayer(default_geo_layer2);
@@ -273,6 +264,25 @@
 
                        <a class="down" id="image_download"> <div  style="margin-top:150%"><img style="width:50%;" src="{% static 'img/view_download.png' %}"></div>
                            <div  style="color:#0090ff">影像下载</div>
+                            <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+                            <script>
+                            //下载影像图片
+                                download_button=$("#image_download");
+                                download_button.click(download);
+                                function download(){
+                                    map.once('postcompose', function(event) {
+                                      var canvas = event.context.canvas;
+                                      if (navigator.msSaveBlob) {
+                                        navigator.msSaveBlob(canvas.msToBlob(), 'map.png');
+                                      } else {
+                                        canvas.toBlob(function(blob) {
+                                          saveAs(blob, 'map.png');
+                                        });
+                                      }
+                                    });
+                                    map.renderSync();
+                                }
+                            </script>
                        </a>
 
                     <!--</div>-->
@@ -333,43 +343,24 @@
             })
       ]),
      });
-    //map.addLayer(baidu_layer);
     map.addLayer(default_geo_layer);
     map.addLayer(default_geo_layer2);
-    map.addLayer(geoserver_layer);
-    map.addLayer(geoserver_layer3);
-    map.addLayer(geoserver_layer2);
 
     var map_2 = new ol.Map({
         target:"map_2",
         view:map.getView(),
         layers:[ new ol.layer.Tile({source:new ol.source.OSM()}) ]
     });
-
     </script>
 
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
     <script>
-    //下载影像图片
-        download_button=$("#image_download");
-        download_button.click(download);
-        function download(){
-            map.once('postcompose', function(event) {
-              var canvas = event.context.canvas;
-              if (navigator.msSaveBlob) {
-                navigator.msSaveBlob(canvas.msToBlob(), 'map.png');
-              } else {
-                canvas.toBlob(function(blob) {
-                  saveAs(blob, 'map.png');
-                });
-              }
-            });
-            map.renderSync();
-        }
+         cords=[{{x|safe}},{{y|safe}}];//cords=[102,39]
+         if(cords.toString()!=[0,0].toString())
+            map.getView().animate({center:(cords)});
     </script>
-    <script src="{% static 'js/ib_roller_shutters.js' %}"></script>
+
     <script src="{% static 'js/load_draw.js' %}"></script>
+    <script src="{% static 'js/roller_shutters.js' %}"></script>
     <script src="{% static 'js/select_draw.js' %}"></script>
     <script src="{% static 'js/polygon.js' %}"></script>
     <script src="{% static 'js/distance.js' %}"></script>

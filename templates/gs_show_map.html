@@ -142,6 +142,50 @@
             width:90%;
             margin:0 auto 15px auto;
         }
+        .type_select{
+            display: -webkit-flex;
+            align-items: center;
+            width:100%;
+        }
+        .input-span {
+            width:30%;
+            text-align:left;
+            margin: 0 0 0 10px;
+        }
+        .form-input,.selectpicker {
+            width:60%;
+            height:34px;
+            color: #999999;
+        }
+        .input-div{
+            width:100%;
+            display: -webkit-flex;
+            align-items: center;
+            margin-top: 10px;
+            color: #999999;
+        }
+        #ib_map_compare a, #ib_image_compare a {
+            border-radius:0.2em;
+            display:table;
+            border:1px solid #8a8a8a;
+            padding:0;
+            display:-webkit-flex;
+            align-items:center;
+            height:100%;
+            outline: none;
+            background:#f3f5f8;
+        }
+        .image_compare_span, .map_compare_span{
+            border-left:1px solid #a7a9ad;
+            height: 100%;
+            display: -webkit-flex;
+            align-items: center;
+            margin-left: 10px;
+            border-radius: 4px;
+            padding-left: 3px;
+            background:#0a86e1;
+            color:white
+        }
     </style>
 
    <script src="{% static 'js/jquery-1.8.2.min.js' %}"></script>
@@ -150,7 +194,7 @@
            data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
        });
    </script>
-   <script src="https://openlayers.org/en/v4.5.0/build/ol.js" type="text/javascript"></script>
+   <script src="{% static 'js/openlayers_v4.5.0/build/ol.js' %}"></script>
      <script src="{% static 'js/require.js' %}"></script>
    <script src="{% static 'js/geomap.js' %}"></script>
    <!-- <script src="{% static 'js/baidumap.js' %}"></script> -->
@@ -159,8 +203,8 @@
  </head>
 
  <body style="height:100%;">
-    <div class="compare container" style="background-color:white; display:inline-flex; width:100%; height:10%; min-height:100px">
-        <form role="form" name="compareForm" action="" method="post" style="width:100%; font-size:20px; height:100%">
+    <div class="compare container" style="background-color:white; display:inline-flex; width:100%; height:8%; min-height:100px">
+        <div role="form" name="compareForm" action="" method="post" style="width:100%; font-size:20px; height:100%">
             <div class="row" style="width: 100%; display:-webkit-flex; align-items:center; height:100%;">
                 <div class="col-lg-11 col-xs-11" style="display:inline-flex; align-items:center; height:100%">
                     <span class="picture-span">影像选择</span>
@@ -183,17 +227,169 @@
                     </span>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
-    <div class="container" style="width:100%; height:90%; overflow-y:auto">
+    <div class="container" style="width:100%; height:92%; overflow-y:auto">
         <div class="row" style="width:100%; height:100%">
             <div class="col-lg-11 col-xs-11" style="height:100%">
                 <div id="map" class="map" style="width:100%; height:95%">
+                </div>
+                <div id="popup" class="ol-popup" style=" display:none">
+                    <div id="popup-content" style="width:300px;">
+                        <div role="form" name="indexForm"  style="background-color:white; text-align:center;  border-radius:6px;">
+                            {% csrf_token %}
+                             <h5 style="font-size:18px; height:30px; line-height:30px;">请输入违建或拆迁信息</h5>
+                             <div class="input-div">
+                                    <p class="input-span">名称：</p>
+                                    <input id="name" type="text" class="form-input" placeholder="请输入名称"/>
+                             </div>
+                             <div class="input-div">
+                                  <p clss="type_select">
+                                      <p class="input-span">地上物类型：</p>
+                                      <select id="graphictype" class="selectpicker">
+                                          <option>建筑</option>
+                                          <option>道路</option>
+                                          <option>水域</option>
+                                          <option>草地</option>
+                                          <option>林地</option>
+                                          <option>耕地</option>
+                                          <option>大棚</option>
+                                          <option>其他</option>
+                                      </select>
+                                  </p>
+                             </div>
+                            <div class="input-div">
+                                <p clss="type_select">
+                                    <p class="input-span">类型：</p>
+                                    <select id="graphiclabel" class="selectpicker">
+                                        <option>违建</option>
+                                        <option>疑似违建</option>
+                                    </select>
+                                </p>
+                            </div>
+                            <div class="input-div">
+                                <p class="input-span">描述：</p>
+                                <input id="discrib"  type="text" class="form-input"  placeholder="请输入描述信息" />
+                            </div>
+                            <div class="input-div">
+                                <p class="input-span">面积：</p>
+                                <input id="square"  class="form-input"  placeholder="请输入面积" />
+                            </div>
+                            <div class="input-div">
+                                <p class="input-span">录入时间：</p>
+                                <input type="date" id="foundtime"  class="form-control compare-input"/>
+                            </div>
+                            <div class="input-div">
+                                <p class="input-span">现场地址：</p>
+                                <input id="graphicaddress"  class="form-input"  placeholder="请输入现场地址" />
+                            </div>
+                            <div style="text-align: center; padding-bottom:10px;display: -webkit-flex;align-items: center;">
+                                    <div style="width: 50%;text-align: left;margin-left: 65px;">
+                                        <button id="save_submit" class="btn btn-primary" style="width: 70px;background: #0090ff;">保存</button>
+                                    </div>
+                                <div style="width: 50%;text-align: left;margin-left: 65px;">
+                                        <button id="save_update" class="btn btn-primary" style="width: 70px;background: #0090ff;">更改</button>
+                                    </div>
+                                    <div style="width: 50%;text-align: left;margin-right: 65px;">
+                                        <button id="save_cancel" class="btn btn-primary" style="width: 70px;background: #0090ff;">取消</button>
+                                    </div>
+                            </div>
 
+                        </div>
+                    </div>
+                </div>
+                <div id="popup_info" style="background-color:white;border-radius:5px;width: 150%;display:none;">
+                    <p><b>面积&#8195</b><font id="popup_info_square">000</font></p>
+                    <span style="float:right;  padding-right:10px;"><img id="close_login" src="{% static 'img/close.png' %}"></span>
+                    <p><b>类型&#8195</b><font id="popup_info_type">000</font></p>
+                    <p><b>位置&#8195</b><font id="popup_info_address">000</font></p>
+                    <p><b>时间&#8195</b><font id="popup_info_time">000</font></p>
 
                 </div>
+                <div id="popup_button"></div>
             </div>
 
+            <div class="col-lg-1 col-xs-1" style="height:100%; text-align:center; font-size:20px;">
+                <div style="height:100%; width:100%; margin-to:50%;">
+                    <!--<div class="img_download" style="width:100%; height:50%; color:#0090ff">-->
+                    <ul class="map_image_compare" style="white-space: nowrap;width: 200%;padding-left: 0;">
+                        <li class="compare-but" id="ib_map_compare" style="list-style-type:none">
+                            <a id="ib_map_a" href="javascript:void(0)">
+                                <img src="{% static 'img/map.png' %}" style="padding-left:5px;width:50%;">
+                                <p class="map_compare_span" style="width:50%;margin:0 0 0 0;">地图</p>
+                            </a>
+                        </li>
+                        <li class="compare-but" id="ib_image_compare" style="margin-top:10%;list-style-type:none">
+                            <a id="ib_image_a" href="javascript:void(0)">
+                                <img src="{% static 'img/vedio.png' %}" style="padding-left:5px;width:50%;">
+                                <p class="image_compare_span" style="width:50%;margin:0 0 0 0;">影像</p>
+                            </a>
+                        </li>
+                        <script>
+                            var map_selected = true;
+                            var image_selected = true;
+                            $("#ib_map_compare").click(function(){
+                                if (map_selected) {
+                                    $(".map_compare_span").css({"background":"#ffffff","color":"black","outline":"none","border-left":"1px solid #a7a9ad"});
+                                    map_selected = false;
+                                    map.removeLayer(default_geo_layer);
+                                } else {
+                                    $(".map_compare_span").css({"background":"#0a86e1","color":"white","outline":"none","border-left":"1px solid #a7a9ad"});
+                                    map_selected = true;
+                                    map.addLayer(default_geo_layer);
+                                }
+                            })
+
+                            $("#ib_image_compare").click(function(){
+                                if (image_selected) {
+                                    $(".image_compare_span").css({"background":"#ffffff","color":"black","outline":"none","border-left":"1px solid #a7a9ad"});
+                                    image_selected = false;
+                                    map.removeLayer(default_geo_layer2);
+                                } else {
+                                    $(".image_compare_span").css({"background":"#0a86e1","color":"white","outline":"none","border-left":"1px solid #a7a9ad"});
+                                    image_selected = true;
+                                    map.addLayer(default_geo_layer2);
+                                }
+                            })
+                        </script>
+                    </ul>
+
+                   <a class="down" id="image_download"> <div  style="margin-top:150%"><img id="img1" style="width:50%;" src="{% static 'img/image_download.png' %}"></div>
+                       <div  style="color:#999999">影像下载</div>
+                   </a>
+                    <div style="margin-top:52px; cursor:pointer;" id="ib_plotting">
+                        <div><img id="img2" style="width:50%" src="{% static 'img/measure.png' %}"></div>
+                        <div id ="plotting_id" style="color:#999999">量标</div>
+                         <script>
+                            var clicked=false;
+                            $("#ib_plotting").click(function(){
+                                if (clicked) {
+                                    var path1="{% static 'img/measure.png' %}";
+                                    $("#plotting_menu").css("display","none");
+                                    $("#plotting_id").html("标量");
+                                    $("#img2").attr("src",path1);
+                                    $("#plotting_id").css("color","#999999")
+                                    clicked=false;
+                                }else{
+                                    var path2="{% static 'img/stsff.png' %}"
+                                    $("#plotting_menu").css("display","inline");
+                                    $("#plotting_id").html("取消标量");
+                                    $("#plotting_id").css("color","#ffa711")
+                                     $("#img2").attr("src",path2);
+                                    clicked=true;
+                                }
+                                });
+
+                         </script>
+
+                    </div>
+                    <div id =plotting_menu style="display:none">
+                       <button id='draw_button_div' class="btn btn-primary function-but">标绘</button><br/>
+                       <button id='distance_button_div' class="btn btn-primary function-but">测距</button><br/>
+                       <button id='area_button_div' class="btn btn-primary function-but">测面积</button><br/>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -224,29 +420,13 @@
     map.addLayer(default_geo_layer2);
     map.addLayer(default_geo_layer);
     map.render();
-
-    location_btn=document.getElementById("location_btn");
-    location_btn.onclick=function location(){
-        var lontitude=document.getElementById("lontitude").value;
-        var lantitude=document.getElementById("lantitude").value;
-        var newview=new ol.View({
-             center: ol.proj.fromLonLat([lontitude, lantitude]),
-             zoom: 12,
-             maxZoom:18,
-             minZoom:5
-           });
-        //view.setCenter([lontitude,lantitude]);
-        alert(lontitude);
-        //view.animate({zoom:view.getZoom()/4},{center:[lontitude,lantitude]},{zoom:view.getZoom()*4},{duration:2000} );
-        map.setView(newview);
-        map.render();
-    }
-
 </script>
 
-<script src="{% static 'js/polygon.js' %}"></script>
-   <script src="{% static 'js/distance.js' %}"></script>
-<script src="{% static 'js/area.js' %}"></script>
+     <script src="{% static 'js/load_draw.js' %}"></script>
+    <script src="{% static 'js/select_draw.js' %}"></script>
+    <script src="{% static 'js/polygon.js' %}"></script>
+    <script src="{% static 'js/distance.js' %}"></script>
+    <script src="{% static 'js/area.js' %}"></script>
  </body>
 </html>
 

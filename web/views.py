@@ -218,8 +218,13 @@ def demolition_compare(request):
                   template_name='de_compare.html')
 
 def demolition_plotting(request):
-    return render(request,
-                  template_name='de_plotting.html')
+    id=request.GET.get('id',False)
+    x=0;y=0;
+    if id:
+        draw=GraphicLabel.objects.get(id=id)
+        x=draw.coordinate_x
+        y=draw.coordinate_y
+    return render(request,'de_plotting.html',{'x':x,'y':y})
 
 def developing(request):
     return render(request,
@@ -227,7 +232,7 @@ def developing(request):
 
 def ib_plotting(request):
     id=request.GET.get('id',False)
-    x=0;y=0;
+    x=0.0;y=0.0;
     if id:
         draw=GraphicLabel.objects.get(id=id)
         x=draw.coordinate_x
@@ -492,9 +497,11 @@ def save_draw(request):
     coordis=raw_dic.replace(",",";").split(";")
     coordis_num=[float(c) for c in coordis]
     coordis_list=[coordis_num[i:i+2] for i in range(0,len(coordis_num),2)]
+    coordinate_x=coordis_list[0][0]
+    coordinate_y=coordis_list[0][1]
     jsonstr={'type':'Feature','geometry':{'type':'Polygon','coordinates':[coordis_list]},'properties':{'id':0}}
     jsondata=json.dumps(jsonstr)
-    draw_obj = GraphicLabel.objects.create(name=name,context=jsondata,graphictype=graphictype,graphiclabel=graphiclabel,graphic_provide=request.user,discrib=discrib,square=square,address=address)
+    draw_obj = GraphicLabel.objects.create(name=name,context=jsondata,graphictype=graphictype,graphiclabel=graphiclabel,graphic_provide=request.user,discrib=discrib,square=square,address=address,coordinate_x=coordinate_x,coordinate_y=coordinate_y)
     draw_obj.save()
     return render(request,'map_geo.html',{'message':'success'})
     #return HttpResponse("success")
@@ -535,9 +542,12 @@ def load_all_draw(request):
 def query_draw(request):
     id = request.GET.get('id', False)
     draw=model_to_dict(GraphicLabel.objects.get(id=id))
-    x=draw['graphictype']
-    y=draw['graphiclabel']
-    return JsonResponse({'drawinfo':draw})
+    if draw:
+        x=draw['graphictype']
+        y=draw['graphiclabel']
+        return JsonResponse({'drawinfo':draw})
+    else:
+        return JsonResponse({'drawinfo':''})
 
 
 def _delete_draw(request):
