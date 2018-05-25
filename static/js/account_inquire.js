@@ -1,7 +1,11 @@
 window.onload = function(){
     data=[];
+    for(var i in users)
+    {
+    data.push(users[i]);
+    }
     search();
-    account_inquiry()
+//    account_inquiry()
 
     $("#search_button").click(account_inquiry);
 }
