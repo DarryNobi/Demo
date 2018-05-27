@@ -28,7 +28,7 @@ function showList(){
               locale:'zh-CN',//中文支持
               pagination: true,//是否开启分页（*）
               pageNumber:1,//初始化加载第一页，默认第一页
-              pageSize: 3,//每页的记录行数（*）
+              pageSize: 10,//每页的记录行数（*）
               pageList: [10, 25, 50, 100],//可供选择的每页的行数（*）
               sidePagination: "client", //分页方式：client客户端分页，server服务端分页（*）
               showRefresh:true,//刷新按钮
@@ -45,7 +45,7 @@ function showList(){
                   {field: 'graphic_provide', title:'处理人', width:'10%', align:'center'},
                   {field: 'tool',title: '操作', align: 'center',
                           formatter: function (value,row,index){
-                              var element = "<a href='#' class='operate check_href' id='check"+row.id +"' data-id='"+row.id +"' onclick='query()' onmouseover='check_mouseOver(\" "+row.id+" \")' onmouseout='check_mouseOut(\" "+row.id+" \")'>"
+                              var element = "<a href='#' class='operate check_href' id='check"+row.id +"' data-id='"+row.id +"' onclick='jump2draw(\" "+row.id+" \")' onmouseover='check_mouseOver(\" "+row.id+" \")' onmouseout='check_mouseOut(\" "+row.id+" \")'>"
                               + "<img id='check_img"+row.id+"' class='nav-img' src='../static/img/check.png'>"
                               + "</a>"
                               + "<a href='#' class='operate delete_href' id='delete"+row.id +"' data-id='"+row.id +"' onclick='changeStatus(\" "+row.id+" \")' onmouseover='del_mouseOver(\" "+row.id+" \")' onmouseout='del_mouseOut(\" "+row.id+" \")'>"
@@ -126,4 +126,10 @@ function changeStatus(data){
             })
         }
     });
+}
+function jump2draw(data){
+
+    var num=data;
+    window.location.href="/demolition_plotting/?id="+num;
+
 }

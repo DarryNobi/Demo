@@ -157,6 +157,7 @@
                     <p style="width:100%; height:100%; display:-webkit-flex; align-items:center">
                         <img style="height:50%;margin-left: 2%;" src="{% static 'img/spaceflight.png' %}">
                         <span style="font-size:5rem;margin-left: 3%;">卫星遥感资源管理系统</span>
+
                     </p>
                 </div>
                 <div style="width:60%; height:100%">
@@ -170,7 +171,7 @@
                         <p style="width:20%; margin-right: 0;align-self: center;">
                             <span class="view-button"><img src="{% static 'img/q.png' %}"></span>
                             <span class="view-button"><img src="{% static 'img/w.png' %}"></span>
-                            <span class="view-button"><img src="{% static 'img/e.png' %}"></span>
+                            <span onclick="closeWindow()" class="view-button"><img src="{% static 'img/e.png' %}"></span>
                         </p>
                     </div>
                     <div style="width:100%; height:70%">
@@ -384,6 +385,15 @@
         lis[5].css(css_selected);
     });
     </script>
+ <script>
+　　function closeWindow()
+　　 {
+        alert("close");
+　　　　//window.opener=null;
+      window.open('','_self');
+      window.close();
+　　}
+</script>
 
 </body>
 </html>
