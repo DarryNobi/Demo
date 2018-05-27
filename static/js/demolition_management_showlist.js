@@ -2,16 +2,9 @@
 
 
     window.onload = function() {
-          data=[];
-//            d_ib_draws=result['d_ib_draws'];
-                var count=1;
-                for(var i in d_ib_draws){
-                    d_ib_draws[i]['num']=count;
-                    count=count+1;
-                    data.push(d_ib_draws[i]);
-                    }
-              showList();
-//        query();
+        data=[];
+        showList();
+        query();
         var query_btn = $("#query_btn");
         query_btn.click(function(){
             query();
@@ -32,13 +25,13 @@ function showList(){
               pageList: [10, 25, 50, 100],//可供选择的每页的行数（*）
               sidePagination: "client", //分页方式：client客户端分页，server服务端分页（*）
               showRefresh:true,//刷新按钮
-              search: true,
+              search: false,
               data:data,
               columns: [
                   {field: 'num', title:'序号', width:'10%', align:'center'},
                   {field: 'name', title:'名称', width:'10%', align:'center'},
                   {field: 'square', title:'面积', width:'10%', align:'center'},
-                  {field: 'graphictype', title:'类型', width:'10%', align:'center'},
+                  {field: 'graphiclabel', title:'类型', width:'10%', align:'center'},
                   {field: 'address', title:'现场地址', width:'20%', align:'center'},
                   {field: 'discrib', title:'细节描述', width:'10%', align:'center'},
                   {field: 'foundtime', title:'录入时间', width:'10%', align:'center'},
@@ -109,7 +102,7 @@ function query(){
               $("#demolition_tab").bootstrapTable('load',data1);
                 },
             error:function(){
-                alert('error')}
+                alert('查询失败')}
          });
     }
 

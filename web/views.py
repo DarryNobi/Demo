@@ -192,26 +192,25 @@ def home_municipal(request):
                   template_name='home_municipal.html')
 
 
-
 def demolition_management(request):
-    ib_draws = GraphicLabel.objects.filter(graphiclabel="拆迁")
+    ib_draws = GraphicLabel.objects.filter(graphiclabel__contains="拆迁")
     d_ib_draws = {}
     for i in range(len(ib_draws)):
         d_ib_draws[i] = model_to_dict(ib_draws[i])
         id=d_ib_draws[i]["graphic_provide"]
         user=User.objects.get(id=id)
         d_ib_draws[i]["graphic_provide"]=user.contact_usr
-    return render(request, 'de_management.html', {'d_ib_draws': json.dumps(d_ib_draws, cls=DjangoJSONEncoder)})
+    return render(request, 'de_management.html')
 
 def ib_event_management(request):
-    ib_draws = GraphicLabel.objects.filter(graphiclabel="违建")
+    ib_draws = GraphicLabel.objects.filter(graphiclabel__contains="违建")
     d_ib_draws = {}
     for i in range(len(ib_draws)):
         d_ib_draws[i] = model_to_dict(ib_draws[i])
         id = d_ib_draws[i]["graphic_provide"]
         user = User.objects.get(id=id)
         d_ib_draws[i]["graphic_provide"] = user.contact_usr
-    return render(request,'ib_event_management.html',{'d_ib_draws': json.dumps(d_ib_draws,cls=DjangoJSONEncoder)})
+    return render(request,'ib_event_management.html')
 
 def demolition_compare(request):
     return render(request,
@@ -600,20 +599,20 @@ def _gs_show_list(request):
 
 def _ib_event_search(request):
     name=request.GET.get('query_name',False)
-    graphictype=request.GET.get('query_type',False)
+    graphiclabel=request.GET.get('query_type',False)
     createtime=request.GET.get('query_time',False)
     address=request.GET.get('query_address',False)
-    users_temp = User.objects.filter(Q(name=name) \
-                                     | Q(address=address) | Q(graphictype=graphictype) | Q(createtime=createtime),graphiclabel="违建")
-    ib_draws = GraphicLabel.objects.filter(graphiclabel="违建")
-    if(graphictype):
-        ib_draws=GraphicLabel.objects.filter(graphictype=graphictype,graphiclabel="违建")
+    kwargs = {}
+    kwargs['graphiclabel__contains'] = "违建"
+    if(graphiclabel):
+        kwargs['graphiclabel'] = graphiclabel
     if(name):
-        ib_draws=GraphicLabel.objects.filter(name=name,graphiclabel="违建")
+        kwargs['name'] = name
     if(address):
-        ib_draws=GraphicLabel.objects.filter(address=address,graphiclabel="违建")
+        kwargs['address'] = address
     if(createtime):
-        ib_draws=GraphicLabel.objects.filter(createtime=createtime,graphiclabel="违建")
+        kwargs['createtime'] = createtime
+    ib_draws = GraphicLabel.objects.filter(**kwargs)
     d_ib_draws = {}
     for i in range(len(ib_draws)):
         d_ib_draws[i] = model_to_dict(ib_draws[i])
@@ -624,37 +623,29 @@ def _ib_event_search(request):
 
 
 def _de_event_search(request):
-    name=request.GET.get('query_name',False)
-    graphictype=request.GET.get('query_type',False)
-    createtime=request.GET.get('query_time',False)
-    address=request.GET.get('query_address',False)
-    ib_draws = GraphicLabel.objects.filter(graphiclabel="拆迁")
-    if(graphictype):
-        ib_draws=GraphicLabel.objects.filter(graphictype=graphictype,graphiclabel="拆迁")
-    if(name):
-        ib_draws=GraphicLabel.objects.filter(name=name,graphiclabel="拆迁")
-    if(address):
-        ib_draws=GraphicLabel.objects.filter(address=address,graphiclabel="拆迁")
-    if(createtime):
-        ib_draws=GraphicLabel.objects.filter(createtime=createtime,graphiclabel="拆迁")
-    d_ib_draws = {}
-    for i in range(len(ib_draws)):
-        d_ib_draws[i] = model_to_dict(ib_draws[i])
-        id = d_ib_draws[i]["graphic_provide"]
+    name = request.GET.get('query_name', False)
+    graphiclabel = request.GET.get('query_type', False)
+    createtime = request.GET.get('query_time', False)
+    address = request.GET.get('query_address', False)
+    kwargs = {}
+    kwargs['graphiclabel__contains'] = "拆迁"
+    if (graphiclabel):
+        kwargs['graphiclabel'] = graphiclabel
+    if (name):
+        kwargs['name'] = name
+    if (address):
+        kwargs['address'] = address
+    if (createtime):
+        kwargs['createtime'] = createtime
+    de_draws = GraphicLabel.objects.filter(**kwargs)
+    d_de_draws = {}
+    for i in range(len(de_draws)):
+        d_de_draws[i] = model_to_dict(de_draws[i])
+        id = d_de_draws[i]["graphic_provide"]
         user = User.objects.get(id=id)
-        d_ib_draws[i]["graphic_provide"] = user.contact_usr
-    return JsonResponse({'d_ib_draws': d_ib_draws})
+        d_de_draws[i]["graphic_provide"] = user.contact_usr
+    return JsonResponse({'d_ib_draws': d_de_draws})
 
-def ibuild_search(request):
-    name=request.POST.get('name', False)
-    date= request.POST.get('time', False)
-    graphictype= request.POST.get('graphictype', False)
-    graphicaddress=request.POST.get('graphicaddress', False)
-    label_temp=GraphicLabel.objects.filter(name=name,date=date,graphictype=graphictype,graphicaddress=graphicaddress,graphiclabel='违建')
-    labels = {}
-    for i in range(len(label_temp)):
-        labels[i] = model_to_dict(label_temp[i])
-    return render(request,ib_event_management.html,{'labels':json.dumps(labels,cls=DjangoJSONEncoder)})
 
 def login_page(request):
     return render(request,"index_new.html",{"status":True})

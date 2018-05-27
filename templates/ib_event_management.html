@@ -170,6 +170,7 @@
                                 <input type='date'  id="query_time" name="time" class="nowdate search-input"/>
                                 <span class="picture-span">类型：</span>
                                 <select class="search-input"  id="query_type" name="graphictype" >
+                                    <option value="">全部</option>
                                     <option value="违建">违建</option>
                                     <option value="疑似违建">疑似违建</option>
                                 </select>
@@ -199,13 +200,7 @@
                 </div>
             </div>
         </div>
-        <script >
-             $.ajaxSetup({
-                 data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
-             });
-          d_ib_draws={{ d_ib_draws|safe }};
 
-        </script>
         <script src="{% static 'js/ib_event_management_showlist.js' %}"></script>
     </body>
 </html>
