@@ -485,7 +485,7 @@ def status_revise(request):
 
 
 def save_draw(request):
-    user=request.user
+    graphic_provide=request.user.id
     raw_dic = request.POST.get('coordi', False)
     name = request.POST.get('name', False)
     graphictype = request.POST.get('graphictype', False)
@@ -618,7 +618,7 @@ def _ib_event_search(request):
         d_ib_draws[i] = model_to_dict(ib_draws[i])
         id = d_ib_draws[i]["graphic_provide"]
         user = User.objects.get(id=id)
-        d_ib_draws[i]["graphic_provide"] = user.contact_usr
+        d_ib_draws[i]["graphic_provide"] = user.username
     return JsonResponse({'d_ib_draws': d_ib_draws})
 
 
@@ -643,7 +643,7 @@ def _de_event_search(request):
         d_de_draws[i] = model_to_dict(de_draws[i])
         id = d_de_draws[i]["graphic_provide"]
         user = User.objects.get(id=id)
-        d_de_draws[i]["graphic_provide"] = user.contact_usr
+        d_de_draws[i]["graphic_provide"] = user.username
     return JsonResponse({'d_ib_draws': d_de_draws})
 
 

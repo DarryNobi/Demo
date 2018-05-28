@@ -22,7 +22,7 @@
 				  columns: [
 					  {field: 'id', title:'序号',width:'10%', align: 'center'},
 					  {field: 'username', title:'帐号',width:'10%', align: 'center'},
-					  {field: 'enterprise_name', title:'单位名称',width:'10%', align: 'center'},
+					  {field: 'department_name', title:'单位名称',width:'10%', align: 'center'},
 					  {field: 'user_permissions', title:'已有权限',width:'30%', align: 'center'},
 					  {field: 'tool', title:'状态',width:'10%', align: 'center',
 					  	  formatter:function(value,row,index){

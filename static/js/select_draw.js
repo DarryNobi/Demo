@@ -140,9 +140,11 @@ $(function(){
                     'address':address
                 },
                 success:function(){
-                    alert('success')},
+                    alert('修改成功');
+                    location.reload();
+                    },
                 error:function(){
-                    alert('error')}
+                    alert('修改失败')}
              });
         }
         }

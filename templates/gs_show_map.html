@@ -2,7 +2,6 @@
 <html lang="en" style="height:100%">
  <head>
      {% load staticfiles %}
-    <link rel="stylesheet" href="https://openlayers.org/en/v4.5.0/css/ol.css" type="text/css">
     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap-theme.min.css">
     <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -194,7 +193,8 @@
            data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
        });
    </script>
-   <script src="{% static 'js/openlayers_v4.5.0/build/ol.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'js/openlayers_v4.5.0/css/ol.css' %}" type="text/css">
+    <script src="{% static 'js/openlayers_v4.5.0/build/ol.js' %}"></script>
      <script src="{% static 'js/require.js' %}"></script>
    <script src="{% static 'js/geomap.js' %}"></script>
    <!-- <script src="{% static 'js/baidumap.js' %}"></script> -->
@@ -225,6 +225,53 @@
                     <span style="height:100%; display:-webkit-flex; align-items:center; width:7%; margin-left:42px;">
                         <button class="btn btn-primary" style="border-radius:6px; height:50%; width:100%; min-height:50px; font-size:20px" id="location_btn" >确定</button>
                     </span>
+                    <script>
+                        selection=document.getElementById("imagery");
+                        $.ajax({
+                                type:'get',
+                                url:'/_map_inquiry/',
+                                data: {
+                                },
+                                success:function(d_maps){
+                                    maps=JSON.parse(d_maps);
+                                    for(m in maps){
+                                        name=maps[m].name;
+                                        id=maps[m].GlobeID;
+                                        selection.add(new Option(name,id))
+                                    }
+                                }
+                             });
+
+                        var button_compare=$("#location_btn");
+                        button_compare.click(function(){
+                            var index = selection.selectedIndex;
+                            var text = selection.options[index].text;
+                            var value = selection.options[index].value;
+
+                            for(m in maps){
+                                id=maps[m].GlobeID;
+                                if(id==value){
+                                    cord_x=(maps[m].TopLeftLongitude+maps[m].TopRightLongitude)/2.0;
+                                    cord_y=(maps[m].TopLeftLatitude+maps[m].BottomLeftLatitude)/2.0;
+                                    var location=ol.proj.fromLonLat([cord_x,cord_y]);
+                                    map.getView().animate({center:location});
+                                }
+                            }
+
+                            temp_layer = new ol.layer.Image({
+                                source: new ol.source.ImageWMS({
+                                    //crossOrigin: 'anonymous',
+                                    url:'http://172.20.53.158:8080/geoserver/wms',
+                                    projection:'EPSG:4326',
+                                    params:{
+                                    LAYERS: value.toString()}
+                                }),
+                                projection: "EPSG:4326",
+                               // opacity:0.5,
+                            });
+                            map.addLayer(temp_layer);
+                        });
+                    </script>
                 </div>
             </div>
         </div>
@@ -394,35 +441,35 @@
     </div>
 
 
-   <script type="text/javascript">
-     var map = new ol.Map({
-       target: 'map',
-       view: new ol.View({
-         center: ol.proj.fromLonLat([102.53, 24.41]),
-         zoom: 15,
-         maxZoom:18,
-         minZoom:13
-       }),
-       controls: ol.control.defaults().extend([
-            new ol.control.ScaleLine({  }),
-            new ol.control.MousePosition({
-                coordinateFormat: ol.coordinate.createStringXY(4),
-                projection: 'EPSG:4326'
-            }),
-            new ol.control.ScaleLine({  }),
-            new ol.control.ZoomSlider({
-                maxResolution:1000,
-                minResolution:1000
-            })
-      ]),
-     });
-    //map.addLayer(baidu_layer);
-    map.addLayer(default_geo_layer2);
-    map.addLayer(default_geo_layer);
-    map.render();
-</script>
+     <script type="text/javascript">
+         var map = new ol.Map({
+           target: 'map',
+           view: new ol.View({
+             center: ol.proj.fromLonLat([102.53, 24.41]),
+             zoom: 15,
+             maxZoom:18,
+             minZoom:13
+           }),
+           controls: ol.control.defaults().extend([
+                new ol.control.ScaleLine({  }),
+                new ol.control.MousePosition({
+                    coordinateFormat: ol.coordinate.createStringXY(4),
+                    projection: 'EPSG:4326'
+                }),
+                new ol.control.ScaleLine({  }),
+                new ol.control.ZoomSlider({
+                    maxResolution:1000,
+                    minResolution:1000
+                })
+          ]),
+         });
+        //map.addLayer(baidu_layer);
+        map.addLayer(default_geo_layer2);
+        map.addLayer(default_geo_layer);
+        map.render();
+    </script>
 
-     <script src="{% static 'js/load_draw.js' %}"></script>
+    <script src="{% static 'js/load_draw.js' %}"></script>
     <script src="{% static 'js/select_draw.js' %}"></script>
     <script src="{% static 'js/polygon.js' %}"></script>
     <script src="{% static 'js/distance.js' %}"></script>

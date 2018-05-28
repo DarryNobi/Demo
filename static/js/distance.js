@@ -219,8 +219,6 @@ $(function(){
                                 //获取转换后的球面距离
                                 //Returns the distance from c1 to c2 using the haversine formula.
                                 length += wgs84Sphere.haversineDistance(c1,c2);
-
-
                         }
                         //定义输出变量
                         var output;
@@ -236,23 +234,23 @@ $(function(){
 
                 distance_btn=document.getElementById("distance_button_div");
                 distance_btn.onclick=function(){
-                distance_measure_init();
-                if(distance_btn_flag){
-                $("#draw_button_div").hide();
-                $("#area_button_div").hide();
-                map.addInteraction(distance_draw);
-                distance_btn_flag=false;
-                distance_btn.innerHTML="取消测距";
-                }
-                else{
-                $("#draw_button_div").show();
-                $("#area_button_div").show();
-                map.removeInteraction(distance_draw);
-                distance_vector.getSource().clear();
-                map.getOverlays().clear();
-                map.render();
-                distance_btn_flag=true
-                distance_btn.innerHTML="测距";
-                }
+                    distance_measure_init();
+                    if(distance_btn_flag){
+                        $("#draw_button_div").hide();
+                        $("#area_button_div").hide();
+                        map.addInteraction(distance_draw);
+                        distance_btn_flag=false;
+                        distance_btn.innerHTML="取消测距";
+                    }
+                    else{
+                        $("#draw_button_div").show();
+                        $("#area_button_div").show();
+                        map.removeInteraction(distance_draw);
+                        distance_vector.getSource().clear();
+                        map.getOverlays().clear();
+                        map.render();
+                        distance_btn_flag=true
+                        distance_btn.innerHTML="测距";
+                    }
                 }
 });

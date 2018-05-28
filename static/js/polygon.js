@@ -77,7 +77,7 @@ $(function(){
                 },
                 success:function(){
                     alert('保存成功！');
-                    //location.reload();
+                    location.reload();
                     },
                 error:function(){
                     alert('保存失败');

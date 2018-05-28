@@ -97,7 +97,7 @@
 <body>
     <div class="compare container" style="background-color:white; display:inline-flex; width:100%; height:10%; min-height:100px">
         {% csrf_token %}
-        <div class="row" style="width: 100%; display:-webkit-flex; align-items:center; height:100%;">
+        <div class="row" style="width: 100%; display:-webkit-flex; align-items:center; height:100%;font-size: 20px;">
             <div id="xyz" class="col-lg-5 col-xs-5" style="display:inline-flex; align-items:center; height:100%;padding-left: 5%;">
                 <span class="picture-span">经度：</span>
                 <input type="text" class="compare-input" id="lontitude">
@@ -186,7 +186,7 @@
                             </div>
                             <div class="input-div">
                                 <p class="input-span">发现时间：</p>
-                                <input type="date" id="foundtime"  class="form-control compare-input"/>
+                                <input type="date" id="foundtime" style="width: 60%;" class="form-control compare-input"/>
                             </div>
                             <div class="input-div">
                                 <p class="input-span">现场地址：</p>

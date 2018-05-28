@@ -142,7 +142,7 @@ $().ready(function() {
 <body style="height:100%">
 <div class="container" style="height:95%; overflow-y:auto;">
     <div class="col-md-8 col-md-offset-2">
-        <form action="/add_usr/" class="" method="post" id="add_account_form">
+        <form action="/add_usr/" class="" method="post" id="add_account_form" style="white-space: nowrap;">
  {% csrf_token %}
             <div class="form-group has-feedback">
                 <label for="userNum"><h4>账号</h4></label>
@@ -195,10 +195,12 @@ $().ready(function() {
                 <label for="department"><h4>部门</h4></label>
                 <div class="input-group",name="input-group" style="width:100%">
                     <select style="size: 6;width:100%" name="department_name">
-                        <option value="违建管理部门" name="ibuild">违建管理部门</option>
-                        <option value="农业资源管理部门" name="agriculture">农业资源管理部门</option>
-                        <option value="林业资源管理部门" name="forest">林业资源管理部门</option>
-                        <option value="道路资源管理部门" name="road">道路资源管理部门</option>
+                        <option value="违建管理部门" name="ibuild">市政管理部门</option>
+                        <option value="农业管理部门" name="agriculture">农业管理部门</option>
+                        <option value="林业管理部门" name="forest">林业管理部门</option>
+                        <option value="环境管理部门" name="road">环境管理部门</option>
+                        <option value="道路管理部门" name="road">道路管理部门</option>
+                        <option value="沉降管理部门" name="forest">沉降管理部门</option>
                     </select>
                 </div>
 
