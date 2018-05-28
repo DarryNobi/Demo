@@ -2,22 +2,33 @@ $(function(){
 
     selection1=document.getElementById("compare1");
     selection2=document.getElementById("compare2");
+    var maps_list;
     $.ajax({
             type:'get',
             url:'/_map_inquiry/',
             data: {
             },
             success:function(d_maps){
-                maps=JSON.parse(d_maps);
-                for(m in maps){
-                    name=maps[m].name;
-                    id=maps[m].GlobeID;
-                    selection1.add(new Option(name,id))
-                    selection2.add(new Option(name,id))
+                maps_list=JSON.parse(d_maps);
+                for(m in maps_list){
+                    area=maps_list[m].Area;
+                    time=maps_list[m].ReceiveTime;
+                    id=maps_list[m].GlobeID;
+                    selection1.add(new Option(area+time,id))
                 }
             }
          });
-
+    selection2.onchange(function(){
+        var index1 = selection1.selectedIndex;
+        for(m in maps_list){
+            area1=selection1.options[index1].value.replace(/[ /d]/g, '');
+            if(maps_list[m].Area==area1){
+                area=maps_list[m].Area;
+                time=maps_list[m].ReceiveTime;
+                selection2.add(new Option(name,id));
+            }
+        }
+    });
 
     var iscompare=false;
     var button_compare=$("#button_compare");
@@ -45,11 +56,11 @@ $(function(){
         var value2 = selection2.options[index2].value;
         //alert(value1);
         //alert(value2);
-        for(m in maps){
-                    id=maps[m].GlobeID;
+        for(m in maps_list){
+                    id=maps_list[m].GlobeID;
                     if(id==value2){
-                        cord_x=(maps[m].TopLeftLongitude+maps[m].TopRightLongitude)/2.0;
-                        cord_y=(maps[m].TopLeftLatitude+maps[m].BottomLeftLatitude)/2.0;
+                        cord_x=(maps_list[m].TopLeftLongitude+maps_list[m].TopRightLongitude)/2.0;
+                        cord_y=(maps_list[m].TopLeftLatitude+maps_list[m].BottomLeftLatitude)/2.0;
                         var location=ol.proj.fromLonLat([cord_x,cord_y]);
                         map.getView().animate({center:location});
                     }

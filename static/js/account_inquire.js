@@ -42,7 +42,7 @@ window.onload = function(){
               pageList: [10, 25, 50, 100],//可供选择的每页的行数（*）
               sidePagination: "client", //分页方式：client客户端分页，server服务端分页（*）
               showRefresh:false,//刷新按钮
-              search: true,
+              search: false,
               data:data,
               columns: [
                   {field: 'num', title:'帐号', width:'10%', align:'center'},
