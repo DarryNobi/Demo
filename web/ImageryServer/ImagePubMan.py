@@ -25,7 +25,7 @@ def uploadImage(ImageID):
 def cancelPublish(ImageID):
     try:
         image = Map.objects.filter(id=ImageID)
-        cat = Catalog("http://localhost:8080/geoserver/rest/", 'admin', 'geoserver')
+        cat = Catalog("http://172.20.53.157:8080/geoserver/rest/", 'admin', 'geoserver')
         cat.delete(cat.get_layer(image[0].name[:image[0].name.find('.tif')]))
         cat.reload()
 
@@ -98,7 +98,7 @@ def downloadImage(ImageID):
 
         info.close()
 
-        cat = Catalog("http://172.20.53.158:8080/geoserver/rest/", 'admin', 'geoserver')
+        cat = Catalog("http://172.20.53.157:8080/geoserver/rest/", 'admin', 'geoserver')
         wkspce = cat.get_workspace('GF2')
         cat.create_coveragestore_external_geotiff(name=ImageID,data='file://'+imagePath.encode('utf-8').decode(),
                                                   workspace=wkspce)
@@ -109,7 +109,7 @@ def downloadImage(ImageID):
     except Exception as err:
         if Map.objects.filter(GlobeID=ImageID):
             image = Map.objects.get(GlobeID=ImageID)
-            cat = Catalog("http://172.20.53.158:8080/geoserver/rest/", 'admin', 'geoserver')
+            cat = Catalog("http://172.20.53.157:8080/geoserver/rest/", 'admin', 'geoserver')
             if cat.get_layer(image.GlobeID):
                 cat.delete(cat.get_layer(image.GlobeID))
                 cat.reload()
@@ -128,7 +128,7 @@ def deleteImage(ImageID):
         if not Map.objects.filter(GlobeID=ImageID):
             return "请先下载图像"
         image = Map.objects.get(GlobeID=ImageID)
-        cat = Catalog("http://172.20.53.158:8080/geoserver/rest/", 'admin', 'geoserver')
+        cat = Catalog("http://172.20.53.157:8080/geoserver/rest/", 'admin', 'geoserver')
         if cat.get_layer(image.GlobeID):
             cat.delete(cat.get_layer(image.GlobeID))
             cat.reload()
