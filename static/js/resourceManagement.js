@@ -41,7 +41,7 @@ function showList(){
             {field: 'download_times', title:'下载次数', width:'10%', align:'center'},
             {field: 'tool',title: '操作', align: 'center',
                 formatter: function (value,row,index){
-                    var element = "<a href='#' class='operate' id='change_resource"+row.id +"' data-id='"+row.id +"' style='margin-left:0;' onclick='query()' onmouseover='check_mouseOver(\" "+row.id+" \")' onmouseout='check_mouseOut(\" "+row.id+" \")'>"
+                    var element = "<a href='#' class='operate' id='change_resource"+row.id +"' data-id='"+row.id +"' style='margin-left:0;' onclick='show_map(\" "+row.id+" \")' onmouseover='check_mouseOver(\" "+row.id+" \")' onmouseout='check_mouseOut(\" "+row.id+" \")'>"
                           + "<img id='check_img"+row.id+"' class='nav-img' src='../static/img/check.png'>"
                           + "</a>"
                           + "<a href='#' class='operate' id='download"+row.id +"' data-id='"+row.id +"' onclick='downloadImg(\" "+row.id+" \")' onmouseover='download_mouseOver(\" "+row.id+" \")' onmouseout='download_mouseOut(\" "+row.id+" \")'>"
@@ -180,3 +180,8 @@ function release(data){
     }
 }
 function delete_res (data) {};
+
+function show_map (data) {
+    var id=parseInt(data);
+    parent.window.document.getElementById("resource_management_container").src="/rm_show_map/?id="+id;
+};

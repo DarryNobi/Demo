@@ -98,35 +98,35 @@
     <div class="compare container" style="background-color:white; display:inline-flex; width:100%; height:10%; min-height:100px">
         {% csrf_token %}
         <div class="row" style="width: 100%; display:-webkit-flex; align-items:center; height:100%;font-size: 20px;">
-            <div id="xyz" class="col-lg-5 col-xs-5" style="display:inline-flex; align-items:center; height:100%;padding-left: 5%;">
-                <span class="picture-span">经度：</span>
-                <input type="text" class="compare-input" id="lontitude">
-                <span class="picture-span" style="padding-left: 5%;">纬度：</span>
-                <input type="text" class="compare-input" id="lantitude">
-                <span style="height:100%; display:-webkit-flex; align-items:center; margin-left:10px;">
-                    <button class="btn btn-primary" style="border-radius:6px; height:34px; width:100%; font-size:14px" id="location_btn" >查询</button>
-                </span>
-                <script>
-                    $("#location_btn").click(function (){
-                    var lontitude=$("#lontitude").val();
-                    var lantitude=$("#lantitude").val()*1.0;
-                     var location=ol.proj.fromLonLat([lontitude,lantitude]);
-                     //map.getView().setCenter(location);
-                     map.getView().animate({zoom:map.getView().getZoom()-1},{center:location},{zoom:map.getView().getZoom()+1},{duration:3000});
-                    });
-                </script>
-            </div>
+            <!--<div id="xyz" class="col-lg-5 col-xs-5" style="display:inline-flex; align-items:center; height:100%;padding-left: 5%;">-->
+                <!--<span class="picture-span">经度：</span>-->
+                <!--<input type="text" class="compare-input" id="lontitude">-->
+                <!--<span class="picture-span" style="padding-left: 5%;">纬度：</span>-->
+                <!--<input type="text" class="compare-input" id="lantitude">-->
+                <!--<span style="height:100%; display:-webkit-flex; align-items:center; margin-left:10px;">-->
+                    <!--<button class="btn btn-primary" style="border-radius:6px; height:34px; width:100%; font-size:14px" id="location_btn" >查询</button>-->
+                <!--</span>-->
+                <!--<script>-->
+                    <!--$("#location_btn").click(function (){-->
+                    <!--var lontitude=$("#lontitude").val();-->
+                    <!--var lantitude=$("#lantitude").val()*1.0;-->
+                     <!--var location=ol.proj.fromLonLat([lontitude,lantitude]);-->
+                     <!--//map.getView().setCenter(location);-->
+                     <!--map.getView().animate({zoom:map.getView().getZoom()-1},{center:location},{zoom:map.getView().getZoom()+1},{duration:3000});-->
+                    <!--});-->
+                <!--</script>-->
+            <!--</div>-->
             <div class="col-lg-5 col-xs-5" style="display:inline-flex; align-items:center; height:100%;padding-left: 5%;">
                 <span class="picture-span">参考影像：</span>
                 <span class="picture-date" style="width: 20%;">
                     <select  id="compare1" class="form-control compare-input">
-                        <option>default</option>
+                        <option>请选择影像</option>
                     </select>
                 </span>
                 <span class="picture-span" style="padding-left: 5%;">对比影像：</span>
                 <span class="picture-date" style="width: 20%;">
                     <select  id="compare2" class="form-control compare-input">
-                        <option>default</option>
+                        <option>请选择影像</option>
                     </select>
                 </span>
                 <span style="height:100%; display:-webkit-flex; align-items:center; margin-left:10px;">

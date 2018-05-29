@@ -264,8 +264,14 @@ def resource_search(request):
     else:
         return render(request, 'rm_resource_search.html', {'message': '查找结果为空！'})
 
-
-
+def rm_show_map(request):
+    id = request.GET.get('id', False)
+    map=Map.objects.get(GlobeID=id)
+    map=model_to_dict(map)
+    if(map):
+        return render(request,'rm_show_map.html',{'map':json.dumps(map,cls=DjangoJSONEncoder)})
+    else:
+        return render(request,'rm_show_map.html')
 
 
 def gs_show_map(request):

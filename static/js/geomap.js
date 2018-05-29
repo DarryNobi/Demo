@@ -38,7 +38,7 @@
 
         var default_geo_layer2=new ol.layer.Tile({
             source: new ol.source.XYZ({
-                crossOrigin: 'anonymous',
+              crossOrigin: 'anonymous',
                 url:'http://t3.tianditu.cn/DataServer?T=img_w&X={x}&Y={y}&L={z}'
             }),
             projection: "EPSG:4326",

@@ -36,6 +36,7 @@ class Map(models.Model):
     ProductLevel=models.CharField(max_length=10,default=False,blank=True)
     ImageDesc=models.TextField(max_length=500,default='Describe This Image')
     jpgPath=models.TextField(max_length=500,blank=True)
+    Area=models.CharField(max_length=100,blank=True)
 
 class SliceMap(models.Model):
     index_raw=models.IntegerField()
