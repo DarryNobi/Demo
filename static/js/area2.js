@@ -54,7 +54,7 @@ $(function(){
                         })
                     });
                     //将矢量图层添加到地图中
-                    map.addLayer(area_vector);
+                    map_2.addLayer(area_vector);
 
 
                     //创建一个WGS84球体对象
@@ -88,7 +88,7 @@ $(function(){
                     };
 
                     //触发pointermove事件
-                    map.once('pointermove', pointerMoveHandler);
+                    map_2.once('pointermove', pointerMoveHandler);
 
 
 
@@ -117,8 +117,8 @@ $(function(){
 
                              var output;
                             if (geom instanceof ol.geom.Polygon) {
-                                map.removeEventListener('singleclick');
-                                map.removeEventListener('dblclick');
+                                map_2.removeEventListener('singleclick');
+                                map_2.removeEventListener('dblclick');
                                 //输出多边形的面积
                                 output = formatArea(geom);
                                 //Return an interior point of the polygon.
@@ -133,7 +133,7 @@ $(function(){
                         });
 
                         //地图单击事件
-                        map.on('singleclick', function (evt) {
+                        map_2.on('singleclick', function (evt) {
                             //设置测量提示信息的位置坐标，用来确定鼠标点击后测量提示框的位置
                             measureTooltip.setPosition(evt.coordinate);
                             //如果是第一次点击，则设置测量提示框的文本内容为起点
@@ -153,7 +153,7 @@ $(function(){
                         });
 
                         //地图双击事件
-                        map.on('dblclick', function (evt) {
+                        map_2.on('dblclick', function (evt) {
                             //根据
                             var point = new ol.geom.Point(evt.coordinate);
                             area_source.addFeature(new ol.Feature(point));
@@ -179,7 +179,7 @@ $(function(){
                         //移除事件监听
                         ol.Observable.unByKey(listener);
                         //移除地图单击事件
-                        map.removeEventListener('singleclick');
+                        map_2.removeEventListener('singleclick');
                     }, this);
 
 
@@ -197,7 +197,7 @@ $(function(){
                             positioning:'bottom-center'
                         });
                         //将测量提示的覆盖标注添加到地图中
-                        map.addOverlay(measureTooltip);
+                        map_2.addOverlay(measureTooltip);
                     }
 
                 //格式化测量面积
@@ -207,7 +207,7 @@ $(function(){
                     //如果大地测量复选框被勾选，则计算球面面积
 
                         //获取初始坐标系
-                        var sourceProj = map.getView().getProjection();
+                        var sourceProj = map_2.getView().getProjection();
                         //Make a complete copy of the geometry.
                         //Transform each coordinate of the geometry from one coordinate reference system to another.
                         //The geometry is modified in place. For example, a line will be transformed to a line and a circle to a circle.
@@ -242,17 +242,17 @@ $(function(){
                 if(area_btn_flag){
                 $("#draw_button_div").hide();
                 $("#distance_button_div").hide();
-                map.addInteraction(area_draw);
+                map_2.addInteraction(area_draw);
                 area_btn_flag=false;
                 area_btn.innerHTML="取消测面积";
                 }
                 else{
                 $("#draw_button_div").show();
                 $("#distance_button_div").show();
-                map.removeInteraction(area_draw);
+                map_2.removeInteraction(area_draw);
                 area_vector.getSource().clear();
-                map.getOverlays().clear();
-                map.render();
+                map_2.getOverlays().clear();
+                map_2.render();
                 area_btn_flag=true
                 area_btn.innerHTML="测面积";
                 }

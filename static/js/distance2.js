@@ -55,7 +55,7 @@ $(function(){
                         })
                     });
                     //将矢量图层添加到地图中
-                    map.addLayer(distance_vector);
+                    map_2.addLayer(distance_vector);
 
 
                     //创建一个WGS84球体对象
@@ -89,7 +89,7 @@ $(function(){
                     };
 
                     //触发pointermove事件
-                    map.once('pointermove', pointerMoveHandler);
+                    map_2.once('pointermove', pointerMoveHandler);
 
 
 
@@ -131,7 +131,7 @@ $(function(){
                         });
 
                         //地图单击事件
-                        map.on('singleclick', function (evt) {
+                        map_2.on('singleclick', function (evt) {
                             //设置测量提示信息的位置坐标，用来确定鼠标点击后测量提示框的位置
                             measureTooltip.setPosition(evt.coordinate);
                             //如果是第一次点击，则设置测量提示框的文本内容为起点
@@ -151,7 +151,7 @@ $(function(){
                         });
 
                         //地图双击事件
-                        map.on('dblclick', function (evt) {
+                        map_2.on('dblclick', function (evt) {
                             //根据
                             var point = new ol.geom.Point(evt.coordinate);
                             distance_source.addFeature(new ol.Feature(point));
@@ -177,7 +177,7 @@ $(function(){
                         //移除事件监听
                         ol.Observable.unByKey(listener);
                         //移除地图单击事件
-                        map.removeEventListener('singleclick');
+                        map_2.removeEventListener('singleclick');
                     }, this);
 
 
@@ -195,7 +195,7 @@ $(function(){
                             positioning:'bottom-center'
                         });
                         //将测量提示的覆盖标注添加到地图中
-                        map.addOverlay(measureTooltip);
+                        map_2.addOverlay(measureTooltip);
                     }
 
                     //格式化测量长度
@@ -209,7 +209,7 @@ $(function(){
                             //初始长度为0
                             length = 0;
                             //获取源数据的坐标系
-                            var sourceProj = map.getView().getProjection();
+                            var sourceProj = map_2.getView().getProjection();
                             //进行点的坐标转换
                             for (var i = 0; i < coordinates.length - 1; i++) {
                                 //第一个点
@@ -238,17 +238,17 @@ $(function(){
                     if(distance_btn_flag){
                         $("#draw_button_div").hide();
                         $("#area_button_div").hide();
-                        map.addInteraction(distance_draw);
+                        map_2.addInteraction(distance_draw);
                         distance_btn_flag=false;
                         distance_btn.innerHTML="取消测距";
                     }
                     else{
                         $("#draw_button_div").show();
                         $("#area_button_div").show();
-                        map.removeInteraction(distance_draw);
+                        map_2.removeInteraction(distance_draw);
                         distance_vector.getSource().clear();
-                        map.getOverlays().clear();
-                        map.render();
+                        map_2.getOverlays().clear();
+                        map_2.render();
                         distance_btn_flag=true
                         distance_btn.innerHTML="测距";
                     }

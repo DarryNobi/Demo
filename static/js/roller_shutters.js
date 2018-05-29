@@ -1,36 +1,36 @@
 $(function(){
 
-    selection1=document.getElementById("compare1");
-    selection2=document.getElementById("compare2");
-    var maps_list;
-    $.ajax({
-            type:'get',
-            url:'/_map_inquiry/',
-            data: {
-            },
-            success:function(d_maps){
-                maps_list=JSON.parse(d_maps);
-                for(m in maps_list){
-                    area=maps_list[m].Area;
-                    time=maps_list[m].ReceiveTime;
-                    id=maps_list[m].GlobeID;
-                    selection1.add(new Option(area+time,id))
-                }
-            }
-         });
-    selection1.onchange=function(){
-        var index1 = selection1.selectedIndex;
-        $("#compare2").empty();
-        for(m in maps_list){
-            area1=selection1.options[index1].text.replace(/[0-9]/g, '').replace(/[-]/g, '');
-            if(maps_list[m].Area==area1){
-                var area=maps_list[m].Area;
-                var time=maps_list[m].ReceiveTime;
-                    id=maps_list[m].GlobeID;
-                selection2.add(new Option(area+time,id));
-            }
-        }
-    };
+//    selection1=document.getElementById("compare1");
+//    selection2=document.getElementById("compare2");
+//    var maps_list;
+//    $.ajax({
+//            type:'get',
+//            url:'/_map_inquiry/',
+//            data: {
+//            },
+//            success:function(d_maps){
+//                maps_list=JSON.parse(d_maps);
+//                for(m in maps_list){
+//                    area=maps_list[m].Area;
+//                    time=maps_list[m].ReceiveTime;
+//                    id=maps_list[m].GlobeID;
+//                    selection1.add(new Option(area+time,id))
+//                }
+//            }
+//         });
+//    selection1.onchange=function(){
+//        var index1 = selection1.selectedIndex;
+//        $("#compare2").empty();
+//        for(m in maps_list){
+//            area1=selection1.options[index1].text.replace(/[0-9]/g, '').replace(/[-]/g, '');
+//            if(maps_list[m].Area==area1){
+//                var area=maps_list[m].Area;
+//                var time=maps_list[m].ReceiveTime;
+//                    id=maps_list[m].GlobeID;
+//                selection2.add(new Option(area+time,id));
+//            }
+//        }
+//    };
 
     var iscompare=false;
     var button_compare=$("#button_compare");
@@ -43,7 +43,7 @@ $(function(){
         //map.removeLayer(temp_layer1);
         map_2.removeLayer(temp_layer2);
 
-        map2.hide();
+        //map2.hide();
         map1.off('mousemove');
         map2.off('mousemove');
         iscompare=false;

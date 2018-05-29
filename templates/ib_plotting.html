@@ -92,6 +92,45 @@
             background:#0a86e1;
             color:white
         }
+         /**
+        * 提示框的样式信息
+        */
+        .tooltip {
+            position: relative;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 4px;
+            color: white;
+            padding: 4px 8px;
+            opacity: 0.7;
+            white-space: nowrap;
+        }
+
+        .tooltip-measure {
+            opacity: 1;
+            font-weight: bold;
+        }
+
+        .tooltip-static {
+            background-color: #ffffff;
+            color: black;
+            border: 1px solid white;
+        }
+
+        .tooltip-measure:before,
+        .tooltip-static:before {
+            border-top: 6px solid rgba(0, 0, 0, 0.5);
+            border-right: 6px solid transparent;
+            border-left: 6px solid transparent;
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            margin-left: -7px;
+            left: 50%;
+        }
+
+        .tooltip-static:before {
+            border-top-color: #ffffff;
+        }
     </style>
 </head>
 <body>
@@ -344,15 +383,16 @@
       ]),
      });
 
+
     map.addLayer(default_geo_layer);
     map.addLayer(default_geo_layer2);
-
-
+    map.render();
     var map_2 = new ol.Map({
         target:"map_2",
         view:map.getView(),
-        //layers:[ new ol.layer.Tile({source:new ol.source.OSM()}) ]
-   });
+        layers:[ new ol.layer.Tile({source:new ol.source.OSM()}) ]
+    });
+
     </script>
 
     <script>
@@ -362,7 +402,7 @@
     </script>
 
     <script src="{% static 'js/load_draw.js' %}"></script>
-    <script src="{% static 'js/roller_shutters.js' %}"></script>
+    <!--<script src="{% static 'js/roller_shutters.js' %}"></script>-->
     <script src="{% static 'js/select_draw.js' %}"></script>
     <script src="{% static 'js/polygon.js' %}"></script>
     <script src="{% static 'js/distance.js' %}"></script>
