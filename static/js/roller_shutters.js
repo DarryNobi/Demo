@@ -15,6 +15,20 @@ $(function(){
                     time=maps_list[m].ReceiveTime;
                     id=maps_list[m].GlobeID;
                     selection1.add(new Option(area+time,id))
+
+                    ////////////////////////////////////////////add all layers by default
+                    temp_layer = new ol.layer.Image({
+                        source: new ol.source.ImageWMS({
+            //              crossOrigin: 'anonymous',
+                            url:'http://172.20.53.158:8080/geoserver/wms',
+                            projection:'EPSG:4326',
+                            params:{
+                            LAYERS: id.toString()}
+                        }),
+                        projection: "EPSG:4326",
+                       // opacity:0.5,
+                    });
+                    map.addLayer(temp_layer);
                 }
             }
          });
