@@ -18,17 +18,19 @@ $(function(){
                 }
             }
          });
-    selection2.onchange(function(){
+    selection1.onchange=function(){
         var index1 = selection1.selectedIndex;
+        $("#compare2").empty();
         for(m in maps_list){
-            area1=selection1.options[index1].value.replace(/[ /d]/g, '');
+            area1=selection1.options[index1].text.replace(/[0-9]/g, '').replace(/[-]/g, '');
             if(maps_list[m].Area==area1){
-                area=maps_list[m].Area;
-                time=maps_list[m].ReceiveTime;
-                selection2.add(new Option(name,id));
+                var area=maps_list[m].Area;
+                var time=maps_list[m].ReceiveTime;
+                    id=maps_list[m].GlobeID;
+                selection2.add(new Option(area+time,id));
             }
         }
-    });
+    };
 
     var iscompare=false;
     var button_compare=$("#button_compare");
@@ -38,8 +40,8 @@ $(function(){
     var temp_layer2;
     button_compare.click(function(){
     if(iscompare){
-        map.removeLayer(temp_layer1);
-        map.removeLayer(temp_layer2);
+        //map.removeLayer(temp_layer1);
+        map_2.removeLayer(temp_layer2);
 
         map2.hide();
         map1.off('mousemove');
@@ -89,8 +91,8 @@ $(function(){
             //opacity:0.5,
         });
 
-        map.addLayer(temp_layer1);
-        map_2.addLayer(temp_layer2);
+        map.addLayer(temp_layer2);
+        map_2.addLayer(temp_layer1);
 
         map2.show();
         map2.css("visibility","visible");

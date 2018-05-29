@@ -42,6 +42,7 @@ urlpatterns = [
     url(r'^graphic_look/', views.graphic_look),
     url(r'^resource_management/', views.resource_management),
     url(r'^resource_search/', views.resource_search),
+    url(r'^rm_show_map/', views.rm_show_map),
     url(r'^ib_event_management/', views.ib_event_management),
     url(r'^gs_show_map/', views.gs_show_map),
     url(r'^gs_show_list/', views.gs_show_list),
