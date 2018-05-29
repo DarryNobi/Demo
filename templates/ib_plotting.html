@@ -383,15 +383,16 @@
       ]),
      });
 
+
     map.addLayer(default_geo_layer);
     map.addLayer(default_geo_layer2);
-
-
+    map.render();
     var map_2 = new ol.Map({
         target:"map_2",
         view:map.getView(),
-        //layers:[ new ol.layer.Tile({source:new ol.source.OSM()}) ]
-   });
+        layers:[ new ol.layer.Tile({source:new ol.source.OSM()}) ]
+    });
+
     </script>
 
     <script>
@@ -401,7 +402,7 @@
     </script>
 
     <script src="{% static 'js/load_draw.js' %}"></script>
-    <script src="{% static 'js/roller_shutters.js' %}"></script>
+    <!--<script src="{% static 'js/roller_shutters.js' %}"></script>-->
     <script src="{% static 'js/select_draw.js' %}"></script>
     <script src="{% static 'js/polygon.js' %}"></script>
     <script src="{% static 'js/distance.js' %}"></script>

@@ -126,6 +126,7 @@ $(function(){
 
                             //设置测量提示框的内标签为最终输出结果
                             measureTooltipElement.innerHTML = output;
+
                             //设置测量提示信息的位置坐标
                             measureTooltip.setPosition(tooltipCoord);
                         });
@@ -137,6 +138,7 @@ $(function(){
                             //如果是第一次点击，则设置测量提示框的文本内容为起点
                             if (count == 0) {
                                 measureTooltipElement.innerHTML = "起点";
+
                             }
                            //根据鼠标点击位置生成一个点
                             var point = new ol.geom.Point(evt.coordinate);
@@ -184,6 +186,7 @@ $(function(){
                     //创建测量提示框
                     function createMeasureTooltip() {
                         //创建测量提示框的div
+
                         measureTooltipElement = document.createElement('div');
                         measureTooltipElement.setAttribute('id','lengthLabel');
                         //设置测量提示要素的样式
@@ -193,8 +196,10 @@ $(function(){
                             element: measureTooltipElement,
                             offset: [0, -15],
                             positioning:'bottom-center'
+
                         });
                         //将测量提示的覆盖标注添加到地图中
+
                         map.addOverlay(measureTooltip);
                     }
 
@@ -228,7 +233,9 @@ $(function(){
                         } else {
                             output = (Math.round(length * 100) / 100) + ' ' + 'm'; //m为单位
                         }
+
                         return output;
+
                         };
                  }
 
