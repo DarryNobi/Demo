@@ -296,6 +296,10 @@
                                     $(".image_compare_span").css({"background":"#0a86e1","color":"white","outline":"none","border-left":"1px solid #a7a9ad"});
                                     image_selected = true;
                                     map.addLayer(default_geo_layer2);
+                                    if (map_selected){
+                                        map.removeLayer(default_geo_layer);
+                                        map.addLayer(default_geo_layer);
+                                    }
                                 }
                             })
                         </script>
@@ -382,8 +386,9 @@
             })
       ]),
      });
-    map.addLayer(default_geo_layer);
+
     map.addLayer(default_geo_layer2);
+    map.addLayer(default_geo_layer);
 
     var map_2 = new ol.Map({
         target:"map_2",

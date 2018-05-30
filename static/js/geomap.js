@@ -43,13 +43,14 @@
             }),
             projection: "EPSG:4326",
             id:"影像",
-            opacity:0.8,
+            opacity:1,
         });
 
         var default_geo_layer = new ol.layer.Tile({
-            source: new ol.source.OSM(),
+            source: new ol.source.XYZ({
+                url: "http://t2.tianditu.com/DataServer?T=cva_w&x={x}&y={y}&l={z}"
+            }),
             projection: "EPSG:4326",
-            opacity:0.2,
+            opacity:1,
         });
-
 
