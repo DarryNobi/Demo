@@ -54,3 +54,8 @@
             opacity:1,
         });
 
+        var default_geo_layer3 = new ol.layer.Tile({
+            source: new ol.source.OSM(),
+            projection: "EPSG:4326",
+            opacity:1,
+        });

@@ -282,10 +282,12 @@
                                     $(".map_compare_span").css({"background":"#ffffff","color":"black","outline":"none","border-left":"1px solid #a7a9ad"});
                                     map_selected = false;
                                     map.removeLayer(default_geo_layer);
+                                    layer3_cheak()
                                 } else {
                                     $(".map_compare_span").css({"background":"#0a86e1","color":"white","outline":"none","border-left":"1px solid #a7a9ad"});
                                     map_selected = true;
                                     map.addLayer(default_geo_layer);
+                                    layer3_cheak()
                                 }
                             })
 
@@ -294,6 +296,7 @@
                                     $(".image_compare_span").css({"background":"#ffffff","color":"black","outline":"none","border-left":"1px solid #a7a9ad"});
                                     image_selected = false;
                                     map.removeLayer(default_geo_layer2);
+                                    layer3_cheak()
                                 } else {
                                     $(".image_compare_span").css({"background":"#0a86e1","color":"white","outline":"none","border-left":"1px solid #a7a9ad"});
                                     image_selected = true;
@@ -302,8 +305,18 @@
                                         map.removeLayer(default_geo_layer);
                                         map.addLayer(default_geo_layer);
                                     }
+                                    layer3_cheak()
                                 }
                             })
+                            function layer3_cheak(){
+                                if (map_selected && !image_selected){
+                                    map.addLayer(default_geo_layer3);
+                                    map.removeLayer(default_geo_layer);
+                                    map.addLayer(default_geo_layer);
+                                    }
+                                else
+                                    map.removeLayer(default_geo_layer3);
+                            };
                         </script>
                     </ul>
 
@@ -370,7 +383,7 @@
      var map = new ol.Map({
        target: 'map',
        view: new ol.View({
-         center: ol.proj.fromLonLat([102.53, 24.41]),
+         center: ol.proj.fromLonLat([117.2027, 39.1653]),
          zoom: 15,
          maxZoom:18,
          minZoom:13

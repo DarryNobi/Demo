@@ -206,7 +206,14 @@ def demolition_management(request):
     return render(request, 'de_management.html')
 
 def ib_event_management(request):
-    return render(request,'ib_event_management.html',{"message":"2"})
+    ib_draws = GraphicLabel.objects.filter(graphiclabel__contains="违建")
+    d_ib_draws = {}
+    for i in range(len(ib_draws)):
+        d_ib_draws[i] = model_to_dict(ib_draws[i])
+        id = d_ib_draws[i]["graphic_provide"]
+        user = User.objects.get(id=id)
+        d_ib_draws[i]["graphic_provide"] = user.contact_usr
+    return render(request,'ib_event_management.html')
 
 def demolition_compare(request):
     return render(request,
@@ -232,7 +239,7 @@ def ib_plotting(request):
         draw=GraphicLabel.objects.get(id=id)
         x=draw.coordinate_x
         y=draw.coordinate_y
-    return render(request,'ib_plotting.html',{'x':x,'y':y,"message":"1"})
+    return render(request,'ib_plotting.html',{'x':x,'y':y})
 
 
 def graphic_look(request):
@@ -262,12 +269,14 @@ def resource_search(request):
 
 def rm_show_map(request):
     id = request.GET.get('id', False)
-    map=Map.objects.get(GlobeID=id)
-    map=model_to_dict(map)
+    map=Map.objects.filter(GlobeID=id)
     if(map):
-        return render(request,'rm_show_map.html',{'map':json.dumps(map,cls=DjangoJSONEncoder)})
+        d_map = {}
+        for i in range(len(map)):
+            d_map[i] = model_to_dict(map[i])
+        return render(request,'rm_show_map.html',{'map':json.dumps(d_map,cls=DjangoJSONEncoder)})
     else:
-        return render(request,'rm_show_map.html')
+        return JsonResponse({'error':1})
 
 
 def gs_show_map(request):
@@ -505,6 +514,7 @@ def save_draw(request):
     draw_obj = GraphicLabel.objects.create(name=name,context=jsondata,graphictype=graphictype,graphiclabel=graphiclabel,graphic_provide=request.user,discrib=discrib,square=square,address=address,coordinate_x=coordinate_x,coordinate_y=coordinate_y)
     draw_obj.save()
     return HttpResponse("success")
+
     #return render(request,'map_geo.html',{'message':'success'})
     #return HttpResponse("success")
 

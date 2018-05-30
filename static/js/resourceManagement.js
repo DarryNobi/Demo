@@ -224,5 +224,19 @@ function delete_res (data) {};
 
 function show_map (data) {
     var id=parseInt(data);
-    parent.window.document.getElementById("resource_management_container").src="/rm_show_map/?id="+id;
+    $.ajax({
+              type: 'GET',
+              url: '/rm_show_map/',
+              data: {id:id},
+              success:function(result){
+                  var isinvalid=result['error'];
+                  if(isinvalid)
+                       alert('请先下载图像');
+                  else
+                       parent.window.document.getElementById("resource_management_container").src="/rm_show_map/?id="+id;
+              },
+              error:function(error){
+                  alert(error);
+              }
+        });
 };
