@@ -3,16 +3,21 @@
 <head>
      {% load staticfiles %}
     <title>地图卷帘效果</title>
-    <link rel="stylesheet" href="https://openlayers.org/en/v4.6.4/css/ol.css" type="text/css">
+     <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <!--<link rel="stylesheet" href="https://openlayers.org/en/v4.6.4/css/ol.css" type="text/css">-->
    <script src="{% static 'js/openlayers_v4.5.0/build/ol.js' %}"></script>
-    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap-theme.min.css">
+            <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap-table.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ol.css' %}">
+
+    <!--<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap-theme.min.css">-->
     <!--[if lt IE 9]>
     <script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script>
     <![endif]-->
-    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+   <!---->
+    <!--<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>-->
+    <!--<script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>-->
     <style>
         body{
             overflow: hidden;
