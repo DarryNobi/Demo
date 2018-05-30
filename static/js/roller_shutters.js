@@ -78,7 +78,7 @@ $(function(){
                         cord_x=(maps_list[m].TopLeftLongitude+maps_list[m].TopRightLongitude)/2.0;
                         cord_y=(maps_list[m].TopLeftLatitude+maps_list[m].BottomLeftLatitude)/2.0;
                         var location=ol.proj.fromLonLat([cord_x,cord_y]);
-                        map.getView().animate({center:location});
+                        map.getView().animate({center:location,zoom:18});
                     }
                 }
 

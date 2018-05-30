@@ -51,19 +51,26 @@
                 <div role="form" name="compareForm" style="width:100%; font-size:14px; height:100%; margin-left:15px;">
                     <div style="display:inline-flex; align-items:center; width:95%">
                         <div style="width:93%">
-                            <span class="picture-span" style="margin-left:0;">时间：</span>
-                            <input type='date' class="nowdate search-input"/>
+                            <!--<span class="picture-span" style="margin-left:0;">时间：</span>-->
+                            <!--<input type='date' class="nowdate search-input"/>-->
                             <span class="picture-span">种类：</span>
                             <select class="search-input">
-                                <option value="请选择卫星种类">请选择卫星种类</option>
+                                <option id="maptype" value="请选择卫星种类">请选择卫星种类</option>
                                 <option value="高分2号">高分2号</option>
                                 <option value="高景1号">高景1号</option>
                             </select>
                         </div>
                         <div style="width:7%">
                             <span style="height:100%; display:-webkit-flex; align-items:center; width:100%;">
-                                <button class="btn btn-primary" style="border-radius:6px; height:50%; width:100%; min-height:34px; font-size:14px" id="gra_btn" ><img src="{% static 'img/search.png' %}" style="padding-left:5px;">搜索</button>
+                                <button class="btn btn-primary" style="border-radius:6px; height:50%; width:100%; min-height:34px; font-size:14px" id="search_btn" ><img src="{% static 'img/search.png' %}" style="padding-left:5px;">搜索</button>
                             </span>
+                            <script>
+                                $('#search_btn').click(function(){
+                                maptype=$('#maptype').value;
+                                window.location.href="/resource_search/?maptype="+maptype;
+                                });
+
+                            </script>
                         </div>
                     </div>
                 </div>
@@ -95,7 +102,6 @@
         });
     </script>
     <script>var sourceMaps={{ sourceMaps|safe }};</script>
-    <script>var localMaps={{ localMaps|safe }};</script>
     <script src="{% static 'js/resourceManagement.js' %}"></script>
 </body>
 </html>

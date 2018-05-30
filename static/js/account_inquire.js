@@ -45,7 +45,7 @@ window.onload = function(){
               search: false,
               data:data,
               columns: [
-                  {field: 'num', title:'帐号', width:'10%', align:'center'},
+                  {field: 'num', title:'序号', width:'10%', align:'center'},
                   {field: 'username', title:'帐号', width:'10%', align:'center'},
                   {field: 'department_name', title:'部门', width:'10%', align:'center'},
                   {field: 'contact_usr', title:'联系人', width:'10%', align:'center'},

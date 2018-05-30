@@ -38,16 +38,18 @@
 
         var default_geo_layer2=new ol.layer.Tile({
             source: new ol.source.XYZ({
-              crossOrigin: 'anonymous',
+            //crossOrigin: 'anonymous',
                 url:'http://t3.tianditu.cn/DataServer?T=img_w&X={x}&Y={y}&L={z}'
             }),
             projection: "EPSG:4326",
             id:"影像",
-            opacity:0.5,
+            opacity:0.8,
         });
 
         var default_geo_layer = new ol.layer.Tile({
             source: new ol.source.OSM(),
             projection: "EPSG:4326",
-            opacity:0.5,
+            opacity:0.2,
         });
+
+

@@ -250,17 +250,13 @@ def default(request):
 def resource_search(request):
     response=urllib.request.urlopen('http://172.20.53.158:8089/deliver_map/')
     sourceMaps=json.loads(json.loads(response.read().decode('utf-8'))['d_maps'])
-    localMapsTemp = Map.objects.all()
-    localMaps={}
-    #localGloID=[]
-    if localMapsTemp:
-        for i in range(len(localMapsTemp)):
-            localMaps[localMapsTemp[i].GlobeID]=model_to_dict(localMapsTemp[i])
-            #localGloID.append(localMaps[i]['GlobeID'])
+    maptype=request.GET.get('maptype',False)
+    if(maptype):
+        for index in sourceMaps:
+            if(sourceMaps[index].satelite==maptype):
+                del sourceMaps[index]
     if sourceMaps:
-        return render(request, 'rm_resource_search.html', {'sourceMaps': json.dumps(sourceMaps, cls=DjangoJSONEncoder),
-                      'localMaps':json.dumps(localMaps,cls=DjangoJSONEncoder)})
-                      #'localGloID':json.dumps(localGloID,cls=DjangoJSONEncoder)})
+        return render(request, 'rm_resource_search.html', {'sourceMaps': json.dumps(sourceMaps, cls=DjangoJSONEncoder)})
     else:
         return render(request, 'rm_resource_search.html', {'message': '查找结果为空！'})
 
