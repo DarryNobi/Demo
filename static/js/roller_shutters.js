@@ -54,7 +54,7 @@ $(function(){
     var temp_layer2;
     button_compare.click(function(){
     if(iscompare){
-        //map.removeLayer(temp_layer1);
+        map.removeLayer(temp_layer1);
         map_2.removeLayer(temp_layer2);
 
         map2.hide();
