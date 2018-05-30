@@ -37,6 +37,9 @@ from web.models import Map
 def index(request):
     return render(request,
                   template_name='index.html')
+def _resource_search(request):
+    return render(request,
+                  template_name='rm_resource_search.html')
 
 def index_new(request):
     return render(request,
@@ -251,14 +254,18 @@ def resource_search(request):
     response=urllib.request.urlopen('http://172.20.53.158:8089/deliver_map/')
     sourceMaps=json.loads(json.loads(response.read().decode('utf-8'))['d_maps'])
     maptype=request.GET.get('maptype',False)
-    if(maptype):
-        for index in sourceMaps:
-            if(sourceMaps[index].satelite==maptype):
-                del sourceMaps[index]
-    if sourceMaps:
-        return render(request, 'rm_resource_search.html', {'sourceMaps': json.dumps(sourceMaps, cls=DjangoJSONEncoder)})
+    resultMaps={}
+    if(maptype=="请选择卫星种类"):
+        return JsonResponse({'sourceMaps': sourceMaps})
     else:
-        return render(request, 'rm_resource_search.html', {'message': '查找结果为空！'})
+        for k,v in sourceMaps.items():
+            if(v["satelite"]==maptype):
+                resultMaps[k]=v
+        sourceMaps=resultMaps
+    # if sourceMaps:
+    return JsonResponse({'sourceMaps': sourceMaps})
+    # else:
+    #     return JsonResponse({'sourceMaps': sourceMaps, "message": False})
 
 def rm_show_map(request):
     id = request.GET.get('id', False)

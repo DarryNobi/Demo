@@ -1,6 +1,4 @@
-
-    var data = [];
-
+  var data = [];
     for(var i in back_data){
         data.push(back_data[i])
     }
@@ -22,7 +20,7 @@
 				  columns: [
 					  {field: 'id', title:'序号',width:'10%', align: 'center'},
 					  {field: 'username', title:'帐号',width:'10%', align: 'center'},
-					  {field: 'department_name', title:'单位名称',width:'10%', align: 'center'},
+					  {field: 'enterprise_name', title:'单位名称',width:'10%', align: 'center'},
 					  {field: 'user_permissions', title:'已有权限',width:'30%', align: 'center'},
 					  {field: 'tool', title:'状态',width:'10%', align: 'center',
 					  	  formatter:function(value,row,index){
@@ -95,9 +93,9 @@ function status_confirm(data){
                 success:function(){
                     alert('success')
                 },
-                error:function(){
-                    alert('fail')
-                },
+//                error:function(){
+//                    alert('fail')
+//                },
             });
         } else {
             $("#subBut" + num).removeAttr("disabled");
@@ -109,21 +107,20 @@ function status_confirm(data){
                    url:'/status_revise/',
                    data:{
                    "is_active":"True",
-                   "id":userid
+                   "id":num
                },
                    dataType:'json',
                success:function(){
                    alert('success')
                    },
-                error:function(){
-                    alert('fail')
-                },
+//                error:function(){
+//                    alert('fail')
+//                },
 
             });
         }
     }
 }
-
 function permission_confirm(userId,index){
     var mes="您确定修改吗？";
     if(confirm(mes)==true){
@@ -145,7 +142,7 @@ function permission_confirm(userId,index){
             },
             dataType:'json',
             success:function(data){
-               author_manage.bootstrapTable("updateRow",{
+                author_manage.bootstrapTable("updateRow",{
                     index:index,
                     row:data['user'],
                 })
