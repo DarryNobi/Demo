@@ -146,11 +146,9 @@ $(function(){
                     //定义输出变量
                     var output;
                     //当面积大于10000时，转换为平方千米，否则为平方米
-                    if (area > 10000) {
-                        output = (Math.round(area/1000000*100)/100) + ' ' + 'km2';
-                    } else {
-                        output = (Math.round(area*100)/100) + ' ' + 'm2';
-                    }
+
+                    output = (Math.round(area/1000000*100)/100)
+
                     return output;
                 };
 });
