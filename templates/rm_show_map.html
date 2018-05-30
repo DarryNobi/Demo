@@ -41,7 +41,15 @@
             <img src="{% static 'img/location.png' %}">
         </div>
         <div id="preview_map">
-            <img id="imagePath" src="" height="400" width="400">
+            <span>
+                <img id="close_preview_map" src="{% static 'img/close.png' %}" height="20" width="20" style="">
+            </span><br>
+            <img id="imagePath" src="" height="200" width="200">
+            <script>
+                 document.getElementById('close_preview_map').onclick=function(){
+                    map.removeOverlay(overlay2);
+                 };
+            </script>
         </div>
 
     </div>
@@ -56,9 +64,11 @@
              minZoom:5
            }),
          });
-        //map.addLayer(baidu_layer);
         map.addLayer(default_geo_layer2);
         map.render();
+
+        var overlay2;
+        var overlay;
 
         var d_map={{ map|safe }};
         d_map=d_map[0];
@@ -66,7 +76,7 @@
         y=d_map.TopLeftLongitude;
 
         var container = document.getElementById('location_icon');
-        var overlay = new ol.Overlay(/** @type {olx.OverlayOptions} */ ({
+        overlay = new ol.Overlay(/** @type {olx.OverlayOptions} */ ({
             element: container,
             autoPan: true,
             autoPanAnimation: {
@@ -78,19 +88,20 @@
         overlay.setPosition(coordinate);
         map.addOverlay(overlay);
 
+        var container2 = document.getElementById('imagePath');
         container.onclick=function(){
-            map.removeOverlay(overlay);
-            var container2 = document.getElementById('imagePath');
+            //map.removeOverlay(overlay);
             var path= "../static/previewMap/"+d_map.jpgPath;
             container2.src=path;
-
-            var overlay2 = new ol.Overlay(/** @type {olx.OverlayOptions} */ ({
-                element: container2,
+            preview_map=document.getElementById('preview_map');
+            overlay2 = new ol.Overlay(/** @type {olx.OverlayOptions} */ ({
+                element: preview_map,
                 autoPan: true,
                 autoPanAnimation: {
                     duration: 250   //当Popup超出地图边界时，为了Popup全部可见，地图移动的速度.
                 }
             }));
+            var coordinate = ol.proj.fromLonLat([y+1,x-1]);
             overlay2.setPosition(coordinate);
             map.addOverlay(overlay2);
         };
