@@ -83,7 +83,8 @@ urlpatterns = [
     url(r'^deleteImage/',views.deleteImage),
     url(r'^downloadImage/',views.downloadImage),
     url(r'^test/',views.test),
-    url(r'^login_page/', views.login_page)
+    url(r'^login_page/', views.login_page),
+    url(r'^_resource_search/', views._resource_search)
 ]
 
 urlpatterns += staticfiles_urlpatterns()

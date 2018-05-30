@@ -16,7 +16,7 @@
     <script src="{% static 'js/bootstrap-table.min.js' %}"></script>
     <script src="{% static 'js/bootstrap-table-locale-all.min.js' %}"></script>
     <link rel="stylesheet" href="{% static 'css/bootstrap-table.min.css' %}">
-    <link href="{% static 'bootstrap-datetimepicker.min.css'  %}" rel="stylesheet" />
+    <link href="{% static 'css/bootstrap-datetimepicker.min.css'  %}" rel="stylesheet" />
        <link href="{% static 'css/bootstrap.css'  %}" rel="stylesheet" >
     <link href="{% static 'css/bootstrap-theme.css' %}"  rel="stylesheet">
     <!--<link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap.min.css">-->
@@ -56,10 +56,10 @@
                             <!--<span class="picture-span" style="margin-left:0;">时间：</span>-->
                             <!--<input type='date' class="nowdate search-input"/>-->
                             <span class="picture-span">种类：</span>
-                            <select class="search-input">
-                                <option id="maptype" value="请选择卫星种类">请选择卫星种类</option>
-                                <option value="高分2号">高分2号</option>
-                                <option value="高景1号">高景1号</option>
+                            <select class="search-input" name="satelite" id="maptype">
+                                <option value="请选择卫星种类">请选择卫星种类</option>
+                                <option value="高分二号">高分二号</option>
+                                <option value="高景一号">高景一号</option>
                             </select>
                         </div>
                         <div style="width:7%">
@@ -67,10 +67,7 @@
                                 <button class="btn btn-primary" style="border-radius:6px; height:50%; width:100%; min-height:34px; font-size:14px" id="search_btn" ><img src="{% static 'img/search.png' %}" style="padding-left:5px;">搜索</button>
                             </span>
                             <script>
-                                $('#search_btn').click(function(){
-                                maptype=$('#maptype').value;
-                                window.location.href="/resource_search/?maptype="+maptype;
-                                });
+
 
                             </script>
                         </div>
@@ -103,7 +100,7 @@
             data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
         });
     </script>
-    <script>var sourceMaps={{ sourceMaps|safe }};</script>
+
     <script src="{% static 'js/resourceManagement.js' %}"></script>
 </body>
 </html>

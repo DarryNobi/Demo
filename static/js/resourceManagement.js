@@ -1,26 +1,46 @@
-var data=[];
-for(var i in sourceMaps){
-    data.push(sourceMaps[i])
-};
 
-window.onload=function(){
-    //默认获取当前日期
-    var today = new Date();
-    var nowdate = (today.getFullYear()) + "-" + (today.getMonth() + 1) + "-" + today.getDate();
-    //对日期格式进行处理
-    var date = new Date(nowdate);
-    var mon = date.getMonth() + 1;
-    var day = date.getDate();
-    var mydate = date.getFullYear() + "-" + (mon < 10 ? "0" + mon : mon) + "-" + (day < 10 ? "0" + day : day);
-    $(".nowdate").val(mydate);
-    showList();
-};
 
-var resource_tab = $("#resource_tab");
+ window.onload = function() {
+        data=[];
+        showList();
+        query();
+        var query_btn = $("#search_btn");
+        query_btn.click(function(){
+            query();
+
+        });
+    }
+//window.onload=function(){
+//    //默认获取当前日期
+//    var today = new Date();
+//    var nowdate = (today.getFullYear()) + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+//    //对日期格式进行处理
+//    var date = new Date(nowdate);
+//    var mon = date.getMonth() + 1;
+//    var day = date.getDate();
+//    var mydate = date.getFullYear() + "-" + (mon < 10 ? "0" + mon : mon) + "-" + (day < 10 ? "0" + day : day);
+//    $(".nowdate").val(mydate);
+//    showList();
+//
+//
+//
+//      $('#search_btn').click(function(){
+//     maptype=$('#maptype').val();
+//      alert(maptype);
+//      window.location.href="/resource_search/?maptype="+maptype;
+//      var data=[];
+//      for(var i in sourceMaps){
+//      data.push(sourceMaps[i])
+//                            };
+//      $("#resource_tab").bootstrapTable('load',data);
+//                                });
+//};
+
+
 
 function showList(){
     var num=1;
-    resource_tab.bootstrapTable({
+    $("#resource_tab").bootstrapTable({
         striped: true,//开启条纹
         locale:'zh-CN',//中文支持
         pagination: true,//是否开启分页（*）
@@ -178,6 +198,28 @@ function release(data){
             });
     }
 }
+function query(){
+    var maptype= $("#maptype").val()
+
+    $.ajax({
+            type:'get',
+            url:'/resource_search/',
+            data: {
+                'maptype':maptype,
+            },
+            success:function(result){
+                var data1=[];
+                result_data=result['sourceMaps']
+                for(var i in result_data){
+                    data1.push(result_data[i]);
+                    }
+              $("#resource_tab").bootstrapTable('load',data1);
+
+                },
+            error:function(){
+                alert('搜索失败')}
+         });
+    }
 function delete_res (data) {};
 
 function show_map (data) {
