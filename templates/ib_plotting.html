@@ -370,7 +370,7 @@
          center: ol.proj.fromLonLat([117.53, 39.18]),
          zoom: 14,
          maxZoom:18,
-         minZoom:11
+         minZoom:13
        }),
        controls: ol.control.defaults().extend([
             new ol.control.ScaleLine({  }),
@@ -393,7 +393,7 @@
     var map_2 = new ol.Map({
         target:"map_2",
         view:map.getView(),
-        layers:[ new ol.layer.Tile({source:new ol.source.OSM()}) ]
+        //layers:[ new ol.layer.Tile({source:new ol.source.OSM()}) ]
     });
 
     </script>
@@ -405,7 +405,7 @@
     </script>
 
     <script src="{% static 'js/load_draw.js' %}"></script>
-    <!--<script src="{% static 'js/roller_shutters.js' %}"></script>-->
+    <script src="{% static 'js/roller_shutters.js' %}"></script>
     <script src="{% static 'js/select_draw.js' %}"></script>
     <script src="{% static 'js/polygon.js' %}"></script>
     <script src="{% static 'js/distance.js' %}"></script>

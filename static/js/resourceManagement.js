@@ -2,9 +2,7 @@ var data=[];
 for(var i in sourceMaps){
     data.push(sourceMaps[i])
 };
-//for(var i in localMaps){
-//    alert (localMaps)
-//};
+
 window.onload=function(){
     //默认获取当前日期
     var today = new Date();
@@ -21,6 +19,7 @@ window.onload=function(){
 var resource_tab = $("#resource_tab");
 
 function showList(){
+    var num=1;
     resource_tab.bootstrapTable({
         striped: true,//开启条纹
         locale:'zh-CN',//中文支持
@@ -33,7 +32,7 @@ function showList(){
         search: false,
         data:data,
         columns: [
-            {field: 'id', title:'序号', width:'10%', align:'center'},
+            {field: 'SerialNumber',title: '序号', width:'10%',align:'center',formatter: function (value, row, index) {return index+1;}},
             {field: 'map_name', title:'影像资源', width:'10%', align:'center'},
             {field: 'create_time', title:'入库时间', width:'10%', align:'center'},
             {field: 'satelite', title:'卫星', width:'10%', align:'center'},

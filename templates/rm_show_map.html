@@ -38,8 +38,12 @@
         <div id="map" class="map">
         </div>
         <div id="location_icon">
-            <img  src="{% static 'img/location.png' %}">
+            <img src="{% static 'img/location.png' %}">
         </div>
+        <div id="preview_map">
+            <img id="imagePath" src="" height="400" width="400">
+        </div>
+
     </div>
 
      <script type="text/javascript">
@@ -70,12 +74,26 @@
                 duration: 250   //当Popup超出地图边界时，为了Popup全部可见，地图移动的速度.
             }
         }));
+
         var coordinate = ol.proj.fromLonLat([y,x]);
         overlay.setPosition(coordinate);
         map.addOverlay(overlay);
 
         container.onclick=function(){
-        alert()
+            map.removeOverlay(overlay);
+            var container2 = document.getElementById('imagePath');
+            var path= "../static/previewMap/"+d_map.GlobeID.toString()+".jpg";
+            container2.src=path;
+
+            var overlay2 = new ol.Overlay(/** @type {olx.OverlayOptions} */ ({
+                element: container2,
+                autoPan: true,
+                autoPanAnimation: {
+                    duration: 250   //当Popup超出地图边界时，为了Popup全部可见，地图移动的速度.
+                }
+            }));
+            overlay2.setPosition(coordinate);
+            map.addOverlay(overlay2);
         };
     </script>
  </body>
