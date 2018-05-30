@@ -211,7 +211,7 @@
                 <div class="col-lg-11 col-xs-11" style="display:inline-flex; align-items:center; height:100%">
                     <span class="picture-span">影像选择</span>
                     <select type="text" class="compare-input" id="imagery" style="width: 15%;">
-                          <option>无</option>
+                          <option>请选择影像</option>
                     </select>
                     <span class="picture-span" style="padding-left: 10%;width: auto;">地上物类型：</span>
                     <select type="text" class="compare-input" id="type" style="width: 10%;">
@@ -238,8 +238,10 @@
                                     maps=JSON.parse(d_maps);
                                     for(m in maps){
                                         name=maps[m].name;
+                                        var area=maps[m].Area;
+                                        var time=maps[m].ReceiveTime;
                                         id=maps[m].GlobeID;
-                                        selection.add(new Option(name,id))
+                                        selection.add(new Option(area+time,id))
                                     }
                                 }
                              });
