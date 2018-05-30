@@ -58,11 +58,10 @@
          });
         //map.addLayer(baidu_layer);
         map.addLayer(default_geo_layer2);
-        map.addLayer(default_geo_layer);
         map.render();
 
         var d_map={{ map|safe }};
-        //alert(d_map.TopLeftLatitude);
+        d_map=d_map[0];
         x=d_map.TopLeftLatitude;
         y=d_map.TopLeftLongitude;
 

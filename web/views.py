@@ -269,12 +269,14 @@ def resource_search(request):
 
 def rm_show_map(request):
     id = request.GET.get('id', False)
-    map=Map.objects.get(GlobeID=id)
-    map=model_to_dict(map)
+    map=Map.objects.filter(GlobeID=id)
     if(map):
-        return render(request,'rm_show_map.html',{'map':json.dumps(map,cls=DjangoJSONEncoder)})
+        d_map = {}
+        for i in range(len(map)):
+            d_map[i] = model_to_dict(map[i])
+        return render(request,'rm_show_map.html',{'map':json.dumps(d_map,cls=DjangoJSONEncoder)})
     else:
-        return render(request,'rm_show_map.html')
+        return JsonResponse({'error':1})
 
 
 def gs_show_map(request):
@@ -511,7 +513,7 @@ def save_draw(request):
     jsondata=json.dumps(jsonstr)
     draw_obj = GraphicLabel.objects.create(name=name,context=jsondata,graphictype=graphictype,graphiclabel=graphiclabel,graphic_provide=request.user,discrib=discrib,square=square,address=address,coordinate_x=coordinate_x,coordinate_y=coordinate_y)
     draw_obj.save()
-    return render(request,'map_geo.html',{'message':'success'})
+    return HttpResponse("success")
     #return HttpResponse("success")
 
 
