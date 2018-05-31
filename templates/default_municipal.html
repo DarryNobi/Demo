@@ -70,18 +70,60 @@
     <div style="height:10%; width:100%; display:-webkit-flex; align-items:center;">
         <h5 style="width:100%; font-size:3rem; padding-left:20px; color: #444444">最新入库影像</h5>
     </div>
-    <div class="homeRight" style="float:left; width:100%; height:70%; padding-left:20px">
-        <img id="home_pic" src="{% static 'img/500305658_wx.png' %}" style="height:95%;">
-        <script>
-            document.getElementById('home_pic').onclick=function(){
-                location.href= '/resource_management/';
-            };
-        </script>
+    <!--<div style="height: 100%;margin-left: 25%;">-->
+        <!--<div class="homeRight" style="float:left; width:100%; height:70%; padding-left:20px">-->
+            <!--<img id="home_pic" src="{% static 'img/homepic.png' %}" style="height:95%;">-->
+            <!--<script>-->
+                <!--document.getElementById('home_pic').onclick=function(){-->
+                    <!--location.href= '/resource_management/';-->
+                <!--};-->
+            <!--</script>-->
+        <!--</div>-->
+        <!--<div style="height:10%">-->
+            <!--<span style="font-size:2rem; padding-left:20px;">标题：2017年天津市民园广场遥感影像图</span><br/>-->
+            <!--<span class="date-span"></span>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <div id="butong_net_right" style="overflow:hidden;width:80%;height:70%;margin-left:10%">
+        <table cellpadding="0" cellspacing="0" border="0">
+            <tr><td id="butong_net_right1" valign="top" align="center">
+            <table cellpadding="20" cellspacing="0" border="0">
+            <tr align="center">
+                <td><div>
+                    <span style="font-size: 40px;">标题：2017年天津市民园广场遥感影像图</span><br>
+                    <img src="{% static 'img/homepic.png' %}" style="width: 1000px;">
+                    <span style="width: 50px;height: 100%;"></span>
+                </div></td>
+                <td><div>
+                    <span style="font-size: 40px;">标题：2017年天津市华苑遥感影像图</span><br>
+                    <img src="{% static 'img/homepic1.png' %}" style="width: 1000px;">
+                </div></td>
+            </tr>
+            </table>
+            </td>
+            <td id="butong_net_right2" valign="top"></td>
+            </tr>
+        </table>
     </div>
-    <div style="height:10%">
-        <span style="font-size:2rem; padding-left:20px;">标题：中国人民共和国的航天事业起始于1956年。中国于1970年4月24日发射第一颗人造地球卫星</span><br/>
-        <span class="date-span"></span>
-    </div>
+    <script>
+    document.getElementById('butong_net_right').onclick=function(){
+        location.href= '/resource_management/';
+    };
+    var speed=30//速度数值越大速度越慢
+    butong_net_right2.innerHTML=butong_net_right1.innerHTML
+    function Marquee4(){
+        if(butong_net_right.scrollLeft<=0)
+            butong_net_right.scrollLeft+=butong_net_right2.offsetWidth
+        else{
+            butong_net_right.scrollLeft--
+        }
+    }
+    var MyMar4=setInterval(Marquee4,speed)
+    butong_net_right.onmouseover=function() {clearInterval(MyMar4)}
+    butong_net_right.onmouseout=function() {MyMar4=setInterval(Marquee4,speed)}
+
+    </script>
     <script>
         window.onload=function() {
             //默认获取当前日期
