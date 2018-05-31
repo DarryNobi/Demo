@@ -25,6 +25,8 @@ User = get_user_model()
 from web.ImageryServer import DB_Workshop
 from web.ImageryServer import ImagePubMan
 import urllib.request
+import urllib
+import json
 from django.db.models import Q
 #from web.ImageryServer import ImagePre
 # Create your views here.
@@ -338,7 +340,6 @@ def password_reset(request):
     if request.user.check_password(old_password):
         request.user.set_password(new_password)
         request.user.save()
-
         return render(request, 'uc_password_revise.html', {'message': '修改成功！'})
     else:
         return render(request, 'uc_password_revise.html',{'message': '用户名或密码错误!'})
@@ -662,3 +663,14 @@ def _de_event_search(request):
 
 def login_page(request):
     return render(request,"index_new.html",{"status":True})
+
+
+def locate(request):
+    address=request.GET.get("location")
+    url = 'http://api.map.baidu.com/geocoder/v2/?address=%s'% address + '&output=json&ak=秘钥'
+    html = urllib.request.urlopen(url)
+    json1 = html.read() #转化为str类型
+    hjson1 =json.loads(json1) #转化为dict类型
+    lng1 = hjson1['result']['location']['lng']  # 经度
+    lat1 = hjson1['result']['location']['lat']  # 纬度
+    return JsonResponse({"lon":lng1,"lat":lat1})
