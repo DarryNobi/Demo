@@ -178,6 +178,11 @@
                     </button>
                 </span>
             </div>
+            <!--<div class="col-lg-5 col-xs-5" style="display:inline-flex; align-items:center; height:100%;padding-left: 5%;">-->
+                 <!--<span class="picture-span">地址：</span>-->
+                <!--<input type="text" name="location" id="location">-->
+                <!--<button id="locate" >定位</button>-->
+            <!--</div>-->
         </div>
     </div>
     <div class="container" style="width:100%; height:87%">
@@ -282,12 +287,16 @@
                                 if (map_selected) {
                                     $(".map_compare_span").css({"background":"#ffffff","color":"black","outline":"none","border-left":"1px solid #a7a9ad"});
                                     map_selected = false;
-                                    map.removeLayer(default_geo_layer);
+                                    map.removeLayer(default_geo_layer4);
+                                      if (!image_selected){
+                                        map.removeLayer(default_geo_layer);
+                                        //map.addLayer(default_geo_layer4);
+                                    }
                                     layer3_cheak()
                                 } else {
                                     $(".map_compare_span").css({"background":"#0a86e1","color":"white","outline":"none","border-left":"1px solid #a7a9ad"});
                                     map_selected = true;
-                                    map.addLayer(default_geo_layer);
+                                    map.addLayer(default_geo_layer4);
                                     layer3_cheak()
                                 }
                             })
@@ -303,22 +312,29 @@
                                     image_selected = true;
                                     map.addLayer(default_geo_layer2);
                                     if (map_selected){
-                                        map.removeLayer(default_geo_layer);
-                                        map.addLayer(default_geo_layer);
+                                        map.removeLayer(default_geo_layer4);
+                                        map.addLayer(default_geo_layer4);
                                     }
                                     layer3_cheak()
                                 }
                             })
                             function layer3_cheak(){
                                 if (map_selected && !image_selected){
+
+                                    map.removeLayer(default_geo_layer2);
                                     map.addLayer(default_geo_layer3);
                                     map.removeLayer(default_geo_layer);
                                     map.addLayer(default_geo_layer);
+                                    map.removeLayer(default_geo_layer4);
+                                    //map.addLayer(default_geo_layer4);
+                                    //alert("qew");
                                     }
                                 else
                                     map.removeLayer(default_geo_layer3);
+                                    //map.removeLayer(default_geo_layer);
                             };
                         </script>
+
                     </ul>
                     <a class="down" id="image_download" onmouseout="restore1()" onmouseover="change1()"> <div  style="margin-top:150%"><img id="img1" style="width:50%;" src="{% static 'img/image_download.png' %}"></div>
                        <div  id="image_download1" style="color:#999999">影像下载</div>
@@ -410,9 +426,9 @@ function change1(){
        target: 'map',
        view: new ol.View({
          center: ol.proj.fromLonLat([117.2027, 39.1653]),
-         zoom: 14,
+         zoom: 12,
          maxZoom:18,
-         minZoom:13
+         minZoom:4
        }),
        controls: ol.control.defaults().extend([
             new ol.control.ScaleLine({  }),
@@ -430,7 +446,7 @@ function change1(){
 
 
     map.addLayer(default_geo_layer2);
-    map.addLayer(default_geo_layer);
+    map.addLayer(default_geo_layer4);
     map.render();
     var map_2 = new ol.Map({
         target:"map_2",
@@ -443,7 +459,7 @@ function change1(){
     <script>
          cords=[{{x|safe}},{{y|safe}}];//cords=[102,39]
          if(cords.toString()!=[0,0].toString())
-            map.getView().animate({center:(cords)});
+            map.getView().animate({zoom: map.getView().getZoom() + 5},{center:(cords)});
     </script>
 
     <script src="{% static 'js/load_draw.js' %}"></script>
@@ -452,5 +468,6 @@ function change1(){
     <script src="{% static 'js/polygon1.js' %}"></script>
     <script src="{% static 'js/distance.js' %}"></script>
     <script src="{% static 'js/area.js' %}"></script>
+    <script src="{% static 'js/locate.js' %}"></script>
 </body>
 </html>

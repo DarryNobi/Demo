@@ -11,10 +11,11 @@ $(function(){
                 }),
         });
     };
-
+//var close= document.getElementById("close_login").onclick;
     var selectClick = new ol.interaction.Select({
         condition: ol.events.condition.singleClick,
-        style:changeStyle
+        style:changeStyle,
+        //removeCondition: close
     });
     map.addInteraction(selectClick);
     selectClick.on("select",singleClickEvent);
@@ -56,14 +57,16 @@ $(function(){
 
     var doubleselectClick = new ol.interaction.Select({
         condition: ol.events.condition.doubleClick,
-        style:changeStyle
+        style:changeStyle,
+        removeCondition:ol.events.condition.singleClick
+
     });
     map.addInteraction(doubleselectClick);
     doubleselectClick.on("select",doubleClickEvent);
     function doubleClickEvent(e){
         var coords=e.selected[0].getGeometry().getCoordinates();
         var id=e.selected[0].getProperties().id;
-
+//        var ishidden=true;
         var popup_button = document.getElementById("popup_button");
         var popup = new ol.Overlay({
           element:popup_button,
@@ -75,12 +78,27 @@ $(function(){
         popup.setPosition(coords[0][0]);
 
         popup_button.innerHTML="<p><button id='revise'>修改</button><button id='delete'>删除</button><button id='cancel'>取消</button></p>"
+
         map.addOverlay(popup);
+//        if(ishidden){
+//        map.addOverlay(popup);
+//        ishidden=flase;
+//        }else{
+//        map.removeOverlay(popup);
+//        ishidden=true;
+//
+//        }
+
+
 
         var revise = document.getElementById("revise");
         var remove = document.getElementById("delete");
         var cancel1 = document.getElementById("cancel");
+
         var container = document.getElementById('popup');
+//        if(container.style.display="none"){
+//           container.style.display="inline";
+//        }
         var name = $("#name");
         var graphictype = $("#graphictype");
         var graphiclabel = $("#graphiclabel");
@@ -93,8 +111,13 @@ $(function(){
         var cancel = document.getElementById("save_cancel");
         cancel.onclick=function(){
         container.style.display="none";
+        map.removeInteraction(doubleselectClick);
+        map.addInteraction(doubleselectClick);
         }
          revise.onclick=function(){
+//         container.style.display="none";
+          popup_button.innerHTML='';
+
          $.get("/query_draw/",{'id':id}, function(ret){
             drawinfo=ret['drawinfo'];
              name.val(drawinfo.name);
@@ -106,8 +129,8 @@ $(function(){
          address.val(drawinfo.address);
          });
 
+         container.style.display="block";
 
-         container.style.display="block"
          save_button.hide();
          update_button.show();
          var overlay = new ol.Overlay(/** @type {olx.OverlayOptions} */ ({
@@ -136,12 +159,11 @@ $(function(){
                     'graphictype':graphictype,
                     'graphiclabel':graphiclabel,
                     'discrib':discrib,
-                    'foundtime':foundtime,
                     'address':address
                 },
                 success:function(){
                     alert('修改成功');
-                    location.reload();
+                    //location.reload();
                     },
                 error:function(){
                     alert('修改失败')}
@@ -156,10 +178,14 @@ $(function(){
         }
         cancel1.onclick=function(){
             popup_button.innerHTML='';
+             map.removeInteraction(doubleselectClick);
+             map.addInteraction(doubleselectClick);
         }
     }
       $("#close_login").click(function(){
             $("#popup_info").hide();
+            map.removeInteraction(selectClick);
+            map.addInteraction(selectClick);
         });
 
 });

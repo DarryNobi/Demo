@@ -28,7 +28,7 @@ $(function(){
                         projection: "EPSG:4326",
                        // opacity:0.5,
                     });
-                    map.addLayer(temp_layer);
+                    //map.addLayer(temp_layer);
                 }
             }
          });

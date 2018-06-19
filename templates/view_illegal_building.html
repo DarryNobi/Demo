@@ -103,9 +103,13 @@
     function restore2(){
         document.getElementById('image2').src="{% static 'img/event.png' %}";
     }
-
-
 </script>
+
+ <script>
+     //alert(parent.window.unsearched);
+     if(parent.window.unsearched)
+        open_illegal_building('/ib_event_management/');
+ </script>
 
  </body>
 </html>

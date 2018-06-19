@@ -87,7 +87,6 @@
                             </li>
 
                             <li id="2">
-                                <!--<a href="javascript:void(0)" onclick="open_municipal_management('/move_out/');">-->
                                 <a href="javascript:void(0)" onclick="open_municipal_management('/move_out/');">
                                     <span><img src="{% static 'img/remove.png' %}"></span>
                                     <span class="black_font_color">拆迁管理</span>
@@ -163,11 +162,14 @@
         };
 
         var lis=[$("#1"),$("#2"),$("#3"),$("#4"),$("#5"),$("#6")];
-
+        //var lis_bool=[flase,false,false,false,false,false];
         lis[0].click(function(){
-            for(var i=0;i<6;i++)
+            for(var i=0;i<6;i++){
                 lis[i].css(css_unselected);
+                //lis_bool[i]=false;
+                }
             lis[0].css(css_selected);
+            //lis_bool[i]=true;
         });
         lis[1].click(function(){
             for(var i=0;i<6;i++)
@@ -195,5 +197,22 @@
             lis[5].css(css_selected);
         });
     </script>
+
+    <script>
+        //市政管理首页搜索变量
+        var event_search_name;
+        var event_search_type;
+        var event_search_time;
+        var event_search_address;
+        var unsearched = false;
+        function gotosearch(){
+            //alert(event_search_type);
+            if(event_search_type==1)
+                open_municipal_management('/offence_build/');
+            else if(event_search_type==2)
+                open_municipal_management('/move_out/');
+            alert("确认跳转到查询页面?");
+        };
+    </script><!-- 全局变量 -->
 </body>
 </html>

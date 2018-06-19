@@ -49,14 +49,25 @@
         var default_geo_layer = new ol.layer.Tile({
             source: new ol.source.XYZ({
                 crossOrigin: 'anonymous',
-                url: "http://t2.tianditu.com/DataServer?T=cva_w&x={x}&y={y}&l={z}"
+                url: "http://t3.tianditu.com/DataServer?T=cva_w&x={x}&y={y}&l={z}"
             }),
             projection: "EPSG:4326",
             opacity:1,
         });
 
         var default_geo_layer3 = new ol.layer.Tile({
-            source: new ol.source.OSM(),
+             source: new ol.source.XYZ({
+                crossOrigin: 'anonymous',
+                url: "http://t2.tianditu.com/DataServer?T=vec_w&x={x}&y={y}&l={z}"
+            }),
+            projection: "EPSG:4326",
+            opacity:1,
+        });
+            var default_geo_layer4 = new ol.layer.Tile({
+             source: new ol.source.XYZ({
+                crossOrigin: 'anonymous',
+                url: "http://t2.tianditu.com/DataServer?T=cia_w&x={x}&y={y}&l={z}"
+            }),
             projection: "EPSG:4326",
             opacity:1,
         });

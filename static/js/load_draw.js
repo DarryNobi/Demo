@@ -10,6 +10,7 @@ $(document).ready(function(){
        "type": "feature"};\
    */
         for(var i in all_draws){
+            //alert(all_draws[i]);
             var vectorSource = new ol.source.Vector({
                 features: (new ol.format.GeoJSON()).readFeatures(all_draws[i])
               });

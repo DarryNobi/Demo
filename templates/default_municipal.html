@@ -50,16 +50,16 @@
         <div role="form" name="homeForm" action="" method="post" style="width:90%; font-size:20px; height:100%">
             <div style="width: 100%; display:-webkit-flex; align-items:center; height:100%;">
                 <span class="search-type">名称：</span>
-                <span class="search-span" ><input style="background: #f3f5f8;" type="text" name="name" class="form-control search-input" placeholder="请输入名称" /></span>
+                <span class="search-span" ><input id="search_name" style="background: #f3f5f8;" type="text" name="name" class="form-control search-input" placeholder="请输入名称" /></span>
                 <span class="search-type">类型：</span>
-                <select id="type" style="background: #f3f5f8;height: 50%;border-radius: 4px;" class="search-span" style="height:56px; font-size:20px;">
-                    <option value="1">违建</option>
-                    <option value="2">拆迁</option>
+                <select id="search_type" style="background: #f3f5f8;height: 50%;border-radius: 4px;" class="search-span" style="height:56px; font-size:20px;">
+                    <option value=1>违建</option>
+                    <option value=2>拆迁</option>
                 </select>
                 <span class="search-type">时间：</span>
-                <span class="search-span"><input style="background: #f3f5f8;" type='date' class="form-control search-input" id='nowdate'/></span>
+                <span class="search-span"><input id="search_time" style="background: #f3f5f8;" type='date' class="form-control search-input" id='nowdate'/></span>
                 <span class="search-type">地址：</span>
-                <span class="search-span"><input style="background: #f3f5f8;" type="text" name="address" class="form-control search-input" placeholder="请输入地址" /></span>
+                <span class="search-span"><input id="search_address" style="background: #f3f5f8;" type="text" name="address" class="form-control search-input" placeholder="请输入地址" /></span>
                 <span class="input-group-btn search-span">
                     <a  onclick="status()" id="btn" class="btn btn-primary" style="height:56px; width:40%; border-radius:4px; font-size: 2.5rem" href="">搜索</a>
                 </span>
@@ -139,18 +139,15 @@
         }
     </script>
 <script>
-function   status(){
-    var type=$("#type").val();
-   // alert(type);
-    var btn=$("#btn");
-    if(type=="1")
-    {
-     btn.attr("href","/ib_event_management/");
-    }else
-    {
-    btn.attr("href","/demolition_management/");
-    }
+    function status(){
+        parent.event_search_name=$("#search_name").val()
+        parent.event_search_type=$("#search_type").val()
+        parent.event_search_time=$("#search_time").val()
+        parent.event_search_address=$("#search_address").val()
+        parent.unsearched=true;
+        parent.gotosearch();
     }
 </script>
+
 </body>
 </html>
