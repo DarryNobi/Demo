@@ -311,12 +311,15 @@
                             })
                             function layer3_cheak(){
                                 if (map_selected && !image_selected){
+
                                     map.addLayer(default_geo_layer3);
                                     map.removeLayer(default_geo_layer);
                                     map.addLayer(default_geo_layer);
+
                                     }
                                 else
                                     map.removeLayer(default_geo_layer3);
+                                     //map.removeLayer(default_geo_layer4);
                             };
                         </script>
                     </ul>
