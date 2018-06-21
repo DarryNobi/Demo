@@ -214,23 +214,22 @@
                           <option>请选择影像</option>
                     </select>
                     <span class="picture-span" style="padding-left: 10%;width: auto;">地上物类型：</span>
-                    <select type="text" class="compare-input" id="type" style="width: 10%;">
-                          <option>全貌</option>
-                          <option>建筑</option>
-                          <option>道路</option>
-                          <option>水域</option>
-                          <option>草地</option>
-                          <option>林地</option>
-                          <option>耕地</option>
-                          <option>大棚</option>
+                    <select type="text" class="compare-input" id="labeltype" style="width: 10%;">
+                          <option value="0">全貌</option>
+                          <option value="1">建筑</option>
+                          <option value="2">道路</option>
+                          <option value="4">水域</option>
+                          <option value="3">草地</option>
+                          <option value="7">林地</option>
+                          <option value="5">耕地</option>
+                          <option value="6">大棚</option>
                     </select>
-
                     <span style="height:100%; display:-webkit-flex; align-items:center; width:7%; margin-left:42px;">
                         <button class="btn btn-primary" style="border-radius:6px; height:50%; width:100%; min-height:50px; font-size:20px" id="location_btn" >确定</button>
                     </span>
-                     <span class="picture-span" style="padding-left: 10%;width: auto;">位置信息：</span>
-                    <input type="text" id="location" style="width: 10%;" >
-                    <button class="btn btn-primary" id="location_btn1" >跳转</button>
+                     <span class="picture-span" style="margin-left: 10%;">面积：</span>
+                     <span class="picture-span" id="proportion">0</span>
+                     <span>平方千米</span>
                     <script>
                         selection=document.getElementById("imagery");
                         $.ajax({
@@ -262,7 +261,7 @@
                                     cord_x=(maps[m].TopLeftLongitude+maps[m].TopRightLongitude)/2.0;
                                     cord_y=(maps[m].TopLeftLatitude+maps[m].BottomLeftLatitude)/2.0;
                                     var location=ol.proj.fromLonLat([cord_x,cord_y]);
-                                    map.getView().animate({center:location});
+                                    map.getView().animate({center:location,zoom:14});
                                 }
                             }
 
@@ -278,6 +277,49 @@
                                // opacity:0.5,
                             });
                             map.addLayer(temp_layer);
+
+                            /////////////////////////////////////////////////////加载地物类别图形
+                            labeltype=document.getElementById("labeltype");
+                            var labeltype_index = labeltype.selectedIndex;
+                            var labeltype_text = labeltype.options[labeltype_index].text;
+                            var labeltype_value = labeltype.options[labeltype_index].value;
+
+                            $.getJSON("../static/aaa.json",function(data){
+                            //data1=JSON.parse(data);
+                             alert(data[labeltype_value]);
+                            $("#proportion").text(data[labeltype_value]);
+
+
+})
+                            $.ajax({
+                                type:'get',
+                                url:'/_autographiclabel_inquiry/',
+                                data: {'type':labeltype_value},
+                                success:function(d_autographiclabel){
+                                    autographiclabel=d_autographiclabel['d_autographiclabel'];
+                                    map.getOverlays().clear();
+                                    for(var i in autographiclabel){
+                                        //alert(autographiclabel[i]);
+                                        var vectorSource = new ol.source.Vector({
+                                            features: (new ol.format.GeoJSON()).readFeatures(autographiclabel[i]),
+                                          });
+                                        style=new ol.style.Style({
+                                            stroke:new ol.style.Stroke({
+                                                color: '#319FD3',
+                                                width: 1,
+                                            }),
+                                            fill: new ol.style.Fill({ //矢量图层填充颜色，以及透明度
+                                                color: 'rgba(49, 159, 211, 0.5)'
+                                            }),
+                                        });
+                                        var vectorLayer = new ol.layer.Vector({
+                                            source: vectorSource,
+                                            style: style
+                                        });
+                                        map.addOverlay(vectorLayer);
+                                    }
+                                }
+                             });
                         });
                     </script>
                 </div>
@@ -380,19 +422,23 @@
                                 <p class="image_compare_span" style="width:50%;margin:0 0 0 0;">影像</p>
                             </a>
                         </li>
-                        <script>
+                       <script>
                             var map_selected = true;
                             var image_selected = true;
                             $("#ib_map_compare").click(function(){
                                 if (map_selected) {
                                     $(".map_compare_span").css({"background":"#ffffff","color":"black","outline":"none","border-left":"1px solid #a7a9ad"});
                                     map_selected = false;
-                                    map.removeLayer(default_geo_layer);
+                                    map.removeLayer(default_geo_layer4);
+                                      if (!image_selected){
+                                        map.removeLayer(default_geo_layer);
+                                        //map.addLayer(default_geo_layer4);
+                                    }
                                     layer3_cheak()
                                 } else {
                                     $(".map_compare_span").css({"background":"#0a86e1","color":"white","outline":"none","border-left":"1px solid #a7a9ad"});
                                     map_selected = true;
-                                    map.addLayer(default_geo_layer);
+                                    map.addLayer(default_geo_layer4);
                                     layer3_cheak()
                                 }
                             })
@@ -408,20 +454,26 @@
                                     image_selected = true;
                                     map.addLayer(default_geo_layer2);
                                     if (map_selected){
-                                        map.removeLayer(default_geo_layer);
-                                        map.addLayer(default_geo_layer);
+                                        map.removeLayer(default_geo_layer4);
+                                        map.addLayer(default_geo_layer4);
                                     }
                                     layer3_cheak()
                                 }
                             })
                             function layer3_cheak(){
                                 if (map_selected && !image_selected){
+
+                                    map.removeLayer(default_geo_layer2);
                                     map.addLayer(default_geo_layer3);
                                     map.removeLayer(default_geo_layer);
                                     map.addLayer(default_geo_layer);
+                                    map.removeLayer(default_geo_layer4);
+                                    //map.addLayer(default_geo_layer4);
+                                    //alert("qew");
                                     }
                                 else
                                     map.removeLayer(default_geo_layer3);
+                                    //map.removeLayer(default_geo_layer);
                             };
                         </script>
                     </ul>
@@ -515,9 +567,9 @@ function change1(){
            target: 'map',
            view: new ol.View({
              center: ol.proj.fromLonLat([117.2027, 39.1653]),
-             zoom: 15,
+             zoom: 12,
              maxZoom:18,
-             minZoom:13
+             minZoom:4
            }),
            controls: ol.control.defaults().extend([
                 new ol.control.ScaleLine({  }),
@@ -534,16 +586,15 @@ function change1(){
          });
         //map.addLayer(baidu_layer);
         map.addLayer(default_geo_layer2);
-        map.addLayer(default_geo_layer);
+        map.addLayer(default_geo_layer4);
         map.render();
     </script>
 
     <script src="{% static 'js/load_draw.js' %}"></script>
     <script src="{% static 'js/select_draw.js' %}"></script>
-    <script src="{% static 'js/polygon.js' %}"></script>
+    <script src="{% static 'js/polygon1.js' %}"></script>
     <script src="{% static 'js/distance.js' %}"></script>
     <script src="{% static 'js/area.js' %}"></script>
-    <script src="{% static 'js/locate.js' %}"></script>
  </body>
 </html>
 
