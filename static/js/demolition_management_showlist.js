@@ -28,7 +28,7 @@ function showList(){
               search: false,
               data:data,
               columns: [
-                  {field: 'num', title:'序号', width:'10%', align:'center'},
+                  {field: 'numm', title:'序号', width:'10%', align:'center',formatter: function (value, row, index) {return index+1;}},
                   {field: 'name', title:'名称', width:'10%', align:'center'},
                   {field: 'square', title:'面积', width:'10%', align:'center'},
                   {field: 'graphiclabel', title:'类型', width:'10%', align:'center'},
@@ -77,6 +77,14 @@ function query(){
     var query_type = $("#query_type").val()
     var query_time = $("#query_time").val()
     var query_address = $("#query_address").val()
+
+    if(parent.parent.window.unsearched){
+    var query_name = parent.parent.window.event_search_name;
+    var query_time = parent.parent.window.event_search_time;
+    var query_address = parent.parent.window.event_search_address;
+    parent.parent.window.unsearched=false;
+    }
+
     $.ajax({
             type:'get',
             url:'/_de_event_search/',

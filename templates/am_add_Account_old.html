@@ -142,41 +142,42 @@ $().ready(function() {
 </style>
 </head>
 <body style="height:100%">
-<div class="container" style="height:95%; margin-top:50px; overflow-y:auto;">
-    <div class="col-md-8 col-md-offset-2 " style="width:100%; margin-left:0;">
+<div class="container" style="height:95%; overflow-y:auto;">
+    <div class="col-md-8 col-md-offset-2">
         <form action="/add_usr/" class="" method="post" id="add_account_form" style="white-space: nowrap;">
  {% csrf_token %}
-            <div class="form-group has-feedback" style="overflow:hidden;">
-                <label for="userNum" style="float:left;margin-right:150px"><h4>账号：</h4></label>
+            <div class="form-group has-feedback">
+                <label for="userNum"><h4>账号</h4></label>
                 <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                    <input id="username" name="username" class="form-control" placeholder="请输入账号" maxlength="20" type="text" style="height:60px;width:600px;">
+                    <input id="username" name="username" class="form-control" placeholder="请输入账号" maxlength="20" type="text">
                 </div>
 
 
             </div>
 
             <div class="form-group has-feedback">
-                <label for="password" style="float:left; margin-right:150px;"><h4>密码：</h4></label>
+                <label for="password"><h4>密码</h4></label>
                 <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                    <input style="height:60px;width:600px;" id="password1" name="password1" class="form-control" placeholder="请输入密码" maxlength="20" type="password">
+                    <input id="password1" name="password1" class="form-control" placeholder="请输入密码" maxlength="20" type="password">
                 </div>
 
             </div>
 
             <div class="form-group has-feedback">
-                <label for="passwordConfirm" style="float:left;margin-right:60px;"><h4>请再次输入密码：</h4></label>
+                <label for="passwordConfirm"><h4>请再次输入密码</h4></label>
                 <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                    <input style="height:60px;width:600px;" id="password2" name="password2" class="form-control" placeholder="请再次输入密码" maxlength="20" type="password">
+                    <input id="password2" name="password2" class="form-control" placeholder="请再次输入密码" maxlength="20" type="password">
                 </div>
 
-             <div class="form-group has-feedback" style="margin-top:20px;">
-                <label for="username" style="float:left;margin-right:132px;"><h4>联系人：</h4></label>
+
+             <div class="form-group has-feedback">
+                <label for="username"><h4>联系人</h4></label>
                 <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                    <input style="height:60px;width:600px;" id="contact_usr" name="contact_usr" class="form-control" placeholder="请输入联系人姓名" maxlength="20" type="text">
+                    <input id="contact_usr" name="contact_usr" class="form-control" placeholder="请输入联系人姓名" maxlength="20" type="text">
                 </div>
 
 
@@ -184,18 +185,18 @@ $().ready(function() {
 
 
             <div class="form-group has-feedback">
-                <label for="phoneNum" style="float:left;margin-right:96px;"><h4>联系人电话：</h4></label>
+                <label for="phoneNum"><h4>联系人电话</h4></label>
                 <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
-                    <input style="height:60px; width:600px;" id="phone" name="phone" class="form-control" placeholder="请输入手机号码" maxlength="11" type="text">
+                    <input id="phone" name="phone" class="form-control" placeholder="请输入手机号码" maxlength="11" type="text">
                 </div>
 
             </div>
 
             <div class="form-group has-feedback">
-                <label for="department" style="float:left;margin: 5px 150px 0 0"><h4>部门：</h4></label>
-                <div class="input-group",name="input-group" style="width:640px">
-                    <select style="size: 6;width:100%; height:60px;" name="department_name">
+                <label for="department"><h4>部门</h4></label>
+                <div class="input-group",name="input-group" style="width:100%">
+                    <select style="size: 6;width:100%" name="department_name">
                         <option value="违建管理部门" name="ibuild">市政管理部门</option>
                         <option value="农业管理部门" name="agriculture">农业管理部门</option>
                         <option value="林业管理部门" name="forest">林业管理部门</option>
@@ -210,8 +211,8 @@ $().ready(function() {
 
 
             <div class="form-group" style="text-align:center;">
-                <input style="height:40px;width: 96px;fontsize:13px;margin-top:10px; border-radius:4px;padding:0; margin-right:200px;" class="form-control btn btn-primary" id="submit" value="添加" type="submit">
-                <input style="height:40px;width: 96px;fontsize:13px;margin-top:10px; border-radius:4px;padding:0;" value="重置" id="reset" class="form-control btn btn-danger" type="reset">
+                <input style="height:40px;width: 100px; border-radius:4px; padding:0; margin-right:200px;" class="form-control btn btn-primary" id="submit" value="添加" type="submit">
+                <input style="height:40px;width: 100px; border-radius:4px; padding:0;" value="重置" id="reset" class="form-control btn btn-danger" type="reset">
             </div>
         </form>
         <p>{{message}}<p>

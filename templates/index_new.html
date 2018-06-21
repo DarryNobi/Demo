@@ -117,6 +117,11 @@
             color: #f51b0b;
         }
     </style>
+    <script>
+        function service(){
+        alert("请联系服务商 022-84478484");
+        }
+    </script>
 </head>
 
 <body style="height:100%;">
@@ -143,8 +148,8 @@
                     <input type="password" name="password" id="pwd_input" class="form-control password_input password-group"  placeholder="密码" />
                 </div>
                 <div class="form-group">
-                    <span>不是用户<a href="/register/" >点击这里 </a></span>
-                    <span style="float:right;"><a style="color:#999999" href="">忘记密码？</a></span>
+                    <span>不是用户<a onclick="service()" >点击这里 </a></span>
+                    <span style="float:right;"><a style="color:#999999" onclick="service()">忘记密码？</a></span>
                 </div>
                 <div class="subBut" style="text-align:center;"><button id="login_but" class="btn btn-primary" style="width:50%;border-radius:30px;">登录系统</button></div>
             </div>
@@ -231,7 +236,7 @@
         </style>
         <div id="page-wrapper">
             <div style="height:100%">
-                <iframe id="context_container" src="/home_municipal/" frameborder="0" scrolling="no" style="width: 100%; height: 100%;">
+                <iframe name="ascent" id="context_container" src="/home_municipal/" frameborder="0" scrolling="no" style="width: 100%; height: 100%;">
                 </iframe>
             </div>
         </div>
@@ -242,7 +247,80 @@
       $.ajaxSetup({
          data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
       });
-     </script>
+    </script>
+        <script>
+    var css_selected={
+            //background: "-webkit-linear-gradient(#359ae4, #0c17f3)",
+            //background: "-o-linear-gradient(#359ae4, #0c17f3)",
+            //background: "-moz-linear-gradient(#359ae4, #0c17f3)",
+            background: "linear-gradient(#359ae4, #0c17f3)",
+            outline:"none",
+            border:"none"
+            };
+    var css_unselected={
+            background: "#0a86e1",
+            outline:"none",
+            border:"none"
+            };
+
+    var lis=[$("#1"),$("#2"),$("#3"),$("#4"),$("#5"),$("#6")];
+    //lis[0].css(css_selected);
+
+    lis[0].click(function(){
+
+        for(var i=0;i<6;i++)
+            {
+            lis[i].css(css_unselected);
+
+            }
+        lis[0].css(css_selected);
+
+    });
+    lis[1].click(function(){
+
+        for(var i=0;i<6;i++)
+            {
+            lis[i].css(css_unselected);
+
+            }
+        lis[1].css(css_selected);
+
+    });
+    lis[2].click(function(){
+
+        for(var i=0;i<6;i++)
+        {
+            lis[i].css(css_unselected);
+
+             }
+        lis[2].css(css_selected);
+
+    });
+    lis[3].click(function(){
+
+        for(var i=0;i<6;i++)
+           { lis[i].css(css_unselected);
+            }
+        lis[3].css(css_selected);
+
+    });
+    lis[4].click(function(){
+
+        for(var i=0;i<6;i++)
+           { lis[i].css(css_unselected);
+         }
+        lis[4].css(css_selected);
+
+    });
+    lis[5].click(function(){
+
+        for(var i=0;i<6;i++)
+           { lis[i].css(css_unselected);
+            }
+        lis[5].css(css_selected);
+
+    });
+    </script><!-- 选中状态切换  -->
     <script>
 
     window.onload=function(){
@@ -320,6 +398,29 @@
                         $("#user_name").text(data.username);
                         $("#logout").show();
                         $("#message").text('');
+                        //open_link('/home_municipal/');
+                        //document.getElementById("context_container").contentWindow.getElementById("municipal_container").src="/offence_build/";
+                         var lis1=[window.frames["ascent"].document.getElementById("1"),
+                         window.frames["ascent"].document.getElementById("2"),
+                         window.frames["ascent"].document.getElementById("3"),
+                         window.frames["ascent"].document.getElementById("4"),
+                         window.frames["ascent"].document.getElementById("5"),
+                         window.frames["ascent"].document.getElementById("6")];
+                         var lis_url=["/offence_build/",'/move_out/','/resource_management/','/general_survey/','/account_management/','/user_center/'];
+
+                         for(var i=0;i<6;i++){
+
+                         if(lis1[i].style.color=="white"){
+                           alert("bingo!");
+                           window.frames["ascent"].document.getElementById("municipal_container").src=lis_url[i];
+                           }
+
+                         }
+
+
+                        //window.frames["ascent"].document.getElementById("municipal_container").src="/offence_build/";
+
+
                     } else {
                         $("#login_page").show();
                         $("#login").show();
@@ -335,66 +436,18 @@
         });
 
 
-    </script>
+    </script><!-- 登录退出功能  -->
+
 
     <script>
-    var css_selected={
-            background: "-webkit-linear-gradient(#359ae4, #0c17f3)",
-            background: "-o-linear-gradient(#359ae4, #0c17f3)",
-            background: "-moz-linear-gradient(#359ae4, #0c17f3)",
-            background: "linear-gradient(#359ae4, #0c17f3)",
-            outline:"none",
-            border:"none"
-            };
-    var css_unselected={
-            background: "#0a86e1",
-            outline:"none",
-            border:"none"
-            };
-
-    var lis=[$("#1"),$("#2"),$("#3"),$("#4"),$("#5"),$("#6")];
-    lis[0].css(css_selected);
-
-    lis[0].click(function(){
-        for(var i=0;i<6;i++)
-            lis[i].css(css_unselected);
-        lis[0].css(css_selected);
-    });
-    lis[1].click(function(){
-        for(var i=0;i<6;i++)
-            lis[i].css(css_unselected);
-        lis[1].css(css_selected);
-    });
-    lis[2].click(function(){
-        for(var i=0;i<6;i++)
-            lis[i].css(css_unselected);
-        lis[2].css(css_selected);
-    });
-    lis[3].click(function(){
-        for(var i=0;i<6;i++)
-            lis[i].css(css_unselected);
-        lis[3].css(css_selected);
-    });
-    lis[4].click(function(){
-        for(var i=0;i<6;i++)
-            lis[i].css(css_unselected);
-        lis[4].css(css_selected);
-    });
-    lis[5].click(function(){
-        for(var i=0;i<6;i++)
-            lis[i].css(css_unselected);
-        lis[5].css(css_selected);
-    });
-    </script>
- <script>
-　　function closeWindow()
-　　 {
-        alert("close");
-　　　　//window.opener=null;
-      window.open('','_self');
-      window.close();
-　　}
-</script>
+    　　function closeWindow()
+    　　{
+          //alert("close");
+    　　　 //window.opener=null;
+          window.open('','_self');
+          window.close();
+    　　}
+    </script><!-- 退出按钮功能 -->
 
 </body>
 </html>

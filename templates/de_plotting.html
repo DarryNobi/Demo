@@ -275,24 +275,29 @@
                                 <p class="image_compare_span" style="width:50%;margin:0 0 0 0;">影像</p>
                             </a>
                         </li>
-                        <script>
+
+                    <script>
                             var map_selected = true;
                             var image_selected = true;
-                            $("#de_map_compare").click(function(){
+                            $("#de_map_a").click(function(){
                                 if (map_selected) {
                                     $(".map_compare_span").css({"background":"#ffffff","color":"black","outline":"none","border-left":"1px solid #a7a9ad"});
                                     map_selected = false;
-                                    map.removeLayer(default_geo_layer);
+                                    map.removeLayer(default_geo_layer4);
+                                      if (!image_selected){
+                                        map.removeLayer(default_geo_layer);
+                                        //map.addLayer(default_geo_layer4);
+                                    }
                                     layer3_cheak()
                                 } else {
                                     $(".map_compare_span").css({"background":"#0a86e1","color":"white","outline":"none","border-left":"1px solid #a7a9ad"});
                                     map_selected = true;
-                                    map.addLayer(default_geo_layer);
+                                    map.addLayer(default_geo_layer4);
                                     layer3_cheak()
                                 }
                             })
 
-                            $("#de_image_compare").click(function(){
+                            $("#de_image_a").click(function(){
                                 if (image_selected) {
                                     $(".image_compare_span").css({"background":"#ffffff","color":"black","outline":"none","border-left":"1px solid #a7a9ad"});
                                     image_selected = false;
@@ -303,20 +308,26 @@
                                     image_selected = true;
                                     map.addLayer(default_geo_layer2);
                                     if (map_selected){
-                                        map.removeLayer(default_geo_layer);
-                                        map.addLayer(default_geo_layer);
+                                        map.removeLayer(default_geo_layer4);
+                                        map.addLayer(default_geo_layer4);
                                     }
                                     layer3_cheak()
                                 }
                             })
                             function layer3_cheak(){
                                 if (map_selected && !image_selected){
+
+                                    map.removeLayer(default_geo_layer2);
                                     map.addLayer(default_geo_layer3);
                                     map.removeLayer(default_geo_layer);
                                     map.addLayer(default_geo_layer);
+                                    map.removeLayer(default_geo_layer4);
+                                    //map.addLayer(default_geo_layer4);
+                                    //alert("qew");
                                     }
                                 else
                                     map.removeLayer(default_geo_layer3);
+                                    //map.removeLayer(default_geo_layer);
                             };
                         </script>
                     </ul>
@@ -411,9 +422,9 @@ function change1(){
        target: 'map',
        view: new ol.View({
          center: ol.proj.fromLonLat([117.2027, 39.1653]),
-         zoom: 15,
+         zoom: 12,
          maxZoom:18,
-         minZoom:13
+         minZoom:4
        }),
        controls: ol.control.defaults().extend([
             new ol.control.ScaleLine({  }),
@@ -430,7 +441,7 @@ function change1(){
      });
 
     map.addLayer(default_geo_layer2);
-    map.addLayer(default_geo_layer);
+    map.addLayer(default_geo_layer4);
 
     var map_2 = new ol.Map({
         target:"map_2",
@@ -442,13 +453,13 @@ function change1(){
     <script>
          cords=[{{x|safe}},{{y|safe}}];//cords=[102,39]
          if(cords.toString()!=[0,0].toString())
-            map.getView().animate({center:(cords)});
+            map.getView().animate({zoom: map.getView().getZoom() + 5},{center:(cords)});
     </script>
 
     <script src="{% static 'js/load_draw.js' %}"></script>
     <script src="{% static 'js/roller_shutters.js' %}"></script>
     <script src="{% static 'js/select_draw.js' %}"></script>
-    <script src="{% static 'js/polygon.js' %}"></script>
+    <script src="{% static 'js/polygon1.js' %}"></script>
     <script src="{% static 'js/distance.js' %}"></script>
     <script src="{% static 'js/area.js' %}"></script>
 </body>

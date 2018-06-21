@@ -51,8 +51,32 @@ window.onload = function(){
                   {field: 'contact_usr', title:'联系人', width:'10%', align:'center'},
                   {field: 'phone', title:'联系电话', width:'10%', align:'center'},
                   {field: 'is_active', title:'状态', width:'10%', align:'center'},
-                   {field: 'user_permissions', title:'权限', width:'10%', align:'center'},
+                  {field: 'user_permissions', title:'权限', width:'10%', align:'center'},
+                  {field: 'password_reset', title:'密码重置', width:'10%', align:'center',
+                  formatter: function (value,row,index){
+                              var element = "<button  id='reset"+row.id +"' onclick='password_reset(\""+row.username+"\")' >"+"重置密码"+"</button>"
+
+                              return element;}
+                              }
               ],
 
           })
+	}
+	function password_reset(data){
+	var mes="您确定修改吗？";
+    if(confirm(mes)==true){
+	username=data;
+	$.ajax({
+	type:"post",
+	url:'/new_password_reset/',
+	data: {'username':username},
+	success:function(){
+	alert("修改成功！");
+	},
+	error:function(){
+	alert("fail");
+	}
+	});
+
+	}
 	}

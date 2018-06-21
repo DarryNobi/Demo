@@ -51,7 +51,7 @@ class Myuser(AbstractUser):
     is_active=models.BooleanField(default=True,blank=True)
     is_staff=models.BooleanField(default=True,blank=True)
     is_superuser=models.BooleanField(default=False,blank=True)
-    date_joined=models.DateTimeField(blank=True,default=timezone.now)
+    date_joined=models.DateField(blank=True,default=timezone.now)
     department_name=models.CharField(max_length=20,default='无',blank=True)
     contact_usr=models.CharField(max_length=20,blank=True,default='a')
     phone=models.CharField(max_length=20,blank=True,default='123')
@@ -97,3 +97,30 @@ class GraphicLabel(models.Model):
     createtime=models.DateField(auto_now_add=True)
     foundtime=models.DateField(blank=True,default=timezone.now)
     address=models.CharField(max_length=16,default='无')
+
+class AutoGraphicLabel(models.Model):
+    GraphicType=(
+        ('1','建筑'),
+        ('2','道路'),
+        ('3','水域'),
+        ('4','耕地'),
+        ('5','大棚'),
+        ('6','草地'),
+        ('7','其他'),
+        ('8','林地'),
+    )
+    GraphicLabel = (
+        ('1', '拆迁'),
+        ('2', '违建'),
+        ('3', '疑似拆迁'),
+        ('4', '疑似违建')
+    )
+    name = models.CharField(max_length=16)
+    graphictype = models.CharField(max_length=4,choices=GraphicType)#地物类型如建筑、森林、河流
+    graphiclabel = models.CharField(max_length=4,choices=GraphicLabel)#标注类型如拆迁、违建
+    context = models.TextField()#坐标数据
+    discrib = models.TextField()
+    square = models.FloatField(default=0)
+    coordinate_x = models.FloatField(default=0)
+    coordinate_y = models.FloatField(default=0)
+    createtime=models.DateField(auto_now_add=True)

@@ -26,7 +26,7 @@ $(function(){
 
         //var wgs84Sphere = new ol.Sphere(6378137);
         //var output = formatArea(geom);
-        $("#square").val(output);
+        //$("#square").val(output);
         var geojson_c = new ol.format.GeoJSON();
         var current_feature=e.feature;
         var geo = current_feature.getGeometry();
